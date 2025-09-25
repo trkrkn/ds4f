@@ -1,0 +1,12 @@
+---
+title: "Lecture 01 - Introduction to Python"
+file_name: "introduction_to_python"
+---
+## Lecture Material
+- **Notebook**
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+- **Slides**
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+

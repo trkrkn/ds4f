@@ -1,0 +1,11 @@
+{
+  "hash": "738c5cafbb7fe76a5e881348b3903a4e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Lecture 01 — Introduction to Python\"\njupyter: python3\nformat:\n  html:\n    toc: true\n    format-links: [revealjs, pdf]\n  revealjs:\n    slide-number: true\n    format-links: [html, pdf]\n  pdf:\n    toc: true\n    format-links: [html, revealjs]\n---\n\n\n\n\n\n::: {include=\"introduction_to_python.ipynb\"}\n:::\n\n",
+    "supporting": [
+      "lecture_01_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}

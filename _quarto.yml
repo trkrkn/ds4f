@@ -1,0 +1,56 @@
+project:
+  type: website
+
+website:
+  title: "Data Science For Finance"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: schedule.qmd
+        text: Schedule
+      - text: Lectures
+        menu:
+            - href: 'lectures/lecture_01/lecture_01.qmd'
+              text: Lecture 01 - Introduction to Python
+            - href: 'lectures/lecture_02/lecture_02.qmd'
+              text: Lecture 02 - Data types and structures
+            - href: ''
+              text: Lecture 03 - Control structures
+            - href: ''
+              text: Lecture 04 - Functions
+            - href: ''
+              text: Lecture 05 - Object Oriented Programming
+            - href: ''
+              text: Lecture 06 - Libraries
+            - href: ''
+              text: Lecture 07 - Numerical Computing
+            - href: ''
+              text: Lecture 08 - Data Manipulation
+            - href: ''
+              text: Lecture 09 - Input/output
+            - href: ''
+              text: Lecture 10 - Data visualization
+            - href: ''
+              text: Lecture 11 - Time series analysis
+            - href: ''
+              text: Lecture 12 - Network analysis
+            - href: ''
+              text: Lecture 13 - Machine Learning
+            - href: ''
+              text: Lecture 14 - Advanced Machine Learning
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-location: left
+    # number-sections: true
+
+bibliography: refs.bib
+
+
+

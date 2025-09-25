@@ -1,0 +1,14 @@
+---
+title: "Lecture 02 - Data Types and Structure"
+---
+## Lecture Material
+- **Notebook**
+    - <a href="data_types_and_structure.ipynb" download>Jupyter notebook (.ipynb)</a>  
+    - <a href="data_types_and_structure.html" target="_blank">Page (HTML notebook)</a>  
+- **Slides**
+    - <a href="data_types_and_structure.slides.html" target="_blank">Reveal.js</a>  
+    - <a href="data_types_and_structure.slides.pdf" download>PDF</a>
+
+## Problem sets
+- <a href="lecture_02_problem_sets.ipynb" download>Jupyter notebook (.ipynb)</a>
+- <a href="lecture_02_solutions.pdf" download>Solutions (.pdf)</a>

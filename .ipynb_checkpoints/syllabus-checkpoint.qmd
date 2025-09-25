@@ -1,0 +1,75 @@
+
+# Course Information 
+
+**Professor:** Tarik Roukny (tarik.roukny@kuleuven.be)
+
+**Lectures:** Wednesdays
+
+- Time blocks for sessions
+    - 08.30 AM - 10.30 AM
+    - 10.30 PM - 12.30 PM
+- Room HER1 - 04.4207
+
+**Office hours:** by email appointment.
+
+# Course Description
+
+This course is an elective course for the Finance Tracks in the Master of Business Administration curriculum at the Faculty of Economics and Business, Brussels Campus, KU Leuven. It introduces students to the intersection of data science and finance. It equips them with practical tools and techniques used in the financial industry for data analysis, predictive modelling, risk management, and decision-making. Students will learn to leverage Python for various finance-related tasks, exploring machine learning, time series analysis, and financial modelling techniques.
+
+**The course objectives are to train students to:**
+
+- Understand the fundamentals of data science and its applications in finance.
+- Demonstrate capacity to handle the basics of a scientific programming environment
+- Develop hands-on skills in Python for data manipulation and analysis in finance.
+- Formulate and implement relevant approaches to the treatment and manipulation of sizable datasets.
+- Detect and exploit opportunities for analytical insights from structured and unstructured data.
+- Properly assess trade-offs in modeling choices and their implication for the interpretation of empirical results.
+- Evaluate and discuss the use of data science tools in the context of financial applications.
+
+## Prerequisites
+
+This is a beginner’s course for programming: no prior computer skills are required
+
+- Knowledge of statistics and basic econometrics is required
+- Knowledge of Financial Markets and Institutions and Corporate Finance is advised
+
+# Organization
+
+This course consists of 6 ECTS amounting to 40 contact hours. Sessions are split between lectures and practical exercises.
+
+## Content
+
+- Introduction to Scientific Programming
+    - Programming Environment
+    - Notebooks
+    - Basics of Python Programming Language
+- Data Manipulation
+    - Data Analytics
+    - Data Treatment
+    - Data Visualization
+- Applying Data Science in Finance
+    - Time series
+    - Network Analysis
+    - Machine Learning
+
+## Delivery 
+Material is delivered through **Jupyter Notebooks**. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available.
+
+> ⚠**There will be no recordings from lectures**
+
+## Reference
+
+[Python for Finance, 2nd Edition by Yves Hilpisch](https://www.oreilly.com/library/view/python-for-finance/9781492024323/)
+
+# Assessment
+
+This class values interactions and discussions. As such, students are expected to be active and engaging in live sessions. The examination is an individual written examination where the student demonstrates mastery of the class material through code interpretation, code writing, code fixing and multiple choice questions. The overall grading is done according to the following protocol:
+
+- Participation: +1/0 to the final grade
+    - Active role in  class discussion and during guest sessions
+- Final Examination: Written individual exam
+    - Code interpretation
+    - Code writing
+    - Code fixing
+    - Multiple choice
+

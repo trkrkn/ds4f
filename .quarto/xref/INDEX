@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "71691d3e"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "cd598360"
+  },
+  "schedule.qmd": {
+    "schedule.html": "52fc4231"
+  },
+  "lectures/lecture_01/lecture_01.qmd": {
+    "lecture_01.html": "143cc1af",
+    "lecture_01.tex": "7bd6cb45"
+  },
+  "lectures/lecture_01/introduction_to_python.ipynb": {
+    "introduction_to_python.out.ipynb": "796b175e",
+    "introduction_to_python-preview.html": "e3c7bedc",
+    "introduction_to_python.html": "216a0cbf"
+  },
+  "lectures/lecture_02/data_types_and_structure.ipynb": {
+    "data_types_and_structure.html": "2e8fe224"
+  },
+  "lectures/lecture_02/lecture_02.qmd": {
+    "lecture_02.html": "9891d23a"
+  },
+  "lectures/lecture_02/lecture_02_problem_sets.ipynb": {
+    "lecture_02_problem_sets.html": "1d4e7d37"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "hash": "a7147ca976516e8302d9a46e8a02ce10",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Lecture 01 — Introduction to Python\"\njupyter: python3\nformat:\n  html:\n    toc: true\n  revealjs:\n    slide-number: true\n    incremental: true\n---\n\n\n\n\n\n\n- [Page](introduction_to_python.html)\n- [Slides](introduction_to_python-revealjs.html)\n- <a href=\"introduction_to_python.pdf\" download>PDF</a>\n\n---\n\n::: {include=\"introduction_to_python.ipynb\"}\n:::\n\n",
+    "supporting": [
+      "lecture_01_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
