@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule Fall 2025",
+    "section": "",
+    "text": "Date\n#\nLecture\nTopic\n\n\n\n\n24/09/2025\n1\nNo Class\n\n\n\n01/10/2025\n2\nLecture 01\nIntroduction to Python\n\n\n\n\nLecture 02\nData types and structures\n\n\n08/10/2025\n3\nLecture 03\nControl structures\n\n\n\n\nLecture 04\nFunctions\n\n\n15/10/2025\n4\nLecture 05\nObject Oriented Programming\n\n\n\n\nLecture 06\nLibraries\n\n\n22/10/2025\n5\nLecture 07\nNumerical computing\n\n\n\n\nLecture 08\nData manipulation\n\n\n29/10/2025\n6\nRecap\n\n\n\n05/11/2025\n7\nLecture 09\nInput/output\n\n\n\n\nLecture 10\nData visualization\n\n\n12/11/2025\n8\nLecture 11\nTime series analysis\n\n\n19/11/2025\n9\nLecture 12  [Guest Lecture]\nNetwork analytics\n\n\n26/11/2025\n10\nLecture 13\nMachine Learning\n\n\n03/12/2025\n11\nRecap\n\n\n\n10/12/2025\n12\nLecture 14  [Guest Lecture]\nAdvanced Machine Learning\n\n\n17/12/2025\n13\nQ&A"
+  },
+  {
+    "objectID": "lectures/lecture_02/lecture_02.html",
+    "href": "lectures/lecture_02/lecture_02.html",
+    "title": "Lecture 02 - Data Types and Structure",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\n\nPage (HTML notebook)\n\n\nSlides\n\nReveal.js\n\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_02/lecture_02.html#lecture-material",
+    "href": "lectures/lecture_02/lecture_02.html#lecture-material",
+    "title": "Lecture 02 - Data Types and Structure",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\n\nPage (HTML notebook)\n\n\nSlides\n\nReveal.js\n\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_02/lecture_02.html#problem-sets",
+    "href": "lectures/lecture_02/lecture_02.html#problem-sets",
+    "title": "Lecture 02 - Data Types and Structure",
+    "section": "Problem sets",
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html",
+    "href": "lectures/lecture_01/lecture_01.html",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Information",
+    "section": "",
+    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Course Information",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
+  },
+  {
+    "objectID": "syllabus.html#content",
+    "href": "syllabus.html#content",
+    "title": "Course Information",
+    "section": "Content",
+    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
+  },
+  {
+    "objectID": "syllabus.html#delivery",
+    "href": "syllabus.html#delivery",
+    "title": "Course Information",
+    "section": "Delivery",
+    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available.\n\n⚠There will be no recordings from lectures"
+  },
+  {
+    "objectID": "syllabus.html#reference",
+    "href": "syllabus.html#reference",
+    "title": "Course Information",
+    "section": "Reference",
+    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Science For Finance",
+    "section": "",
+    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
+  },
+  {
+    "objectID": "index.html#news-announcements",
+    "href": "index.html#news-announcements",
+    "title": "Data Science For Finance",
+    "section": "News & Announcements",
+    "text": "News & Announcements\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html",
+    "href": "lectures/lecture_01/introduction_to_python.html",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications.\n\n\n\n\n\nData Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#what-is-python",
+    "href": "lectures/lecture_01/introduction_to_python.html#what-is-python",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
+    "href": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Data Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
+    "href": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "2.1 Installing a Python environment",
+    "text": "2.1 Installing a Python environment\n\nPython\n\nDownload Python from the official website.\nInstallation includes the Python interpreter and Integrated Development Environment (IDLE) for coding.\n\n\n\nInstalling Anaconda\n\nAnaconda is a suite of useful tools and packages for Python development.\nDownload Anaconda from the official website\nOnce it is installed, confirm the following environments and packages are available:\n\nSpyder\nJupyter Notebook"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#running-python-code",
+    "href": "lectures/lecture_01/introduction_to_python.html#running-python-code",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "2.2 Running Python Code",
+    "text": "2.2 Running Python Code\nThere are multiple ways to run Python.\nConsider the following code line which instructs to simply print out “Hello World!”\n    print (\"Hello World!\")\n\nPython Shell\n\nUse the Python IDLE (from terminal of from any IDE setting like Spyder)\nType the code and press Enter\nCheck the output\n\n\n\nPython Script\n\nOpen an empty file (Spyder, Sublime Text Editor, etc.)\nWrite the code\nSave file as helloworld.py\nRun the script\n\nFrom the terminal, run the script by typing\n\n    python helloworld.py\n\nFrom the IDE (like Spyder), launch the run\n\nCheck the output\n\n\n\nNotebook\n\nThis is a Notebook\n\nPlatforms like Jupyter Notebooks are widely used in data science for documenting and running code interactively. - Open Jupyter Notebook by typing in the terminal\n    Jupyter Notebook\n\nCreat a new notebook with a Python environment\nWrite the code in the first cell\nRun the cell\nCheck the output (see below)\n\n\nprint ('Hello World!')"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#syntax",
+    "href": "lectures/lecture_01/introduction_to_python.html#syntax",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.1 Syntax",
+    "text": "3.1 Syntax\n\n3.1.1 Python as a calculator\n\n5000 + 250\n\n\n10000 * 1.05\n\n\n10000 / 2\n\nComments: Use comments (#) to explain code, particularly useful for documenting underlying logic.\n\n# Basic financial arithmetic\nprint(5000 + 250)    # Adding investment returns\nprint(10000 * 1.05)  # Calculating interest (5% growth)\nprint(10000 / 2) # Splitting an investment\n\n\n# This is a comment\nprint(\"Welcome to Python for Finance!\")  # This prints a message\n\n\n\n3.1.2 Variables and Data Types\n\nVariables\nVariables are store data for calculations\nThe operation = assigns a value to a variable.\n\n# Variable assignment in a financial scenario\nstock_price = 150.25  # Price of a stock\ninvestment_amount = 10000  # Amount invested\nshares = investment_amount / stock_price  # Number of shares\n\n\nshares\n\n\n\nData types\nVariables can be of different types.\n\nStrings (str): Text\nIntegers (int): Integer value\nFloats (float): Real value\nBooleans (bool): True or False\n\nBecause Python is dynamically typed, there is no need to explicitly mention the type of the variable. Yet, in some cases, it may be important to cast variables from one type to another.\nMore on this in the next lecture."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#control-structures",
+    "href": "lectures/lecture_01/introduction_to_python.html#control-structures",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.2 Control structures",
+    "text": "3.2 Control structures\nControl structures allow to condition the sequence of action of a code on the particular value a variable exhibits at the time of execution.\n\nConditional statements\nLoops\n\nNote: tabs are organizational pillars of the Python code structure\n\n3.2.1 Conditional statements\nConditional statements consider the specific value of a variable at the time of execution and determine the outcome based on a logical operation.\nStructure\n    If CONDITON HOLDS:\n        OUTCOME 1\n    Elif OTHER CONDITION HOLDS:\n        OUTCOME 2\n    Else:\n        OUTCOME 3\nNote: check the tabs\n\nbalance = 5000\nif balance &gt;= 10000:\n    print(\"You are eligible for premium services.\")\nelse:\n    print(\"Standard services apply.\")\n\n\n\n3.2.2 Loops\nLoops repeat a sequence of actions until a condition is satisfied. There are two types of loops:\n\nwhile\nfor\n\n\nWhile\nStructure\n    While CONDITION HOLDS:\n        ACTION(s)\n\n# Use case: Simulating monthly deposit growth\nbalance = 1000\nmonths = 0\nwhile balance &lt; 2000:\n    balance += 100  # Monthly deposit\n    months += 1\nprint(f\"It took {months} months to double the balance.\")\n\n\n\nFor\nStructure\n    For CONDITION HOLDS | Increment action:\n        ACTION(s)\n\n# Use case: Summing up daily returns from a list\ndaily_returns = [0.01, -0.02, 0.03, 0.02, -0.01]\ntotal_return = 0\nfor r in daily_returns:\n    total_return += r\nprint(\"Total return for the week:\", total_return)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#functions",
+    "href": "lectures/lecture_01/introduction_to_python.html#functions",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.3 Functions",
+    "text": "3.3 Functions\nA function is a reusable block of code that is saved up and can be called at multiple places in the main script.\nStructure\n    def my_function (parameters):\n        ACTION(s)\n        return VALUE\n\n# Function to calculate compound interest\ndef calculate_compound_interest(principal, rate, time):\n    return principal * (1 + rate) ** time\n\n\n# Example usage\nresult = calculate_compound_interest(1000, 0.05, 5)\nprint(\"Compound Interest:\", result)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#data-structures",
+    "href": "lectures/lecture_01/introduction_to_python.html#data-structures",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.4 Data structures",
+    "text": "3.4 Data structures\n\n3.4.1 Lists\nLists allow to store and treat mutliple data points into one variable\n\n# Example: List of daily stock prices\nstock_prices = [150.25, 153.50, 152.00, 155.00]\nprint(stock_prices[0])  # Accessing the first day's price\nstock_prices.append(157.25)  # Adding a new day's price\nprint(stock_prices)\n\n\n\n3.4.2 Dictionaries\nDictionnaries allow store and treat multiple pairs of data point associating keys and values.\n\n# Example: Dictionary to store portfolio allocation\nportfolio = {\n    \"AAPL\": 5000,\n    \"GOOGL\": 3000,\n    \"AMZN\": 2000\n}\nprint(portfolio[\"AAPL\"])  # Accessing allocation for AAPL\nportfolio[\"GOOGL\"] += 1000  # Updating allocation for GOOGL\nprint(portfolio)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#libraries",
+    "href": "lectures/lecture_01/introduction_to_python.html#libraries",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.5 Libraries",
+    "text": "3.5 Libraries\nLibraries are pre-built packages of functions for tasks like data analysis and visualization.\n\nKey Libraries for Finance\n\nNumPy: For numerical computations matrix operations in portfolio analysis\npandas: Used for data manipulation handling financial datasets\nmatplotlib: For data visualization plotting stock prices\n\n\nimport numpy \n\nprint(numpy.sqrt(16))  # Square root\nprint(numpy.pi)        # Value of pi\n\n\n\nDocumentation\nLibraries come with documentation.\nOn Notebooks, they can be directly accessed from the cell pressing maj + tab after the function.\n\nExample of documentation numpy.sqrt()\n    Call signature:  numpy.sqrt(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'sqrt'&gt;\nFile:            ~/opt/anaconda3/lib/python3.9/site-packages/numpy/__init__.py\nDocstring:      \nsqrt(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\n\nReturn the non-negative square-root of an array, element-wise.\n\nParameters\n----------\nx : array_like\n    The values whose square-roots are required.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\ny : ndarray\n    An array of the same shape as `x`, containing the positive\n    square-root of each element in `x`.  If any element in `x` is\n    complex, a complex array is returned (and the square-roots of\n    negative reals are calculated).  If all of the elements in `x`\n    are real, so is `y`, with negative elements returning ``nan``.\n    If `out` was provided, `y` is a reference to it.\n    This is a scalar if `x` is a scalar.\n\nSee Also\n--------\nlib.scimath.sqrt\n    A version which returns complex numbers when given negative reals.\n\nNotes\n-----\n*sqrt* has--consistent with common convention--as its branch cut the\nreal \"interval\" [`-inf`, 0), and is continuous from above on it.\nA branch cut is a curve in the complex plane across which a given\ncomplex function fails to be continuous.\n\nExamples\n--------\n&gt;&gt;&gt; np.sqrt([1,4,9])\narray([ 1.,  2.,  3.])\n\n&gt;&gt;&gt; np.sqrt([4, -1, -3+4J])\narray([ 2.+0.j,  0.+1.j,  1.+2.j])\n\n&gt;&gt;&gt; np.sqrt([4, -1, np.inf])\narray([ 2., nan, inf])\nClass docstring:\nFunctions that operate element by element on whole arrays.\n\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\n\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\n\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\n\nThe broadcasting rules are:\n\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\n\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html",
+    "href": "lectures/lecture_02/data_types_and_structure.html",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "",
+    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers: - Basic data types: int, float, bool, str - Data structures: tuple, list, set, dict - Operations and built-in methods"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#overview",
+    "href": "lectures/lecture_02/data_types_and_structure.html#overview",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "",
+    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers: - Basic data types: int, float, bool, str - Data structures: tuple, list, set, dict - Operations and built-in methods"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-types",
+    "href": "lectures/lecture_02/data_types_and_structure.html#basic-types",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "1. Basic Types",
+    "text": "1. Basic Types\nList of types\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\nint\ninteger value\nnatural numbers\n\n\nfloat\nfloating-point number\nreal numbers\n\n\nbool\nboolean value\ntrue or false\n\n\nstr\nstring object\ncharacter, word, text\n\n\n\nuse built-in function type() to obtain the information\n\n1.1 Integers and Floats\nIntegers are whole numbers, while floats are numbers with decimal values.\n\nInt\n\na = 10\ntype(a)\n\nint\n\n\nArithmetic operations: + - * /\n\n1 + 4 \n\n5\n\n\n\na + 1\n\n11\n\n\n\ntype(1+4)\n\nint\n\n\n\n\nFloats\n\ntype (1/4)\n\nfloat\n\n\n\n1/4\n\n0.25\n\n\n\ntype(0.25)\n\nfloat\n\n\n\ntype (0)\n\nint\n\n\n\ntype (0.0)\n\nfloat\n\n\n\n# Example: Representing account balances\nbalance = 1000  # Integer\ninterest_rate = 5.5  # Float\n\n\n# Calculating interest\ninterest = balance * interest_rate / 100\nprint(\"Interest:\", interest)\n\nInterest: 55.0\n\n\n\n\n\n1.2 Booleans\nBooleans represent True or False values.\n\n# Example: Checking if an account is active\naccount_active = True\nif account_active:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\nThe account is active.\n\n\n\n# implicit comparison\nif account_active == True:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\nThe account is active.\n\n\n\nConditions: &gt; &lt; &gt;= &lt;= == !=\n\n4 &gt; 3\n\nTrue\n\n\n\ntype (4 &gt; 3)\n\nbool\n\n\n\ntype (False)\n\nbool\n\n\n\n4 &gt;= 3\n\nTrue\n\n\n\n4 &lt; 3\n\nFalse\n\n\n\n4 == 3\n\nFalse\n\n\n\n4 != 3\n\nTrue\n\n\n\n\nLogic operations: and or not in\n\nTrue and True\n\nTrue\n\n\n\nFalse and False\n\nFalse\n\n\n\nTrue or True\n\nTrue\n\n\n\nTrue or False\n\nTrue\n\n\n\nFalse or False\n\nFalse\n\n\n\nnot True\n\nFalse\n\n\n\nnot False\n\nTrue\n\n\n\n\nCombinations\n\n(4 &gt; 3) and (2 &gt; 3)\n\nFalse\n\n\n\n(4==3) or (2 != 3)\n\nTrue\n\n\n\nnot (4 != 4)\n\nTrue\n\n\n\n(not (4 != 4)) and (2 == 3)\n\nFalse\n\n\nNote: Major for control condition (if while for) – see later\n\nif 4 &gt; 3:\n    print ('condition true')\nelse:\n    print ('condition not true')\n\ncondition true\n\n\n\ni = 0\nwhile i &lt; 4:\n    print ('condition true: i = ', i)\n    i = i + 1\n\ncondition true: i =  0\ncondition true: i =  1\ncondition true: i =  2\ncondition true: i =  3\n\n\n\n\nBoolean casting: 0,1 (and other values)\n\nint(True)\n\n1\n\n\n\nint(False)\n\n0\n\n\n\nfloat(True)\n\n1.0\n\n\n\nfloat(False)\n\n0.0\n\n\n\nbool(0)\n\nFalse\n\n\n\nbool(1)\n\nTrue\n\n\n\nbool(0.0)\n\nFalse\n\n\n\nbool(1.0)\n\nTrue\n\n\n\nbool(10.5)\n\nTrue\n\n\n\nbool(-2)\n\nTrue\n\n\n\n\n\n1.3 Strings\nStrings are used to represent text.\n\n# Example: Representing account holder information\naccount_holder = \"John Doe\"\naccount_number = \"1234567890\"\n\nprint(\"Account Holder:\", account_holder)\nprint(\"Account Number:\", account_number)\n\nAccount Holder: John Doe\nAccount Number: 1234567890\n\n\n\ntype(account_holder)\n\nstr\n\n\n\nBuilt-in methods\nstr variables come with a series of useful built-in methods.\n\n\n\nMethod\n\n\n\n\ncapitalize()\n\n\ncount()\n\n\nfind()\n\n\njoin()\n\n\nreplace()\n\n\nsplit()\n\n\nupper()\n\n\n\n\nt = 'this is a string object'\n\n\nt.capitalize()\n\n'This is a string object'\n\n\n\nt.split()\n\n['this', 'is', 'a', 'string', 'object']\n\n\n\nt.find('string')\n\n10\n\n\n\nt.replace(' ','|')\n\n'this|is|a|string|object'\n\n\n\n\nPrint method print()\n\nprint('Hello World!')\n\nHello World!\n\n\n\nprint (t)\n\nthis is a string object\n\n\n\ni = 0\nwhile i &lt; 4:\n    print (i)\n    i = i + 1\n\n0\n1\n2\n3\n\n\n\ni = 0\nwhile i &lt; 4:\n    print (i, end = '|')\n    i = i + 1\n\n0|1|2|3|\n\n\n\n\nPrinting with variables\n\na = 10\nprint('this is the value of a:', a)\n\nthis is the value of a: 10\n\n\n\ntt = 'this is the value of a: ' + str(a)\nprint (tt)\n\nthis is the value of a: 10"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
+    "href": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "2. Basic structures",
+    "text": "2. Basic structures\nList of structures\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\ntuple\nimmutable container\nfixed set of objects\n\n\nlist\nmutable container\nordered and changing set of objects\n\n\ndict\nmutable container\nkey-value store\n\n\nset\nmutable container\nunordered collection of unique objects\n\n\n\nuse built-in function type() to obtain the information\nNavigating structures\n\nIndexing: obtain item at position n s[n]\nSlicing: obtain items between position i and j s[i:j] s[i:] s[:j]\nRanging: obtain items between position i and j spaced by k s[i:j:k]\n\nNote: In Python, indexing starts at 0\n\n2.1 tuple\nTuples are immutable collections of items (i.e., cannot be changed after creation).\n\n# Example: Coordinates of a bank branch\nbranch_location = (40.7128, -74.0060)  # New York City coordinates\nprint(\"Branch Location:\", branch_location)\n\nBranch Location: (40.7128, -74.006)\n\n\n\nt = (1, 2.5, 'data')\ntype(t)\n\ntuple\n\n\n\n#also works without ()\nt = 1, 2.5, 'data'\ntype(t)\n\ntuple\n\n\n\n#indexing\nt[2]\n\n'data'\n\n\n\ntype(t[2])\n\nstr\n\n\n\n\n2.2 list\nLists are ordered collections of items, which can be of mixed data types.\n\n# Example: List of recent transactions\ntransactions = [100, -50, 200, -30, 400]\nprint(\"Transactions:\", transactions)\n\n# Adding a new transaction\ntransactions.append(-100)\nprint(\"Updated Transactions:\", transactions)\n\nTransactions: [100, -50, 200, -30, 400]\nUpdated Transactions: [100, -50, 200, -30, 400, -100]\n\n\n\nl = [1, 2.5, 'data']\nl[2]\n\n'data'\n\n\n\n#casting\nl = list(t)\nl\n\n[1, 2.5, 'data']\n\n\n\ntype (l)\n\nlist\n\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nl[i] = x\n\n\nl[i:j:k] = s\n\n\nappend()\n\n\ncount()\n\n\ndel l[i:j:k]\n\n\nindex()\n\n\nextend()\n\n\ninsert()\n\n\nremove()\n\n\npop()\n\n\nrevers()\n\n\nsort()\n\n\n\ncontrary to tuples, lists are mutable containers\n\nl.append([4,3])\nl\n\n[1, 2.5, 'data', [4, 3]]\n\n\n\nl.extend([1.0, 1.5, 2.0])\nl\n\n[1, 2.5, 'data', [4, 3], 1.0, 1.5, 2.0]\n\n\n\nl = [0, 1, 2, 3, 4, 5, 6, 7]\ns = [10, 20, 30]\n\nl[1:7:2] = s\nprint(l)\n\n[0, 10, 2, 20, 4, 30, 6, 7]\n\n\n\nl.insert(1,'insert')\nl\n\n[0, 'insert', 10, 2, 20, 4, 30, 6, 7]\n\n\n\nl.remove('data')\nl\n\n\n---------------------------------------------------------------------------\nValueError                                Traceback (most recent call last)\nInput In [70], in &lt;cell line: 1&gt;()\n----&gt; 1 l.remove('data')\n      2 l\n\nValueError: list.remove(x): x not in list\n\n\n\n\np = l.pop(3)\nprint (l, p)\n\n[0, 'insert', 10, 20, 4, 30, 6, 7] 2\n\n\n\n#slicing\nl[2:5]\n\n[10, 20, 4]\n\n\n\n\n\n2.3 dict\nDictionaries store data as key-value pairs.\n\n# Example: Dictionary of account balances\naccount_balances = {\n    \"1234567890\": 1000,\n    \"0987654321\": 2500,\n    \"1122334455\": 750\n}\nprint(\"Account Balances:\", account_balances)\n\n# Accessing a balance by account number\nprint(\"Balance of account 1234567890:\", account_balances[\"1234567890\"])\n\nAccount Balances: {'1234567890': 1000, '0987654321': 2500, '1122334455': 750}\nBalance of account 1234567890: 1000\n\n\n\nKeys and values\n\nd = {\n    'Name' : 'Iron Man',\n    'Country' : 'USA',\n    'Profession' : 'Super Hero',\n    'Age' : 36\n}\n\n\ntype(d)\n\ndict\n\n\n\nprint (d['Name'], d['Age'])\n\nIron Man 36\n\n\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nd[k]\n\n\nd[k] = x\n\n\ndel d[k]\n\n\nclear()\n\n\ncopy()\n\n\nitems()\n\n\nkeys()\n\n\nvalues()\n\n\npopitem()\n\n\nupdate()\n\n\n\n\nd.keys()\n\ndict_keys(['Name', 'Country', 'Profession', 'Age'])\n\n\n\nd.values()\n\ndict_values(['Iron Man', 'USA', 'Super Hero', 36])\n\n\n\nd.items()\n\ndict_items([('Name', 'Iron Man'), ('Country', 'USA'), ('Profession', 'Super Hero'), ('Age', 36)])\n\n\n\nbirthday = True\nif birthday:\n    d['Age'] += 1\nprint (d['Age'])\n\n37\n\n\n\nfor item in d.items():\n    print (item)\n\n('Name', 'Iron Man')\n('Country', 'USA')\n('Profession', 'Super Hero')\n('Age', 37)\n\n\n\nfor value in d.values():\n    print (type(value))\n\n&lt;class 'str'&gt;\n&lt;class 'str'&gt;\n&lt;class 'str'&gt;\n&lt;class 'int'&gt;\n\n\n\n\n\n2.4 set\nSets are unordered collections of unique items.\n\ns = set(['u', 'd', 'ud', 'du', 'd', 'du'])\ns\n\n{'d', 'du', 'u', 'ud'}\n\n\n\nSet operations\n\nt = set(['d', 'dd', 'uu', 'u'])\n\n\ns.union(t)\n\n{'d', 'dd', 'du', 'u', 'ud', 'uu'}\n\n\n\ns.intersection(t)\n\n{'d', 'u'}\n\n\n\ns.difference(t)\n\n{'du', 'ud'}\n\n\n\nt.difference(s)\n\n{'dd', 'uu'}\n\n\n\ns.symmetric_difference(t)\n\n{'dd', 'du', 'ud', 'uu'}"
+  },
+  {
+    "objectID": "lectures/lecture_02/lecture_02_problem_sets.html",
+    "href": "lectures/lecture_02/lecture_02_problem_sets.html",
+    "title": "Data Types and Structures - Problem sets",
+    "section": "",
+    "text": "Exercise 1: Check Data Types\nWrite a Python program that prints the data types of the following variables:\na = 42\nb = 3.14\nc = \"Python\"\nd = [1, 2, 3]\ne = (1, 2, 3)\nf = {'name': 'John', 'age': 30}\ng = {1, 2, 3}\n\n# Your code\n\n\n\nExercise 2: List Operations\nCreate a list with the elements [10, 20, 30, 40, 50]. Add 60 to the list, remove 30, and reverse the list.\n\n# Your code\n\n\n\nExercise 3: Tuple Unpacking\nGiven the following tuple, unpack its elements into separate variables and print them:\nmy_tuple = (100, 200, 300)\n\n# Your code\n\n\n\nExercise 4: Dictionary Manipulation\nCreate a dictionary with keys 'name', 'age', and 'city', and values 'Alice', 25, and 'New York'. Update the age to 26 and add a new key 'profession' with value 'Engineer'.\n\n# Your code\n\n\n\nExercise 5: Set Operations\nCreate two sets, set1 with elements {1, 2, 3, 4} and set2 with elements {3, 4, 5, 6}. Find the union, intersection, and difference between these sets.\n\n# Your code\n\n\n\nExercise 6: String Slicing\nGiven the string s = \"Hello, Python!\", write code to: 1. Extract the substring \"Python\". 2. Reverse the entire string.\n\n# Your code\n\n\n\nExercise 7: Boolean Logic\nYou are given three numbers, a, b, and c. Write a Python program that returns True if a is the largest number and b is not equal to c. Otherwise, return False.\n\n# Input numbers\na = 10\nb = 5\nc = 5\n\n# Your code\n\n\n\nExercise 8: Complex Boolean Logic with Multiple Conditions\nWrite a Python program that checks the following conditions for three variables x, y, and z:\n\nx is greater than y or y is equal to z.\nThe sum of x and y is even.\nx, y, and z are all positive numbers.\n\nThe program should return True only if all three conditions are met.\n\n# Input variables\nx = 8\ny = 6\nz = 6\n\n# Your code\n\n\n\nExercise 9: Checking for Keys in a Dictionary\nGiven the dictionary person = {'name': 'Bob', 'age': 25}, check if the key 'age' exists in the dictionary and print a message.\n\n# Your code\n\n\n\nExercise 10: Nested Data Structures\nCreate a dictionary students where each key is a student’s name and each value is a dictionary containing their 'age' and a list of their 'grades'.\nEnter the following data in the dictionary: - Alice is 24 and has grades 88, 92 and 86 - Bob is 23 and had grades 75, 80, 89\nPrint Bob’s age and Alice’s grades.\n\n# Your code"
+  }
+]
