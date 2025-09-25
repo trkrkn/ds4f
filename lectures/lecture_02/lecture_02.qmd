@@ -1,17 +1,15 @@
 ---
 title: "Lecture 02 - Data Types and Structure"
-
-resources:
-  - introduction_to_python.ipynb
+file_name: "data_types_and_structure"
 ---
 ## Lecture Material
 - **Notebook**
-    - <a href="data_types_and_structure.ipynb" download>Jupyter notebook (.ipynb)</a>  
-    - <a href="data_types_and_structure.html" target="_blank">Page (HTML notebook)</a>  
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
 - **Slides**
-    - <a href="data_types_and_structure.slides.html" target="_blank">Reveal.js</a>  
-    - <a href="data_types_and_structure.slides.pdf" download>PDF</a>
-
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+    
 ## Problem sets
-- <a href="lecture_02_problem_sets.ipynb" download>Jupyter notebook (.ipynb)</a>
-- <a href="lecture_02_solutions.pdf" download>Solutions (.pdf)</a>
+- [Jupyter notebook (.ipynb)](lecture_02_problem_sets.zip)
+- [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank}
