@@ -12,4 +12,4 @@ file_name: "data_types_and_structure"
     
 ## Problem sets
 - [Jupyter notebook (.ipynb)](lecture_02_problem_sets.zip)
-- [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank}
+<!--- - [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank} --->

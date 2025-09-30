@@ -178,24 +178,20 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>Notebook</strong>
 <ul>
-<li><a href="../../lectures/lecture_02/data_types_and_structure.html" download="">Jupyter notebook (.ipynb)</a><br>
-</li>
-<li><a href="data_types_and_structure.html" target="_blank">Page (HTML notebook)</a><br>
-</li>
+<li><a href="data_types_and_structure.zip">Jupyter notebook (.ipynb)</a></li>
+<li><a href="data_types_and_structure.html" target="_blank">Page (HTML notebook)</a></li>
 </ul></li>
 <li><strong>Slides</strong>
 <ul>
-<li><a href="data_types_and_structure.slides.html" target="_blank">Reveal.js</a><br>
-</li>
-<li><a href="data_types_and_structure.slides.pdf" download="">PDF</a></li>
+<li><a href="data_types_and_structure.slides.html" target="_blank">Reveal.js</a></li>
+<li><a href="data_types_and_structure.slides.pdf" target="_blank">PDF</a></li>
 </ul></li>
 </ul>
 </section>
 <section id="problem-sets" class="level2">
 <h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
 <ul>
-<li><a href="../../lectures/lecture_02/lecture_02_problem_sets.html" download="">Jupyter notebook (.ipynb)</a></li>
-<li><a href="lecture_02_solutions.pdf" download="">Solutions (.pdf)</a></li>
+<li><a href="lecture_02_problem_sets.zip">Jupyter notebook (.ipynb)</a> <!--- - [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank} ---></li>
 </ul>
 
 
@@ -294,7 +290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
