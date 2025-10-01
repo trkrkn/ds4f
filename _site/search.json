@@ -21,74 +21,18 @@
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
+    "objectID": "lectures/lecture_02/lecture_02.html#recording",
+    "href": "lectures/lecture_02/lecture_02.html#recording",
+    "title": "Lecture 02 - Data Types and Structure",
+    "section": "Recording",
+    "text": "Recording\n\n1. Types\n\n \n\n\n\n2. Structures"
+  },
+  {
     "objectID": "lectures/lecture_02/lecture_02.html#problem-sets",
     "href": "lectures/lecture_02/lecture_02.html#problem-sets",
     "title": "Lecture 02 - Data Types and Structure",
     "section": "Problem sets",
     "text": "Problem sets\n\nJupyter notebook (.ipynb)"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html",
-    "href": "lectures/lecture_01/lecture_01.html",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Information",
-    "section": "",
-    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
-  },
-  {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "Course Information",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
-  },
-  {
-    "objectID": "syllabus.html#content",
-    "href": "syllabus.html#content",
-    "title": "Course Information",
-    "section": "Content",
-    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
-  },
-  {
-    "objectID": "syllabus.html#delivery",
-    "href": "syllabus.html#delivery",
-    "title": "Course Information",
-    "section": "Delivery",
-    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available.\n\n⚠There will be no recordings from lectures"
-  },
-  {
-    "objectID": "syllabus.html#reference",
-    "href": "syllabus.html#reference",
-    "title": "Course Information",
-    "section": "Reference",
-    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Science For Finance",
-    "section": "",
-    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
-  },
-  {
-    "objectID": "index.html#news-announcements",
-    "href": "index.html#news-announcements",
-    "title": "Data Science For Finance",
-    "section": "News & Announcements",
-    "text": "News & Announcements\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
   },
   {
     "objectID": "lectures/lecture_01/introduction_to_python.html",
@@ -159,6 +103,76 @@
     "title": "Lecture 01 - Introduction to Python",
     "section": "3.5 Libraries",
     "text": "3.5 Libraries\nLibraries are pre-built packages of functions for tasks like data analysis and visualization.\n\nKey Libraries for Finance\n\nNumPy: For numerical computations matrix operations in portfolio analysis\npandas: Used for data manipulation handling financial datasets\nmatplotlib: For data visualization plotting stock prices\n\n\nimport numpy \n\nprint(numpy.sqrt(16))  # Square root\nprint(numpy.pi)        # Value of pi\n\n\n\nDocumentation\nLibraries come with documentation.\nOn Notebooks, they can be directly accessed from the cell pressing maj + tab after the function.\n\nExample of documentation numpy.sqrt()\n    Call signature:  numpy.sqrt(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'sqrt'&gt;\nFile:            ~/opt/anaconda3/lib/python3.9/site-packages/numpy/__init__.py\nDocstring:      \nsqrt(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\n\nReturn the non-negative square-root of an array, element-wise.\n\nParameters\n----------\nx : array_like\n    The values whose square-roots are required.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\ny : ndarray\n    An array of the same shape as `x`, containing the positive\n    square-root of each element in `x`.  If any element in `x` is\n    complex, a complex array is returned (and the square-roots of\n    negative reals are calculated).  If all of the elements in `x`\n    are real, so is `y`, with negative elements returning ``nan``.\n    If `out` was provided, `y` is a reference to it.\n    This is a scalar if `x` is a scalar.\n\nSee Also\n--------\nlib.scimath.sqrt\n    A version which returns complex numbers when given negative reals.\n\nNotes\n-----\n*sqrt* has--consistent with common convention--as its branch cut the\nreal \"interval\" [`-inf`, 0), and is continuous from above on it.\nA branch cut is a curve in the complex plane across which a given\ncomplex function fails to be continuous.\n\nExamples\n--------\n&gt;&gt;&gt; np.sqrt([1,4,9])\narray([ 1.,  2.,  3.])\n\n&gt;&gt;&gt; np.sqrt([4, -1, -3+4J])\narray([ 2.+0.j,  0.+1.j,  1.+2.j])\n\n&gt;&gt;&gt; np.sqrt([4, -1, np.inf])\narray([ 2., nan, inf])\nClass docstring:\nFunctions that operate element by element on whole arrays.\n\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\n\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\n\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\n\nThe broadcasting rules are:\n\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\n\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Science For Finance",
+    "section": "",
+    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
+  },
+  {
+    "objectID": "index.html#news-announcements",
+    "href": "index.html#news-announcements",
+    "title": "Data Science For Finance",
+    "section": "News & Announcements",
+    "text": "News & Announcements\n\n01/10/2025\n\nRecordings for Introduction, and Lecture 01 and 02 are available\nSolutions to Problem set of Lecture 02 will be available next week\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Information",
+    "section": "",
+    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Course Information",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
+  },
+  {
+    "objectID": "syllabus.html#content",
+    "href": "syllabus.html#content",
+    "title": "Course Information",
+    "section": "Content",
+    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
+  },
+  {
+    "objectID": "syllabus.html#delivery",
+    "href": "syllabus.html#delivery",
+    "title": "Course Information",
+    "section": "Delivery",
+    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available."
+  },
+  {
+    "objectID": "syllabus.html#reference",
+    "href": "syllabus.html#reference",
+    "title": "Course Information",
+    "section": "Reference",
+    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html",
+    "href": "lectures/lecture_01/lecture_01.html",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html#recording",
+    "href": "lectures/lecture_01/lecture_01.html#recording",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "Recording",
+    "text": "Recording\n\n1. Motivation\n\n \n\n\n\n2. Setting up the environment\n\n \n\n\n\n3. Overview of the Python environment"
   },
   {
     "objectID": "lectures/lecture_02/data_types_and_structure.html",

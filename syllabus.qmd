@@ -55,7 +55,6 @@ This course consists of 6 ECTS amounting to 40 contact hours. Sessions are split
 ## Delivery 
 Material is delivered through **Jupyter Notebooks**. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available.
 
-> ⚠**There will be no recordings from lectures**
 
 ## Reference
 
