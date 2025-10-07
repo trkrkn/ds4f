@@ -28,5 +28,50 @@
   },
   "lectures/lecture_00/lecture_00.qmd": {
     "lecture_00.html": "112b4f77"
+  },
+  "lectures/lecture_04/04 - Functions.ipynb": {
+    "04 - Functions.html": "f41a7041"
+  },
+  "lectures/lecture_04/lecture_04.qmd": {
+    "lecture_04.html": "268f2e80"
+  },
+  "lectures/lecture_04/04 - Problem set.ipynb": {
+    "04 - Problem set.html": "8fc4fc71"
+  },
+  "lectures/lecture_03/03 - Control structures.ipynb": {
+    "03 - Control structures.html": "f239c452"
+  },
+  "lectures/lecture_03/lecture_03.qmd": {
+    "lecture_03.html": "90d16e01"
+  },
+  "lectures/lecture_03/03 - Problem set.ipynb": {
+    "03 - Problem set.html": "90c55415"
+  },
+  "lectures/lecture_03/lecture_03 _problem_sets.ipynb": {
+    "lecture_03 _problem_sets.html": "89828315"
+  },
+  "lectures/lecture_03/control_structures.ipynb": {
+    "control_structures.html": "c2df46fe"
+  },
+  "lectures/lecture_03/lecture_03_problem_sets.ipynb": {
+    "lecture_03_problem_sets.html": "71e75db1"
+  },
+  "lectures/lecture_04/functions.ipynb": {
+    "functions.html": "fc6f2c1c"
+  },
+  "lectures/lecture_04/lecture_04_problem_sets.ipynb": {
+    "lecture_04_problem_sets.html": "19867a8d"
+  },
+  "lectures/lecture_04/lecture_04_problem_sets.md": {
+    "lecture_04_problem_sets.html": "a8559488"
+  },
+  "lectures/lecture_04/functions.md": {
+    "functions.html": "4a27f8eb"
+  },
+  "lectures/lecture_03/control_structures.md": {
+    "control_structures.html": "49dc7ccd"
+  },
+  "lectures/lecture_03/lecture_03_problem_sets.md": {
+    "lecture_03_problem_sets.html": "a8fca8b5"
   }
 }

@@ -19,9 +19,9 @@ website:
               text: Lecture 01 - Introduction to Python
             - href: 'lectures/lecture_02/lecture_02.qmd'
               text: Lecture 02 - Data types and structures
-            - href: ''
+            - href: 'lectures/lecture_03/lecture_03.qmd'
               text: Lecture 03 - Control structures
-            - href: ''
+            - href: 'lectures/lecture_04/lecture_04.qmd'
               text: Lecture 04 - Functions
             - href: ''
               text: Lecture 05 - Object Oriented Programming
@@ -43,6 +43,8 @@ website:
               text: Lecture 13 - Machine Learning
             - href: ''
               text: Lecture 14 - Advanced Machine Learning
+      - href: "https://app.alldayta.com/katholieke-universiteit-leuven/ds4f"
+        text: All Day TA (<b>new!</b> beta)
 
 format:
   html:
