@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Types and Structures - Problem sets – Data Science For Finance</title>
+<title>Controle Structures - Problem Set – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -190,16 +219,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-1-check-data-types" id="toc-exercise-1-check-data-types" class="nav-link active" data-scroll-target="#exercise-1-check-data-types">Exercise 1: Check Data Types</a></li>
-  <li><a href="#exercise-2-list-operations" id="toc-exercise-2-list-operations" class="nav-link" data-scroll-target="#exercise-2-list-operations">Exercise 2: List Operations</a></li>
-  <li><a href="#exercise-3-tuple-unpacking" id="toc-exercise-3-tuple-unpacking" class="nav-link" data-scroll-target="#exercise-3-tuple-unpacking">Exercise 3: Tuple Unpacking</a></li>
-  <li><a href="#exercise-4-dictionary-manipulation" id="toc-exercise-4-dictionary-manipulation" class="nav-link" data-scroll-target="#exercise-4-dictionary-manipulation">Exercise 4: Dictionary Manipulation</a></li>
-  <li><a href="#exercise-5-set-operations" id="toc-exercise-5-set-operations" class="nav-link" data-scroll-target="#exercise-5-set-operations">Exercise 5: Set Operations</a></li>
-  <li><a href="#exercise-6-string-slicing" id="toc-exercise-6-string-slicing" class="nav-link" data-scroll-target="#exercise-6-string-slicing">Exercise 6: String Slicing</a></li>
-  <li><a href="#exercise-7-boolean-logic" id="toc-exercise-7-boolean-logic" class="nav-link" data-scroll-target="#exercise-7-boolean-logic">Exercise 7: Boolean Logic</a></li>
-  <li><a href="#exercise-8-complex-boolean-logic-with-multiple-conditions" id="toc-exercise-8-complex-boolean-logic-with-multiple-conditions" class="nav-link" data-scroll-target="#exercise-8-complex-boolean-logic-with-multiple-conditions">Exercise 8: Complex Boolean Logic with Multiple Conditions</a></li>
-  <li><a href="#exercise-9-checking-for-keys-in-a-dictionary" id="toc-exercise-9-checking-for-keys-in-a-dictionary" class="nav-link" data-scroll-target="#exercise-9-checking-for-keys-in-a-dictionary">Exercise 9: Checking for Keys in a Dictionary</a></li>
-  <li><a href="#exercise-10-nested-data-structures" id="toc-exercise-10-nested-data-structures" class="nav-link" data-scroll-target="#exercise-10-nested-data-structures">Exercise 10: Nested Data Structures</a></li>
+  <li><a href="#exercise-1-conditional-statements-if-else" id="toc-exercise-1-conditional-statements-if-else" class="nav-link active" data-scroll-target="#exercise-1-conditional-statements-if-else"><strong>Exercise 1: Conditional Statements (if-else)</strong></a></li>
+  <li><a href="#exercise-2-nested-if-else-with-multiple-conditions" id="toc-exercise-2-nested-if-else-with-multiple-conditions" class="nav-link" data-scroll-target="#exercise-2-nested-if-else-with-multiple-conditions"><strong>Exercise 2: Nested if-else with Multiple Conditions</strong></a></li>
+  <li><a href="#exercise-3-while-loop-for-savings-target" id="toc-exercise-3-while-loop-for-savings-target" class="nav-link" data-scroll-target="#exercise-3-while-loop-for-savings-target"><strong>Exercise 3: While Loop for Savings Target</strong></a></li>
+  <li><a href="#exercise-4-loan-repayment-simulation-with-while-loop" id="toc-exercise-4-loan-repayment-simulation-with-while-loop" class="nav-link" data-scroll-target="#exercise-4-loan-repayment-simulation-with-while-loop"><strong>Exercise 4: Loan Repayment Simulation with While Loop</strong></a></li>
+  <li><a href="#exercise-5-for-loop-over-a-list" id="toc-exercise-5-for-loop-over-a-list" class="nav-link" data-scroll-target="#exercise-5-for-loop-over-a-list"><strong>Exercise 5: For Loop Over a List</strong></a></li>
+  <li><a href="#exercise-6-for-loop-with-condition" id="toc-exercise-6-for-loop-with-condition" class="nav-link" data-scroll-target="#exercise-6-for-loop-with-condition"><strong>Exercise 6: For Loop with Condition</strong></a></li>
+  <li><a href="#exercise-7-nested-for-loop-with-matrix" id="toc-exercise-7-nested-for-loop-with-matrix" class="nav-link" data-scroll-target="#exercise-7-nested-for-loop-with-matrix"><strong>Exercise 7: Nested For Loop with Matrix</strong></a></li>
+  <li><a href="#exercise-8-range-based-for-loop" id="toc-exercise-8-range-based-for-loop" class="nav-link" data-scroll-target="#exercise-8-range-based-for-loop"><strong>Exercise 8: Range-based For Loop</strong></a></li>
+  <li><a href="#exercise-9-break-and-continue" id="toc-exercise-9-break-and-continue" class="nav-link" data-scroll-target="#exercise-9-break-and-continue"><strong>Exercise 9: Break and Continue</strong></a></li>
+  <li><a href="#exercise-10-list-comprehension" id="toc-exercise-10-list-comprehension" class="nav-link" data-scroll-target="#exercise-10-list-comprehension"><strong>Exercise 10: List Comprehension</strong></a></li>
+  <li><a href="#more-exercises-on-list-comprehension" id="toc-more-exercises-on-list-comprehension" class="nav-link" data-scroll-target="#more-exercises-on-list-comprehension">More exercises on <strong>list comprehension</strong></a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-convert-temperatures" id="toc-exercise-1-convert-temperatures" class="nav-link" data-scroll-target="#exercise-1-convert-temperatures"><strong>Exercise 1: Convert Temperatures</strong></a></li>
+  <li><a href="#exercise-2-filter-and-square-odd-numbers" id="toc-exercise-2-filter-and-square-odd-numbers" class="nav-link" data-scroll-target="#exercise-2-filter-and-square-odd-numbers"><strong>Exercise 2: Filter and Square Odd Numbers</strong></a></li>
+  <li><a href="#exercise-3-extract-vowels-from-a-string" id="toc-exercise-3-extract-vowels-from-a-string" class="nav-link" data-scroll-target="#exercise-3-extract-vowels-from-a-string"><strong>Exercise 3: Extract Vowels from a String</strong></a></li>
+  <li><a href="#exercise-4-flatten-a-nested-list" id="toc-exercise-4-flatten-a-nested-list" class="nav-link" data-scroll-target="#exercise-4-flatten-a-nested-list"><strong>Exercise 4: Flatten a Nested List</strong></a></li>
+  <li><a href="#exercise-5-dictionary-from-list" id="toc-exercise-5-dictionary-from-list" class="nav-link" data-scroll-target="#exercise-5-dictionary-from-list"><strong>Exercise 5: Dictionary from List</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -212,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Types and Structures - Problem sets</h1>
+<h1 class="title">Controle Structures - Problem Set</h1>
 </div>
 
 
@@ -229,103 +266,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="exercise-1-check-data-types" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1-check-data-types">Exercise 1: Check Data Types</h3>
-<p>Write a Python program that prints the data types of the following variables:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">42</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">3.14</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="st">"Python"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'John'</span>, <span class="st">'age'</span>: <span class="dv">30</span>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="765dc892" class="cell" hidden="true" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-1-conditional-statements-if-else" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-conditional-statements-if-else"><strong>Exercise 1: Conditional Statements (if-else)</strong></h3>
+<p>Write a Python program that takes a user’s income and tax status as input. If the income is greater than $50,000, they should be taxed at 25%. Otherwise, they are taxed at 15%. Print the amount of tax they owe.</p>
+<div id="9ce9bed7" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-2-list-operations" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2-list-operations">Exercise 2: List Operations</h3>
-<p>Create a list with the elements <code>[10, 20, 30, 40, 50]</code>. Add <code>60</code> to the list, remove <code>30</code>, and reverse the list.</p>
-<div id="38b4614e" class="cell" hidden="true" data-execution_count="2">
+<section id="exercise-2-nested-if-else-with-multiple-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-nested-if-else-with-multiple-conditions"><strong>Exercise 2: Nested if-else with Multiple Conditions</strong></h3>
+<p>Modify the following code to check if a user is eligible for a loan: 1. The user must be 21 or older. 2. They must have an income greater than $$$30,000. 3. If their debt is greater than $$$10,000, they are ineligible for the loan.</p>
+<div id="254058b9" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter your age: "</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter your income: "</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>debt <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter your debt amount: "</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the conditions here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3-while-loop-for-savings-target" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-while-loop-for-savings-target"><strong>Exercise 3: While Loop for Savings Target</strong></h3>
+<p>Write a program that asks the user for a savings target. The program should simulate monthly savings of $500 and keep adding it to the balance until the target is reached. Print how many months it took to reach the target.</p>
+<div id="a3a213df" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-3-tuple-unpacking" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3-tuple-unpacking">Exercise 3: Tuple Unpacking</h3>
-<p>Given the following tuple, unpack its elements into separate variables and print them:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cc4fa218" class="cell" hidden="true" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-4-loan-repayment-simulation-with-while-loop" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-loan-repayment-simulation-with-while-loop"><strong>Exercise 4: Loan Repayment Simulation with While Loop</strong></h3>
+<p>Simulate a loan repayment process where the loan balance is $$$50,000, the monthly payment is $$$1,000, and the monthly interest rate is 3%. The program should keep updating the balance and print how long it takes to repay the loan, as well as the total interest paid.</p>
+<div id="0aab7572" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-4-dictionary-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4-dictionary-manipulation">Exercise 4: Dictionary Manipulation</h3>
-<p>Create a dictionary with keys <code>'name'</code>, <code>'age'</code>, and <code>'city'</code>, and values <code>'Alice'</code>, <code>25</code>, and <code>'New York'</code>. Update the age to <code>26</code> and add a new key <code>'profession'</code> with value <code>'Engineer'</code>.</p>
-<div id="65d2306b" class="cell" hidden="true" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-5-for-loop-over-a-list" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-for-loop-over-a-list"><strong>Exercise 5: For Loop Over a List</strong></h3>
+<p>Create a list of daily stock prices and calculate the total gain or loss by summing up the differences between consecutive days’ prices.</p>
+<div id="583b9986" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">105</span>, <span class="dv">98</span>, <span class="dv">110</span>, <span class="dv">120</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the loop here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-5-set-operations" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5-set-operations">Exercise 5: Set Operations</h3>
-<p>Create two sets, <code>set1</code> with elements <code>{1, 2, 3, 4}</code> and <code>set2</code> with elements <code>{3, 4, 5, 6}</code>. Find the union, intersection, and difference between these sets.</p>
-<div id="17a1c670" class="cell" hidden="true" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-6-for-loop-with-condition" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6-for-loop-with-condition"><strong>Exercise 6: For Loop with Condition</strong></h3>
+<p>Write a program that takes a list of numbers and prints out the squares of only the even numbers using a <code>for</code> loop.</p>
+<div id="bf59474d" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the loop here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-6-string-slicing" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6-string-slicing">Exercise 6: String Slicing</h3>
-<p>Given the string <code>s = "Hello, Python!"</code>, write code to: 1. Extract the substring <code>"Python"</code>. 2. Reverse the entire string.</p>
-<div id="6896dbe3" class="cell" hidden="true" data-execution_count="5">
+<section id="exercise-7-nested-for-loop-with-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7-nested-for-loop-with-matrix"><strong>Exercise 7: Nested For Loop with Matrix</strong></h3>
+<p>Given a 3x3 matrix, write a Python program to print the sum of each row using nested <code>for</code> loops.</p>
+<div id="46cc677a" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the nested loop here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-8-range-based-for-loop" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8-range-based-for-loop"><strong>Exercise 8: Range-based For Loop</strong></h3>
+<p>Using a <code>for</code> loop, print the numbers from 1 to 20 that are divisible by 3.</p>
+<div id="43deab87" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-7-boolean-logic" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7-boolean-logic">Exercise 7: Boolean Logic</h3>
-<p>You are given three numbers, a, b, and c.&nbsp;Write a Python program that returns True if a is the largest number and b is not equal to c.&nbsp;Otherwise, return False.</p>
-<div id="a1e42a7f" class="cell" hidden="true" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input numbers</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-9-break-and-continue" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9-break-and-continue"><strong>Exercise 9: Break and Continue</strong></h3>
+<p>Write a Python program that asks the user to enter a number. If the number is greater than 100, print “Success” and exit the loop using <code>break</code>. If the number is less than 0, print “Invalid” and skip the iteration using <code>continue</code>.</p>
+<div id="b376a39a" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-8-complex-boolean-logic-with-multiple-conditions" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-8-complex-boolean-logic-with-multiple-conditions">Exercise 8: Complex Boolean Logic with Multiple Conditions</h3>
-<p>Write a Python program that checks the following conditions for three variables x, y, and z:</p>
-<ol type="1">
-<li>x is greater than y or y is equal to z.</li>
-<li>The sum of x and y is even.</li>
-<li>x, y, and z are all positive numbers.</li>
-</ol>
-<p>The program should return True only if all three conditions are met.</p>
-<div id="11413710" class="cell" hidden="true" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input variables</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">8</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-10-list-comprehension" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10-list-comprehension"><strong>Exercise 10: List Comprehension</strong></h3>
+<p>Given a list of grades, create a new list of grades where every grade is increased by 5, but only if the original grade is less than 90, using list comprehension.</p>
+<div id="1ec8fdaf" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [<span class="dv">85</span>, <span class="dv">92</span>, <span class="dv">88</span>, <span class="dv">76</span>, <span class="dv">95</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-9-checking-for-keys-in-a-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-9-checking-for-keys-in-a-dictionary">Exercise 9: Checking for Keys in a Dictionary</h3>
-<p>Given the dictionary <code>person = {'name': 'Bob', 'age': 25}</code>, check if the key <code>'age'</code> exists in the dictionary and print a message.</p>
-<div id="85f8f38f" class="cell" hidden="true" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="more-exercises-on-list-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="more-exercises-on-list-comprehension">More exercises on <strong>list comprehension</strong></h2>
+<section id="exercise-1-convert-temperatures" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-convert-temperatures"><strong>Exercise 1: Convert Temperatures</strong></h3>
+<p>Given a list of temperatures in Celsius, use list comprehension to convert them to Fahrenheit. The formula for conversion is:</p>
+<p><span class="math display">\[
+    F = \frac{9}{5} \times C + 32
+\]</span></p>
+<div id="de6d123f" class="cell" hidden="true">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>celsius <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">37</span>, <span class="dv">100</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension to convert celsius to fahrenheit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-10-nested-data-structures" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-10-nested-data-structures">Exercise 10: Nested Data Structures</h3>
-<p>Create a dictionary <code>students</code> where each key is a student’s name and each value is a dictionary containing their <code>'age'</code> and a list of their <code>'grades'</code>.</p>
-<p>Enter the following data in the dictionary: - Alice is 24 and has grades 88, 92 and 86 - Bob is 23 and had grades 75, 80, 89</p>
-<p>Print Bob’s age and Alice’s grades.</p>
-<div id="0c5ad59b" class="cell" hidden="true" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-2-filter-and-square-odd-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-filter-and-square-odd-numbers"><strong>Exercise 2: Filter and Square Odd Numbers</strong></h3>
+<p>Given a list of numbers, use list comprehension to create a new list containing the squares of the odd numbers only.</p>
+<div id="8ec79495" class="cell" hidden="true">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension to filter and square odd numbers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3-extract-vowels-from-a-string" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-extract-vowels-from-a-string"><strong>Exercise 3: Extract Vowels from a String</strong></h3>
+<p>Given a string, use list comprehension to create a list of all the vowels in the string.</p>
+<div id="2d79f320" class="cell" hidden="true">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"List comprehensions are very powerful!"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension to extract vowels from the string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4-flatten-a-nested-list" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-flatten-a-nested-list"><strong>Exercise 4: Flatten a Nested List</strong></h3>
+<p>Given a list of lists (nested list), use list comprehension to flatten it into a single list.</p>
+<div id="5447d1df" class="cell" hidden="true">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nested_list <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>], [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension to flatten the nested list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-5-dictionary-from-list" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-dictionary-from-list"><strong>Exercise 5: Dictionary from List</strong></h3>
+<p>You have a list of tuples where the first element is a country and the second element is its population. Use list comprehension to convert the list of tuples into a dictionary.</p>
+<div id="170815f2" class="cell" hidden="true">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> [(<span class="st">"USA"</span>, <span class="dv">331002651</span>), (<span class="st">"India"</span>, <span class="dv">1380004385</span>), (<span class="st">"China"</span>, <span class="dv">1439323776</span>)]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the list comprehension to convert the list into a dictionary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

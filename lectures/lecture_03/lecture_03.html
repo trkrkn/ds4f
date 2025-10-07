@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule Fall 2025 – Data Science For Finance</title>
+<title>Lecture 03 - Control structures – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Science For Finance</span>
     </a>
   </div>
@@ -89,15 +89,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,23 +106,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_00/lecture_00.html">
+    <a class="dropdown-item" href="../../lectures/lecture_00/lecture_00.html">
  <span class="dropdown-text">Lecture 00</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_01/lecture_01.html">
+    <a class="dropdown-item" href="../../lectures/lecture_01/lecture_01.html">
  <span class="dropdown-text">Lecture 01 - Introduction to Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_02/lecture_02.html">
+    <a class="dropdown-item" href="../../lectures/lecture_02/lecture_02.html">
  <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_03/lecture_03.html">
+    <a class="dropdown-item" href="../../lectures/lecture_03/lecture_03.html">
  <span class="dropdown-text">Lecture 03 - Control structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_04/lecture_04.html">
+    <a class="dropdown-item" href="../../lectures/lecture_04/lecture_04.html">
  <span class="dropdown-text">Lecture 04 - Functions</span></a>
   </li>  
         <li class="dropdown-header">Lecture 05 - Object Oriented Programming</li>
@@ -152,7 +152,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link active" data-scroll-target="#lecture-material">Lecture Material</a></li>
+  <li><a href="#recording" id="toc-recording" class="nav-link" data-scroll-target="#recording">Recording</a>
+  <ul class="collapse">
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">1. Intro</a></li>
+  <li><a href="#if" id="toc-if" class="nav-link" data-scroll-target="#if">2. <code>If</code></a></li>
+  <li><a href="#while" id="toc-while" class="nav-link" data-scroll-target="#while">3. <code>while</code></a></li>
+  <li><a href="#for" id="toc-for" class="nav-link" data-scroll-target="#for">4. <code>for</code></a></li>
+  </ul></li>
+  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -163,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule Fall 2025</h1>
+<h1 class="title">Lecture 03 - Control structures</h1>
 </div>
 
 
@@ -180,134 +194,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 20%">
-<col style="width: 56%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>#</th>
-<th>Lecture</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>24/09/2025</td>
-<td>1</td>
-<td><del>No Class</del></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>01/10/2025</td>
-<td>2</td>
-<td><del>Lecture 01</del></td>
-<td><strong>Introduction to <code>Python</code></strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 02</del></td>
-<td><strong>Data types and structures</strong></td>
-</tr>
-<tr class="even">
-<td>08/10/2025</td>
-<td>3</td>
-<td><del>Lecture 03</del></td>
-<td><strong>Control structures</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 04</del></td>
-<td><strong>Functions</strong></td>
-</tr>
-<tr class="even">
-<td>15/10/2025</td>
-<td>4</td>
-<td>Lecture 05</td>
-<td><strong>Object Oriented Programming</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Lecture 06</td>
-<td><strong>Libraries</strong></td>
-</tr>
-<tr class="even">
-<td>22/10/2025</td>
-<td>5</td>
-<td>Lecture 07</td>
-<td><strong>Numerical computing</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Lecture 08</td>
-<td><strong>Data manipulation</strong></td>
-</tr>
-<tr class="even">
-<td>29/10/2025</td>
-<td>6</td>
-<td>Recap</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>05/11/2025</td>
-<td>7</td>
-<td>Lecture 09</td>
-<td><strong>Input/output</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>Lecture 10</td>
-<td><strong>Data visualization</strong></td>
-</tr>
-<tr class="odd">
-<td>12/11/2025</td>
-<td>8</td>
-<td>Lecture 11 <br> [Guest Lecture]</td>
-<td><strong>Network analytics</strong></td>
-</tr>
-<tr class="even">
-<td>19/11/2025</td>
-<td>9</td>
-<td>Lecture 12</td>
-<td><strong>Time series analysis</strong></td>
-</tr>
-<tr class="odd">
-<td>26/11/2025</td>
-<td>10</td>
-<td>Lecture 13</td>
-<td><strong>Machine Learning</strong></td>
-</tr>
-<tr class="even">
-<td>03/12/2025</td>
-<td>11</td>
-<td>Recap</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10/12/2025</td>
-<td>12</td>
-<td>Lecture 14 <br> [Guest Lecture]</td>
-<td><strong>Advanced Machine Learning</strong></td>
-</tr>
-<tr class="even">
-<td>17/12/2025</td>
-<td>13</td>
-<td>Q&amp;A</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="lecture-material" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-material">Lecture Material</h2>
+<ul>
+<li><strong>Notebook</strong>
+<ul>
+<li><a href="control_structures.zip">Jupyter notebook (.ipynb)</a></li>
+<li><a href="control_structures.html" target="_blank">Page (HTML notebook)</a></li>
+</ul></li>
+<li><strong>Slides</strong>
+<ul>
+<li><a href="control_structures.slides.html" target="_blank">Reveal.js</a></li>
+<li><a href="control_structures.slides.pdf" target="_blank">PDF</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="recording" class="level2">
+<h2 class="anchored" data-anchor-id="recording">Recording</h2>
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">1. Intro</h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<p><iframe src="https://drive.google.com/file/d/1hMgUS15vPeTQ5Cjy-AjtDwHnD-CGO1ps/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</div>
+</section>
+<section id="if" class="level3">
+<h3 class="anchored" data-anchor-id="if">2. <code>If</code></h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<p><iframe src="https://drive.google.com/file/d/1wI3L9tNXO9u2H28MJ_DfNIXe0lachDTk/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</div>
+</section>
+<section id="while" class="level3">
+<h3 class="anchored" data-anchor-id="while">3. <code>while</code></h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<p><iframe src="https://drive.google.com/file/d/1mGIDLEq_dU1bmW0vyDOSXDoKvbjTPguZ/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</div>
+</section>
+<section id="for" class="level3">
+<h3 class="anchored" data-anchor-id="for">4. <code>for</code></h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<p><iframe src="https://drive.google.com/file/d/1nVJr5ZC-QJ2ZsnVSEcqmqZfPDcPzNZLi/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</div>
+</section>
+</section>
+<section id="problem-sets" class="level2">
+<h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
+<ul>
+<li><a href="lecture_03_problem_sets.zip">Jupyter notebook (.ipynb)</a> <!--- - [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank} ---></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

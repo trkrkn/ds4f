@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule Fall 2025 – Data Science For Finance</title>
+<title>Functions - Problem Set – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +101,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -78,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Science For Finance</span>
     </a>
   </div>
@@ -89,15 +152,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,23 +169,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_00/lecture_00.html">
+    <a class="dropdown-item" href="../../lectures/lecture_00/lecture_00.html">
  <span class="dropdown-text">Lecture 00</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_01/lecture_01.html">
+    <a class="dropdown-item" href="../../lectures/lecture_01/lecture_01.html">
  <span class="dropdown-text">Lecture 01 - Introduction to Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_02/lecture_02.html">
+    <a class="dropdown-item" href="../../lectures/lecture_02/lecture_02.html">
  <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_03/lecture_03.html">
+    <a class="dropdown-item" href="../../lectures/lecture_03/lecture_03.html">
  <span class="dropdown-text">Lecture 03 - Control structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_04/lecture_04.html">
+    <a class="dropdown-item" href="../../lectures/lecture_04/lecture_04.html">
  <span class="dropdown-text">Lecture 04 - Functions</span></a>
   </li>  
         <li class="dropdown-header">Lecture 05 - Object Oriented Programming</li>
@@ -152,7 +215,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exercise-1-greeting-function" id="toc-exercise-1-greeting-function" class="nav-link active" data-scroll-target="#exercise-1-greeting-function"><strong>Exercise 1: Greeting Function</strong></a></li>
+  <li><a href="#exercise-2-sum-of-two-numbers" id="toc-exercise-2-sum-of-two-numbers" class="nav-link" data-scroll-target="#exercise-2-sum-of-two-numbers"><strong>Exercise 2: Sum of Two Numbers</strong></a></li>
+  <li><a href="#exercise-3-convert-celsius-to-fahrenheit" id="toc-exercise-3-convert-celsius-to-fahrenheit" class="nav-link" data-scroll-target="#exercise-3-convert-celsius-to-fahrenheit"><strong>Exercise 3: Convert Celsius to Fahrenheit</strong></a></li>
+  <li><a href="#exercise-4-calculate-area-of-circle" id="toc-exercise-4-calculate-area-of-circle" class="nav-link" data-scroll-target="#exercise-4-calculate-area-of-circle"><strong>Exercise 4: Calculate Area of Circle</strong></a></li>
+  <li><a href="#exercise-5-simple-interest" id="toc-exercise-5-simple-interest" class="nav-link" data-scroll-target="#exercise-5-simple-interest"><strong>Exercise 5: Simple Interest</strong></a></li>
+  <li><a href="#exercise-6-compound-interest" id="toc-exercise-6-compound-interest" class="nav-link" data-scroll-target="#exercise-6-compound-interest"><strong>Exercise 6: Compound Interest</strong></a></li>
+  <li><a href="#exercise-7-maximum-of-three-numbers" id="toc-exercise-7-maximum-of-three-numbers" class="nav-link" data-scroll-target="#exercise-7-maximum-of-three-numbers"><strong>Exercise 7: Maximum of Three Numbers</strong></a></li>
+  <li><a href="#exercise-8-check-even-or-odd-with-lambda" id="toc-exercise-8-check-even-or-odd-with-lambda" class="nav-link" data-scroll-target="#exercise-8-check-even-or-odd-with-lambda"><strong>Exercise 8: Check Even or Odd with Lambda</strong></a></li>
+  <li><a href="#exercise-9-sum-of-squares-using-map" id="toc-exercise-9-sum-of-squares-using-map" class="nav-link" data-scroll-target="#exercise-9-sum-of-squares-using-map"><strong>Exercise 9: Sum of Squares using map()</strong></a></li>
+  <li><a href="#exercise-10-filter-positive-numbers" id="toc-exercise-10-filter-positive-numbers" class="nav-link" data-scroll-target="#exercise-10-filter-positive-numbers"><strong>Exercise 10: Filter Positive Numbers</strong></a></li>
+  <li><a href="#advanced-exercise-1-recursive-factorial-function" id="toc-advanced-exercise-1-recursive-factorial-function" class="nav-link" data-scroll-target="#advanced-exercise-1-recursive-factorial-function"><strong>Advanced Exercise 1: Recursive Factorial Function</strong></a></li>
+  <li><a href="#advanced-exercise-2-higher-order-function-for-applying-functions" id="toc-advanced-exercise-2-higher-order-function-for-applying-functions" class="nav-link" data-scroll-target="#advanced-exercise-2-higher-order-function-for-applying-functions"><strong>Advanced Exercise 2: Higher-Order Function for Applying Functions</strong></a></li>
+  <li><a href="#advanced-exercise-3-net-present-value-npv-with-lambda" id="toc-advanced-exercise-3-net-present-value-npv-with-lambda" class="nav-link" data-scroll-target="#advanced-exercise-3-net-present-value-npv-with-lambda"><strong>Advanced Exercise 3: Net Present Value (NPV) with Lambda</strong></a></li>
+  <li><a href="#advanced-exercise-4-zip-and-sort" id="toc-advanced-exercise-4-zip-and-sort" class="nav-link" data-scroll-target="#advanced-exercise-4-zip-and-sort"><strong>Advanced Exercise 4: Zip and Sort</strong></a></li>
+  <li><a href="#advanced-exercise-5-reduce-for-cumulative-product" id="toc-advanced-exercise-5-reduce-for-cumulative-product" class="nav-link" data-scroll-target="#advanced-exercise-5-reduce-for-cumulative-product"><strong>Advanced Exercise 5: Reduce for Cumulative Product</strong></a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -163,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule Fall 2025</h1>
+<h1 class="title">Functions - Problem Set</h1>
 </div>
 
 
@@ -180,134 +263,122 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 20%">
-<col style="width: 56%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>#</th>
-<th>Lecture</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>24/09/2025</td>
-<td>1</td>
-<td><del>No Class</del></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>01/10/2025</td>
-<td>2</td>
-<td><del>Lecture 01</del></td>
-<td><strong>Introduction to <code>Python</code></strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 02</del></td>
-<td><strong>Data types and structures</strong></td>
-</tr>
-<tr class="even">
-<td>08/10/2025</td>
-<td>3</td>
-<td><del>Lecture 03</del></td>
-<td><strong>Control structures</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 04</del></td>
-<td><strong>Functions</strong></td>
-</tr>
-<tr class="even">
-<td>15/10/2025</td>
-<td>4</td>
-<td>Lecture 05</td>
-<td><strong>Object Oriented Programming</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Lecture 06</td>
-<td><strong>Libraries</strong></td>
-</tr>
-<tr class="even">
-<td>22/10/2025</td>
-<td>5</td>
-<td>Lecture 07</td>
-<td><strong>Numerical computing</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Lecture 08</td>
-<td><strong>Data manipulation</strong></td>
-</tr>
-<tr class="even">
-<td>29/10/2025</td>
-<td>6</td>
-<td>Recap</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>05/11/2025</td>
-<td>7</td>
-<td>Lecture 09</td>
-<td><strong>Input/output</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>Lecture 10</td>
-<td><strong>Data visualization</strong></td>
-</tr>
-<tr class="odd">
-<td>12/11/2025</td>
-<td>8</td>
-<td>Lecture 11 <br> [Guest Lecture]</td>
-<td><strong>Network analytics</strong></td>
-</tr>
-<tr class="even">
-<td>19/11/2025</td>
-<td>9</td>
-<td>Lecture 12</td>
-<td><strong>Time series analysis</strong></td>
-</tr>
-<tr class="odd">
-<td>26/11/2025</td>
-<td>10</td>
-<td>Lecture 13</td>
-<td><strong>Machine Learning</strong></td>
-</tr>
-<tr class="even">
-<td>03/12/2025</td>
-<td>11</td>
-<td>Recap</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10/12/2025</td>
-<td>12</td>
-<td>Lecture 14 <br> [Guest Lecture]</td>
-<td><strong>Advanced Machine Learning</strong></td>
-</tr>
-<tr class="even">
-<td>17/12/2025</td>
-<td>13</td>
-<td>Q&amp;A</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="exercise-1-greeting-function" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-greeting-function"><strong>Exercise 1: Greeting Function</strong></h3>
+<p>Write a function called <code>greet_user(name)</code> that takes a person’s name as a parameter and prints a greeting message.</p>
+<div id="ad5d0826" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2-sum-of-two-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-sum-of-two-numbers"><strong>Exercise 2: Sum of Two Numbers</strong></h3>
+<p>Create a function called <code>sum_two_numbers(a, b)</code> that takes two numbers as arguments and returns their sum.</p>
+<div id="14772ec3" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3-convert-celsius-to-fahrenheit" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-convert-celsius-to-fahrenheit"><strong>Exercise 3: Convert Celsius to Fahrenheit</strong></h3>
+<p>Write a function <code>celsius_to_fahrenheit(celsius)</code> that takes a temperature in Celsius and returns the temperature in Fahrenheit. Use the formula:</p>
+<p><span class="math display">\[
+    F = \frac{9}{5} \times C + 32
+\]</span></p>
+<div id="337e5018" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4-calculate-area-of-circle" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-calculate-area-of-circle"><strong>Exercise 4: Calculate Area of Circle</strong></h3>
+<p>Create a function called <code>calculate_circle_area(radius)</code> that takes the radius of a circle and returns the area of the circle using the formula:</p>
+<p><span class="math display">\[
+    A = \pi \times r^2
+\]</span></p>
+<div id="e0dd9573" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-5-simple-interest" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-simple-interest"><strong>Exercise 5: Simple Interest</strong></h3>
+<p>Write a function <code>calculate_simple_interest(principal, rate, time)</code> that calculates simple interest and returns it. The formula is:</p>
+<p><span class="math display">\[
+    \text{Interest} = \frac{P \times R \times T}{100}
+\]</span></p>
+<div id="69be47ee" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-6-compound-interest" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6-compound-interest"><strong>Exercise 6: Compound Interest</strong></h3>
+<p>Modify the function <code>calculate_compound_interest(principal, rate, time)</code> to return both the compound interest and the total amount (principal + interest).</p>
+<div id="c7c8699b" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-7-maximum-of-three-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7-maximum-of-three-numbers"><strong>Exercise 7: Maximum of Three Numbers</strong></h3>
+<p>Create a function <code>max_of_three(a, b, c)</code> that takes three numbers as input and returns the largest of the three.</p>
+<div id="6a41af26" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-8-check-even-or-odd-with-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8-check-even-or-odd-with-lambda"><strong>Exercise 8: Check Even or Odd with Lambda</strong></h3>
+<p>Use a lambda function to check whether a number is even or odd. Write a function <code>is_even_or_odd(number)</code> that returns “even” if the number is even and “odd” if the number is odd.</p>
+<div id="b7d7e393" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-9-sum-of-squares-using-map" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9-sum-of-squares-using-map"><strong>Exercise 9: Sum of Squares using map()</strong></h3>
+<p>Use <code>map()</code> and a lambda function to create a list of squares of numbers from 1 to 10.</p>
+<div id="c5ef4485" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-10-filter-positive-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10-filter-positive-numbers"><strong>Exercise 10: Filter Positive Numbers</strong></h3>
+<p>Write a function <code>filter_positive(numbers)</code> that takes a list of numbers and uses the <code>filter()</code> function to return a list of only positive numbers.</p>
+<div id="1c940155" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advanced-exercise-1-recursive-factorial-function" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-exercise-1-recursive-factorial-function"><strong>Advanced Exercise 1: Recursive Factorial Function</strong></h3>
+<p>Write a recursive function <code>factorial(n)</code> that takes a number <code>n</code> and returns the factorial of <code>n</code>.</p>
+<div id="4b83a469" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advanced-exercise-2-higher-order-function-for-applying-functions" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-exercise-2-higher-order-function-for-applying-functions"><strong>Advanced Exercise 2: Higher-Order Function for Applying Functions</strong></h3>
+<p>Create a higher-order function <code>apply_function(func, x)</code> that takes a function and a value <code>x</code>, and applies the function to <code>x</code> twice.</p>
+<div id="8fb2d8a3" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advanced-exercise-3-net-present-value-npv-with-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-exercise-3-net-present-value-npv-with-lambda"><strong>Advanced Exercise 3: Net Present Value (NPV) with Lambda</strong></h3>
+<p>Write a function <code>calculate_npv(cash_flows, rate)</code> that calculates the Net Present Value (NPV) of cash flows using a lambda function inside a list comprehension. Assume <code>cash_flows</code> is a list and <code>rate</code> is a constant discount rate.</p>
+<div id="f30c645e" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advanced-exercise-4-zip-and-sort" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-exercise-4-zip-and-sort"><strong>Advanced Exercise 4: Zip and Sort</strong></h3>
+<p>Write a function <code>zip_and_sort(names, scores)</code> that takes two lists: <code>names</code> (list of students’ names) and <code>scores</code> (list of their scores). Use <code>zip()</code> to combine the two lists into tuples, then return the list of students sorted by their scores in descending order.</p>
+<div id="16c0606d" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advanced-exercise-5-reduce-for-cumulative-product" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-exercise-5-reduce-for-cumulative-product"><strong>Advanced Exercise 5: Reduce for Cumulative Product</strong></h3>
+<p>Use the <code>reduce()</code> function to write a function <code>cumulative_product(numbers)</code> that takes a list of numbers and returns their cumulative product.</p>
+<div id="142413c2" class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

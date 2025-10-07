@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trkrkn.github.io/ds4f/schedule.html</loc>
-    <lastmod>2025-10-01T12:29:08.576Z</lastmod>
+    <lastmod>2025-10-06T11:41:36.471Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/lecture_03_problem_sets.html</loc>
+    <lastmod>2024-09-30T08:47:44.578Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_04/lecture_04_problem_sets.html</loc>
+    <lastmod>2024-09-30T08:46:59.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_04/lecture_04.html</loc>
+    <lastmod>2025-10-07T13:52:42.291Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_02/lecture_02.html</loc>
-    <lastmod>2025-10-01T11:25:16.249Z</lastmod>
+    <lastmod>2025-10-06T11:13:47.653Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_00/lecture_00.html</loc>
@@ -18,7 +30,7 @@
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/index.html</loc>
-    <lastmod>2025-10-01T09:38:45.971Z</lastmod>
+    <lastmod>2025-10-06T11:40:38.874Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/syllabus.html</loc>
@@ -35,5 +47,17 @@
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_02/lecture_02_problem_sets.html</loc>
     <lastmod>2025-09-25T12:34:07.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_04/functions.html</loc>
+    <lastmod>2025-10-06T10:04:59.617Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/lecture_03.html</loc>
+    <lastmod>2025-10-07T13:52:58.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/control_structures.html</loc>
+    <lastmod>2025-10-06T08:34:32.549Z</lastmod>
   </url>
 </urlset>
