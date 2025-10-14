@@ -6,17 +6,29 @@ title: "Data Science For Finance"
 
 
 ## News & Announcements
+
+- **14/10/2025**
+    - Recordings for **Lecture 05** and **06** are available
+    - **Solutions** to Problem set of Lecture 03 and 04 are available
+
+---
+
 - **07/10/2025**
     - Recordings for **Lecture 03** and **04** are available
     - **Solutions** to Problem set of Lecture 02 are available
     - **<u>New</u>**: A beta test [All Day TA](https://app.alldayta.com/katholieke-universiteit-leuven/ds4f) is available for the course. 
         - **All Day TA** is an interactive AI tutor trained on the course material and synced with the course schedule for learning support. 
 
+---
+
 - **01/10/2025**
     - Recordings for **Introduction**, and **Lecture 01** and **02** are available
     - **Solutions** to Problem set of Lecture 02 will be available next week
 
+---
 
 - **25/09/2025**   
     - The course is **live**
     - Material for **Lecture 01** and **02** is available
+
+---

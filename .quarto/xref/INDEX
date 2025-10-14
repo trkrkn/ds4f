@@ -73,5 +73,20 @@
   },
   "lectures/lecture_03/lecture_03_problem_sets.md": {
     "lecture_03_problem_sets.html": "a8fca8b5"
+  },
+  "lectures/lecture_06/lecture_06.qmd": {
+    "lecture_06.html": "fa382916"
+  },
+  "lectures/lecture_06/libraries.ipynb": {
+    "libraries.html": "8924d42e"
+  },
+  "lectures/lecture_05/lecture_05.qmd": {
+    "lecture_05.html": "684eded4"
+  },
+  "lectures/lecture_05/oop.ipynb": {
+    "oop.html": "29e1671b"
+  },
+  "lectures/lecture_05/lecture_05_problem_sets.ipynb": {
+    "lecture_05_problem_sets.html": "1a8a16e6"
   }
 }

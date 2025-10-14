@@ -117,20 +117,35 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./lectures/lecture_02/lecture_02.html">
  <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
   </li>  
-        <li class="dropdown-header">Lecture 03 - Control structures</li>
-        <li class="dropdown-header">Lecture 04 - Functions</li>
-        <li class="dropdown-header">Lecture 05 - Object Oriented Programming</li>
-        <li class="dropdown-header">Lecture 06 - Libraries</li>
+        <li>
+    <a class="dropdown-item" href="./lectures/lecture_03/lecture_03.html">
+ <span class="dropdown-text">Lecture 03 - Control structures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lectures/lecture_04/lecture_04.html">
+ <span class="dropdown-text">Lecture 04 - Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lectures/lecture_05/lecture_05.html">
+ <span class="dropdown-text">Lecture 05 - Object Oriented Programming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lectures/lecture_06/lecture_06.html">
+ <span class="dropdown-text">Lecture 06 - Libraries</span></a>
+  </li>  
         <li class="dropdown-header">Lecture 07 - Numerical Computing</li>
-        <li class="dropdown-header">Lecture 08 - Data Manipulation</li>
-        <li class="dropdown-header">Lecture 09 - Input/output</li>
-        <li class="dropdown-header">Lecture 10 - Data visualization</li>
-        <li class="dropdown-header">Lecture 11 - Time series analysis</li>
-        <li class="dropdown-header">Lecture 12 - Network analysis</li>
-        <li class="dropdown-header">Lecture 13 - Machine Learning</li>
-        <li class="dropdown-header">Lecture 14 - Advanced Machine Learning</li>
+        <li class="dropdown-header">Lecture 08 - Input/output</li>
+        <li class="dropdown-header">Lecture 09 - Data Manipulation</li>
+        <li class="dropdown-header">Lecture 10 - Time series analysis</li>
+        <li class="dropdown-header">Lecture 11 - Network analysis</li>
+        <li class="dropdown-header">Lecture 12 - Machine Learning</li>
+        <li class="dropdown-header">Lecture 13 - Advanced Machine Learning</li>
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://app.alldayta.com/katholieke-universiteit-leuven/ds4f"> 
+<span class="menu-text">All Day TA (<b>new!</b>)</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -355,7 +370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

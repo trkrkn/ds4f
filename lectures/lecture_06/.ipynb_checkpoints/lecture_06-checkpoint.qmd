@@ -1,0 +1,23 @@
+---
+title: "Lecture 06 - Libraries"
+file_name: "libraries"
+---
+## Lecture Material
+- **Notebook**
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+- **Slides**
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+    
+## Recording
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1ZYqoA2RxcatEXHd8YMSfxwcb1BgHVKSm/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+

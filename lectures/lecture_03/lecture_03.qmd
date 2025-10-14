@@ -58,4 +58,4 @@ file_name: "control_structures"
 
 ## Problem sets
 - [Jupyter notebook (.ipynb)](lecture_03_problem_sets.zip)
-<!--- - [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank} --->
+- [Solutions (.pdf)](lecture_03_solutions.pdf){target=_blank} 

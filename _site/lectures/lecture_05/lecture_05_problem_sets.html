@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Functions - Problem Set – Data Science For Finance</title>
+<title>Object-Oriented Programming - Problem set – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,35 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -180,10 +151,22 @@ window.Quarto = {
     <a class="dropdown-item" href="../../lectures/lecture_02/lecture_02.html">
  <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
   </li>  
-        <li class="dropdown-header">Lecture 03 - Control structures</li>
-        <li class="dropdown-header">Lecture 04 - Functions</li>
-        <li class="dropdown-header">Lecture 05 - Object Oriented Programming</li>
-        <li class="dropdown-header">Lecture 06 - Libraries</li>
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_03/lecture_03.html">
+ <span class="dropdown-text">Lecture 03 - Control structures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_04/lecture_04.html">
+ <span class="dropdown-text">Lecture 04 - Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_05/lecture_05.html">
+ <span class="dropdown-text">Lecture 05 - Object Oriented Programming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_06/lecture_06.html">
+ <span class="dropdown-text">Lecture 06 - Libraries</span></a>
+  </li>  
         <li class="dropdown-header">Lecture 07 - Numerical Computing</li>
         <li class="dropdown-header">Lecture 08 - Data Manipulation</li>
         <li class="dropdown-header">Lecture 09 - Input/output</li>
@@ -213,21 +196,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-1-greeting-function" id="toc-exercise-1-greeting-function" class="nav-link active" data-scroll-target="#exercise-1-greeting-function"><strong>Exercise 1: Greeting Function</strong></a></li>
-  <li><a href="#exercise-2-sum-of-two-numbers" id="toc-exercise-2-sum-of-two-numbers" class="nav-link" data-scroll-target="#exercise-2-sum-of-two-numbers"><strong>Exercise 2: Sum of Two Numbers</strong></a></li>
-  <li><a href="#exercise-3-convert-celsius-to-fahrenheit" id="toc-exercise-3-convert-celsius-to-fahrenheit" class="nav-link" data-scroll-target="#exercise-3-convert-celsius-to-fahrenheit"><strong>Exercise 3: Convert Celsius to Fahrenheit</strong></a></li>
-  <li><a href="#exercise-4-calculate-area-of-circle" id="toc-exercise-4-calculate-area-of-circle" class="nav-link" data-scroll-target="#exercise-4-calculate-area-of-circle"><strong>Exercise 4: Calculate Area of Circle</strong></a></li>
-  <li><a href="#exercise-5-simple-interest" id="toc-exercise-5-simple-interest" class="nav-link" data-scroll-target="#exercise-5-simple-interest"><strong>Exercise 5: Simple Interest</strong></a></li>
-  <li><a href="#exercise-6-compound-interest" id="toc-exercise-6-compound-interest" class="nav-link" data-scroll-target="#exercise-6-compound-interest"><strong>Exercise 6: Compound Interest</strong></a></li>
-  <li><a href="#exercise-7-maximum-of-three-numbers" id="toc-exercise-7-maximum-of-three-numbers" class="nav-link" data-scroll-target="#exercise-7-maximum-of-three-numbers"><strong>Exercise 7: Maximum of Three Numbers</strong></a></li>
-  <li><a href="#exercise-8-check-even-or-odd-with-lambda" id="toc-exercise-8-check-even-or-odd-with-lambda" class="nav-link" data-scroll-target="#exercise-8-check-even-or-odd-with-lambda"><strong>Exercise 8: Check Even or Odd with Lambda</strong></a></li>
-  <li><a href="#exercise-9-sum-of-squares-using-map" id="toc-exercise-9-sum-of-squares-using-map" class="nav-link" data-scroll-target="#exercise-9-sum-of-squares-using-map"><strong>Exercise 9: Sum of Squares using map()</strong></a></li>
-  <li><a href="#exercise-10-filter-positive-numbers" id="toc-exercise-10-filter-positive-numbers" class="nav-link" data-scroll-target="#exercise-10-filter-positive-numbers"><strong>Exercise 10: Filter Positive Numbers</strong></a></li>
-  <li><a href="#advanced-exercise-1-recursive-factorial-function" id="toc-advanced-exercise-1-recursive-factorial-function" class="nav-link" data-scroll-target="#advanced-exercise-1-recursive-factorial-function"><strong>Advanced Exercise 1: Recursive Factorial Function</strong></a></li>
-  <li><a href="#advanced-exercise-2-higher-order-function-for-applying-functions" id="toc-advanced-exercise-2-higher-order-function-for-applying-functions" class="nav-link" data-scroll-target="#advanced-exercise-2-higher-order-function-for-applying-functions"><strong>Advanced Exercise 2: Higher-Order Function for Applying Functions</strong></a></li>
-  <li><a href="#advanced-exercise-3-net-present-value-npv-with-lambda" id="toc-advanced-exercise-3-net-present-value-npv-with-lambda" class="nav-link" data-scroll-target="#advanced-exercise-3-net-present-value-npv-with-lambda"><strong>Advanced Exercise 3: Net Present Value (NPV) with Lambda</strong></a></li>
-  <li><a href="#advanced-exercise-4-zip-and-sort" id="toc-advanced-exercise-4-zip-and-sort" class="nav-link" data-scroll-target="#advanced-exercise-4-zip-and-sort"><strong>Advanced Exercise 4: Zip and Sort</strong></a></li>
-  <li><a href="#advanced-exercise-5-reduce-for-cumulative-product" id="toc-advanced-exercise-5-reduce-for-cumulative-product" class="nav-link" data-scroll-target="#advanced-exercise-5-reduce-for-cumulative-product"><strong>Advanced Exercise 5: Reduce for Cumulative Product</strong></a></li>
+  <li><a href="#problem-1-create-a-book-class" id="toc-problem-1-create-a-book-class" class="nav-link active" data-scroll-target="#problem-1-create-a-book-class"><strong>Problem 1: Create a <code>Book</code> Class</strong></a></li>
+  <li><a href="#problem-2-create-a-rectangle-class" id="toc-problem-2-create-a-rectangle-class" class="nav-link" data-scroll-target="#problem-2-create-a-rectangle-class"><strong>Problem 2: Create a <code>Rectangle</code> Class</strong></a></li>
+  <li><a href="#problem-3-create-a-circle-class" id="toc-problem-3-create-a-circle-class" class="nav-link" data-scroll-target="#problem-3-create-a-circle-class"><strong>Problem 3: Create a <code>Circle</code> Class</strong></a></li>
+  <li><a href="#problem-4-implement-a-person-class-with-multiple-methods" id="toc-problem-4-implement-a-person-class-with-multiple-methods" class="nav-link" data-scroll-target="#problem-4-implement-a-person-class-with-multiple-methods"><strong>Problem 4: Implement a <code>Person</code> Class with Multiple Methods</strong></a></li>
+  <li><a href="#problem-5-create-a-library-class" id="toc-problem-5-create-a-library-class" class="nav-link" data-scroll-target="#problem-5-create-a-library-class"><strong>Problem 5: Create a <code>Library</code> Class</strong></a></li>
+  <li><a href="#problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" id="toc-problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" class="nav-link" data-scroll-target="#problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance"><strong>Problem 6: Create a <code>BankAccount</code> and <code>CheckingAccount</code> Class Using Inheritance</strong></a></li>
+  <li><a href="#problem-7-implement-a-vehicle-and-car-class-using-inheritance" id="toc-problem-7-implement-a-vehicle-and-car-class-using-inheritance" class="nav-link" data-scroll-target="#problem-7-implement-a-vehicle-and-car-class-using-inheritance"><strong>Problem 7: Implement a <code>Vehicle</code> and <code>Car</code> Class Using Inheritance</strong></a></li>
+  <li><a href="#problem-8-create-a-product-class-with-inheritance" id="toc-problem-8-create-a-product-class-with-inheritance" class="nav-link" data-scroll-target="#problem-8-create-a-product-class-with-inheritance">Problem 8: Create a <code>Product</code> Class with Inheritance</a></li>
+  <li><a href="#problem-9-create-a-team-class-with-aggregation" id="toc-problem-9-create-a-team-class-with-aggregation" class="nav-link" data-scroll-target="#problem-9-create-a-team-class-with-aggregation"><strong>Problem 9: Create a <code>Team</code> Class with Aggregation</strong></a></li>
+  <li><a href="#problem-10-polymorphism-with-a-shape-class-hierarchy" id="toc-problem-10-polymorphism-with-a-shape-class-hierarchy" class="nav-link" data-scroll-target="#problem-10-polymorphism-with-a-shape-class-hierarchy"><strong>Problem 10: Polymorphism with a <code>Shape</code> Class Hierarchy</strong></a></li>
   </ul>
 </nav>
 </nav>
@@ -240,7 +218,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Functions - Problem Set</h1>
+<h1 class="title">Object-Oriented Programming - Problem set</h1>
 </div>
 
 
@@ -257,118 +235,123 @@ window.Quarto = {
 </header>
 
 
-<section id="exercise-1-greeting-function" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1-greeting-function"><strong>Exercise 1: Greeting Function</strong></h3>
-<p>Write a function called <code>greet_user(name)</code> that takes a person’s name as a parameter and prints a greeting message.</p>
-<div id="ad5d0826" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-1-create-a-book-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-create-a-book-class"><strong>Problem 1: Create a <code>Book</code> Class</strong></h3>
+<p>Define a <code>Book</code> class with the following attributes: - <code>title</code> (string) - <code>author</code> (string) - <code>pages</code> (integer)</p>
+<p>Create a method called <code>description()</code> that prints the details of the book in the following format:</p>
+<p><code>"&lt;Title&gt; by &lt;Author&gt; has &lt;Pages&gt; pages."</code></p>
+<div id="63a17563" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-2-sum-of-two-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2-sum-of-two-numbers"><strong>Exercise 2: Sum of Two Numbers</strong></h3>
-<p>Create a function called <code>sum_two_numbers(a, b)</code> that takes two numbers as arguments and returns their sum.</p>
-<div id="14772ec3" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-2-create-a-rectangle-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2-create-a-rectangle-class"><strong>Problem 2: Create a <code>Rectangle</code> Class</strong></h3>
+<p>Define a <code>Rectangle</code> class with attributes: - <code>length</code> - <code>width</code></p>
+<p>Add methods to: - Calculate the <strong>area</strong> of the rectangle. - Calculate the <strong>perimeter</strong> of the rectangle.</p>
+<p>Create a few rectangle objects and call these methods to display their area and perimeter.</p>
+<div id="6cdf061a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-3-convert-celsius-to-fahrenheit" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3-convert-celsius-to-fahrenheit"><strong>Exercise 3: Convert Celsius to Fahrenheit</strong></h3>
-<p>Write a function <code>celsius_to_fahrenheit(celsius)</code> that takes a temperature in Celsius and returns the temperature in Fahrenheit. Use the formula:</p>
-<p><span class="math display">\[
-    F = \frac{9}{5} \times C + 32
-\]</span></p>
-<div id="337e5018" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-3-create-a-circle-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3-create-a-circle-class"><strong>Problem 3: Create a <code>Circle</code> Class</strong></h3>
+<p>Define a <code>Circle</code> class with a single attribute: - <code>radius</code></p>
+<p>Add a method called <code>circumference()</code> that calculates and returns the circumference of the circle (<code>2 * π * radius</code>). Use <code>math.pi</code> for the value of π.</p>
+<div id="2f971b10" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-4-calculate-area-of-circle" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4-calculate-area-of-circle"><strong>Exercise 4: Calculate Area of Circle</strong></h3>
-<p>Create a function called <code>calculate_circle_area(radius)</code> that takes the radius of a circle and returns the area of the circle using the formula:</p>
-<p><span class="math display">\[
-    A = \pi \times r^2
-\]</span></p>
-<div id="e0dd9573" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-4-implement-a-person-class-with-multiple-methods" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4-implement-a-person-class-with-multiple-methods"><strong>Problem 4: Implement a <code>Person</code> Class with Multiple Methods</strong></h3>
+<p>Create a <code>Person</code> class with the following attributes: - <code>name</code> - <code>age</code> - <code>occupation</code></p>
+<p>Add methods to: - <code>introduce()</code>: Prints a personalized introduction message: <code>"Hi, my name is &lt;Name&gt;, and I am a &lt;Occupation&gt;."</code> - <code>is_adult()</code>: Returns <code>True</code> if the person is 18 or older, and <code>False</code> otherwise.</p>
+<div id="9c77d196" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-5-simple-interest" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5-simple-interest"><strong>Exercise 5: Simple Interest</strong></h3>
-<p>Write a function <code>calculate_simple_interest(principal, rate, time)</code> that calculates simple interest and returns it. The formula is:</p>
-<p><span class="math display">\[
-    \text{Interest} = \frac{P \times R \times T}{100}
-\]</span></p>
-<div id="69be47ee" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-5-create-a-library-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-create-a-library-class"><strong>Problem 5: Create a <code>Library</code> Class</strong></h3>
+<p>Define a <code>Library</code> class that stores a <strong>collection of <code>Book</code> objects</strong> (from Problem 1). Implement methods to: - Add a new book to the library. - Remove a book from the library using the book title. - List all books currently in the library.</p>
+<div id="208d406c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-6-compound-interest" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6-compound-interest"><strong>Exercise 6: Compound Interest</strong></h3>
-<p>Modify the function <code>calculate_compound_interest(principal, rate, time)</code> to return both the compound interest and the total amount (principal + interest).</p>
-<div id="c7c8699b" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance"><strong>Problem 6: Create a <code>BankAccount</code> and <code>CheckingAccount</code> Class Using Inheritance</strong></h3>
+<ul>
+<li>Create a <code>BankAccount</code> class with attributes:
+<ul>
+<li><code>account_holder</code></li>
+<li><code>balance</code></li>
+</ul></li>
+<li>Add methods to:
+<ul>
+<li><code>deposit(amount)</code>: Adds money to the account.</li>
+<li><code>withdraw(amount)</code>: Subtracts money if balance is sufficient; otherwise, prints “Insufficient funds.”</li>
+</ul></li>
+<li>Create a <code>CheckingAccount</code> class that <strong>inherits</strong> from <code>BankAccount</code> and has an additional attribute:
+<ul>
+<li><code>transaction_fee</code></li>
+</ul></li>
+</ul>
+<p>Override the <code>withdraw()</code> method to include a transaction fee for each withdrawal.</p>
+</section>
+<section id="problem-7-implement-a-vehicle-and-car-class-using-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7-implement-a-vehicle-and-car-class-using-inheritance"><strong>Problem 7: Implement a <code>Vehicle</code> and <code>Car</code> Class Using Inheritance</strong></h3>
+<ul>
+<li><p>Create a <code>Vehicle</code> class with attributes:</p>
+<ul>
+<li><code>make</code></li>
+<li><code>model</code></li>
+<li><code>year</code></li>
+</ul>
+<p>Add a method called <code>display_info()</code> that prints the details of the vehicle.</p></li>
+<li><p>Create a <code>Car</code> class that inherits from <code>Vehicle</code> and adds:</p>
+<ul>
+<li><code>fuel_type</code> (e.g., “Petrol” or “Electric”)</li>
+</ul></li>
+</ul>
+<p>Override the <code>display_info()</code> method to include the fuel type in the printed details.</p>
+<div id="c1a9d146" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-7-maximum-of-three-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7-maximum-of-three-numbers"><strong>Exercise 7: Maximum of Three Numbers</strong></h3>
-<p>Create a function <code>max_of_three(a, b, c)</code> that takes three numbers as input and returns the largest of the three.</p>
-<div id="6a41af26" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-8-create-a-product-class-with-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-8-create-a-product-class-with-inheritance">Problem 8: Create a <code>Product</code> Class with Inheritance</h3>
+<p>Create a <code>Product</code> base class that represents a generic product in a store. The class should have the following attributes:</p>
+<ul>
+<li><code>name</code> (string)</li>
+<li><code>price</code> (float)</li>
+</ul>
+<p>Create two child classes that inherit from <code>Product</code>: 1. <strong>Electronics</strong>: This class should have an additional attribute called <code>warranty_years</code> (integer). 2. <strong>Clothing</strong>: This class should have an additional attribute called <code>size</code> (string).</p>
+<p>Implement methods in the base class and child classes as follows: - The base <code>Product</code> class should have a method called <code>display()</code> that prints the product’s name and price. - Each child class should <strong>override</strong> the <code>display()</code> method to include its additional attributes.</p>
+<section id="example-of-the-output-format" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-the-output-format">Example of the output format</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> electronics <span class="op">=</span> Electronics(<span class="st">"Smartphone"</span>, <span class="fl">699.99</span>, <span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> clothing <span class="op">=</span> Clothing(<span class="st">"T-shirt"</span>, <span class="fl">19.99</span>, <span class="st">"M"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> electronics.display()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Product: Smartphone, Price: $<span class="fl">699.99</span>, Warranty: <span class="dv">2</span> years</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> clothing.display()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Product: T<span class="op">-</span>shirt, Price: $<span class="fl">19.99</span>, Size: M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c906dfa" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-8-check-even-or-odd-with-lambda" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-8-check-even-or-odd-with-lambda"><strong>Exercise 8: Check Even or Odd with Lambda</strong></h3>
-<p>Use a lambda function to check whether a number is even or odd. Write a function <code>is_even_or_odd(number)</code> that returns “even” if the number is even and “odd” if the number is odd.</p>
-<div id="b7d7e393" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="problem-9-create-a-team-class-with-aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="problem-9-create-a-team-class-with-aggregation"><strong>Problem 9: Create a <code>Team</code> Class with Aggregation</strong></h3>
+<p>Create a <code>Player</code> class with attributes: - <code>name</code> - <code>position</code> - <code>number</code></p>
+<p>Create a <code>Team</code> class that contains a <strong>list of Player objects</strong>. Implement methods to: - Add a player. - Remove a player using the player’s name. - Display the list of all players on the team.</p>
+<div id="52276fd5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-9-sum-of-squares-using-map" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-9-sum-of-squares-using-map"><strong>Exercise 9: Sum of Squares using map()</strong></h3>
-<p>Use <code>map()</code> and a lambda function to create a list of squares of numbers from 1 to 10.</p>
-<div id="c5ef4485" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-10-filter-positive-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-10-filter-positive-numbers"><strong>Exercise 10: Filter Positive Numbers</strong></h3>
-<p>Write a function <code>filter_positive(numbers)</code> that takes a list of numbers and uses the <code>filter()</code> function to return a list of only positive numbers.</p>
-<div id="1c940155" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="advanced-exercise-1-recursive-factorial-function" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-exercise-1-recursive-factorial-function"><strong>Advanced Exercise 1: Recursive Factorial Function</strong></h3>
-<p>Write a recursive function <code>factorial(n)</code> that takes a number <code>n</code> and returns the factorial of <code>n</code>.</p>
-<div id="4b83a469" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="advanced-exercise-2-higher-order-function-for-applying-functions" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-exercise-2-higher-order-function-for-applying-functions"><strong>Advanced Exercise 2: Higher-Order Function for Applying Functions</strong></h3>
-<p>Create a higher-order function <code>apply_function(func, x)</code> that takes a function and a value <code>x</code>, and applies the function to <code>x</code> twice.</p>
-<div id="8fb2d8a3" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="advanced-exercise-3-net-present-value-npv-with-lambda" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-exercise-3-net-present-value-npv-with-lambda"><strong>Advanced Exercise 3: Net Present Value (NPV) with Lambda</strong></h3>
-<p>Write a function <code>calculate_npv(cash_flows, rate)</code> that calculates the Net Present Value (NPV) of cash flows using a lambda function inside a list comprehension. Assume <code>cash_flows</code> is a list and <code>rate</code> is a constant discount rate.</p>
-<div id="f30c645e" class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="advanced-exercise-4-zip-and-sort" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-exercise-4-zip-and-sort"><strong>Advanced Exercise 4: Zip and Sort</strong></h3>
-<p>Write a function <code>zip_and_sort(names, scores)</code> that takes two lists: <code>names</code> (list of students’ names) and <code>scores</code> (list of their scores). Use <code>zip()</code> to combine the two lists into tuples, then return the list of students sorted by their scores in descending order.</p>
-<div id="16c0606d" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="advanced-exercise-5-reduce-for-cumulative-product" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-exercise-5-reduce-for-cumulative-product"><strong>Advanced Exercise 5: Reduce for Cumulative Product</strong></h3>
-<p>Use the <code>reduce()</code> function to write a function <code>cumulative_product(numbers)</code> that takes a list of numbers and returns their cumulative product.</p>
-<div id="142413c2" class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="problem-10-polymorphism-with-a-shape-class-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="problem-10-polymorphism-with-a-shape-class-hierarchy"><strong>Problem 10: Polymorphism with a <code>Shape</code> Class Hierarchy</strong></h3>
+<p>Create a <code>Shape</code> parent class with a method <code>draw()</code>. Define two child classes: - <code>Circle</code> class with a <code>draw()</code> method that prints “Drawing a circle.” - <code>Square</code> class with a <code>draw()</code> method that prints “Drawing a square.”</p>
+<p>Create a list of <code>Shape</code> objects (some <code>Circle</code> and some <code>Square</code>), and use a loop to call <code>draw()</code> on each object, demonstrating polymorphism.</p>
+<div id="510586a5" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

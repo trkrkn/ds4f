@@ -45,5 +45,5 @@ file_name: "functions"
 </div>
 
 ## Problem sets
-- [Jupyter notebook (.ipynb)](lecture_02_problem_sets.zip)
-<!--- - [Solutions (.pdf)](lecture_02_solutions.pdf){target=_blank} --->
+- [Jupyter notebook (.ipynb)](lecture_04_problem_sets.zip)
+- [Solutions (.pdf)](lecture_04_solutions.pdf){target=_blank} 

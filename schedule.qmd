@@ -5,20 +5,19 @@ title: "Schedule Fall 2025"
 | Date       | #  | Lecture       | Topic                                   |
 |------------|----|---------------|-----------------------------------------|
 | 24/09/2025 | 1  | ~~No Class~~      |                                         |
-| 01/10/2025 | 2  | ~~Lecture 01~~    | **Introduction to `Python`**              |
+| 01/10/2025 <br> `recorded`| 2  | ~~Lecture 01~~    | **Introduction to `Python`**              |
 |            |    | ~~Lecture 02~~    | **Data types and structures**           |
-| 08/10/2025 | 3  | ~~Lecture 03~~    | **Control structures**                  |
+| 08/10/2025 <br> `recorded` | 3  | ~~Lecture 03~~    | **Control structures**                  |
 |            |    | ~~Lecture 04~~    | **Functions**                           |
-| 15/10/2025 | 4  | Lecture 05    | **Object Oriented Programming**         |
-|            |    | Lecture 06    | **Libraries**                           |
+| 15/10/2025 <br> `recorded` | 4  | ~~Lecture 05~~    | **Object Oriented Programming**         |
+|            |    | ~~Lecture 06~~    | **Libraries**                           |
 | 22/10/2025 | 5  | Lecture 07    | **Numerical computing**                 |
-|            |    | Lecture 08    | **Data manipulation**                   |
-| 29/10/2025 | 6  | Recap         |                                         |
-| 05/11/2025 | 7  | Lecture 09    | **Input/output**                        |
-|            |    | Lecture 10    | **Data visualization**                  |
-| 12/11/2025 | 8  | Lecture 11 <br> [Guest Lecture]    | **Network analytics**                |
-| 19/11/2025 | 9  | Lecture 12    |    **Time series analysis** |
-| 26/11/2025 | 10 | Lecture 13    | **Machine Learning**                    |
-| 03/12/2025 | 11 | Recap         |                                         |
-| 10/12/2025 | 12 | Lecture 14   <br> [Guest Lecture] | **Advanced Machine Learning** |
+| 29/10/2025 | 6  | No class         |                                         |
+| 05/11/2025 | 7  | Lecture 08    | **Input/output**                        |
+|            |    | Lecture 09    | **Data manipulation**                   |
+| 12/11/2025 | 8  | Lecture 10 <br> [Guest Lecture]    | **Network analytics**                |
+| 19/11/2025 | 9  | Lecture 11    |    **Time series analysis** |
+| 26/11/2025 | 10 | Lecture 12    | **Machine Learning**                    |
+| 03/12/2025 | 11 | No Class         |                                         |
+| 10/12/2025 | 12 | Lecture 13   <br> [Guest Lecture] | **Advanced Machine Learning** |
 | 17/12/2025 | 13 | Q&A           |                                         |
