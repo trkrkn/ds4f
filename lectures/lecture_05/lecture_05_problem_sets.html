@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule Fall 2025 – Data Science For Finance</title>
+<title>Object-Oriented Programming - Problem set – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Science For Finance</span>
     </a>
   </div>
@@ -89,15 +123,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,31 +140,31 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_00/lecture_00.html">
+    <a class="dropdown-item" href="../../lectures/lecture_00/lecture_00.html">
  <span class="dropdown-text">Lecture 00</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_01/lecture_01.html">
+    <a class="dropdown-item" href="../../lectures/lecture_01/lecture_01.html">
  <span class="dropdown-text">Lecture 01 - Introduction to Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_02/lecture_02.html">
+    <a class="dropdown-item" href="../../lectures/lecture_02/lecture_02.html">
  <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_03/lecture_03.html">
+    <a class="dropdown-item" href="../../lectures/lecture_03/lecture_03.html">
  <span class="dropdown-text">Lecture 03 - Control structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_04/lecture_04.html">
+    <a class="dropdown-item" href="../../lectures/lecture_04/lecture_04.html">
  <span class="dropdown-text">Lecture 04 - Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_05/lecture_05.html">
+    <a class="dropdown-item" href="../../lectures/lecture_05/lecture_05.html">
  <span class="dropdown-text">Lecture 05 - Object Oriented Programming</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lecture_06/lecture_06.html">
+    <a class="dropdown-item" href="../../lectures/lecture_06/lecture_06.html">
  <span class="dropdown-text">Lecture 06 - Libraries</span></a>
   </li>  
         <li class="dropdown-header">Lecture 07 - Numerical Computing</li>
@@ -157,7 +191,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem-1-create-a-book-class" id="toc-problem-1-create-a-book-class" class="nav-link active" data-scroll-target="#problem-1-create-a-book-class"><strong>Problem 1: Create a <code>Book</code> Class</strong></a></li>
+  <li><a href="#problem-2-create-a-rectangle-class" id="toc-problem-2-create-a-rectangle-class" class="nav-link" data-scroll-target="#problem-2-create-a-rectangle-class"><strong>Problem 2: Create a <code>Rectangle</code> Class</strong></a></li>
+  <li><a href="#problem-3-create-a-circle-class" id="toc-problem-3-create-a-circle-class" class="nav-link" data-scroll-target="#problem-3-create-a-circle-class"><strong>Problem 3: Create a <code>Circle</code> Class</strong></a></li>
+  <li><a href="#problem-4-implement-a-person-class-with-multiple-methods" id="toc-problem-4-implement-a-person-class-with-multiple-methods" class="nav-link" data-scroll-target="#problem-4-implement-a-person-class-with-multiple-methods"><strong>Problem 4: Implement a <code>Person</code> Class with Multiple Methods</strong></a></li>
+  <li><a href="#problem-5-create-a-library-class" id="toc-problem-5-create-a-library-class" class="nav-link" data-scroll-target="#problem-5-create-a-library-class"><strong>Problem 5: Create a <code>Library</code> Class</strong></a></li>
+  <li><a href="#problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" id="toc-problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" class="nav-link" data-scroll-target="#problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance"><strong>Problem 6: Create a <code>BankAccount</code> and <code>CheckingAccount</code> Class Using Inheritance</strong></a></li>
+  <li><a href="#problem-7-implement-a-vehicle-and-car-class-using-inheritance" id="toc-problem-7-implement-a-vehicle-and-car-class-using-inheritance" class="nav-link" data-scroll-target="#problem-7-implement-a-vehicle-and-car-class-using-inheritance"><strong>Problem 7: Implement a <code>Vehicle</code> and <code>Car</code> Class Using Inheritance</strong></a></li>
+  <li><a href="#problem-8-create-a-product-class-with-inheritance" id="toc-problem-8-create-a-product-class-with-inheritance" class="nav-link" data-scroll-target="#problem-8-create-a-product-class-with-inheritance">Problem 8: Create a <code>Product</code> Class with Inheritance</a></li>
+  <li><a href="#problem-9-create-a-team-class-with-aggregation" id="toc-problem-9-create-a-team-class-with-aggregation" class="nav-link" data-scroll-target="#problem-9-create-a-team-class-with-aggregation"><strong>Problem 9: Create a <code>Team</code> Class with Aggregation</strong></a></li>
+  <li><a href="#problem-10-polymorphism-with-a-shape-class-hierarchy" id="toc-problem-10-polymorphism-with-a-shape-class-hierarchy" class="nav-link" data-scroll-target="#problem-10-polymorphism-with-a-shape-class-hierarchy"><strong>Problem 10: Polymorphism with a <code>Shape</code> Class Hierarchy</strong></a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -168,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule Fall 2025</h1>
+<h1 class="title">Object-Oriented Programming - Problem set</h1>
 </div>
 
 
@@ -185,128 +234,127 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 20%">
-<col style="width: 56%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>#</th>
-<th>Lecture</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>24/09/2025</td>
-<td>1</td>
-<td><del>No Class</del></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>01/10/2025 <br> <code>recorded</code></td>
-<td>2</td>
-<td><del>Lecture 01</del></td>
-<td><strong>Introduction to <code>Python</code></strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 02</del></td>
-<td><strong>Data types and structures</strong></td>
-</tr>
-<tr class="even">
-<td>08/10/2025 <br> <code>recorded</code></td>
-<td>3</td>
-<td><del>Lecture 03</del></td>
-<td><strong>Control structures</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 04</del></td>
-<td><strong>Functions</strong></td>
-</tr>
-<tr class="even">
-<td>15/10/2025 <br> <code>recorded</code></td>
-<td>4</td>
-<td><del>Lecture 05</del></td>
-<td><strong>Object Oriented Programming</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><del>Lecture 06</del></td>
-<td><strong>Libraries</strong></td>
-</tr>
-<tr class="even">
-<td>22/10/2025</td>
-<td>5</td>
-<td>Lecture 07</td>
-<td><strong>Numerical computing</strong></td>
-</tr>
-<tr class="odd">
-<td>29/10/2025</td>
-<td>6</td>
-<td>No class</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>05/11/2025</td>
-<td>7</td>
-<td>Lecture 08</td>
-<td><strong>Input/output</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Lecture 09</td>
-<td><strong>Data manipulation</strong></td>
-</tr>
-<tr class="even">
-<td>12/11/2025</td>
-<td>8</td>
-<td>Lecture 10 <br> [Guest Lecture]</td>
-<td><strong>Network analytics</strong></td>
-</tr>
-<tr class="odd">
-<td>19/11/2025</td>
-<td>9</td>
-<td>Lecture 11</td>
-<td><strong>Time series analysis</strong></td>
-</tr>
-<tr class="even">
-<td>26/11/2025</td>
-<td>10</td>
-<td>Lecture 12</td>
-<td><strong>Machine Learning</strong></td>
-</tr>
-<tr class="odd">
-<td>03/12/2025</td>
-<td>11</td>
-<td>No Class</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10/12/2025</td>
-<td>12</td>
-<td>Lecture 13 <br> [Guest Lecture]</td>
-<td><strong>Advanced Machine Learning</strong></td>
-</tr>
-<tr class="odd">
-<td>17/12/2025</td>
-<td>13</td>
-<td>Q&amp;A</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="problem-1-create-a-book-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-create-a-book-class"><strong>Problem 1: Create a <code>Book</code> Class</strong></h3>
+<p>Define a <code>Book</code> class with the following attributes: - <code>title</code> (string) - <code>author</code> (string) - <code>pages</code> (integer)</p>
+<p>Create a method called <code>description()</code> that prints the details of the book in the following format:</p>
+<p><code>"&lt;Title&gt; by &lt;Author&gt; has &lt;Pages&gt; pages."</code></p>
+<div id="63a17563" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-2-create-a-rectangle-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2-create-a-rectangle-class"><strong>Problem 2: Create a <code>Rectangle</code> Class</strong></h3>
+<p>Define a <code>Rectangle</code> class with attributes: - <code>length</code> - <code>width</code></p>
+<p>Add methods to: - Calculate the <strong>area</strong> of the rectangle. - Calculate the <strong>perimeter</strong> of the rectangle.</p>
+<p>Create a few rectangle objects and call these methods to display their area and perimeter.</p>
+<div id="6cdf061a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-3-create-a-circle-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3-create-a-circle-class"><strong>Problem 3: Create a <code>Circle</code> Class</strong></h3>
+<p>Define a <code>Circle</code> class with a single attribute: - <code>radius</code></p>
+<p>Add a method called <code>circumference()</code> that calculates and returns the circumference of the circle (<code>2 * π * radius</code>). Use <code>math.pi</code> for the value of π.</p>
+<div id="2f971b10" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-4-implement-a-person-class-with-multiple-methods" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4-implement-a-person-class-with-multiple-methods"><strong>Problem 4: Implement a <code>Person</code> Class with Multiple Methods</strong></h3>
+<p>Create a <code>Person</code> class with the following attributes: - <code>name</code> - <code>age</code> - <code>occupation</code></p>
+<p>Add methods to: - <code>introduce()</code>: Prints a personalized introduction message: <code>"Hi, my name is &lt;Name&gt;, and I am a &lt;Occupation&gt;."</code> - <code>is_adult()</code>: Returns <code>True</code> if the person is 18 or older, and <code>False</code> otherwise.</p>
+<div id="9c77d196" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-5-create-a-library-class" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-create-a-library-class"><strong>Problem 5: Create a <code>Library</code> Class</strong></h3>
+<p>Define a <code>Library</code> class that stores a <strong>collection of <code>Book</code> objects</strong> (from Problem 1). Implement methods to: - Add a new book to the library. - Remove a book from the library using the book title. - List all books currently in the library.</p>
+<div id="208d406c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6-create-a-bankaccount-and-checkingaccount-class-using-inheritance"><strong>Problem 6: Create a <code>BankAccount</code> and <code>CheckingAccount</code> Class Using Inheritance</strong></h3>
+<ul>
+<li>Create a <code>BankAccount</code> class with attributes:
+<ul>
+<li><code>account_holder</code></li>
+<li><code>balance</code></li>
+</ul></li>
+<li>Add methods to:
+<ul>
+<li><code>deposit(amount)</code>: Adds money to the account.</li>
+<li><code>withdraw(amount)</code>: Subtracts money if balance is sufficient; otherwise, prints “Insufficient funds.”</li>
+</ul></li>
+<li>Create a <code>CheckingAccount</code> class that <strong>inherits</strong> from <code>BankAccount</code> and has an additional attribute:
+<ul>
+<li><code>transaction_fee</code></li>
+</ul></li>
+</ul>
+<p>Override the <code>withdraw()</code> method to include a transaction fee for each withdrawal.</p>
+</section>
+<section id="problem-7-implement-a-vehicle-and-car-class-using-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7-implement-a-vehicle-and-car-class-using-inheritance"><strong>Problem 7: Implement a <code>Vehicle</code> and <code>Car</code> Class Using Inheritance</strong></h3>
+<ul>
+<li><p>Create a <code>Vehicle</code> class with attributes:</p>
+<ul>
+<li><code>make</code></li>
+<li><code>model</code></li>
+<li><code>year</code></li>
+</ul>
+<p>Add a method called <code>display_info()</code> that prints the details of the vehicle.</p></li>
+<li><p>Create a <code>Car</code> class that inherits from <code>Vehicle</code> and adds:</p>
+<ul>
+<li><code>fuel_type</code> (e.g., “Petrol” or “Electric”)</li>
+</ul></li>
+</ul>
+<p>Override the <code>display_info()</code> method to include the fuel type in the printed details.</p>
+<div id="c1a9d146" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-8-create-a-product-class-with-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="problem-8-create-a-product-class-with-inheritance">Problem 8: Create a <code>Product</code> Class with Inheritance</h3>
+<p>Create a <code>Product</code> base class that represents a generic product in a store. The class should have the following attributes:</p>
+<ul>
+<li><code>name</code> (string)</li>
+<li><code>price</code> (float)</li>
+</ul>
+<p>Create two child classes that inherit from <code>Product</code>: 1. <strong>Electronics</strong>: This class should have an additional attribute called <code>warranty_years</code> (integer). 2. <strong>Clothing</strong>: This class should have an additional attribute called <code>size</code> (string).</p>
+<p>Implement methods in the base class and child classes as follows: - The base <code>Product</code> class should have a method called <code>display()</code> that prints the product’s name and price. - Each child class should <strong>override</strong> the <code>display()</code> method to include its additional attributes.</p>
+<section id="example-of-the-output-format" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-the-output-format">Example of the output format</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> electronics <span class="op">=</span> Electronics(<span class="st">"Smartphone"</span>, <span class="fl">699.99</span>, <span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> clothing <span class="op">=</span> Clothing(<span class="st">"T-shirt"</span>, <span class="fl">19.99</span>, <span class="st">"M"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> electronics.display()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Product: Smartphone, Price: $<span class="fl">699.99</span>, Warranty: <span class="dv">2</span> years</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> clothing.display()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Product: T<span class="op">-</span>shirt, Price: $<span class="fl">19.99</span>, Size: M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c906dfa" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="problem-9-create-a-team-class-with-aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="problem-9-create-a-team-class-with-aggregation"><strong>Problem 9: Create a <code>Team</code> Class with Aggregation</strong></h3>
+<p>Create a <code>Player</code> class with attributes: - <code>name</code> - <code>position</code> - <code>number</code></p>
+<p>Create a <code>Team</code> class that contains a <strong>list of Player objects</strong>. Implement methods to: - Add a player. - Remove a player using the player’s name. - Display the list of all players on the team.</p>
+<div id="52276fd5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="problem-10-polymorphism-with-a-shape-class-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="problem-10-polymorphism-with-a-shape-class-hierarchy"><strong>Problem 10: Polymorphism with a <code>Shape</code> Class Hierarchy</strong></h3>
+<p>Create a <code>Shape</code> parent class with a method <code>draw()</code>. Define two child classes: - <code>Circle</code> class with a <code>draw()</code> method that prints “Drawing a circle.” - <code>Square</code> class with a <code>draw()</code> method that prints “Drawing a square.”</p>
+<p>Create a list of <code>Shape</code> objects (some <code>Circle</code> and some <code>Square</code>), and use a loop to call <code>draw()</code> on each object, demonstrating polymorphism.</p>
+<div id="510586a5" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

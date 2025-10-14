@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule Fall 2025",
     "section": "",
-    "text": "Date\n#\nLecture\nTopic\n\n\n\n\n24/09/2025\n1\nNo Class\n\n\n\n01/10/2025\n2\nLecture 01\nIntroduction to Python\n\n\n\n\nLecture 02\nData types and structures\n\n\n08/10/2025\n3\nLecture 03\nControl structures\n\n\n\n\nLecture 04\nFunctions\n\n\n15/10/2025\n4\nLecture 05\nObject Oriented Programming\n\n\n\n\nLecture 06\nLibraries\n\n\n22/10/2025\n5\nLecture 07\nNumerical computing\n\n\n\n\nLecture 08\nData manipulation\n\n\n29/10/2025\n6\nRecap\n\n\n\n05/11/2025\n7\nLecture 09\nInput/output\n\n\n\n\nLecture 10\nData visualization\n\n\n12/11/2025\n8\nLecture 11  [Guest Lecture]\nNetwork analytics\n\n\n19/11/2025\n9\nLecture 12\nTime series analysis\n\n\n26/11/2025\n10\nLecture 13\nMachine Learning\n\n\n03/12/2025\n11\nRecap\n\n\n\n10/12/2025\n12\nLecture 14  [Guest Lecture]\nAdvanced Machine Learning\n\n\n17/12/2025\n13\nQ&A"
+    "text": "Date\n#\nLecture\nTopic\n\n\n\n\n24/09/2025\n1\nNo Class\n\n\n\n01/10/2025  recorded\n2\nLecture 01\nIntroduction to Python\n\n\n\n\nLecture 02\nData types and structures\n\n\n08/10/2025  recorded\n3\nLecture 03\nControl structures\n\n\n\n\nLecture 04\nFunctions\n\n\n15/10/2025  recorded\n4\nLecture 05\nObject Oriented Programming\n\n\n\n\nLecture 06\nLibraries\n\n\n22/10/2025\n5\nLecture 07\nNumerical computing\n\n\n29/10/2025\n6\nNo class\n\n\n\n05/11/2025\n7\nLecture 08\nInput/output\n\n\n\n\nLecture 09\nData manipulation\n\n\n12/11/2025\n8\nLecture 10  [Guest Lecture]\nNetwork analytics\n\n\n19/11/2025\n9\nLecture 11\nTime series analysis\n\n\n26/11/2025\n10\nLecture 12\nMachine Learning\n\n\n03/12/2025\n11\nNo Class\n\n\n\n10/12/2025\n12\nLecture 13  [Guest Lecture]\nAdvanced Machine Learning\n\n\n17/12/2025\n13\nQ&A"
   },
   {
     "objectID": "lectures/lecture_03/lecture_03_problem_sets.html",
@@ -53,35 +53,210 @@
     "href": "lectures/lecture_04/lecture_04.html#problem-sets",
     "title": "Lecture 04 - Functions",
     "section": "Problem sets",
-    "text": "Problem sets\n\nJupyter notebook (.ipynb)"
-  },
-  {
-    "objectID": "lectures/lecture_02/lecture_02.html",
-    "href": "lectures/lecture_02/lecture_02.html",
-    "title": "Lecture 02 - Data Types and Structure",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_02/lecture_02.html#lecture-material",
-    "href": "lectures/lecture_02/lecture_02.html#lecture-material",
-    "title": "Lecture 02 - Data Types and Structure",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_02/lecture_02.html#recording",
-    "href": "lectures/lecture_02/lecture_02.html#recording",
-    "title": "Lecture 02 - Data Types and Structure",
-    "section": "Recording",
-    "text": "Recording\n\n1. Types\n\n \n\n\n\n2. Structures"
-  },
-  {
-    "objectID": "lectures/lecture_02/lecture_02.html#problem-sets",
-    "href": "lectures/lecture_02/lecture_02.html#problem-sets",
-    "title": "Lecture 02 - Data Types and Structure",
-    "section": "Problem sets",
     "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html",
+    "href": "lectures/lecture_05/oop.html",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "",
+    "text": "Object-Oriented Programming (OOP) is a programming paradigm based on the concept of class and objects which can contain\n\nData (attributes)\nCode (methods)\n\nWhy does OOP matter?\nOOP allows for organizing complex programs into manageable, modular components, making the code more: - Reusable: Once a class is created, it can be used across different parts of the program without rewriting. - Scalable: Capacity to build on existing structures without rewriting them. - Maintainable: Since the code is organized into discrete components, fixing bugs and adding new features is straightforward.\nThis notebook covers: - The basics of OOP: classes and objects - Defining classes and creating objects - Attributes and methods - Inheritance and polymorphism"
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html#overview",
+    "href": "lectures/lecture_05/oop.html#overview",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "",
+    "text": "Object-Oriented Programming (OOP) is a programming paradigm based on the concept of class and objects which can contain\n\nData (attributes)\nCode (methods)\n\nWhy does OOP matter?\nOOP allows for organizing complex programs into manageable, modular components, making the code more: - Reusable: Once a class is created, it can be used across different parts of the program without rewriting. - Scalable: Capacity to build on existing structures without rewriting them. - Maintainable: Since the code is organized into discrete components, fixing bugs and adding new features is straightforward.\nThis notebook covers: - The basics of OOP: classes and objects - Defining classes and creating objects - Attributes and methods - Inheritance and polymorphism"
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html#the-basics-of-oop-classes-and-objects",
+    "href": "lectures/lecture_05/oop.html#the-basics-of-oop-classes-and-objects",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "1. The Basics of OOP: Classes and Objects",
+    "text": "1. The Basics of OOP: Classes and Objects\n\n1.1 Definitions\nWhat is a Class?\nA class is like a blueprint or template for creating objects.\nIt defines the attributes (variables) and methods (functions) that objects created from the class will have.\nWhat is an Object?\nAn object is an instance of a class. It has its own specific values for the attributes defined by the class.\nWhy use Classes and Objects?\nClasses are like cookie cutters and objects are the actual cookies.\nThe class defines the shape and structure, while each object is an independent instance that can have different values but shares the same structure.\n\n\n1.2 Syntax\n\nGeneral\nIn general, a class is alway defined by a constructor and a set of methods and attributes.\n    class NAME:\n        CONSTRUCTOR\n        OTHER METHODS\n        ATTRIBUTES\n\nThe Constructor sets up initial values for attributes when an object is created. This ensures that each object starts in a well-defined state.\nThe Methods are callable functions within and outside the class object\nThe Attributes are callable variables withing and outside the class object\n\n\n\nIn Python\n    class NAME:\n        def __init__(self, ...):\n            ACTIONS\n            \n        def METHODS (self,...):\n            ACTIONS\n        \n        self.ATTRIBUTES\n\nConstructor is defined by the function init() where self is a reference to the class object itself.\nMethods are defined like standard functions.\n\nReference to attributes that belong to the current class object in the constructor and methods are specified using the prefix self.\n\n\n\n\n\n1.3 Example\nConsider a simple example of a bank account. Each bank account will have: 1. An account holder. 2. A balance that tracks the amount of money in the account.\n\nclass BankAccount:\n    # constructor\n    def __init__(self, account_holder, balance=0):\n        self.account_holder = account_holder  # Assigning account holder name\n        self.balance = balance  # Setting initial balance (default is 0)\n\n\n# Creating an instance of BankAccount\naccount1 = BankAccount(\"John Doe\", 500)\n\n\n# Accessing attributes of the object\nprint(f\"Account Holder: {account1.account_holder}\")  # Output: John Doe\nprint(f\"Balance: {account1.balance}\")  # Output: 500\n\n\n\nStep-by-step Explanation:\n\nClass Definition: We define the BankAccount class.\nConstructor (__init__ method): This method initializes the attributes account_holder and balance when a new BankAccount object is created.\nCreating an Object: We create an object account1 of the BankAccount class.\nAccessing Object Attributes: We print the values of the object’s attributes using the dot notation (e.g., account1.balance)."
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html#attributes-and-methods",
+    "href": "lectures/lecture_05/oop.html#attributes-and-methods",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "2. Attributes and Methods",
+    "text": "2. Attributes and Methods\n\n2.1 Attributes\nAttributes are variables that hold data specific to an object.\nThey are defined within a class and belong to each instance of that class.\nWhy are attributes important?\nAttributes store the state of the object.\nIn the bank account example, the balance attribute holds the current state of the account.\n\n\n2.2 Methods\nMethods are functions defined inside a class that operate on objects of that class.\nMethods can read or modify the object’s attributes.\nWhy use Methods?\nMethods define behaviors specific to the class.\n\n\n2.3 Example\nLet’s add some functionality to our BankAccount class.\nWe want to be able to:\n\nDeposit money into the account.\nWithdraw money from the account.\n\n\nclass BankAccount:\n    # Constructor\n    def __init__(self, account_holder, balance=0):\n        self.account_holder = account_holder\n        self.balance = balance\n\n    # Method for depositing money\n    def deposit(self, amount):\n        self.balance += amount\n        print(f\"Deposited {amount}. New balance is {self.balance}\")\n\n    # Method for withdrawing money\n    def withdraw(self, amount):\n        if amount &gt; self.balance:\n            print(\"Insufficient funds.\")\n        else:\n            self.balance -= amount\n            print(f\"Withdrew {amount}. New balance is {self.balance}\")\n\n\n# Creating a new BankAccount object\naccount2 = BankAccount(\"Jane Doe\", 1000)\naccount2.deposit(200)  # Depositing 200\naccount2.withdraw(300)  # Withdrawing 300\n\n\n\n2.4 Additional examples\nDefine a Student class with the following attributes: - name - student_id - grade\nAdd methods to: 1. Update the grade. 2. Print a summary of the student’s information.\n\n# Defining the Student class\nclass Student:\n    # Constructor to initialize the attributes of the class\n    def __init__(self, name, student_id, grade):\n        self.name = name            # Student's name\n        self.student_id = student_id  # Unique student ID\n        self.grade = grade          # Current grade of the student\n\n    # Method to update the student's grade\n    def update_grade(self, new_grade):\n        self.grade = new_grade\n        print(f\"Grade updated to: {self.grade}\")\n\n    # Method to print a summary of the student's information\n    def print_summary(self):\n        print(f\"Student Name: {self.name}\")\n        print(f\"Student ID: {self.student_id}\")\n        print(f\"Current Grade: {self.grade}\")\n\n\n# Creating an instance of the Student class\nstudent1 = Student(\"Alice\", 12345, \"80\")\n\n\n# Calling the methods to test the functionality\nstudent1.print_summary()  # Printing the initial student details\n\n\n# Updating the grade and printing the updated details\nstudent1.update_grade(\"90\")\nstudent1.print_summary()  # Should show the updated grade\n\nAdditional methods to implement - has_failed() - can_retake() – cannot fail more than twice\n\n# Your code\n\nGlobal exercise\nFrom a list of objects Student, order students from highest to lowest grade\n\n# Creating a list of multiple Student objects with varying grades\nstudents = [\n    Student(\"Alice\", 12345, \"80\"),\n    Student(\"Bob\", 67890, \"40\"),\n    Student(\"Charlie\", 54321, \"60\"),\n    Student(\"David\", 98765, \"99\"),\n    Student(\"Eve\", 45678, \"21\")\n]\n\n# Function to sort the list of students by their grades\ndef sort_students_by_grade(student_list):\n    # Sort by grade in ascending order (A &gt; B &gt; C)\n    sorted_students = sorted(student_list, key=lambda student: student.grade)\n    return sorted_students\n\n# Sorting the students and printing the result\nsorted_students = sort_students_by_grade(students)\n\n# Displaying the sorted list of students\nprint(\"Students sorted by grades:\")\nfor student in sorted_students:\n    student.print_summary()"
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html#inheritance",
+    "href": "lectures/lecture_05/oop.html#inheritance",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "3. Inheritance",
+    "text": "3. Inheritance\nInheritance is a fundamental concept in object-oriented programming that allows a new class to inherit attributes and methods from an existing class.\nThis existing class is known as the parent class (or base class), while the new class is referred to as the child class (or derived class).\nWhy use inheritance?\n\nCode Reusability: Inheritance helps reduce code duplication by allowing new classes to use the features of existing classes.\nLogical Hierarchies: Model real-world relationships, such as “A Car is-a Vehicle.”\nExtendability: Add new features to the child class without modifying the parent class, making it easier to maintain the code.\n\nHow it works\nWhen creating a child class, the class automatically inherits all the attributes and methods of the parent class.\nHowever, the functionality of the parent class can also be extended or overridden within the child class.\n\n3.1 Syntax\n    class CHILD (PARENT):\n        def __init__(self,...):\n            super().__init__(...):\n            self....\n\n\n3.2 Step-by-step example\nStep 1: Create a parent class\nStart with a Person class that has basic attributes like name and age, and a method to print a summary.\n\nclass Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\n    def display(self):\n        print(f\"Name: {self.name}, Age: {self.age}\")\n\n\nThe Person class has two attributes: name and age.\nIt includes a method display() that prints the name and age.\n\nStep 2: Create a child class that inherits from Person\nNow let’s create a Student class that inherits from the Person class.\nThe Student class will have an additional attribute grade and its own method to print details specific to students.\n\nclass Student(Person):\n    def __init__(self, name, age, grade):\n        # Call the constructor of the parent class\n        super().__init__(name, age)  \n        self.grade = grade  # New attribute specific to Student\n\n    def display_student(self):\n        print(f\"Student Name: {self.name}, Age: {self.age}, Grade: {self.grade}\")\n\n\nThe Student class inherits from the Person class using class Student(Person):.\nThe Student class has its own constructor (__init__) that calls the constructor of the parent class using super().__init__(name, age).\n\nThis is necessary to properly initialize attributes from the parent class.\n\nThe Student class has a new attribute grade and a new method display_student().\n\nStep 3: Creating objects and using inheritance\nNow that we have both classes, let’s create a Student object and use the inherited and new methods.\n\n# Creating an instance of the Student class\nstudent1 = Student(\"Alice\", 20, \"A\")\n\n# Calling methods\nstudent1.display()  # Inherited method from Person class\nstudent1.display_student()  # Method specific to Student class\n\n\nThe student1.display() call demonstrates inherited behavior:\n\ndisplay() is defined in Person, but student1 (an instance of Student) can use it because Student inherits from Person.\n\nThe student1.display_student() call demonstrates extended behavior:\n\ndisplay_student() is defined only in the Student class.\n\n\n\n\n3.3 Other Example\nLet’s create a new class called SavingsAccount that inherits from BankAccount.\nA savings account might have an interest rate and a method to apply interest.\n\n# Inheriting from BankAccount class\nclass SavingsAccount(BankAccount):\n    def __init__(self, account_holder, balance=0, interest_rate=0.02):\n        # Call the parent class constructor\n        super().__init__(account_holder, balance)\n        self.interest_rate = interest_rate  # Additional attribute for interest rate\n\n    # New method to apply interest\n    def apply_interest(self):\n        interest = self.balance * self.interest_rate\n        self.deposit(interest)  # Use deposit method to add interest\n        print(f\"Interest applied. New balance: {self.balance}\")\n\n\n# Creating a SavingsAccount object\nsavings = SavingsAccount(\"Alice\", 2000)\nsavings.apply_interest()"
+  },
+  {
+    "objectID": "lectures/lecture_05/oop.html#method-overriding-and-polymorphism",
+    "href": "lectures/lecture_05/oop.html#method-overriding-and-polymorphism",
+    "title": "Lecture 05 - Object-Oriented Programming",
+    "section": "4. Method Overriding and Polymorphism",
+    "text": "4. Method Overriding and Polymorphism\n\n4.1 Method Overriding\nMethod overriding occurs when a child class provides a specific implementation for a method that is already defined in its parent class.\nThis allows the child class to define its own behavior for the inherited method.\n\nPurpose: To customize or extend the behavior of a method in the child class.\nSyntax: A method in the child class has the same name, parameters, and return type as a method in the parent class.\n\n\n# Parent class\nclass Vehicle:\n    def move(self):\n        print(\"The vehicle is moving\")\n\n# Child class overriding the move method\nclass Car(Vehicle):\n    def move(self):\n        print(\"The car is driving on the road\")\n\n# Creating instances\nv = Vehicle()\nc = Car()\n\n# Calling the move method\nv.move()  \nc.move()  \n\n\nExample\nLet’s override the display() method in the Student class to show the grade as well:\n\nclass Student(Person):\n    def __init__(self, name, age, grade):\n        super().__init__(name, age)\n        self.grade = grade\n\n    # Overriding the display method from Person class\n    def display(self):\n        print(f\"Name: {self.name}, Age: {self.age}, Grade: {self.grade}\")\n\n\nstudent1 = Student(\"Bob\", 21, \"B\")\nstudent1.display()  \n\n\n\nOther Example:\nLet’s override the withdraw() method from BankAccount to SavingsAccount.\nIf a SavingsAccount has different withdrawal rules (e.g., no withdrawals below a minimum balance), we can override the withdraw method.\n\nclass SavingsAccount(BankAccount):\n    def __init__(self, account_holder, balance=0, interest_rate=0.02):\n        super().__init__(account_holder, balance)\n        self.interest_rate = interest_rate\n\n    def withdraw(self, amount):\n        if self.balance - amount &lt; 500:  # Minimum balance of 500\n            print(\"Withdrawal denied: Balance cannot go below 500.\")\n        else:\n            super().withdraw(amount)  # Call the parent class method\n\n\n\n\n4.2 Polymorphism\nPolymorphism means “many forms” and refers to the ability of different classes to respond to the same method call in different ways.\nIt allows the same method name to be used for different types of objects.\nPurpose: To enable objects of different classes to be treated as objects of a common parent class.\n\n# Parent class\nclass Animal:\n    def sound(self):\n        raise NotImplementedError(\"Subclasses must implement this method\")\n\n# Child classes\nclass Dog(Animal):\n    def sound(self):\n        return \"Bark\"\n\nclass Cat(Animal):\n    def sound(self):\n        return \"Meow\"\n\n# Polymorphism: List of different objects\nanimals = [Dog(), Cat()]\n\n# Using polymorphism to call the same method\nfor animal in animals:\n    print(animal.sound())  # Output: Bark, Meow\n\nIn the above example: 1. Both Dog and Cat classes override the sound() method of the Animal parent class. 2. When we call sound() on each object, polymorphism ensures that the correct implementation is executed based on the type of the object (Dog or Cat).\n\n\n4.3 Take-away\n\nMethod overriding is a technique that allows polymorphism to occur.\n\nWhen a child class overrides a method, it enables polymorphism because objects of different classes can respond to the same method call in their own unique way.\n\nPolymorphism is a broader concept that encompasses method overriding as a way to implement it.\n\nVisual Analogy:\n\nMethod Overriding ~ customizing a basic recipe.\n\nIf the parent class provides a recipe for a “generic cake,” the child class can override this recipe to make a “chocolate cake.”\n\nPolymorphism ~ ability to treat both the “generic cake” and “chocolate cake” as simply “cakes” when needed.\n\nCall bake() on both and get the right result, even if the recipes are different."
+  },
+  {
+    "objectID": "lectures/lecture_02/lecture_02_problem_sets.html",
+    "href": "lectures/lecture_02/lecture_02_problem_sets.html",
+    "title": "Data Types and Structures - Problem sets",
+    "section": "",
+    "text": "Exercise 1: Check Data Types\nWrite a Python program that prints the data types of the following variables:\na = 42\nb = 3.14\nc = \"Python\"\nd = [1, 2, 3]\ne = (1, 2, 3)\nf = {'name': 'John', 'age': 30}\ng = {1, 2, 3}\n\n# Your code\n\n\n\nExercise 2: List Operations\nCreate a list with the elements [10, 20, 30, 40, 50]. Add 60 to the list, remove 30, and reverse the list.\n\n# Your code\n\n\n\nExercise 3: Tuple Unpacking\nGiven the following tuple, unpack its elements into separate variables and print them:\nmy_tuple = (100, 200, 300)\n\n# Your code\n\n\n\nExercise 4: Dictionary Manipulation\nCreate a dictionary with keys 'name', 'age', and 'city', and values 'Alice', 25, and 'New York'. Update the age to 26 and add a new key 'profession' with value 'Engineer'.\n\n# Your code\n\n\n\nExercise 5: Set Operations\nCreate two sets, set1 with elements {1, 2, 3, 4} and set2 with elements {3, 4, 5, 6}. Find the union, intersection, and difference between these sets.\n\n# Your code\n\n\n\nExercise 6: String Slicing\nGiven the string s = \"Hello, Python!\", write code to: 1. Extract the substring \"Python\". 2. Reverse the entire string.\n\n# Your code\n\n\n\nExercise 7: Boolean Logic\nYou are given three numbers, a, b, and c. Write a Python program that returns True if a is the largest number and b is not equal to c. Otherwise, return False.\n\n# Input numbers\na = 10\nb = 5\nc = 5\n\n# Your code\n\n\n\nExercise 8: Complex Boolean Logic with Multiple Conditions\nWrite a Python program that checks the following conditions for three variables x, y, and z:\n\nx is greater than y or y is equal to z.\nThe sum of x and y is even.\nx, y, and z are all positive numbers.\n\nThe program should return True only if all three conditions are met.\n\n# Input variables\nx = 8\ny = 6\nz = 6\n\n# Your code\n\n\n\nExercise 9: Checking for Keys in a Dictionary\nGiven the dictionary person = {'name': 'Bob', 'age': 25}, check if the key 'age' exists in the dictionary and print a message.\n\n# Your code\n\n\n\nExercise 10: Nested Data Structures\nCreate a dictionary students where each key is a student’s name and each value is a dictionary containing their 'age' and a list of their 'grades'.\nEnter the following data in the dictionary: - Alice is 24 and has grades 88, 92 and 86 - Bob is 23 and had grades 75, 80, 89\nPrint Bob’s age and Alice’s grades.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html",
+    "href": "lectures/lecture_02/data_types_and_structure.html",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "",
+    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers:\n\nBasic data types: int, float, bool, str\nData structures: tuple, list, set, dict\nOperations and built-in methods"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#overview",
+    "href": "lectures/lecture_02/data_types_and_structure.html#overview",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "",
+    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers:\n\nBasic data types: int, float, bool, str\nData structures: tuple, list, set, dict\nOperations and built-in methods"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-types",
+    "href": "lectures/lecture_02/data_types_and_structure.html#basic-types",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "1. Basic Types",
+    "text": "1. Basic Types\nList of types\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\nint\ninteger value\nnatural numbers\n\n\nfloat\nfloating-point number\nreal numbers\n\n\nbool\nboolean value\ntrue or false\n\n\nstr\nstring object\ncharacter, word, text\n\n\n\nuse built-in function type() to obtain the information\n\n1.1 Integers and Floats\nIntegers are whole numbers, while floats are numbers with decimal values.\n\nInt\n\na = 10\ntype(a)\n\nArithmetic operations: + - * /\n\n1 + 4 \n\n\na + 1\n\n\ntype(1+4)\n\n\n\nFloats\n\ntype (1/4)\n\n\n1/4\n\n\ntype(0.25)\n\n\ntype (0)\n\n\ntype (0.0)\n\n\n# Example: Representing account balances\nbalance = 1000  # Integer\ninterest_rate = 5.5  # Float\n\n\n# Calculating interest\ninterest = balance * interest_rate / 100\nprint(\"Interest:\", interest)\n\n\n\n\n1.2 Booleans\nBooleans represent True or False values.\n\n# Example: Checking if an account is active\naccount_active = True\nif account_active == True:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\n\n# implicit comparison\nif account_active:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\n\nConditions: &gt; &lt; &gt;= &lt;= == !=\n\n4 &gt; 3\n\n\ntype (4 &gt; 3)\n\n\ntype (False)\n\n\n4 &gt;= 3\n\n\n4 &lt; 3\n\n\n4 == 3\n\n\n4 != 3\n\n\n\nLogic operations: and or not in\n\nTrue and True\n\n\nFalse and False\n\n\nTrue or True\n\n\nTrue or False\n\n\nFalse or False\n\n\nnot True\n\n\nnot False\n\n\n\nCombinations\n\n(4 &gt; 3) and (2 &gt; 3)\n\n\n(4==3) or (2 != 3)\n\n\nnot (4 != 4)\n\n\n(not (4 != 4)) and (2 == 3)\n\nNote: Major for control condition (if while for) – see later\n\nif 4 &gt; 3:\n    print ('condition true')\nelse:\n    print ('condition not true')\n\n\ni = 0\nwhile i &lt; 4:\n    print ('condition true: i = ', i)\n    i = i + 1\n\n\n\nBoolean casting: 0,1 (and other values)\n\nint(True)\n\n\nint(False)\n\n\nfloat(True)\n\n\nfloat(False)\n\n\nbool(0)\n\n\nbool(1)\n\n\nbool(0.0)\n\n\nbool(1.0)\n\n\nbool(10.5)\n\n\nbool(-2)\n\n\n\n\n1.3 Strings\nStrings are used to represent text.\n\n# Example: Representing account holder information\naccount_holder = \"John Doe\"\naccount_number = \"1234567890\"\n\nprint(\"Account Holder:\", account_holder)\nprint(\"Account Number:\", account_number)\n\n\ntype(account_holder)\n\n\nBuilt-in methods\nstr variables come with a series of useful built-in methods.\n\n\n\nMethod\n\n\n\n\ncapitalize()\n\n\ncount()\n\n\nfind()\n\n\njoin()\n\n\nreplace()\n\n\nsplit()\n\n\nupper()\n\n\n\n\nt = 'this is a string object'\n\n\nt.capitalize()\n\n\nt.split('i')\n\n\nt.find('string')\n\n\nt.replace(' ','|')\n\n\n\nPrint method print()\n\nprint('Hello World!')\n\n\nprint (t)\n\n\ni = 0\nwhile i &lt; 4:\n    print (i)\n    i = i + 1\n\n\ni = 0\nwhile i &lt; 4:\n    print (i, end = '|')\n    i = i + 1\n\n\n\nPrinting with variables\n\na = 10\nprint('this is the value of a:', a)\n\n\ntt = 'this is the value of a: ' + str(a)\nprint (tt)"
+  },
+  {
+    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
+    "href": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
+    "title": "Lecture 02 - Data Types and Structures",
+    "section": "2. Basic structures",
+    "text": "2. Basic structures\nList of structures\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\ntuple\nimmutable container\nfixed set of objects\n\n\nlist\nmutable container\nordered and changing set of objects\n\n\ndict\nmutable container\nkey-value store\n\n\nset\nmutable container\nunordered collection of unique objects\n\n\n\nuse built-in function type() to obtain the information\nNavigating structures\n\nIndexing: obtain item at position n s[n]\nSlicing: obtain items between position i and j s[i:j] s[i:] s[:j]\nRanging: obtain items between position i and j spaced by k s[i:j:k]\n\nNote: In Python, indexing starts at 0\n\n2.1 tuple\nTuples are immutable collections of items (i.e., cannot be changed after creation).\n\n# Example: Coordinates of a bank branch\nbranch_location = (40.7128, -74.0060)  # New York City coordinates\nprint(\"Branch Location:\", branch_location)\n\n\nt = (1, 2.5, 'data')\ntype(t)\n\n\n#also works without ()\nt = 1, 2.5, 'data'\ntype(t)\n\n\n#indexing\nt[2]\n\n\ntype(t[2])\n\n\n\n2.2 list\nLists are ordered collections of items, which can be of mixed data types.\n\n# Example: List of recent transactions\ntransactions = [100, -50, 200, -30, 400]\nprint(\"Transactions:\", transactions)\n\n# Adding a new transaction\ntransactions.append(-100)\nprint(\"Updated Transactions:\", transactions)\n\n\nl = [1, 2.5, 'data']\nl[2]\n\n\n#casting\nl = list(t)\nl\n\n\ntype (l)\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nl[i] = x\n\n\nl[i:j:k] = s\n\n\nappend()\n\n\ncount()\n\n\ndel l[i:j:k]\n\n\nindex()\n\n\nextend()\n\n\ninsert()\n\n\nremove()\n\n\npop()\n\n\nrevers()\n\n\nsort()\n\n\n\ncontrary to tuples, lists are mutable containers\n\nl.append([4,3])\nl\n\n\nl.extend([1.0, 1.5, 2.0])\nl\n\n\nl = [0, 1, 2, 3, 4, 5, 6, 7]\ns = [10, 20, 30]\n\nl[1:7:2] = s\nprint(l)\n\n\nl.insert(1,'insert')\nl\n\n\nl.remove('data')\nl\n\n\np = l.pop(3)\nprint (l, p)\n\n\n#slicing\nl[2:5]\n\nMutable vs immutable objects\n\nt = (1, [2, 3], 4)\n\n\nt[1].append(5)    \n\n\nprint(t)          \n\n\nt[0] = 9\n\n\n\n\n2.3 dict\nDictionaries store data as key-value pairs.\n\n# Example: Dictionary of account balances\naccount_balances = {\n    \"1234567890\": 1000,\n    \"0987654321\": 2500,\n    \"1122334455\": 750\n}\nprint(\"Account Balances:\", account_balances)\n\n# Accessing a balance by account number\nprint(\"Balance of account 1234567890:\", account_balances[\"1234567890\"])\n\n\nKeys and values\n\nd = {\n    'Name' : 'Iron Man',\n    'Country' : 'USA',\n    'Profession' : 'Super Hero',\n    'Age' : 36\n}\n\n\ntype(d)\n\n\nprint (d['Name'], d['Age'])\n\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nd[k]\n\n\nd[k] = x\n\n\ndel d[k]\n\n\nclear()\n\n\ncopy()\n\n\nitems()\n\n\nkeys()\n\n\nvalues()\n\n\npopitem()\n\n\nupdate()\n\n\n\n\nd.keys()\n\n\nd.values()\n\n\nd.items()\n\n\nbirthday = True\nif birthday:\n    d['Age'] += 1\nprint (d['Age'])\n\n\nfor item in d.items():\n    print (item)\n\n\nfor value in d.values():\n    print (type(value))\n\n\n\n\n2.4 set\nSets are unordered collections of unique items.\n\ns = set(['u', 'd', 'ud', 'du', 'd', 'du'])\ns\n\n\nSet operations\n\nt = set(['d', 'dd', 'uu', 'u'])\n\n\ns.union(t)\n\n\ns.intersection(t)\n\n\ns.difference(t)\n\n\nt.difference(s)\n\n\ns.symmetric_difference(t)"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html",
+    "href": "lectures/lecture_01/lecture_01.html",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html#recording",
+    "href": "lectures/lecture_01/lecture_01.html#recording",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "Recording",
+    "text": "Recording\n\n1. Motivation\n\n \n\n\n\n2. Setting up the environment\n\n \n\n\n\n3. Overview of the Python environment"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html",
+    "href": "lectures/lecture_06/libraries.html",
+    "title": "Lecture 06 - Libraries",
+    "section": "",
+    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#overview",
+    "href": "lectures/lecture_06/libraries.html#overview",
+    "title": "Lecture 06 - Libraries",
+    "section": "",
+    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#why-use-python-libraries",
+    "href": "lectures/lecture_06/libraries.html#why-use-python-libraries",
+    "title": "Lecture 06 - Libraries",
+    "section": "1. Why Use Python Libraries?",
+    "text": "1. Why Use Python Libraries?\nPython libraries allow to: - Reuse code that has been tested and optimized by others - Perform complex tasks with just a few lines of code - Simplify workflow by providing tools tailored to specific tasks\n\nExample: Using a Library vs. Writing Code from Scratch\n\n# Without using a library\n# Calculate the square root of a number (writing the logic from scratch)\ndef sqrt(number):\n    return number ** 0.5\n\nprint(\"Square root of 16 (without library):\", sqrt(16))\n\n\n# Using a library (numpy)\nimport numpy as np\nprint(\"Square root of 16 (using numpy):\", np.sqrt(16))"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
+    "href": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
+    "title": "Lecture 06 - Libraries",
+    "section": "2. Installing and Importing Libraries",
+    "text": "2. Installing and Importing Libraries\nTo use a library, it needs to be installed (if it’s not already installed) and be imported it into the current Python environment.\n\n2.1 Installing Libraries\n\nUsing pip, the Python package installer. For example:\n\npip install pandas numpy matplotlib seaborn\n\nUsing the anaconda suite to install manually.\n\n\n\n2.2 Importing Libraries\nOnce installed, libraries can be imported into the environment using import (...as):\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
+    "href": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
+    "title": "Lecture 06 - Libraries",
+    "section": "3. Key Python Libraries for Data Science in Finance",
+    "text": "3. Key Python Libraries for Data Science in Finance\n\n3.1 numpy for Numerical Computations\nnumpy is the foundational package for numerical computing in Python. It is particularly useful for handling large arrays and matrices of numeric data.\n\nimport numpy as np\n\n# Example: Calculating compound interest using numpy\nprincipal = 1000  # Initial amount\nrate = 0.05  # Interest rate\ntime = 10  # Number of years\n\n# Calculate the future value\nfuture_value = principal * np.power(1 + rate, time)\nprint(\"Future Value after 10 years:\", future_value)\n\n\n\n3.2 pandas for Data Manipulation\npandas is a powerful library for data manipulation and analysis. It works with structured data, such as CSV files, databases, and Excel spreadsheets.\n\nimport pandas as pd\n\n# Example: Reading a CSV file containing transaction data\ntransactions = pd.DataFrame({\n    'Date': ['2023-08-01', '2023-08-02', '2023-08-03'],\n    'Description': ['Deposit', 'Withdrawal', 'Deposit'],\n    'Amount': [1000, -200, 500]\n})\n\n# Display the first few rows of the DataFrame\nprint(transactions.head())\nprint (\"\\n\")\n# Calculating the total balance after transactions\ntransactions['Balance'] = transactions['Amount'].cumsum()\nprint(transactions)\n\n\n\n3.3 matplotlib and seaborn for Data Visualization\nmatplotlib and seaborn are powerful libraries for creating visualizations. matplotlib provides a flexible foundation, while seaborn simplifies the creation of more complex plots.\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Example: Visualizing the account balances over time\nsns.lineplot(x='Date', y='Balance', data=transactions)\nplt.title(\"Account Balance Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Balance\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n# Sample Data: Tips Dataset (comes built-in with seaborn)\ndata = sns.load_dataset(\"tips\")\n\n# Create a rich visualization using Seaborn's relplot\nsns.set_theme(style=\"whitegrid\")  # Set theme for aesthetics\nplot = sns.relplot(\n    data=data, \n    x=\"total_bill\", \n    y=\"tip\", \n    hue=\"day\", \n    style=\"time\", \n    size=\"size\",\n    palette=\"viridis\", \n    kind=\"scatter\", \n    aspect=1.5,\n    height=6\n)\n\n# Add labels and a title\nplot.set_axis_labels(\"Total Bill ($)\", \"Tip ($)\")\nplot.fig.suptitle(\"Tips vs. Total Bill by Day and Time\", fontsize=16, weight='bold')\n\n# Show the plot\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the built-in 'iris' dataset from seaborn\niris = sns.load_dataset(\"iris\")\n\n# Create a pairplot with rich formatting\nsns.set(style=\"ticks\", palette=\"pastel\")\n# pairplot() visualizes pairwise relationships in a dataset, making it great for exploratory data analysis.\nplot = sns.pairplot(\n    iris, \n    hue=\"species\",  # Color by species type\n    kind=\"reg\",     # Add regression lines to show trends\n    diag_kind=\"kde\",  # Use KDE plots on the diagonal for a smoother distribution\n    markers=[\"o\", \"s\", \"D\"],  # Use different markers for each species\n    height=2.5\n)\n\n# Add a main title and adjust spacing\nplot.fig.suptitle(\"Pairplot of Iris Dataset with Regression Lines\", fontsize=16, weight='bold')\nplot.fig.subplots_adjust(top=0.95)\n\n# Display the plot\nplt.show()\n\n\n\n3.4 datetime for Date and Time Manipulation\nThe datetime module allows you to work with dates and times.\n\nfrom datetime import datetime\n\n# Example: Calculating the number of days between two dates\ndate_format = \"%Y-%m-%d\"\nstart_date = datetime.strptime(\"2023-08-01\", date_format)\nend_date = datetime.strptime(\"2023-08-10\", date_format)\n\ndays_between = (end_date - start_date).days\nprint(f\"Days between {start_date.date()} and {end_date.date()}: {days_between}\")"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Information",
+    "section": "",
+    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Course Information",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
+  },
+  {
+    "objectID": "syllabus.html#content",
+    "href": "syllabus.html#content",
+    "title": "Course Information",
+    "section": "Content",
+    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
+  },
+  {
+    "objectID": "syllabus.html#delivery",
+    "href": "syllabus.html#delivery",
+    "title": "Course Information",
+    "section": "Delivery",
+    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available."
+  },
+  {
+    "objectID": "syllabus.html#reference",
+    "href": "syllabus.html#reference",
+    "title": "Course Information",
+    "section": "Reference",
+    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Science For Finance",
+    "section": "",
+    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
+  },
+  {
+    "objectID": "index.html#news-announcements",
+    "href": "index.html#news-announcements",
+    "title": "Data Science For Finance",
+    "section": "News & Announcements",
+    "text": "News & Announcements\n\n14/10/2025\n\nRecordings for Lecture 05 and 06 are available\nSolutions to Problem set of Lecture 03 and 04 are available\n\n\n\n\n07/10/2025\n\nRecordings for Lecture 03 and 04 are available\nSolutions to Problem set of Lecture 02 are available\nNew: A beta test All Day TA is available for the course.\n\nAll Day TA is an interactive AI tutor trained on the course material and synced with the course schedule for learning support.\n\n\n\n\n\n01/10/2025\n\nRecordings for Introduction, and Lecture 01 and 02 are available\nSolutions to Problem set of Lecture 02 will be available next week\n\n\n\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
+  },
+  {
+    "objectID": "lectures/lecture_06/lecture_06.html",
+    "href": "lectures/lecture_06/lecture_06.html",
+    "title": "Lecture 06 - Libraries",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_06/lecture_06.html#lecture-material",
+    "href": "lectures/lecture_06/lecture_06.html#lecture-material",
+    "title": "Lecture 06 - Libraries",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_06/lecture_06.html#recording",
+    "href": "lectures/lecture_06/lecture_06.html#recording",
+    "title": "Lecture 06 - Libraries",
+    "section": "Recording",
+    "text": "Recording"
   },
   {
     "objectID": "lectures/lecture_01/introduction_to_python.html",
@@ -154,109 +329,67 @@
     "text": "3.5 Libraries\nLibraries are pre-built packages of functions for tasks like data analysis and visualization.\n\nKey Libraries for Finance\n\nNumPy: For numerical computations matrix operations in portfolio analysis\npandas: Used for data manipulation handling financial datasets\nmatplotlib: For data visualization plotting stock prices\n\n\nimport numpy \n\nprint(numpy.sqrt(16))  # Square root\nprint(numpy.pi)        # Value of pi\n\n\n\nDocumentation\nLibraries come with documentation.\nOn Notebooks, they can be directly accessed from the cell pressing maj + tab after the function.\n\nExample of documentation numpy.sqrt()\n    Call signature:  numpy.sqrt(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'sqrt'&gt;\nFile:            ~/opt/anaconda3/lib/python3.9/site-packages/numpy/__init__.py\nDocstring:      \nsqrt(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\n\nReturn the non-negative square-root of an array, element-wise.\n\nParameters\n----------\nx : array_like\n    The values whose square-roots are required.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\ny : ndarray\n    An array of the same shape as `x`, containing the positive\n    square-root of each element in `x`.  If any element in `x` is\n    complex, a complex array is returned (and the square-roots of\n    negative reals are calculated).  If all of the elements in `x`\n    are real, so is `y`, with negative elements returning ``nan``.\n    If `out` was provided, `y` is a reference to it.\n    This is a scalar if `x` is a scalar.\n\nSee Also\n--------\nlib.scimath.sqrt\n    A version which returns complex numbers when given negative reals.\n\nNotes\n-----\n*sqrt* has--consistent with common convention--as its branch cut the\nreal \"interval\" [`-inf`, 0), and is continuous from above on it.\nA branch cut is a curve in the complex plane across which a given\ncomplex function fails to be continuous.\n\nExamples\n--------\n&gt;&gt;&gt; np.sqrt([1,4,9])\narray([ 1.,  2.,  3.])\n\n&gt;&gt;&gt; np.sqrt([4, -1, -3+4J])\narray([ 2.+0.j,  0.+1.j,  1.+2.j])\n\n&gt;&gt;&gt; np.sqrt([4, -1, np.inf])\narray([ 2., nan, inf])\nClass docstring:\nFunctions that operate element by element on whole arrays.\n\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\n\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\n\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\n\nThe broadcasting rules are:\n\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\n\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Science For Finance",
-    "section": "",
-    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
-  },
-  {
-    "objectID": "index.html#news-announcements",
-    "href": "index.html#news-announcements",
-    "title": "Data Science For Finance",
-    "section": "News & Announcements",
-    "text": "News & Announcements\n\n07/10/2025\n\nRecordings for Lecture 03 and 04 are available\nSolutions to Problem set of Lecture 02 are available\nNew: A beta test All Day TA is available for the course.\n\nAll Day TA is an interactive AI tutor trained on the course material and synced with the course schedule for learning support.\n\n\n01/10/2025\n\nRecordings for Introduction, and Lecture 01 and 02 are available\nSolutions to Problem set of Lecture 02 will be available next week\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Information",
-    "section": "",
-    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
-  },
-  {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "Course Information",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
-  },
-  {
-    "objectID": "syllabus.html#content",
-    "href": "syllabus.html#content",
-    "title": "Course Information",
-    "section": "Content",
-    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
-  },
-  {
-    "objectID": "syllabus.html#delivery",
-    "href": "syllabus.html#delivery",
-    "title": "Course Information",
-    "section": "Delivery",
-    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available."
-  },
-  {
-    "objectID": "syllabus.html#reference",
-    "href": "syllabus.html#reference",
-    "title": "Course Information",
-    "section": "Reference",
-    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html",
-    "href": "lectures/lecture_01/lecture_01.html",
-    "title": "Lecture 01 - Introduction to Python",
+    "objectID": "lectures/lecture_02/lecture_02.html",
+    "href": "lectures/lecture_02/lecture_02.html",
+    "title": "Lecture 02 - Data Types and Structure",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "title": "Lecture 01 - Introduction to Python",
+    "objectID": "lectures/lecture_02/lecture_02.html#lecture-material",
+    "href": "lectures/lecture_02/lecture_02.html#lecture-material",
+    "title": "Lecture 02 - Data Types and Structure",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_01/lecture_01.html#recording",
-    "href": "lectures/lecture_01/lecture_01.html#recording",
-    "title": "Lecture 01 - Introduction to Python",
+    "objectID": "lectures/lecture_02/lecture_02.html#recording",
+    "href": "lectures/lecture_02/lecture_02.html#recording",
+    "title": "Lecture 02 - Data Types and Structure",
     "section": "Recording",
-    "text": "Recording\n\n1. Motivation\n\n \n\n\n\n2. Setting up the environment\n\n \n\n\n\n3. Overview of the Python environment"
+    "text": "Recording\n\n1. Types\n\n \n\n\n\n2. Structures"
   },
   {
-    "objectID": "lectures/lecture_02/data_types_and_structure.html",
-    "href": "lectures/lecture_02/data_types_and_structure.html",
-    "title": "Lecture 02 - Data Types and Structures",
+    "objectID": "lectures/lecture_02/lecture_02.html#problem-sets",
+    "href": "lectures/lecture_02/lecture_02.html#problem-sets",
+    "title": "Lecture 02 - Data Types and Structure",
+    "section": "Problem sets",
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
+  },
+  {
+    "objectID": "lectures/lecture_05/lecture_05.html",
+    "href": "lectures/lecture_05/lecture_05.html",
+    "title": "Lecture 05 - Object Oriented Programming",
     "section": "",
-    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers:\n\nBasic data types: int, float, bool, str\nData structures: tuple, list, set, dict\nOperations and built-in methods"
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_02/data_types_and_structure.html#overview",
-    "href": "lectures/lecture_02/data_types_and_structure.html#overview",
-    "title": "Lecture 02 - Data Types and Structures",
+    "objectID": "lectures/lecture_05/lecture_05.html#lecture-material",
+    "href": "lectures/lecture_05/lecture_05.html#lecture-material",
+    "title": "Lecture 05 - Object Oriented Programming",
     "section": "",
-    "text": "In Python, types and structures are fundamental concepts that allow the storage, manipulation, and organization of data.\nThis notebook covers:\n\nBasic data types: int, float, bool, str\nData structures: tuple, list, set, dict\nOperations and built-in methods"
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-types",
-    "href": "lectures/lecture_02/data_types_and_structure.html#basic-types",
-    "title": "Lecture 02 - Data Types and Structures",
-    "section": "1. Basic Types",
-    "text": "1. Basic Types\nList of types\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\nint\ninteger value\nnatural numbers\n\n\nfloat\nfloating-point number\nreal numbers\n\n\nbool\nboolean value\ntrue or false\n\n\nstr\nstring object\ncharacter, word, text\n\n\n\nuse built-in function type() to obtain the information\n\n1.1 Integers and Floats\nIntegers are whole numbers, while floats are numbers with decimal values.\n\nInt\n\na = 10\ntype(a)\n\nArithmetic operations: + - * /\n\n1 + 4 \n\n\na + 1\n\n\ntype(1+4)\n\n\n\nFloats\n\ntype (1/4)\n\n\n1/4\n\n\ntype(0.25)\n\n\ntype (0)\n\n\ntype (0.0)\n\n\n# Example: Representing account balances\nbalance = 1000  # Integer\ninterest_rate = 5.5  # Float\n\n\n# Calculating interest\ninterest = balance * interest_rate / 100\nprint(\"Interest:\", interest)\n\n\n\n\n1.2 Booleans\nBooleans represent True or False values.\n\n# Example: Checking if an account is active\naccount_active = True\nif account_active == True:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\n\n# implicit comparison\nif account_active:\n    print(\"The account is active.\")\nelse:\n    print(\"The account is inactive.\")\n\n\nConditions: &gt; &lt; &gt;= &lt;= == !=\n\n4 &gt; 3\n\n\ntype (4 &gt; 3)\n\n\ntype (False)\n\n\n4 &gt;= 3\n\n\n4 &lt; 3\n\n\n4 == 3\n\n\n4 != 3\n\n\n\nLogic operations: and or not in\n\nTrue and True\n\n\nFalse and False\n\n\nTrue or True\n\n\nTrue or False\n\n\nFalse or False\n\n\nnot True\n\n\nnot False\n\n\n\nCombinations\n\n(4 &gt; 3) and (2 &gt; 3)\n\n\n(4==3) or (2 != 3)\n\n\nnot (4 != 4)\n\n\n(not (4 != 4)) and (2 == 3)\n\nNote: Major for control condition (if while for) – see later\n\nif 4 &gt; 3:\n    print ('condition true')\nelse:\n    print ('condition not true')\n\n\ni = 0\nwhile i &lt; 4:\n    print ('condition true: i = ', i)\n    i = i + 1\n\n\n\nBoolean casting: 0,1 (and other values)\n\nint(True)\n\n\nint(False)\n\n\nfloat(True)\n\n\nfloat(False)\n\n\nbool(0)\n\n\nbool(1)\n\n\nbool(0.0)\n\n\nbool(1.0)\n\n\nbool(10.5)\n\n\nbool(-2)\n\n\n\n\n1.3 Strings\nStrings are used to represent text.\n\n# Example: Representing account holder information\naccount_holder = \"John Doe\"\naccount_number = \"1234567890\"\n\nprint(\"Account Holder:\", account_holder)\nprint(\"Account Number:\", account_number)\n\n\ntype(account_holder)\n\n\nBuilt-in methods\nstr variables come with a series of useful built-in methods.\n\n\n\nMethod\n\n\n\n\ncapitalize()\n\n\ncount()\n\n\nfind()\n\n\njoin()\n\n\nreplace()\n\n\nsplit()\n\n\nupper()\n\n\n\n\nt = 'this is a string object'\n\n\nt.capitalize()\n\n\nt.split('i')\n\n\nt.find('string')\n\n\nt.replace(' ','|')\n\n\n\nPrint method print()\n\nprint('Hello World!')\n\n\nprint (t)\n\n\ni = 0\nwhile i &lt; 4:\n    print (i)\n    i = i + 1\n\n\ni = 0\nwhile i &lt; 4:\n    print (i, end = '|')\n    i = i + 1\n\n\n\nPrinting with variables\n\na = 10\nprint('this is the value of a:', a)\n\n\ntt = 'this is the value of a: ' + str(a)\nprint (tt)"
+    "objectID": "lectures/lecture_05/lecture_05.html#recording",
+    "href": "lectures/lecture_05/lecture_05.html#recording",
+    "title": "Lecture 05 - Object Oriented Programming",
+    "section": "Recording",
+    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. Basics\n\n \n\n\n\n3. Inheritance\n\n \n\n\n\n4. Overriding"
   },
   {
-    "objectID": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
-    "href": "lectures/lecture_02/data_types_and_structure.html#basic-structures",
-    "title": "Lecture 02 - Data Types and Structures",
-    "section": "2. Basic structures",
-    "text": "2. Basic structures\nList of structures\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\ntuple\nimmutable container\nfixed set of objects\n\n\nlist\nmutable container\nordered and changing set of objects\n\n\ndict\nmutable container\nkey-value store\n\n\nset\nmutable container\nunordered collection of unique objects\n\n\n\nuse built-in function type() to obtain the information\nNavigating structures\n\nIndexing: obtain item at position n s[n]\nSlicing: obtain items between position i and j s[i:j] s[i:] s[:j]\nRanging: obtain items between position i and j spaced by k s[i:j:k]\n\nNote: In Python, indexing starts at 0\n\n2.1 tuple\nTuples are immutable collections of items (i.e., cannot be changed after creation).\n\n# Example: Coordinates of a bank branch\nbranch_location = (40.7128, -74.0060)  # New York City coordinates\nprint(\"Branch Location:\", branch_location)\n\n\nt = (1, 2.5, 'data')\ntype(t)\n\n\n#also works without ()\nt = 1, 2.5, 'data'\ntype(t)\n\n\n#indexing\nt[2]\n\n\ntype(t[2])\n\n\n\n2.2 list\nLists are ordered collections of items, which can be of mixed data types.\n\n# Example: List of recent transactions\ntransactions = [100, -50, 200, -30, 400]\nprint(\"Transactions:\", transactions)\n\n# Adding a new transaction\ntransactions.append(-100)\nprint(\"Updated Transactions:\", transactions)\n\n\nl = [1, 2.5, 'data']\nl[2]\n\n\n#casting\nl = list(t)\nl\n\n\ntype (l)\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nl[i] = x\n\n\nl[i:j:k] = s\n\n\nappend()\n\n\ncount()\n\n\ndel l[i:j:k]\n\n\nindex()\n\n\nextend()\n\n\ninsert()\n\n\nremove()\n\n\npop()\n\n\nrevers()\n\n\nsort()\n\n\n\ncontrary to tuples, lists are mutable containers\n\nl.append([4,3])\nl\n\n\nl.extend([1.0, 1.5, 2.0])\nl\n\n\nl = [0, 1, 2, 3, 4, 5, 6, 7]\ns = [10, 20, 30]\n\nl[1:7:2] = s\nprint(l)\n\n\nl.insert(1,'insert')\nl\n\n\nl.remove('data')\nl\n\n\np = l.pop(3)\nprint (l, p)\n\n\n#slicing\nl[2:5]\n\nMutable vs immutable objects\n\nt = (1, [2, 3], 4)\n\n\nt[1].append(5)    \n\n\nprint(t)          \n\n\nt[0] = 9\n\n\n\n\n2.3 dict\nDictionaries store data as key-value pairs.\n\n# Example: Dictionary of account balances\naccount_balances = {\n    \"1234567890\": 1000,\n    \"0987654321\": 2500,\n    \"1122334455\": 750\n}\nprint(\"Account Balances:\", account_balances)\n\n# Accessing a balance by account number\nprint(\"Balance of account 1234567890:\", account_balances[\"1234567890\"])\n\n\nKeys and values\n\nd = {\n    'Name' : 'Iron Man',\n    'Country' : 'USA',\n    'Profession' : 'Super Hero',\n    'Age' : 36\n}\n\n\ntype(d)\n\n\nprint (d['Name'], d['Age'])\n\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nd[k]\n\n\nd[k] = x\n\n\ndel d[k]\n\n\nclear()\n\n\ncopy()\n\n\nitems()\n\n\nkeys()\n\n\nvalues()\n\n\npopitem()\n\n\nupdate()\n\n\n\n\nd.keys()\n\n\nd.values()\n\n\nd.items()\n\n\nbirthday = True\nif birthday:\n    d['Age'] += 1\nprint (d['Age'])\n\n\nfor item in d.items():\n    print (item)\n\n\nfor value in d.values():\n    print (type(value))\n\n\n\n\n2.4 set\nSets are unordered collections of unique items.\n\ns = set(['u', 'd', 'ud', 'du', 'd', 'du'])\ns\n\n\nSet operations\n\nt = set(['d', 'dd', 'uu', 'u'])\n\n\ns.union(t)\n\n\ns.intersection(t)\n\n\ns.difference(t)\n\n\nt.difference(s)\n\n\ns.symmetric_difference(t)"
+    "objectID": "lectures/lecture_05/lecture_05.html#problem-sets",
+    "href": "lectures/lecture_05/lecture_05.html#problem-sets",
+    "title": "Lecture 05 - Object Oriented Programming",
+    "section": "Problem sets",
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)"
   },
   {
-    "objectID": "lectures/lecture_02/lecture_02_problem_sets.html",
-    "href": "lectures/lecture_02/lecture_02_problem_sets.html",
-    "title": "Data Types and Structures - Problem sets",
+    "objectID": "lectures/lecture_05/lecture_05_problem_sets.html",
+    "href": "lectures/lecture_05/lecture_05_problem_sets.html",
+    "title": "Object-Oriented Programming - Problem set",
     "section": "",
-    "text": "Exercise 1: Check Data Types\nWrite a Python program that prints the data types of the following variables:\na = 42\nb = 3.14\nc = \"Python\"\nd = [1, 2, 3]\ne = (1, 2, 3)\nf = {'name': 'John', 'age': 30}\ng = {1, 2, 3}\n\n# Your code\n\n\n\nExercise 2: List Operations\nCreate a list with the elements [10, 20, 30, 40, 50]. Add 60 to the list, remove 30, and reverse the list.\n\n# Your code\n\n\n\nExercise 3: Tuple Unpacking\nGiven the following tuple, unpack its elements into separate variables and print them:\nmy_tuple = (100, 200, 300)\n\n# Your code\n\n\n\nExercise 4: Dictionary Manipulation\nCreate a dictionary with keys 'name', 'age', and 'city', and values 'Alice', 25, and 'New York'. Update the age to 26 and add a new key 'profession' with value 'Engineer'.\n\n# Your code\n\n\n\nExercise 5: Set Operations\nCreate two sets, set1 with elements {1, 2, 3, 4} and set2 with elements {3, 4, 5, 6}. Find the union, intersection, and difference between these sets.\n\n# Your code\n\n\n\nExercise 6: String Slicing\nGiven the string s = \"Hello, Python!\", write code to: 1. Extract the substring \"Python\". 2. Reverse the entire string.\n\n# Your code\n\n\n\nExercise 7: Boolean Logic\nYou are given three numbers, a, b, and c. Write a Python program that returns True if a is the largest number and b is not equal to c. Otherwise, return False.\n\n# Input numbers\na = 10\nb = 5\nc = 5\n\n# Your code\n\n\n\nExercise 8: Complex Boolean Logic with Multiple Conditions\nWrite a Python program that checks the following conditions for three variables x, y, and z:\n\nx is greater than y or y is equal to z.\nThe sum of x and y is even.\nx, y, and z are all positive numbers.\n\nThe program should return True only if all three conditions are met.\n\n# Input variables\nx = 8\ny = 6\nz = 6\n\n# Your code\n\n\n\nExercise 9: Checking for Keys in a Dictionary\nGiven the dictionary person = {'name': 'Bob', 'age': 25}, check if the key 'age' exists in the dictionary and print a message.\n\n# Your code\n\n\n\nExercise 10: Nested Data Structures\nCreate a dictionary students where each key is a student’s name and each value is a dictionary containing their 'age' and a list of their 'grades'.\nEnter the following data in the dictionary: - Alice is 24 and has grades 88, 92 and 86 - Bob is 23 and had grades 75, 80, 89\nPrint Bob’s age and Alice’s grades.\n\n# Your code"
+    "text": "Problem 1: Create a Book Class\nDefine a Book class with the following attributes: - title (string) - author (string) - pages (integer)\nCreate a method called description() that prints the details of the book in the following format:\n\"&lt;Title&gt; by &lt;Author&gt; has &lt;Pages&gt; pages.\"\n\n# your code\n\n\n\nProblem 2: Create a Rectangle Class\nDefine a Rectangle class with attributes: - length - width\nAdd methods to: - Calculate the area of the rectangle. - Calculate the perimeter of the rectangle.\nCreate a few rectangle objects and call these methods to display their area and perimeter.\n\n# your code\n\n\n\nProblem 3: Create a Circle Class\nDefine a Circle class with a single attribute: - radius\nAdd a method called circumference() that calculates and returns the circumference of the circle (2 * π * radius). Use math.pi for the value of π.\n\n# your code\n\n\n\nProblem 4: Implement a Person Class with Multiple Methods\nCreate a Person class with the following attributes: - name - age - occupation\nAdd methods to: - introduce(): Prints a personalized introduction message: \"Hi, my name is &lt;Name&gt;, and I am a &lt;Occupation&gt;.\" - is_adult(): Returns True if the person is 18 or older, and False otherwise.\n\n# your code\n\n\n\nProblem 5: Create a Library Class\nDefine a Library class that stores a collection of Book objects (from Problem 1). Implement methods to: - Add a new book to the library. - Remove a book from the library using the book title. - List all books currently in the library.\n\n# your code\n\n\n\nProblem 6: Create a BankAccount and CheckingAccount Class Using Inheritance\n\nCreate a BankAccount class with attributes:\n\naccount_holder\nbalance\n\nAdd methods to:\n\ndeposit(amount): Adds money to the account.\nwithdraw(amount): Subtracts money if balance is sufficient; otherwise, prints “Insufficient funds.”\n\nCreate a CheckingAccount class that inherits from BankAccount and has an additional attribute:\n\ntransaction_fee\n\n\nOverride the withdraw() method to include a transaction fee for each withdrawal.\n\n\nProblem 7: Implement a Vehicle and Car Class Using Inheritance\n\nCreate a Vehicle class with attributes:\n\nmake\nmodel\nyear\n\nAdd a method called display_info() that prints the details of the vehicle.\nCreate a Car class that inherits from Vehicle and adds:\n\nfuel_type (e.g., “Petrol” or “Electric”)\n\n\nOverride the display_info() method to include the fuel type in the printed details.\n\n# your code\n\n\n\nProblem 8: Create a Product Class with Inheritance\nCreate a Product base class that represents a generic product in a store. The class should have the following attributes:\n\nname (string)\nprice (float)\n\nCreate two child classes that inherit from Product: 1. Electronics: This class should have an additional attribute called warranty_years (integer). 2. Clothing: This class should have an additional attribute called size (string).\nImplement methods in the base class and child classes as follows: - The base Product class should have a method called display() that prints the product’s name and price. - Each child class should override the display() method to include its additional attributes.\n\nExample of the output format\n&gt;&gt;&gt; electronics = Electronics(\"Smartphone\", 699.99, 2)\n&gt;&gt;&gt; clothing = Clothing(\"T-shirt\", 19.99, \"M\")\n&gt;&gt;&gt; electronics.display()\nProduct: Smartphone, Price: $699.99, Warranty: 2 years\n&gt;&gt;&gt; clothing.display()\nProduct: T-shirt, Price: $19.99, Size: M\n\n# your code\n\n\n\n\nProblem 9: Create a Team Class with Aggregation\nCreate a Player class with attributes: - name - position - number\nCreate a Team class that contains a list of Player objects. Implement methods to: - Add a player. - Remove a player using the player’s name. - Display the list of all players on the team.\n\n# your code\n\n\n\nProblem 10: Polymorphism with a Shape Class Hierarchy\nCreate a Shape parent class with a method draw(). Define two child classes: - Circle class with a draw() method that prints “Drawing a circle.” - Square class with a draw() method that prints “Drawing a square.”\nCreate a list of Shape objects (some Circle and some Square), and use a loop to call draw() on each object, demonstrating polymorphism.\n\n# your code"
   },
   {
     "objectID": "lectures/lecture_04/functions.html",
@@ -312,7 +445,7 @@
     "href": "lectures/lecture_03/lecture_03.html#problem-sets",
     "title": "Lecture 03 - Control structures",
     "section": "Problem sets",
-    "text": "Problem sets\n\nJupyter notebook (.ipynb)"
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
   },
   {
     "objectID": "lectures/lecture_03/control_structures.html",
