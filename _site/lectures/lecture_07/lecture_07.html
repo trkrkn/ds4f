@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 01 - Introduction to Python – Data Science For Finance</title>
+<title>Lecture 07 - Numerical Computing – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lectures/lecture_06/lecture_06.html">
  <span class="dropdown-text">Lecture 06 - Libraries</span></a>
   </li>  
-        <li class="dropdown-header">Lecture 07 - Numerical Computing</li>
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_07/lecture_07.html">
+ <span class="dropdown-text">Lecture 07 - Numerical Computing</span></a>
+  </li>  
         <li class="dropdown-header">Lecture 08 - Input/output</li>
         <li class="dropdown-header">Lecture 09 - Data Manipulation</li>
         <li class="dropdown-header">Lecture 10 - Time series analysis</li>
@@ -164,10 +167,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link active" data-scroll-target="#lecture-material">Lecture Material</a></li>
   <li><a href="#recording" id="toc-recording" class="nav-link" data-scroll-target="#recording">Recording</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">1. Motivation</a></li>
-  <li><a href="#setting-up-the-environment" id="toc-setting-up-the-environment" class="nav-link" data-scroll-target="#setting-up-the-environment">2. Setting up the environment</a></li>
-  <li><a href="#overview-of-the-python-environment" id="toc-overview-of-the-python-environment" class="nav-link" data-scroll-target="#overview-of-the-python-environment">3. Overview of the Python environment</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">1. Intro</a></li>
+  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link" data-scroll-target="#numpy-arrays">2. <code>NumPy</code> Arrays</a></li>
+  <li><a href="#structured-arrays-vectorized-programming-random-number-generator" id="toc-structured-arrays-vectorized-programming-random-number-generator" class="nav-link" data-scroll-target="#structured-arrays-vectorized-programming-random-number-generator">3. Structured Arrays, Vectorized Programming &amp; Random Number Generator</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">4. Applications</a></li>
   </ul></li>
+  <li><a href="#problem-sets" id="toc-problem-sets" class="nav-link" data-scroll-target="#problem-sets">Problem sets</a></li>
   </ul>
 </nav>
 </nav>
@@ -180,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 01 - Introduction to Python</h1>
+<h1 class="title">Lecture 07 - Numerical Computing</h1>
 </div>
 
 
@@ -202,38 +207,50 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>Notebook</strong>
 <ul>
-<li><a href="introduction_to_python.zip">Jupyter notebook (.ipynb)</a></li>
-<li><a href="introduction_to_python.html" target="_blank">Page (HTML notebook)</a></li>
+<li><a href="numerical_computing.zip">Jupyter notebook (.ipynb)</a></li>
+<li><a href="numerical_computing.html" target="_blank">Page (HTML notebook)</a></li>
 </ul></li>
 <li><strong>Slides</strong>
 <ul>
-<li><a href="introduction_to_python.slides.html" target="_blank">Reveal.js</a></li>
-<li><a href="introduction_to_python.slides.pdf" target="_blank">PDF</a></li>
+<li><a href="numerical_computing.slides.html" target="_blank">Reveal.js</a></li>
+<li><a href="numerical_computing.slides.pdf" target="_blank">PDF</a></li>
 </ul></li>
 </ul>
 </section>
 <section id="recording" class="level2">
 <h2 class="anchored" data-anchor-id="recording">Recording</h2>
-<section id="motivation" class="level3">
-<h3 class="anchored" data-anchor-id="motivation">1. Motivation</h3>
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">1. Intro</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/1IgrEFVwL2Y9VJXI0VBcMi_xdrfwroS31/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+<p><iframe src="https://drive.google.com/file/d/1b6SrZYZPAM6blDc5mzK7zQdgR52UoJ7E/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
 </div>
 </section>
-<section id="setting-up-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="setting-up-the-environment">2. Setting up the environment</h3>
+<section id="numpy-arrays" class="level3">
+<h3 class="anchored" data-anchor-id="numpy-arrays">2. <code>NumPy</code> Arrays</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/1YMq4-YXzKHU3KViGn7Ddqhf3jVDw7uAM/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+<p><iframe src="https://drive.google.com/file/d/1_xCpeVAEW0-e3OpbVbSrl7NOvJciOmDN/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
 </div>
 </section>
-<section id="overview-of-the-python-environment" class="level3">
-<h3 class="anchored" data-anchor-id="overview-of-the-python-environment">3. Overview of the Python environment</h3>
+<section id="structured-arrays-vectorized-programming-random-number-generator" class="level3">
+<h3 class="anchored" data-anchor-id="structured-arrays-vectorized-programming-random-number-generator">3. Structured Arrays, Vectorized Programming &amp; Random Number Generator</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/138Z10owDSz5D3NVPQMHcHkHDoOp1BGiy/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+<p><iframe src="https://drive.google.com/file/d/1tbPn-_kqEsJvlN3C4n-0gl8pdQqyo_vN/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
 </div>
+</section>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">4. Applications</h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<p><iframe src="https://drive.google.com/file/d/1qWRzdZ9SbskeB276K-2taueSlISOUPAG/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</div>
+</section>
+</section>
+<section id="problem-sets" class="level2">
+<h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
+<ul>
+<li><a href="lecture_07_problem_sets.zip">Jupyter notebook (.ipynb)</a> <!--- - [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank} ---></li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -329,7 +346,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -57,4 +57,4 @@ file_name: "oop"
 
 ## Problem sets
 - [Jupyter notebook (.ipynb)](lecture_05_problem_sets.zip)
-<!--- - [Solutions (.pdf)](lecture_05_solutions.pdf){target=_blank} --->
+- [Solutions (.pdf)](lecture_05_solutions.pdf){target=_blank} 

@@ -11,7 +11,7 @@ title: "Schedule Fall 2025"
 |            |    | ~~Lecture 04~~    | **Functions**                           |
 | 15/10/2025 <br> `recorded` | 4  | ~~Lecture 05~~    | **Object Oriented Programming**         |
 |            |    | ~~Lecture 06~~    | **Libraries**                           |
-| 22/10/2025 | 5  | Lecture 07    | **Numerical computing**                 |
+| 22/10/2025 <br> `recorded`| 5  | ~~Lecture 07~~    | **Numerical computing**                 |
 | 29/10/2025 | 6  | No class         |                                         |
 | 05/11/2025 | 7  | Lecture 08    | **Input/output**                        |
 |            |    | Lecture 09    | **Data manipulation**                   |

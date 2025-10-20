@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 01 - Introduction to Python – Data Science For Finance</title>
+<title>Numerical Computing (NumPy) - Problem set – Data Science For Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -161,13 +224,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link active" data-scroll-target="#lecture-material">Lecture Material</a></li>
-  <li><a href="#recording" id="toc-recording" class="nav-link" data-scroll-target="#recording">Recording</a>
-  <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">1. Motivation</a></li>
-  <li><a href="#setting-up-the-environment" id="toc-setting-up-the-environment" class="nav-link" data-scroll-target="#setting-up-the-environment">2. Setting up the environment</a></li>
-  <li><a href="#overview-of-the-python-environment" id="toc-overview-of-the-python-environment" class="nav-link" data-scroll-target="#overview-of-the-python-environment">3. Overview of the Python environment</a></li>
-  </ul></li>
+  <li><a href="#exercise-1-manipulating-a-3d-array" id="toc-exercise-1-manipulating-a-3d-array" class="nav-link active" data-scroll-target="#exercise-1-manipulating-a-3d-array">Exercise 1: Manipulating a 3D Array</a></li>
+  <li><a href="#exercise-2-boolean-indexing-and-filtering" id="toc-exercise-2-boolean-indexing-and-filtering" class="nav-link" data-scroll-target="#exercise-2-boolean-indexing-and-filtering">Exercise 2: Boolean Indexing and Filtering</a></li>
+  <li><a href="#exercise-3-array-manipulation-and-reshaping" id="toc-exercise-3-array-manipulation-and-reshaping" class="nav-link" data-scroll-target="#exercise-3-array-manipulation-and-reshaping">Exercise 3: Array Manipulation and Reshaping</a></li>
+  <li><a href="#exercise-4-matrix-determinant-and-inverse" id="toc-exercise-4-matrix-determinant-and-inverse" class="nav-link" data-scroll-target="#exercise-4-matrix-determinant-and-inverse">Exercise 4: Matrix Determinant and Inverse</a></li>
+  <li><a href="#exercise-5-simulating-an-ornstein-uhlenbeck-process" id="toc-exercise-5-simulating-an-ornstein-uhlenbeck-process" class="nav-link" data-scroll-target="#exercise-5-simulating-an-ornstein-uhlenbeck-process">Exercise 5: Simulating an Ornstein-Uhlenbeck Process</a></li>
+  <li><a href="#exercise-6-element-wise-operations-on-multiple-arrays" id="toc-exercise-6-element-wise-operations-on-multiple-arrays" class="nav-link" data-scroll-target="#exercise-6-element-wise-operations-on-multiple-arrays">Exercise 6: Element-Wise Operations on Multiple Arrays</a></li>
+  <li><a href="#exercise-7-matrix-operations-and-transposing" id="toc-exercise-7-matrix-operations-and-transposing" class="nav-link" data-scroll-target="#exercise-7-matrix-operations-and-transposing">Exercise 7: Matrix Operations and Transposing</a></li>
+  <li><a href="#exercise-8-advanced-matrix-operations-and-broadcasting" id="toc-exercise-8-advanced-matrix-operations-and-broadcasting" class="nav-link" data-scroll-target="#exercise-8-advanced-matrix-operations-and-broadcasting">Exercise 8: Advanced Matrix Operations and Broadcasting</a></li>
+  <li><a href="#exercise-9-function-application-with-vectorization" id="toc-exercise-9-function-application-with-vectorization" class="nav-link" data-scroll-target="#exercise-9-function-application-with-vectorization">Exercise 9: Function Application with Vectorization</a></li>
+  <li><a href="#exercise-10-advanced-broadcasting-and-boolean-filtering" id="toc-exercise-10-advanced-broadcasting-and-boolean-filtering" class="nav-link" data-scroll-target="#exercise-10-advanced-broadcasting-and-boolean-filtering">Exercise 10: Advanced Broadcasting and Boolean Filtering</a></li>
   </ul>
 </nav>
 </nav>
@@ -180,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 01 - Introduction to Python</h1>
+<h1 class="title">Numerical Computing (NumPy) - Problem set</h1>
 </div>
 
 
@@ -197,43 +263,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="lecture-material" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-material">Lecture Material</h2>
+<section id="exercise-1-manipulating-a-3d-array" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-manipulating-a-3d-array">Exercise 1: Manipulating a 3D Array</h2>
+<p>Create a 3D array with dimensions <span class="math inline">\(3 \times 3 \times 3\)</span> filled with random integers between 1 and 100. 1. Replace all values that are divisible by 3 with -1. 2. Calculate the mean value for each of the three 2D layers in the 3D array.</p>
+<div id="2a87c328" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2-boolean-indexing-and-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-boolean-indexing-and-filtering">Exercise 2: Boolean Indexing and Filtering</h2>
+<p>Given an array of random integers between 1 and 50 (size 20): 1. Identify all elements that are prime numbers. 2. Replace all prime numbers with 0.</p>
+<div id="1e59ea01" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3-array-manipulation-and-reshaping" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-array-manipulation-and-reshaping">Exercise 3: Array Manipulation and Reshaping</h2>
+<p>Create a 1D NumPy array of size 30 filled with random integers between 10 and 100. Perform the following: 1. Reshape the array into a <span class="math inline">\(5 \times 6\)</span> matrix. 2. Compute the sum of the values in each row. 3. Compute the sum of the values in each column.</p>
+<div id="22bf9578" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4-matrix-determinant-and-inverse" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-matrix-determinant-and-inverse">Exercise 4: Matrix Determinant and Inverse</h2>
+<p>Generate a <span class="math inline">\(4 \times 4\)</span> matrix of random integers between 1 and 10. 1. Calculate the <strong>determinant</strong> of the matrix. 2. If the determinant is non-zero, compute its <strong>inverse</strong>. 3. Verify that the inverse and the original matrix product result in an identity matrix.</p>
+<p>Use functions: - <code>np.linalg.det()</code> - <code>np.linalg.inv()</code> - <code>np.dot()</code></p>
+<div id="5cb591cc" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-5-simulating-an-ornstein-uhlenbeck-process" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-simulating-an-ornstein-uhlenbeck-process">Exercise 5: Simulating an Ornstein-Uhlenbeck Process</h2>
+<p>Simulate an <strong>Ornstein-Uhlenbeck</strong> process, which is used in finance to model mean-reverting processes such as interest rates. The formula is given by:</p>
+<p><span class="math display">\[
+X_{t+1} = X_t + \theta (\mu - X_t) \Delta t + \sigma \sqrt{\Delta t} \cdot Z_t
+\]</span></p>
+<p>Where: - <span class="math inline">\(X_t\)</span> is the value of the process at time step <span class="math inline">\(t\)</span>. - <span class="math inline">\(\theta\)</span> is the speed of mean reversion (how fast the process reverts to the mean). - <span class="math inline">\(\mu\)</span> is the long-term mean to which the process reverts. - <span class="math inline">\(\sigma\)</span> is the volatility or standard deviation of the process. - <span class="math inline">\(\Delta t\)</span> is the time step size (in this case, 0.01). - <span class="math inline">\(Z_t\)</span> is a random normal variable (<span class="math inline">\(Z_t \sim N(0, 1)\)</span>), representing the random noise at each time step.</p>
+<p><strong>Background information:</strong> 1. <strong>Mean-reverting drift</strong>: <span class="math inline">\(\theta (\mu - X_t) \Delta t\)</span> - This term controls how quickly the process moves back towards the mean <span class="math inline">\(\mu\)</span>. - The strength of this pull towards the mean is determined by <span class="math inline">\(\theta\)</span>, and the distance from the mean is represented by <span class="math inline">\(\mu - X_t\)</span>.</p>
+<ol start="2" type="1">
+<li><strong>Random fluctuation</strong>: <span class="math inline">\(\sigma \sqrt{\Delta t} \cdot Z_t\)</span>
 <ul>
-<li><strong>Notebook</strong>
-<ul>
-<li><a href="introduction_to_python.zip">Jupyter notebook (.ipynb)</a></li>
-<li><a href="introduction_to_python.html" target="_blank">Page (HTML notebook)</a></li>
+<li>This term represents the stochastic component of the process, introducing random fluctuations.</li>
+<li><span class="math inline">\(\sigma\)</span> controls the magnitude of these fluctuations, while <span class="math inline">\(\sqrt{\Delta t}\)</span> ensures the appropriate scaling over time steps.</li>
 </ul></li>
-<li><strong>Slides</strong>
-<ul>
-<li><a href="introduction_to_python.slides.html" target="_blank">Reveal.js</a></li>
-<li><a href="introduction_to_python.slides.pdf" target="_blank">PDF</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="recording" class="level2">
-<h2 class="anchored" data-anchor-id="recording">Recording</h2>
-<section id="motivation" class="level3">
-<h3 class="anchored" data-anchor-id="motivation">1. Motivation</h3>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/1IgrEFVwL2Y9VJXI0VBcMi_xdrfwroS31/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+</ol>
+<p>Thus, at each time step <span class="math inline">\(t\)</span>, the process evolves according to this combination of mean-reverting behavior and random fluctuation.</p>
+<p><strong>Parameter setting for the simulation:</strong> - $ = 0.7 $ (mean reversion speed), - $ = 0.05 $ (long-term mean), - $ = 0.15 $ (volatility), - $ dt = 0.01 $ (time step), - initial value $ X_0 = 0.05 $, - simulate for 500 time steps.</p>
+<div id="b4ec1a5a" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="setting-up-the-environment" class="level3">
-<h3 class="anchored" data-anchor-id="setting-up-the-environment">2. Setting up the environment</h3>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/1YMq4-YXzKHU3KViGn7Ddqhf3jVDw7uAM/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
+<section id="exercise-6-element-wise-operations-on-multiple-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-element-wise-operations-on-multiple-arrays">Exercise 6: Element-Wise Operations on Multiple Arrays</h2>
+<p>Create two arrays, <code>A</code> and <code>B</code>, each of size (1000), with random values between 1 and 10. Perform the following operations: 1. Identify the indices where elements of <code>A</code> are larger than the corresponding elements in <code>B</code>. 2. Compute a new array <code>C</code> where <code>C[i]</code> equals the value of <code>A[i]</code> if <code>A[i] &gt; B[i]</code>, otherwise it equals the average of <code>A[i]</code> and <code>B[i]</code>.</p>
+<div id="bbfca922" class="cell" hidden="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="overview-of-the-python-environment" class="level3">
-<h3 class="anchored" data-anchor-id="overview-of-the-python-environment">3. Overview of the Python environment</h3>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-<p><iframe src="https://drive.google.com/file/d/138Z10owDSz5D3NVPQMHcHkHDoOp1BGiy/preview" frameborder="0" allowfullscreen="" style="position: absolute; top:0; left:0; width:100%; height:100%;"> </iframe></p>
-</div>
+<section id="exercise-7-matrix-operations-and-transposing" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7-matrix-operations-and-transposing">Exercise 7: Matrix Operations and Transposing</h2>
+<p>Given a <span class="math inline">\(4 \times 4\)</span> matrix filled with random integers between 1 and 20, perform the following:</p>
+<ol type="1">
+<li>Transpose the matrix.</li>
+<li>Compute the sum of the elements in the original matrix.</li>
+<li>Compute the sum of the elements in the transposed matrix.</li>
+<li>Verify if the sum of elements in the original and transposed matrix are equal.</li>
+</ol>
+</section>
+<section id="exercise-8-advanced-matrix-operations-and-broadcasting" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-advanced-matrix-operations-and-broadcasting">Exercise 8: Advanced Matrix Operations and Broadcasting</h2>
+<p>Given two matrices A and B with dimensions <span class="math inline">\(3 \times 3\)</span> filled with random integers between 1 and 10:</p>
+<ol type="1">
+<li>Add the two matrices together using broadcasting.</li>
+<li>Multiply the two matrices element-wise.</li>
+<li>Compute the matrix product of A and B using matrix multiplication.</li>
+<li>Subtract the transpose of matrix B from matrix A .</li>
+</ol>
+<hr>
+</section>
+<section id="exercise-9-function-application-with-vectorization" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9-function-application-with-vectorization">Exercise 9: Function Application with Vectorization</h2>
+<p>Write a NumPy-based function that calculates the following for each element of a 1D array:</p>
+<p><span class="math display">\[f(x) = 3x^2 + 2x - 5\]</span></p>
+<ol type="1">
+<li>Create a 1D array of size 20 with random integers between -10 and 10.</li>
+<li>Apply the function f(x) to each element of the array in a vectorized manner (without using loops).</li>
+<li>Return the resulting array.</li>
+</ol>
+</section>
+<section id="exercise-10-advanced-broadcasting-and-boolean-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10-advanced-broadcasting-and-boolean-filtering">Exercise 10: Advanced Broadcasting and Boolean Filtering</h2>
+<p>Given a <span class="math inline">\(6 \times 6\)</span> matrix of random integers between 1 and 100:</p>
+<ol type="1">
+<li>Write a function that finds all the elements divisible by both 3 and 5.</li>
+<li>Replace all such elements with -1 using boolean filtering and broadcasting.</li>
+<li>Return the modified matrix.</li>
+</ol>
+<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -329,7 +457,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

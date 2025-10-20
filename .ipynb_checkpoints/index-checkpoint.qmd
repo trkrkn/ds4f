@@ -7,6 +7,12 @@ title: "Data Science For Finance"
 
 ## News & Announcements
 
+- **20/10/2025**
+    - Recordings for **Lecture 07** are available
+    - **Solutions** to Problem set of Lecture 05 are available
+
+---
+
 - **14/10/2025**
     - Recordings for **Lecture 05** and **06** are available
     - **Solutions** to Problem set of Lecture 03 and 04 are available

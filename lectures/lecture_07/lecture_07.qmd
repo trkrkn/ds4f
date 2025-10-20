@@ -1,6 +1,6 @@
 ---
-title: "Lecture 05 - Object Oriented Programming"
-file_name: "oop"
+title: "Lecture 07 - Numerical Computing"
+file_name: "numerical_computing"
 ---
 ## Lecture Material
 - **Notebook**
@@ -15,46 +15,47 @@ file_name: "oop"
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
-    src="https://drive.google.com/file/d/1paO2JfgeHiPBcrDOcXZlqc87HoEC7jq4/preview"
+    src="https://drive.google.com/file/d/1b6SrZYZPAM6blDc5mzK7zQdgR52UoJ7E/preview"
     frameborder="0"
     allowfullscreen
     style="position: absolute; top:0; left:0; width:100%; height:100%;">
   </iframe>
 </div>
 
-### 2. Basics
+### 2. `NumPy` Arrays
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
-    src="https://drive.google.com/file/d/1mYGzgLSF3Lyqg_BdEmllJ8BtGUVu1gx8/preview"
+    src="https://drive.google.com/file/d/1_xCpeVAEW0-e3OpbVbSrl7NOvJciOmDN/preview"
     frameborder="0"
     allowfullscreen
     style="position: absolute; top:0; left:0; width:100%; height:100%;">
   </iframe>
 </div>
 
-### 3. Inheritance
+### 3. Structured Arrays, Vectorized Programming & Random Number Generator
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
-    src="https://drive.google.com/file/d/1fxf3afjd0X8hwVzOJkFnKHjavQmlHTpJ/preview"
+    src="https://drive.google.com/file/d/1tbPn-_kqEsJvlN3C4n-0gl8pdQqyo_vN/preview"
     frameborder="0"
     allowfullscreen
     style="position: absolute; top:0; left:0; width:100%; height:100%;">
   </iframe>
 </div>
 
-### 4. Overriding
+### 4. Applications
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
-    src="https://drive.google.com/file/d/1U9wXvmxDzM4HWX8vK4j3Ew0MZO1igaPs/preview"
+    src="https://drive.google.com/file/d/1qWRzdZ9SbskeB276K-2taueSlISOUPAG/preview"
     frameborder="0"
     allowfullscreen
     style="position: absolute; top:0; left:0; width:100%; height:100%;">
   </iframe>
 </div>
+
 
 ## Problem sets
-- [Jupyter notebook (.ipynb)](lecture_05_problem_sets.zip)
-- [Solutions (.pdf)](lecture_05_solutions.pdf){target=_blank} 
+- [Jupyter notebook (.ipynb)](lecture_07_problem_sets.zip)
+<!--- - [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank} --->

@@ -27,7 +27,7 @@ website:
               text: Lecture 05 - Object Oriented Programming
             - href: 'lectures/lecture_06/lecture_06.qmd'
               text: Lecture 06 - Libraries
-            - href: ''
+            - href: 'lectures/lecture_07/lecture_07.qmd'
               text: Lecture 07 - Numerical Computing
             - href: ''
               text: Lecture 08 - Input/output

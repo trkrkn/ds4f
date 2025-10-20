@@ -88,5 +88,14 @@
   },
   "lectures/lecture_05/lecture_05_problem_sets.ipynb": {
     "lecture_05_problem_sets.html": "1a8a16e6"
+  },
+  "lectures/lecture_07/lecture_07.qmd": {
+    "lecture_07.html": "451fe2a9"
+  },
+  "lectures/lecture_07/numerical_computing.ipynb": {
+    "numerical_computing.html": "85d70c12"
+  },
+  "lectures/lecture_07/lecture_07_problem_set.ipynb": {
+    "lecture_07_problem_set.html": "d2efabd1"
   }
 }
