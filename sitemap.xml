@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trkrkn.github.io/ds4f/schedule.html</loc>
-    <lastmod>2025-10-13T12:38:00.447Z</lastmod>
+    <lastmod>2025-10-20T14:08:05.232Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/lecture_03_problem_sets.html</loc>
@@ -29,32 +29,44 @@
     <lastmod>2025-09-25T12:39:46.123Z</lastmod>
   </url>
   <url>
-    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_01/lecture_01.html</loc>
-    <lastmod>2025-10-01T10:01:31.053Z</lastmod>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_07/numerical_computing.html</loc>
+    <lastmod>2025-10-20T14:05:51.203Z</lastmod>
   </url>
   <url>
-    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_06/libraries.html</loc>
-    <lastmod>2025-10-13T12:18:42.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://trkrkn.github.io/ds4f/syllabus.html</loc>
-    <lastmod>2025-10-01T09:38:57.951Z</lastmod>
-  </url>
-  <url>
-    <loc>https://trkrkn.github.io/ds4f/index.html</loc>
-    <lastmod>2025-10-13T12:35:27.164Z</lastmod>
-  </url>
-  <url>
-    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_06/lecture_06.html</loc>
-    <lastmod>2025-10-13T12:29:41.836Z</lastmod>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_00/lecture_00.html</loc>
+    <lastmod>2025-10-01T11:29:50.510Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_01/introduction_to_python.html</loc>
     <lastmod>2025-09-25T12:36:17.445Z</lastmod>
   </url>
   <url>
-    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_00/lecture_00.html</loc>
-    <lastmod>2025-10-01T11:29:50.510Z</lastmod>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_06/lecture_06.html</loc>
+    <lastmod>2025-10-13T12:29:41.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/index.html</loc>
+    <lastmod>2025-10-20T14:07:28.046Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/syllabus.html</loc>
+    <lastmod>2025-10-01T09:38:57.951Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_06/libraries.html</loc>
+    <lastmod>2025-10-13T12:18:42.111Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_01/lecture_01.html</loc>
+    <lastmod>2025-10-01T10:01:31.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_07/lecture_07.html</loc>
+    <lastmod>2025-10-20T14:06:15.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_07/lecture_07_problem_set.html</loc>
+    <lastmod>2025-10-20T13:57:57.082Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_02/lecture_02.html</loc>
@@ -62,7 +74,7 @@
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_05/lecture_05.html</loc>
-    <lastmod>2025-10-13T12:27:38.045Z</lastmod>
+    <lastmod>2025-10-20T14:00:46.890Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_05/lecture_05_problem_sets.html</loc>
