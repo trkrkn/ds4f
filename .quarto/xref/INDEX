@@ -97,5 +97,14 @@
   },
   "lectures/lecture_07/lecture_07_problem_set.ipynb": {
     "lecture_07_problem_set.html": "d2efabd1"
+  },
+  "lectures/lecture_08/data_manipulation.ipynb": {
+    "data_manipulation.html": "f5a84f92"
+  },
+  "lectures/lecture_08/lecture_08_problem_set.ipynb": {
+    "lecture_08_problem_set.html": "d46efe73"
+  },
+  "lectures/lecture_08/lecture_08.qmd": {
+    "lecture_08.html": "fe6c1801"
   }
 }

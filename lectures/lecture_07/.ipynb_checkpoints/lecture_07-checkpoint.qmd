@@ -57,5 +57,5 @@ file_name: "numerical_computing"
 
 
 ## Problem sets
-- [Jupyter notebook (.ipynb)](lecture_07_problem_sets.zip)
-<!--- - [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank} --->
+- [Jupyter notebook (.ipynb)](lecture_07_problem_set.zip)
+- [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank}

@@ -1,0 +1,105 @@
+---
+title: "Lecture 08 - Data Manipulation"
+file_name: "data_manipulation"
+---
+## Lecture Material
+- **Notebook**
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+- **Slides**
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+    
+## Recording
+### 1. Intro
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/12laXscAQETRYKmmmM_--X3vBF-k9_BYe/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 2. The `DataFrame` Class
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1qNuQsQUBWlgVUmvFDvlH0H_L3FLvqBde/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 3. Basic Operations
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1vOR8bwdv-DHrIaB0DuhdfKuetqCqgeBq/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 4. The `Series` Class
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1_7vAT3UX1uS_zURMRmCweEI7_s7ts6ct/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+
+### 5. `GroupBy` Methods
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1RPg7ygoHnMngXRlXDsANPR5Ctlbr0T_y/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1uelqv5jzXBmWSbLk0uFx4WJATlSUnmMk/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 6. Complex Selection
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1iUJDe75T8kxppW_K84V8Jna41A2yKqJm/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 7. Concatenate, Join & Merge
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1n6DCuLMM2hCbX_TWNyT5PXK92m5pR5w2/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+
+
+## Problem sets
+- [Jupyter notebook (.ipynb)](lecture_08_problem_set.zip)
+<!--- - [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank} --->

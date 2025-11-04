@@ -29,10 +29,10 @@ website:
               text: Lecture 06 - Libraries
             - href: 'lectures/lecture_07/lecture_07.qmd'
               text: Lecture 07 - Numerical Computing
+            - href: 'lectures/lecture_08/lecture_08.qmd'
+              text: Lecture 08 - Data Manipulation
             - href: ''
-              text: Lecture 08 - Input/output
-            - href: ''
-              text: Lecture 09 - Data Manipulation
+              text: Lecture 09 - Input/output
             - href: ''
               text: Lecture 10 - Time series analysis
             - href: ''
