@@ -133,277 +133,249 @@
     "text": "2. Basic structures\nList of structures\n\n\n\nObject type\nMeaning\nUsed for\n\n\n\n\ntuple\nimmutable container\nfixed set of objects\n\n\nlist\nmutable container\nordered and changing set of objects\n\n\ndict\nmutable container\nkey-value store\n\n\nset\nmutable container\nunordered collection of unique objects\n\n\n\nuse built-in function type() to obtain the information\nNavigating structures\n\nIndexing: obtain item at position n s[n]\nSlicing: obtain items between position i and j s[i:j] s[i:] s[:j]\nRanging: obtain items between position i and j spaced by k s[i:j:k]\n\nNote: In Python, indexing starts at 0\n\n2.1 tuple\nTuples are immutable collections of items (i.e., cannot be changed after creation).\n\n# Example: Coordinates of a bank branch\nbranch_location = (40.7128, -74.0060)  # New York City coordinates\nprint(\"Branch Location:\", branch_location)\n\n\nt = (1, 2.5, 'data')\ntype(t)\n\n\n#also works without ()\nt = 1, 2.5, 'data'\ntype(t)\n\n\n#indexing\nt[2]\n\n\ntype(t[2])\n\n\n\n2.2 list\nLists are ordered collections of items, which can be of mixed data types.\n\n# Example: List of recent transactions\ntransactions = [100, -50, 200, -30, 400]\nprint(\"Transactions:\", transactions)\n\n# Adding a new transaction\ntransactions.append(-100)\nprint(\"Updated Transactions:\", transactions)\n\n\nl = [1, 2.5, 'data']\nl[2]\n\n\n#casting\nl = list(t)\nl\n\n\ntype (l)\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nl[i] = x\n\n\nl[i:j:k] = s\n\n\nappend()\n\n\ncount()\n\n\ndel l[i:j:k]\n\n\nindex()\n\n\nextend()\n\n\ninsert()\n\n\nremove()\n\n\npop()\n\n\nrevers()\n\n\nsort()\n\n\n\ncontrary to tuples, lists are mutable containers\n\nl.append([4,3])\nl\n\n\nl.extend([1.0, 1.5, 2.0])\nl\n\n\nl = [0, 1, 2, 3, 4, 5, 6, 7]\ns = [10, 20, 30]\n\nl[1:7:2] = s\nprint(l)\n\n\nl.insert(1,'insert')\nl\n\n\nl.remove('data')\nl\n\n\np = l.pop(3)\nprint (l, p)\n\n\n#slicing\nl[2:5]\n\nMutable vs immutable objects\n\nt = (1, [2, 3], 4)\n\n\nt[1].append(5)    \n\n\nprint(t)          \n\n\nt[0] = 9\n\n\n\n\n2.3 dict\nDictionaries store data as key-value pairs.\n\n# Example: Dictionary of account balances\naccount_balances = {\n    \"1234567890\": 1000,\n    \"0987654321\": 2500,\n    \"1122334455\": 750\n}\nprint(\"Account Balances:\", account_balances)\n\n# Accessing a balance by account number\nprint(\"Balance of account 1234567890:\", account_balances[\"1234567890\"])\n\n\nKeys and values\n\nd = {\n    'Name' : 'Iron Man',\n    'Country' : 'USA',\n    'Profession' : 'Super Hero',\n    'Age' : 36\n}\n\n\ntype(d)\n\n\nprint (d['Name'], d['Age'])\n\n\n\nBuilt-in methods\n\n\n\nMethod\n\n\n\n\nd[k]\n\n\nd[k] = x\n\n\ndel d[k]\n\n\nclear()\n\n\ncopy()\n\n\nitems()\n\n\nkeys()\n\n\nvalues()\n\n\npopitem()\n\n\nupdate()\n\n\n\n\nd.keys()\n\n\nd.values()\n\n\nd.items()\n\n\nbirthday = True\nif birthday:\n    d['Age'] += 1\nprint (d['Age'])\n\n\nfor item in d.items():\n    print (item)\n\n\nfor value in d.values():\n    print (type(value))\n\n\n\n\n2.4 set\nSets are unordered collections of unique items.\n\ns = set(['u', 'd', 'ud', 'du', 'd', 'du'])\ns\n\n\nSet operations\n\nt = set(['d', 'dd', 'uu', 'u'])\n\n\ns.union(t)\n\n\ns.intersection(t)\n\n\ns.difference(t)\n\n\nt.difference(s)\n\n\ns.symmetric_difference(t)"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html",
-    "href": "lectures/lecture_07/numerical_computing.html",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "objectID": "lectures/lecture_09/input_output.html",
+    "href": "lectures/lecture_09/input_output.html",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
     "section": "",
-    "text": "NumPy (Numerical Python) is a fundamental library for scientific computing in Python. It provides support for arrays, matrices, and many mathematical functions that operate on these data structures.\nThis notebook covers: - Creating and manipulating NumPy arrays - Basic mathematical operations with NumPy - Statistic calculations using NumPy - Finance applications\nWhy Use NumPy?\nNumPy offers significant advantages when working with numerical data: - Performance: NumPy is much faster than traditional Python lists for numerical operations. - Functionality: NumPy provides a wide range of mathematical functions and operations. - Convenience: NumPy arrays are more convenient to work with, especially for large datasets."
+    "text": "Input and output operations (I/O) are essential in programming.\nThey allow programs to - Interact live with users - Take data as input - Display or save the results as output\nThis notebook covers - How to take input from users - How to display output using the print() function - File I/O operations: reading from and writing to files - Handling CSV files with basic file operations - Working with CSV/Excel files using pandas"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#overview",
-    "href": "lectures/lecture_07/numerical_computing.html#overview",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "objectID": "lectures/lecture_09/input_output.html#overview",
+    "href": "lectures/lecture_09/input_output.html#overview",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
     "section": "",
-    "text": "NumPy (Numerical Python) is a fundamental library for scientific computing in Python. It provides support for arrays, matrices, and many mathematical functions that operate on these data structures.\nThis notebook covers: - Creating and manipulating NumPy arrays - Basic mathematical operations with NumPy - Statistic calculations using NumPy - Finance applications\nWhy Use NumPy?\nNumPy offers significant advantages when working with numerical data: - Performance: NumPy is much faster than traditional Python lists for numerical operations. - Functionality: NumPy provides a wide range of mathematical functions and operations. - Convenience: NumPy arrays are more convenient to work with, especially for large datasets."
+    "text": "Input and output operations (I/O) are essential in programming.\nThey allow programs to - Interact live with users - Take data as input - Display or save the results as output\nThis notebook covers - How to take input from users - How to display output using the print() function - File I/O operations: reading from and writing to files - Handling CSV files with basic file operations - Working with CSV/Excel files using pandas"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#arrays-of-data",
-    "href": "lectures/lecture_07/numerical_computing.html#arrays-of-data",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "1. Arrays of data",
-    "text": "1. Arrays of data\n\n1.1 Definitions\nGeneral data structures in Python, especially list, are flexible but can be inefficient in terms of memory and performance.\nFor scientific and financial applications that demand high-performance operations on specialized data structures, arrays are crucial.\nWhat are Arrays?\nArrays organize elements of the same data type in rows and columns, typically representing numbers like real values.\n\nA one-dimensional array represents a vector\nA multi-dimensional array forms matrices, cubes, etc.\n\nTo efficiently handle arrays, NumPy works with its ndarray class which provides powerful and specialized functionality.\n\n\n1.2 Using list to handle arrays\n\nDimensionality\nPython list can be of multiple dimensions: vector, matrices, cubes\n\n# 1-dimension list\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\n\n# 2-dimensions list = matrix\nm = [v, v, v]\n\n\n\nIndexing\nReminder: list are indexed from 0 for each of their dimensions\n\nm\n\n\nm[1]\n\n\nm[1][0]\n\n\n\nn-dimensions & deep copies\nlist of n-dimensions can be constructed as vectors of other lists.\n\nv1 = [0.5, 1.5]\nv2 = [1, 2]\nm = [v1, v2]\nc = [m, m]\nc\n\nHowever, such construction leads to dependencies in terms of references and memory.\nBy default, a copy of a vector in a list points to the same original values.\nOperations on the copy therefore also apply to the origin.\n\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\nm = [v, v, v]\nv[0] = 'Python'\nm\n\nDeep copies allow to decouple origins and copies by creating different references in the memory.\n\nfrom copy import deepcopy\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\nm = 3 * [deepcopy(v)]\nm\n\n\nv[0] = 'Python'\nm\n\n\nv"
+    "objectID": "lectures/lecture_09/input_output.html#live-inputs",
+    "href": "lectures/lecture_09/input_output.html#live-inputs",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "2. Live inputs",
+    "text": "2. Live inputs\n\n2.1 The input() function\nThe input() function allows the user to provide input to the program while running by returning the input as a string.\n\n# Example: Asking for user input\nname = input(\"What is your name? \")\nprint(\"Hello, \" + name + \"!\")\n\n\n\n2.2 Casting inputs\nResults from input() can be casted from string to other data types (int, float, etc.).\n\n# Example: Taking a number as input\nage = int(input(\"How old are you? \"))  # Convert input to an integer\nprint(\"You are\", age, \"years old.\")\nprint (\"You were born in \", 2025 - age)\n\n\n# Example: Taking a float as input\nbalance = float(input(\"Enter your account balance: \"))\nprint(\"Your balance is $\", balance)\n\n\n\n2.3 Multiple inputs\nWhen multiple inputs are entered, they are returned in one line. They can be then separated into separate items using split().\n\n# Example: Taking multiple inputs\nfirst_name, last_name = input(\"Enter your first and last name: \").split()\nprint(\"Hello, \" + first_name + \" \" + last_name)"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#regular-numpy-arrays",
-    "href": "lectures/lecture_07/numerical_computing.html#regular-numpy-arrays",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "2. Regular NumPy arrays",
-    "text": "2. Regular NumPy arrays\n\n2.1 The basics\nUsing list objects to compose array structures is possible, but not very convenient since the list class is designed for broader, general purposes.\nA truly dedicated class for handling array-type structures is far more beneficial.\nnumpy.array is such a class, built with the specific goal of handling n-dimensional arrays both conveniently and efficiently.\n\nimport numpy as np\na = np.array([0, 0.5, 1.0, 1.5, 2.0])\na\n\n\ntype(a)\n\n\na = np.array(['a', 'b', 'c'])\na\n\n\narange()\nSimilar to the range function\n\na = np.arange(2, 20, 2)\na\n\n\na = np.arange(8, dtype=float)\na\n\n\n\nIndexing\nIndexing works like in list.\n\na[5:]\n\n\na[:2]\n\n\n\nndarray built-in methods\n\na.sum()\n\n\na.std()\n\n\na.cumsum()\n\n(Vectorized) Math operations\n\n2 * a\n\n\na ** 2\n\n\na ** a\n\nUniversal functions\n“Universal” because they operate on ndarray objects as well as on basic Python data types.\n\nnp.exp(a)\n\n\nnp.sqrt(a)\n\n\nnp.sqrt(2.5)\n\n\n\nMatrices\n\nb = np.array([a, a * 2])\nb\n\n\nb[0]\n\n\nb[0,2]\n\n\nb[:,1]\n\n\nb.sum()\n\n\n# column-wise operation\nb.sum(axis = 0)\n\n\n# row-wise operation\nb.sum(axis = 1)\n\n\n\n\n2.2 Initialization\nInitialization functions allow to construct n-dimensional arrays with pre-instructed procedures to fill each data point: - np.zeros(), np.zeros_like() - np.ones(), np.ones_like() - np.empty(), np.empty_like() - np.eye() - np.linspace()\nFor initialization functions, one can provide the following parameters: - shape: Either an int, a sequence of int objects, or a reference to another ndarray - dtype (optional): A dtype—these are NumPy-specific data types for ndarray objects\n\n\n\ndtype\nDescription\n\n\n\n\n?\nBoolean\n\n\ni\nSigned integer\n\n\nu\nUnsigned integer\n\n\nf\nFloating point\n\n\nc\nComplex floating point\n\n\nm\ntimedelta\n\n\nM\ndatetime\n\n\nO\nObject\n\n\nU\nUnicode\n\n\nV\nRaw data (void)\n\n\n\n\nnp.zeros()\nThe np.zeros() function creates a 2-dimensional array of zeros with specific characteristics.\n\nc = np.zeros((2, 3), dtype='i')\nc\n\n\nd = np.zeros_like(c, dtype='f')\nd\n\n\n\nnp.ones()\nThe np.ones() function creates a 2-dimensional array of ones with specific characteristics.\n\nc = np.ones((2, 3, 4), dtype='i')\nc\n\nThis example generates an array filled with ones. The shape of the array is (2, 3, 4), which means it will have: - 2 blocks (first dimension), - each block contains 3 rows (second dimension), - and each row contains 4 elements (third dimension).\nThe result is a 3D array like:\n[\n  [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],  # First block (2x3x4)\n  [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]   # Second block (2x3x4)\n]\n\nd = np.ones_like(c, dtype='f')\nd\n\n\n\nnp.empty()\nUnlike np.ones() or np.zeros(), np.empty() does not initialize the array with any specific values like 1 or 0.\nInstead, it leaves the array filled with whatever data is already in memory at that location. This means the array will have arbitrary values, often referred to as “garbage” values. This makes np.empty() faster than functions that initialize the array with specific values because it skips that step.\nEmpty view\n[\n  [[?, ?], [?, ?], [?, ?]],  # First block (2x3x2)\n  [[?, ?], [?, ?], [?, ?]]   # Second block (2x3x2)\n]\nWhere the ? symbols represent random or garbage values, because the array is uninitialized.\n\ne = np.empty((2, 3, 2))\ne\n\n\nf = np.empty_like(c)\nf\n\n\n\nnp.eye()\nThe np.eye(n) function creates a 2D identity matrix of size nxn\n\nnp.eye(5)\n\n\n\nnp.linspace()\nThe np.linspace() function creates a 1-dimensional array of evenly spaced numbers.\n\ng = np.linspace(5, 15, 12)\ng\n\n\n\n\n2.3 Metainformation\nArrays deliver several meta-information.\n\nsize returns the total number of elements in the array\n\n\ng.size\n\n\nitemsize returns the size (in bytes) of each element in the array\n\n\ng.itemsize\n\n\nndim returns the number of dimensions of the array\n\n\ng\n\n\ng.ndim\n\n\nshape returns the shape of the array\n\n\ng.shape\n\n\ndtype returns the data type of the elements in the array\n\n\ng.dtype\n\n\nnbytes returns the total number of bytes consumed by the elements of the array\n\n\ng.nbytes\n\n\n\n2.4 Structural operations\n\n# Initialise an array\ng = np.arange(15)\nprint (g)\nprint (g.shape)\n\n\nReshaping\nReshaping provides another view on the same data.\nDuring a reshaping operation, the total number of elements in the ndarray object is unchanged.\n\nnp.reshape(a, newshape)\n\n\ng.reshape((3,5))\n\n\nh = g.reshape((5,3))\nh\n\n\n\nTransposing\nTransposing creates a view of the original array (i.e., it does not create a new object unless explicitly copied).\nThe dimensions (axes) of the ndarray object are swapped.\nFor 2D arrays, this means rows become columns and columns become rows. For higher-dimensional arrays, the axes are reordered according to the shape.\n\na.transpose(*axes)\na.T\nnp.transpose(a, axes)\n\n\nh\n\n\nh.transpose()\n\n\nh.T\n\n\n\nResizing\nResizing creates a new (temporary) object.\nDuring a resizing operation, the total number of elements in the ndarray object changes: it either decreases (“down-sizing”) or increases (“up-sizing”). - np.resize(a, newshape)\n\ng\n\n\ng.size\n\n\nnp.resize(g,(3,1))\n\n\nnp.resize(g, (1, 5))\n\n\nnp.resize(g, (2, 5))\n\n\nn = np.resize(g, (5, 4))\nn\n\n\n\nStacking\nStacking joins a sequence of arrays along a new axis.\nThis is used to combine arrays into a single array with a new dimension. The arrays must have the same shape, except along the axis being stacked.\n\nnp.stack(arrays, axis=0)\nnp.hstack(tuple) (for horizontal stacking)\nnp.vstack(tuple) (for vertical stacking)\n\n\na = np.array([1, 2])\nb = np.array([3, 4])\n\n\n# Stacking along a new axis\nnp.stack((a, b), axis=0)\n\n\nnp.stack((a, b), axis=1)  \n\n\n# Horizontal and vertical stacking\nnp.hstack((a, b))\n\n\nnp.vstack((a, b)) \n\n\nh\n\n\n# horizontal stacking\nnp.hstack((h,2*h))\n\n\n# vertical stacking\nnp.vstack((h, 0.5 * h))\n\n\n\nFlattening\nFlattening refers to converting a multi-dimensional array into a 1-dimensional array. This is useful when processing the array as a sequence of elements, regardless of its original shape. - a.flatten() - np.ravel(a)\n\na = np.array([[1, 2], [3, 4]])\n\n# Flattening the array\na.flatten()\n\n\nnp.ravel(a)\n\n\nh\n\n\nh.flatten()\n\n\nfor i in h.flat:\n    print(i, end=',')\n\n\n\n\n2.5 Boolean arrays\nLogical operations work on ndarray objects the same way, element-wise, as on standard Python data types.\n\nh\n\n\nBasics\n\nh &gt; 8\n\n\nh &lt;= 7\n\n\nh == 5\n\n\n(h == 5).astype(int)\n\n\n(h &gt; 4 ) & (h &lt;= 12)\n\n\n\nBoolean filtering\n\nh[h &gt; 8]\n\n\nh[(h &gt; 4) & (h &lt;= 12)]\n\n\nh[(h &lt; 4) | (h &gt;= 12)]\n\nnp.where() returns the indices of elements in an input array that satisfy a given condition.\nIt can also be used to return values from one of two arrays, depending on a condition (conditional selection).\n\nnp.where(condition, [x, y]):\n\nIf only condition is provided, np.where() returns the indices where the condition is True.\nIf x and y are also provided, np.where() returns elements from x where the condition is True, and from y where the condition is False.\n\n\n\na = np.array([1, 2, 3, 4, 5])\nnp.where(a &gt; 3)\n\n\nnp.where(np.eye(10)&gt;0)\n\n\n# use the np.where() function\nnp.where(h &gt; 7, 1, 0)\n\n\nnp.where(h % 2 == 0, 'even', 'odd')\n\n\nnp.where(h &lt;= 7, h * 2, h / 2)"
+    "objectID": "lectures/lecture_09/input_output.html#live-output",
+    "href": "lectures/lecture_09/input_output.html#live-output",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "3. Live output",
+    "text": "3. Live output\n\n3.1 The print() function\nThe print() function displays outputs in the prompt terminal.\n\n# Example: Basic output using print()\nprint(\"Hello, world!\")\n\n\n\n3.2 Printing variables and expressions\nThe print() handles variables and expressions.\n\n# Example: Printing variables\nname = \"Alice\"\nage = 25\nprint(\"Name:\", name, \"Age:\", age)\n\n\nString formatting\nPython provides several ways to format outputs as a combination of strings and variables.\n\nUsing commas:\n  print(\"string\", variable, \"string\", etc.)\n\n\n# Example: Using commas\nprint(\"Your balance is\", balance, \"dollars.\")\n\n\nUsing f-strings (available in Python 3.6+):\n  print (f\"string {variable}\")\n\n\n# Example: Using f-strings\nprint(f\"Hello, {name}. You are {age} years old.\")\n\n\nUsing the format() method:\n  print (\"string {}, {}\".format(variable1, variable2))\n\n\n# Example: Using format()\nprint(\"Hello, {}. You are {} years old.\".format(name, age))"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#structured-numpy-arrays",
-    "href": "lectures/lecture_07/numerical_computing.html#structured-numpy-arrays",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "3. Structured NumPy arrays",
-    "text": "3. Structured NumPy arrays\nStructured ndarray objects allow to have a different dtype per column.\nThe construction is similar to the operation for initializing tables in a database (e.g., SQL): one has column names and column data types, with maybe some additional information (e.g., maximum number of characters per str object).\n\ndt = np.dtype([('Name', 'S10'), ('Age', 'i'),\n                             ('Height', 'f'), ('Children/Pets', 'i', 2)])\ndt\n\n\n# alternative\ndt = np.dtype({'names': ['Name', 'Age', 'Height', 'Children/Pets'],\n                       'formats':'O int float int,int'.split()})\ndt\n\n\ns = np.array([('Smith', 45, 1.83, (0, 1)),\n                        ('Jones', 53, 1.72, (2, 2))], dtype=dt)\ns\n\n\ntype(s)\n\nIndexing\nThe single columns can now be easily accessed by their names and the rows by their index values.\n\ns['Name']\n\n\ns['Height'].mean()\n\n\ns[0]\n\n\ns[1]['Age']"
+    "objectID": "lectures/lecture_09/input_output.html#file-input-and-output-file-io",
+    "href": "lectures/lecture_09/input_output.html#file-input-and-output-file-io",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "4. File input and output (File I/O)",
+    "text": "4. File input and output (File I/O)\nPrograms can read from files and write to files.\n\n4.1 Opening files\nBefore reading from or writing to a file, a file object must be created. The open() function opens files and creates access in Python.\n    open (name, mode)\n\nThe name (or path) of the file\nThe access mode (e.g., 'r' for reading, 'w' for writing, 'a' for appending)\n\nNote: opened files must then be closed with .close() to clear the access.\n\nfile_path = \"Data/09/\"\nfile_name = \"example.txt\"\nfile = open(file_path + file_name, \"r\")  # Open the file in read mode\n\n\n\n4.2 Reading from\nSeveral methods exist for reading file contents, such as .read(), .readline(), and .readlines().\n\nread(): Reads the entire file.\n\n\ncontent = file.read()  # Read the entire file\nprint(content)\nfile.close()  # Close the file after reading\n\n\ncontent\n\n\nreadline(): Reads one line at a time.\n\n\nfile = open(file_path + file_name, \"r\")\nline = file.readline()\nwhile line:\n    print(line.strip())  # Remove newline characters\n    line = file.readline()\nfile.close()\n\n\nreadlines(): Reads all lines and returns them as a list.\n\n\nlines\n\n\nfile = open(file_path + file_name, \"r\")\nlines = file.readlines()\nfor line in lines:\n    print(line.strip())\nfile.close()\n\n\n\n4.3 with for file handling\nTo avoid misusing file access (opening and closing), the with statement handles files more efficiently by automatically closing the file after the block of code is executed.\n    with expression as variable:\n        # Code block that uses the resource (e.g., a file or connection)\n\n# Example: Using 'with' to handle files\nwith open(file_path + file_name, \"r\") as file:\n    content = file.read()\n    print(content)\n# No need to explicitly close the file; it is done automatically\n\n\n\n4.4 Writing to\nWriting data to a file is done using the write() or writelines() methods. - The 'w' (write) mode overwrites the existing content. - The 'a' (append) mode writes at the end of the file.\n\nWrite mode m:\n\n\n# Example: Writing to a file\nfile_name = \"new_file.txt\"\nwith open(file_path + file_name, \"w\") as file: # Open file in write mode\n    file.write(\"This is the first line.\\n\")\n    file.write(\"This is the second line.\\n\")\n\n\n# checking\nwith open(file_path + file_name, \"r\") as file: # Open file in write mode\n    print(file.read())\n\n\nAppend mode a:\n\n\n# Example: Writing to a file\nfile_name = \"new_file.txt\"\nwith open(file_path + file_name, \"a\") as file: # Open file in write mode\n    file.write(\"This is the first line.\\n\")\n    file.write(\"This is the second line.\\n\")\n    file.write(\"This is an additional line.\\n\")\n\n\n# checking\nwith open(file_path + file_name, \"r\") as file: # Open file in write mode\n    print(file.read())"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#vectorized-programming",
-    "href": "lectures/lecture_07/numerical_computing.html#vectorized-programming",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "4. Vectorized programming",
-    "text": "4. Vectorized programming\nVectorization is a strategy to get more compact code that is possibly executed faster by simplifying the treatment and operations over array (vector) objects.\nThe fundamental idea is to conduct an operation on or to apply a function to a complex array object “at once” and not by looping over the single elements of the object.\nNumPy has vectorization built in deep down in its core.\n\nOperations\n\nr = np.arange(12).reshape((4, 3))\ns = np.arange(12).reshape((4, 3)) * 0.5\n\n\nr\n\n\ns\n\n\nr + s\n\n\nr + 3\n\n\n2 * r\n\n\n2 * r + 3\n\n\n\nRole of shapes\n\nr.shape\n\n\nr\n\n\ns = np.arange(0, 12, 4)\ns\n\n\ns.shape\n\n\nr + s\n\n\ns = np.arange(0, 12, 3)\n\n\ns.shape\n\n\nr + s\n\n\nr.transpose() + s\n\n\n\nApplying functions\n\ndef f(x):\n    return 3 * x + 5\n\n\nf(0.5)\n\n\nf(r)"
+    "objectID": "lectures/lecture_09/input_output.html#csv-files",
+    "href": "lectures/lecture_09/input_output.html#csv-files",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "5. .csv files",
+    "text": "5. .csv files\nCSV (Comma-Separated Values) files are the standard storing format for tabular data. - The firt line contains the name of columns. - Each line is a row where cells are separated by ,.\nExample: \"csv_example.csv\"\n    Name,Age,Balance\n    Alice,30,1000.50\n    Bob,25,1500.75\n    Charlie,35,2000.25\n    Diana,28,1800.60\n    Eve,22,1200.00\n\n5.1 with Python\nHandling .csv files from Python can be done using the csv module.\n\nimport csv\n\n\nReading from\nReading a csv file is done using the csv.reader() method.\n\nimport csv\n# Example: Reading a CSV file\nfile_path = \"Data/09/\"\ncsv_file_name = 'csv_example.csv'\nwith open(file_path + csv_file_name, 'r') as file:\n    csv_reader = csv.reader(file)\n    for row in csv_reader:\n        print(row)\n\ncsv files can also be directly read as dict objects using the csv.DictRead() method.\n\n# Example: Reading a CSV file with headers\nwith open(file_path + csv_file_name, 'r') as file:\n    csv_reader = csv.DictReader(file)\n    for row in csv_reader:\n        print(f\"{row['Name']} is {row['Age']} years old.\")\n\n\n\nWriting to\nWriting data to a csv file is done by 1. Creating a csv.writer() object with the output file. 2. Inserting rows with .writerow()\n\nw mode\n\n\n# Example: Writing to a CSV file\ncsv_output_file_name = 'csv_output_example.csv'\nwith open(file_path + csv_output_file_name, 'w', newline='') as file:\n    csv_writer = csv.writer(file)\n    csv_writer.writerow(['Name', 'Age', 'Balance'])\n    csv_writer.writerow(['Alice', '30', '1000.50'])\n    csv_writer.writerow(['Bob', '25', '1500.75'])\n\n\na mode\n\n\ncsv_output_file_name = 'csv_output_example.csv'\nwith open(file_path + csv_output_file_name, 'a', newline='') as file:\n    csv_writer = csv.writer(file)\n    csv_writer.writerow(['Name', 'Age', 'Balance'])\n    csv_writer.writerow(['Charlie', '35', '2000.25'])\n    csv_writer.writerow(['Eve', '22', '1200.00'])\n\n\nwith open(file_path + csv_output_file_name, 'r') as file:\n    csv_reader = csv.DictReader(file)\n    for row in csv_reader:\n        print(f\"{row['Name']} is {row['Age']} years old.\")\n\n\n\n\n5.2 with pandas\nPandas simplifies reading, writing, and analyzing data, especially with csv files.\n\nimport pandas as pd\n\n\nReading from\nReading a csv file is done using the pd.read_csv() method.\n    pd.read_csv(...)\nCheck method documentation (huge!).\nKey parameters: - filepath_or_buffer: The path to the file you want to read. - delimiter or sep: The character that separates values (default is a comma). - header: Row number to use as the column names. - names: A list of column names to use. - index_col: Column(s) to set as index. - skiprows: Number of rows to skip at the start of the file.\n\ncsv_file_name = 'csv_example.csv'\ndf = pd.read_csv(file_path + csv_file_name)\ndf\n\nExample with Parameters\n\n# Customizing CSV reading\ndf = pd.read_csv(file_path + csv_file_name, delimiter=\",\", header=0, index_col=\"Name\")\ndf.head()\n\n\n\nWriting to\nSaving a DataFrame to a csv file is done using the pd.to_csv() method.\n\n# Example: Writing DataFrame to a CSV file\ndf_file_name = 'df_output_example.csv'\ndf.to_csv(file_path + df_file_name, index=False)  # `index=False` to exclude row indices"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#random-number-generation",
-    "href": "lectures/lecture_07/numerical_computing.html#random-number-generation",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "5. Random number generation",
-    "text": "5. Random number generation\nRandom number generation is often essential, particularly in simulations like Monte Carlo methods.\nNumPy provides a convenient and powerful way to generate random numbers through the np.random module.\n\nrand(): generates numbers between 0 and 1.\n\n\nnp.random.rand(5)\n\n\nrandn(): generates numbers with a mean of 0 and a standard deviation of 1 by default.\n\n\nnp.random.randn(5)\n\n\nnormal(mean, std, n): generates random n numbers from a normal distribution with mean and std\n\n\n# Simulate 10 days of daily returns with a mean of 0.001 and std deviation of 0.02\ndaily_returns = np.random.normal(0.001, 0.02, 10)\ndaily_returns\n\n\nrandint(): generates random integers\n\n\nnp.random.randint(1, 100, 5)"
+    "objectID": "lectures/lecture_09/input_output.html#excel-files",
+    "href": "lectures/lecture_09/input_output.html#excel-files",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "6. Excel files",
+    "text": "6. Excel files\nExcel files are commonly used for data storage and transfer.\nPandas makes it easy to write and read these files.\n\n6.1 Writing to\nPandas writes DataFrames to Excel files using the to_excel() method.\n    pd.to_excel(...)\nCheck method documentation (huge!).\nKey parameters: - excel_writer: This is the path to the Excel file (“output.xlsx”) or an ExcelWriter object if saving multiple sheets to a single file. - sheet_name: The name of the sheet where the DataFrame will be saved. Default is “Sheet1”. - na_rep: Defines how missing values (NaN) should appear in the Excel file (e.g., na_rep=“N/A”). - columns: List of column names to write; writes all columns by default. - header: If True, includes column headers; set to False to exclude. - index: If True, includes the DataFrame’s index; if False, omits it. - startrow and startcol: Define the starting cell (row and column) for writing data.\n\nBasic example of writing to Excel\nNote: The to_excel() method requires the openpyxl library for .xlsx files (install with !pip install openpyxl if necessary).\n\nimport pandas as pd\nimport openpyxl\n\n# Sample DataFrame\ndata = {\n    \"Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n    \"Age\": [25, 30, 35],\n    \"Balance\": [1000.50, 1500.75, 1200.30]\n}\ndf = pd.DataFrame(data)\n\n# Writing the DataFrame to an Excel file\nfile_path = \"Data/09/\"\nexcel_output_name = \"excel_output_example.xlsx\"\ndf.to_excel(file_path + excel_output_name, index=False)  # `index=False` excludes row indices\n\n\n\nWriting multiple sheets to an Excel File\nThe ExcelWriter class allows to save multiple DataFrames to different sheets within the same Excel file.\n\n# Create additional sample DataFrames\ndata2 = {\n    \"Product\": [\"Widget A\", \"Widget B\", \"Widget C\"],\n    \"Price\": [20.5, 45.3, 30.0]\n}\ndf2 = pd.DataFrame(data2)\n\nwith pd.ExcelWriter(file_path + excel_output_name) as writer:\n    df.to_excel(writer, sheet_name=\"Customer Data\", index=False)\n    df2.to_excel(writer, sheet_name=\"Product Data\", index=False)\n\n\n\nSpecifying columns and formatting\nCustomizing which columns to write and add formatting options like headers are also possible.\n\n# Writing selected columns only\nexcel_output_2_name = \"excel_output_selected_columns.xlsx\"\ndf.to_excel(file_path + excel_output_2_name, columns=[\"Name\", \"Balance\"], index=False, header=True)\n\n\n\n\n6.2 Reading from an Excel file\nReading a xlsx file is done using the pd.read_excel() method.\n    pd.read_excel()\nCheck method documentation (huge!) - sheet_name: Name or index of the sheet to read. - header, names, index_col: Similar to read_csv(). - usecols: Specifies columns to load.\n\n# Reading an Excel file\ndf = pd.read_excel(file_path + excel_output_name, sheet_name=\"Customer Data\")\ndf.head()\n\nExample: Reading a specific sheet with column selection\n\n# Reading specific columns from an Excel sheet\ndf = pd.read_excel(file_path + excel_output_name, sheet_name=\"Product Data\", usecols=['Product'])\ndf.head()"
   },
   {
-    "objectID": "lectures/lecture_07/numerical_computing.html#applications",
-    "href": "lectures/lecture_07/numerical_computing.html#applications",
-    "title": "Lecture 07 - Numerical Computing (NumPy)",
-    "section": "6. Applications",
-    "text": "6. Applications\n\n6.1 Stock price simulations\n\nGeometric brownian motion\nIn finance, the Geometric Brownian Motion model is commonly used to simulate the future path of stock prices. The model is represented by the following equation:\n\\[\nS_{t+1} = S_t \\times e^{(\\mu - 0.5 \\times \\sigma^2) \\Delta t + \\sigma \\times \\epsilon \\times \\sqrt{\\Delta t}}\n\\]\nWhere: - $ S_t $ is the stock price at time $ t $ - $ $ is the expected return (mean) - $ $ is the volatility (standard deviation) - $ t $ is the time step (in days, for example) - $ $ is a random variable from a normal distribution\nExpressing as Log Returns\nTaking logs makes this additive:\n\\[\\ln\\frac{S_{t+\\Delta t}}{S_t}\n= (\\mu - 0.5\\sigma^2)\\Delta t + \\sigma \\epsilon_t \\sqrt{\\Delta t} = r_t\\]\nThis shows that log returns are normally distributed with: - Mean: \\((\\mu - 0.5\\sigma^2)\\Delta t\\) - Std. deviation: \\(\\sigma \\sqrt{\\Delta t}\\)\nPrice path\nThen, cumulative summation and exponentiation reconstruct the price path from \\(t=0\\) to \\(t=T\\):\n\\[S_T = S_0 \\, e^{\\sum r_t}\\]\n\n\nSimulating daily returns with NumPy\nLet’s simulate daily stock price returns over a one-year period (252 trading days).\nUsing NumPy, we can generate random normal values for the stock price fluctuations and compute the simulated prices.\n\nimport numpy as np\n\n# Parameters\nS0 = 100  # Initial stock price\nmu = 0.05  # Expected annual return\nsigma = 0.2  # Annual volatility\nT = 1  # Time horizon (in years)\nN = 252  # Number of trading days\ndt = T / N  # Time step (1 day)\n\n# Simulate random daily returns\ndaily_returns = np.random.normal((mu - 0.5 * sigma**2) * dt, sigma * np.sqrt(dt), N)\n\n# Simulate stock prices\nprices = S0 * np.exp(np.cumsum(daily_returns))\n\ndaily_returns = np.random.normal((mu - 0.5 * sigma**2) * dt, sigma * np.sqrt(dt), N)\nThis line generates random daily returns based on a normal distribution. - The mean of the distribution is adjusted by the term \\(\\mu - 0.5 \\sigma^2\\) to account for the fact that stock prices follow a geometric Brownian motion. - The standard deviation of the returns is \\(\\sigma \\sqrt{dt}\\) , which scales the annual volatility to daily volatility.\nprices = S0 * np.exp(np.cumsum(daily_returns))\nThis line calculates the simulated stock prices using the exponential function.\nIt does this by: - Using np.cumsum(daily_returns) to get the cumulative returns over time. The cumulative sum allows for the aggregation of daily returns into total returns. - The np.exp() function then exponentiates these cumulative returns, which translates them into price levels. - Finally, the initial stock price S0 is multiplied by the exponentiated cumulative returns to get the actual stock prices.\n\n# Plot the simulated stock prices\nimport matplotlib.pyplot as plt\nplt.plot(prices)\nplt.title('Simulated Stock Price Using Geometric Brownian Motion')\nplt.xlabel('Day')\nplt.ylabel('Price')\nplt.show()\n\n\n\n\n6.2 Portfolio optimization\nIn portfolio management, finance professionals must calculate the returns, risks, and correlations of assets to construct optimal portfolios.\nNumPy makes this task efficient and straightforward by offering matrix operations and linear algebra functions.\nLet’s assume a portfolio with three assets. We can calculate the expected portfolio return and risk using NumPy.\n\nThe function np.dot() returns the product of matrices.\n\nDefining the portfolio\n\n# Asset returns (annualized)\nasset_returns = np.array([0.08, 0.12, 0.15])\n\n# Covariance matrix of asset returns\ncov_matrix = np.array([[0.005, -0.002, 0.004],\n                       [-0.002, 0.010, -0.003],\n                       [0.004, -0.003, 0.015]])\n\n# Portfolio weights\nweights = np.array([0.4, 0.3, 0.3])\n\nComputing risk and return\n\n# Calculate portfolio return\nportfolio_return = np.dot(weights, asset_returns)\n\n# Calculate portfolio risk (standard deviation)\nportfolio_risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))\n\nprint(f\"Expected Portfolio Return: {portfolio_return:.2%}\")\nprint(f\"Portfolio Risk (Standard Deviation): {portfolio_risk:.2%}\")\n\nportfolio_return = np.dot(weights, asset_returns)\nThe expected portfolio return is calculated using the dot product of the portfolio weights and the asset returns.\nThis calculation effectively gives the weighted average return of the assets in the portfolio.\nThe formula is:\n\\[\\text{Portfolio Return} = w_1 \\cdot r_1 + w_2 \\cdot r_2 + w_3 \\cdot r_3\\]\nIn this case:\n\\[\\text{Portfolio Return} = (0.4 \\times 0.08) + (0.3 \\times 0.12) + (0.3 \\times 0.15) = 0.104 \\text{ or } 10.4\\%\\]\nportfolio_risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))\nThe portfolio risk is calculated using the covariance matrix and the portfolio weights.\nThis formula computes the standard deviation of the portfolio, reflecting its total risk:\n\\[\\text{Portfolio Risk} = \\sqrt{W^T \\Sigma W}\\]\nwhere: - \\(W\\) is the vector of weights. - \\(\\Sigma\\) is the covariance matrix. - The inner product np.dot(cov_matrix, weights) calculates the weighted covariance for each asset, and then the outer product with weights.T provides the total variance of the portfolio. The square root of this value gives the standard deviation.\n\n\n6.3 Risk analysis\nMonte Carlo simulations are widely used in finance to model the probability of different outcomes in uncertain environments.\nNumPy can be used to run a Monte Carlo simulation for portfolio returns.\n\n# Parameters for simulation\nn_simulations = 10000  # Number of simulations\nn_days = 252  # One year of trading days\nmean_return = 0.001  # Mean daily return\nstd_dev = 0.02  # Daily standard deviation\n\n# Simulate random daily returns for one year\nsimulated_returns = np.random.normal(mean_return, std_dev, (n_simulations, n_days))\n\n# Calculate cumulative returns for each simulation\ncumulative_returns = np.cumprod(1 + simulated_returns, axis=1)\n\n# Final value of each simulation\nfinal_values = cumulative_returns[:, -1]\n\nsimulated_returns = np.random.normal(mean_return, std_dev, (n_simulations, n_days))\nThis line generates a 2D array of random daily returns using a normal distribution. - Each row represents a separate simulation (one potential outcome for the year), and each column represents the daily returns for that simulation across 252 trading days. - The np.random.normal function takes the mean and standard deviation, generating random returns for each day in each simulation.\ncumulative_returns = np.cumprod(1 + simulated_returns, axis=1)\nThe cumulative returns are calculated by taking the product of the daily returns over time. - The expression 1 + simulated_returns adjusts the returns to represent growth factors (e.g., if the return is 0.01, the growth factor is 1.01). - The np.cumprod function computes the cumulative product along the specified axis (here, axis=1, which means across each simulation).\nfinal_values = cumulative_returns[:, -1]\nThis line extracts the final value of the portfolio at the end of the simulation period (after 252 days) for each of the 10,000 simulations. - cumulative_returns[:, -1] retrieves the last column of the cumulative returns matrix, representing the portfolio value after one year of trading.\n\n# Plot distribution of final values\nplt.hist(final_values, bins=50, edgecolor='k')\nplt.title('Monte Carlo Simulation of Portfolio Returns')\nplt.xlabel('Final Portfolio Value')\nplt.ylabel('Frequency')\nplt.show()"
+    "objectID": "lectures/lecture_09/input_output.html#checkpoint",
+    "href": "lectures/lecture_09/input_output.html#checkpoint",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "🚦Checkpoint",
+    "text": "🚦Checkpoint\n\nReading, Manipulating, and Saving Data with pandas\nGoal: In this exercise, you’ll read the CSV file, manipulate the data using pandas, and save the modified data back to a CSV file.\n    file_name = \"checkpoint_stock_data_large.csv\"\n\nImport data and inspect in DataFrame\nTask 1: Filter out all rows where the stock price is greater than USD 2000.\nTask 2: Add a new column called Value which is calculated as Price * Volume.\nTask 3: Group the data by the Stock column and calculate the average price for each stock.\nSave the manipulated DataFrame to a new CSV file."
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html",
-    "href": "lectures/lecture_01/introduction_to_python.html",
-    "title": "Lecture 01 - Introduction to Python",
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html",
+    "title": "Numerical Computing (NumPy) - Problem set",
     "section": "",
-    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications.\n\n\n\n\n\nData Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+    "text": "Create a 3D array with dimensions \\(3 \\times 3 \\times 3\\) filled with random integers between 1 and 100. 1. Replace all values that are divisible by 3 with -1. 2. Calculate the mean value for each of the three 2D layers in the 3D array.\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#what-is-python",
-    "href": "lectures/lecture_01/introduction_to_python.html#what-is-python",
-    "title": "Lecture 01 - Introduction to Python",
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-1-manipulating-a-3d-array",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-1-manipulating-a-3d-array",
+    "title": "Numerical Computing (NumPy) - Problem set",
     "section": "",
-    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications."
+    "text": "Create a 3D array with dimensions \\(3 \\times 3 \\times 3\\) filled with random integers between 1 and 100. 1. Replace all values that are divisible by 3 with -1. 2. Calculate the mean value for each of the three 2D layers in the 3D array.\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
-    "href": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "",
-    "text": "Data Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-2-boolean-indexing-and-filtering",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-2-boolean-indexing-and-filtering",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 2: Boolean Indexing and Filtering",
+    "text": "Exercise 2: Boolean Indexing and Filtering\nGiven an array of random integers between 1 and 50 (size 20): 1. Identify all elements that are prime numbers. 2. Replace all prime numbers with 0.\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
-    "href": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "2.1 Installing a Python environment",
-    "text": "2.1 Installing a Python environment\n\nPython\n\nDownload Python from the official website.\nInstallation includes the Python interpreter and Integrated Development Environment (IDLE) for coding.\n\n\n\nInstalling Anaconda\n\nAnaconda is a suite of useful tools and packages for Python development.\nDownload Anaconda from the official website\nOnce it is installed, confirm the following environments and packages are available:\n\nSpyder\nJupyter Notebook"
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-3-array-manipulation-and-reshaping",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-3-array-manipulation-and-reshaping",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 3: Array Manipulation and Reshaping",
+    "text": "Exercise 3: Array Manipulation and Reshaping\nCreate a 1D NumPy array of size 30 filled with random integers between 10 and 100. Perform the following: 1. Reshape the array into a \\(5 \\times 6\\) matrix. 2. Compute the sum of the values in each row. 3. Compute the sum of the values in each column.\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#running-python-code",
-    "href": "lectures/lecture_01/introduction_to_python.html#running-python-code",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "2.2 Running Python Code",
-    "text": "2.2 Running Python Code\nThere are multiple ways to run Python.\nConsider the following code line which instructs to simply print out “Hello World!”\n    print (\"Hello World!\")\n\nPython Shell\n\nUse the Python IDLE (from terminal of from any IDE setting like Spyder)\nType the code and press Enter\nCheck the output\n\n\n\nPython Script\n\nOpen an empty file (Spyder, Sublime Text Editor, etc.)\nWrite the code\nSave file as helloworld.py\nRun the script\n\nFrom the terminal, run the script by typing\n\n    python helloworld.py\n\nFrom the IDE (like Spyder), launch the run\n\nCheck the output\n\n\n\nNotebook\n\nThis is a Notebook\n\nPlatforms like Jupyter Notebooks are widely used in data science for documenting and running code interactively. - Open Jupyter Notebook by typing in the terminal\n    Jupyter Notebook\n\nCreat a new notebook with a Python environment\nWrite the code in the first cell\nRun the cell\nCheck the output (see below)\n\n\nprint ('Hello World!')"
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-4-matrix-determinant-and-inverse",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-4-matrix-determinant-and-inverse",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 4: Matrix Determinant and Inverse",
+    "text": "Exercise 4: Matrix Determinant and Inverse\nGenerate a \\(4 \\times 4\\) matrix of random integers between 1 and 10. 1. Calculate the determinant of the matrix. 2. If the determinant is non-zero, compute its inverse. 3. Verify that the inverse and the original matrix product result in an identity matrix.\nUse functions: - np.linalg.det() - np.linalg.inv() - np.dot()\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#syntax",
-    "href": "lectures/lecture_01/introduction_to_python.html#syntax",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "3.1 Syntax",
-    "text": "3.1 Syntax\n\n3.1.1 Python as a calculator\n\n5000 + 250\n\n\n10000 * 1.05\n\n\n10000 / 2\n\nComments: Use comments (#) to explain code, particularly useful for documenting underlying logic.\n\n# Basic financial arithmetic\nprint(5000 + 250)    # Adding investment returns\nprint(10000 * 1.05)  # Calculating interest (5% growth)\nprint(10000 / 2) # Splitting an investment\n\n\n# This is a comment\nprint(\"Welcome to Python for Finance!\")  # This prints a message\n\n\n\n3.1.2 Variables and Data Types\n\nVariables\nVariables are store data for calculations\nThe operation = assigns a value to a variable.\n\n# Variable assignment in a financial scenario\nstock_price = 150.25  # Price of a stock\ninvestment_amount = 10000  # Amount invested\nshares = investment_amount / stock_price  # Number of shares\n\n\nshares\n\n\n\nData types\nVariables can be of different types.\n\nStrings (str): Text\nIntegers (int): Integer value\nFloats (float): Real value\nBooleans (bool): True or False\n\nBecause Python is dynamically typed, there is no need to explicitly mention the type of the variable. Yet, in some cases, it may be important to cast variables from one type to another.\nMore on this in the next lecture."
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-5-simulating-an-ornstein-uhlenbeck-process",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-5-simulating-an-ornstein-uhlenbeck-process",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 5: Simulating an Ornstein-Uhlenbeck Process",
+    "text": "Exercise 5: Simulating an Ornstein-Uhlenbeck Process\nSimulate an Ornstein-Uhlenbeck process, which is used in finance to model mean-reverting processes such as interest rates. The formula is given by:\n\\[\nX_{t+1} = X_t + \\theta (\\mu - X_t) \\Delta t + \\sigma \\sqrt{\\Delta t} \\cdot Z_t\n\\]\nWhere: - \\(X_t\\) is the value of the process at time step \\(t\\). - \\(\\theta\\) is the speed of mean reversion (how fast the process reverts to the mean). - \\(\\mu\\) is the long-term mean to which the process reverts. - \\(\\sigma\\) is the volatility or standard deviation of the process. - \\(\\Delta t\\) is the time step size (in this case, 0.01). - \\(Z_t\\) is a random normal variable (\\(Z_t \\sim N(0, 1)\\)), representing the random noise at each time step.\nBackground information: 1. Mean-reverting drift: \\(\\theta (\\mu - X_t) \\Delta t\\) - This term controls how quickly the process moves back towards the mean \\(\\mu\\). - The strength of this pull towards the mean is determined by \\(\\theta\\), and the distance from the mean is represented by \\(\\mu - X_t\\).\n\nRandom fluctuation: \\(\\sigma \\sqrt{\\Delta t} \\cdot Z_t\\)\n\nThis term represents the stochastic component of the process, introducing random fluctuations.\n\\(\\sigma\\) controls the magnitude of these fluctuations, while \\(\\sqrt{\\Delta t}\\) ensures the appropriate scaling over time steps.\n\n\nThus, at each time step \\(t\\), the process evolves according to this combination of mean-reverting behavior and random fluctuation.\nParameter setting for the simulation: - $ = 0.7 $ (mean reversion speed), - $ = 0.05 $ (long-term mean), - $ = 0.15 $ (volatility), - $ dt = 0.01 $ (time step), - initial value $ X_0 = 0.05 $, - simulate for 500 time steps.\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#control-structures",
-    "href": "lectures/lecture_01/introduction_to_python.html#control-structures",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "3.2 Control structures",
-    "text": "3.2 Control structures\nControl structures allow to condition the sequence of action of a code on the particular value a variable exhibits at the time of execution.\n\nConditional statements\nLoops\n\nNote: tabs are organizational pillars of the Python code structure\n\n3.2.1 Conditional statements\nConditional statements consider the specific value of a variable at the time of execution and determine the outcome based on a logical operation.\nStructure\n    If CONDITON HOLDS:\n        OUTCOME 1\n    Elif OTHER CONDITION HOLDS:\n        OUTCOME 2\n    Else:\n        OUTCOME 3\nNote: check the tabs\n\nbalance = 5000\nif balance &gt;= 10000:\n    print(\"You are eligible for premium services.\")\nelse:\n    print(\"Standard services apply.\")\n\n\n\n3.2.2 Loops\nLoops repeat a sequence of actions until a condition is satisfied. There are two types of loops:\n\nwhile\nfor\n\n\nWhile\nStructure\n    While CONDITION HOLDS:\n        ACTION(s)\n\n# Use case: Simulating monthly deposit growth\nbalance = 1000\nmonths = 0\nwhile balance &lt; 2000:\n    balance += 100  # Monthly deposit\n    months += 1\nprint(f\"It took {months} months to double the balance.\")\n\n\n\nFor\nStructure\n    For CONDITION HOLDS | Increment action:\n        ACTION(s)\n\n# Use case: Summing up daily returns from a list\ndaily_returns = [0.01, -0.02, 0.03, 0.02, -0.01]\ntotal_return = 0\nfor r in daily_returns:\n    total_return += r\nprint(\"Total return for the week:\", total_return)"
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-6-element-wise-operations-on-multiple-arrays",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-6-element-wise-operations-on-multiple-arrays",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 6: Element-Wise Operations on Multiple Arrays",
+    "text": "Exercise 6: Element-Wise Operations on Multiple Arrays\nCreate two arrays, A and B, each of size (1000), with random values between 1 and 10. Perform the following operations: 1. Identify the indices where elements of A are larger than the corresponding elements in B. 2. Compute a new array C where C[i] equals the value of A[i] if A[i] &gt; B[i], otherwise it equals the average of A[i] and B[i].\n\n# Your code"
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#functions",
-    "href": "lectures/lecture_01/introduction_to_python.html#functions",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "3.3 Functions",
-    "text": "3.3 Functions\nA function is a reusable block of code that is saved up and can be called at multiple places in the main script.\nStructure\n    def my_function (parameters):\n        ACTION(s)\n        return VALUE\n\n# Function to calculate compound interest\ndef calculate_compound_interest(principal, rate, time):\n    return principal * (1 + rate) ** time\n\n\n# Example usage\nresult = calculate_compound_interest(1000, 0.05, 5)\nprint(\"Compound Interest:\", result)"
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-7-matrix-operations-and-transposing",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-7-matrix-operations-and-transposing",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 7: Matrix Operations and Transposing",
+    "text": "Exercise 7: Matrix Operations and Transposing\nGiven a \\(4 \\times 4\\) matrix filled with random integers between 1 and 20, perform the following:\n\nTranspose the matrix.\nCompute the sum of the elements in the original matrix.\nCompute the sum of the elements in the transposed matrix.\nVerify if the sum of elements in the original and transposed matrix are equal."
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#data-structures",
-    "href": "lectures/lecture_01/introduction_to_python.html#data-structures",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "3.4 Data structures",
-    "text": "3.4 Data structures\n\n3.4.1 Lists\nLists allow to store and treat mutliple data points into one variable\n\n# Example: List of daily stock prices\nstock_prices = [150.25, 153.50, 152.00, 155.00]\nprint(stock_prices[0])  # Accessing the first day's price\nstock_prices.append(157.25)  # Adding a new day's price\nprint(stock_prices)\n\n\n\n3.4.2 Dictionaries\nDictionnaries allow store and treat multiple pairs of data point associating keys and values.\n\n# Example: Dictionary to store portfolio allocation\nportfolio = {\n    \"AAPL\": 5000,\n    \"GOOGL\": 3000,\n    \"AMZN\": 2000\n}\nprint(portfolio[\"AAPL\"])  # Accessing allocation for AAPL\nportfolio[\"GOOGL\"] += 1000  # Updating allocation for GOOGL\nprint(portfolio)"
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-8-advanced-matrix-operations-and-broadcasting",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-8-advanced-matrix-operations-and-broadcasting",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 8: Advanced Matrix Operations and Broadcasting",
+    "text": "Exercise 8: Advanced Matrix Operations and Broadcasting\nGiven two matrices A and B with dimensions \\(3 \\times 3\\) filled with random integers between 1 and 10:\n\nAdd the two matrices together using broadcasting.\nMultiply the two matrices element-wise.\nCompute the matrix product of A and B using matrix multiplication.\nSubtract the transpose of matrix B from matrix A ."
   },
   {
-    "objectID": "lectures/lecture_01/introduction_to_python.html#libraries",
-    "href": "lectures/lecture_01/introduction_to_python.html#libraries",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "3.5 Libraries",
-    "text": "3.5 Libraries\nLibraries are pre-built packages of functions for tasks like data analysis and visualization.\n\nKey Libraries for Finance\n\nNumPy: For numerical computations matrix operations in portfolio analysis\npandas: Used for data manipulation handling financial datasets\nmatplotlib: For data visualization plotting stock prices\n\n\nimport numpy \n\nprint(numpy.sqrt(16))  # Square root\nprint(numpy.pi)        # Value of pi\n\n\n\nDocumentation\nLibraries come with documentation.\nOn Notebooks, they can be directly accessed from the cell pressing maj + tab after the function.\n\nExample of documentation numpy.sqrt()\n    Call signature:  numpy.sqrt(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'sqrt'&gt;\nFile:            ~/opt/anaconda3/lib/python3.9/site-packages/numpy/__init__.py\nDocstring:      \nsqrt(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\n\nReturn the non-negative square-root of an array, element-wise.\n\nParameters\n----------\nx : array_like\n    The values whose square-roots are required.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\ny : ndarray\n    An array of the same shape as `x`, containing the positive\n    square-root of each element in `x`.  If any element in `x` is\n    complex, a complex array is returned (and the square-roots of\n    negative reals are calculated).  If all of the elements in `x`\n    are real, so is `y`, with negative elements returning ``nan``.\n    If `out` was provided, `y` is a reference to it.\n    This is a scalar if `x` is a scalar.\n\nSee Also\n--------\nlib.scimath.sqrt\n    A version which returns complex numbers when given negative reals.\n\nNotes\n-----\n*sqrt* has--consistent with common convention--as its branch cut the\nreal \"interval\" [`-inf`, 0), and is continuous from above on it.\nA branch cut is a curve in the complex plane across which a given\ncomplex function fails to be continuous.\n\nExamples\n--------\n&gt;&gt;&gt; np.sqrt([1,4,9])\narray([ 1.,  2.,  3.])\n\n&gt;&gt;&gt; np.sqrt([4, -1, -3+4J])\narray([ 2.+0.j,  0.+1.j,  1.+2.j])\n\n&gt;&gt;&gt; np.sqrt([4, -1, np.inf])\narray([ 2., nan, inf])\nClass docstring:\nFunctions that operate element by element on whole arrays.\n\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\n\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\n\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\n\nThe broadcasting rules are:\n\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\n\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-9-function-application-with-vectorization",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-9-function-application-with-vectorization",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 9: Function Application with Vectorization",
+    "text": "Exercise 9: Function Application with Vectorization\nWrite a NumPy-based function that calculates the following for each element of a 1D array:\n\\[f(x) = 3x^2 + 2x - 5\\]\n\nCreate a 1D array of size 20 with random integers between -10 and 10.\nApply the function f(x) to each element of the array in a vectorized manner (without using loops).\nReturn the resulting array."
   },
   {
-    "objectID": "lectures/lecture_06/lecture_06.html",
-    "href": "lectures/lecture_06/lecture_06.html",
-    "title": "Lecture 06 - Libraries",
+    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-10-advanced-broadcasting-and-boolean-filtering",
+    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-10-advanced-broadcasting-and-boolean-filtering",
+    "title": "Numerical Computing (NumPy) - Problem set",
+    "section": "Exercise 10: Advanced Broadcasting and Boolean Filtering",
+    "text": "Exercise 10: Advanced Broadcasting and Boolean Filtering\nGiven a \\(6 \\times 6\\) matrix of random integers between 1 and 100:\n\nWrite a function that finds all the elements divisible by both 3 and 5.\nReplace all such elements with -1 using boolean filtering and broadcasting.\nReturn the modified matrix."
+  },
+  {
+    "objectID": "lectures/lecture_07/lecture_07.html",
+    "href": "lectures/lecture_07/lecture_07.html",
+    "title": "Lecture 07 - Numerical Computing",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_06/lecture_06.html#lecture-material",
-    "href": "lectures/lecture_06/lecture_06.html#lecture-material",
-    "title": "Lecture 06 - Libraries",
+    "objectID": "lectures/lecture_07/lecture_07.html#lecture-material",
+    "href": "lectures/lecture_07/lecture_07.html#lecture-material",
+    "title": "Lecture 07 - Numerical Computing",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_06/lecture_06.html#recording",
-    "href": "lectures/lecture_06/lecture_06.html#recording",
-    "title": "Lecture 06 - Libraries",
+    "objectID": "lectures/lecture_07/lecture_07.html#recording",
+    "href": "lectures/lecture_07/lecture_07.html#recording",
+    "title": "Lecture 07 - Numerical Computing",
     "section": "Recording",
-    "text": "Recording"
+    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. NumPy Arrays\n\n \n\n\n\n3. Structured Arrays, Vectorized Programming & Random Number Generator\n\n \n\n\n\n4. Applications"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html",
-    "title": "Data Manipulation (Pandas) - Problem set",
+    "objectID": "lectures/lecture_07/lecture_07.html#problem-sets",
+    "href": "lectures/lecture_07/lecture_07.html#problem-sets",
+    "title": "Lecture 07 - Numerical Computing",
+    "section": "Problem sets",
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
+  },
+  {
+    "objectID": "lectures/lecture_01/lecture_01.html",
+    "href": "lectures/lecture_01/lecture_01.html",
+    "title": "Lecture 01 - Introduction to Python",
     "section": "",
-    "text": "Create a DataFrame representing a portfolio of stocks with the following data: - Stock: [‘AAPL’, ‘GOOGL’, ‘MSFT’, ‘AMZN’] - Shares: [50, 30, 100, 10] - Price: [150.0, 2800.5, 299.0, 3500.75] - Sector: [‘Tech’, ‘Tech’, ‘Tech’, ‘Retail’]\nAdd a new column Total_Value representing the total value of each stock holding (Shares * Price).\n\n# Your code"
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#dataframe-creation-and-manipulation",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#dataframe-creation-and-manipulation",
-    "title": "Data Manipulation (Pandas) - Problem set",
+    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
+    "title": "Lecture 01 - Introduction to Python",
     "section": "",
-    "text": "Create a DataFrame representing a portfolio of stocks with the following data: - Stock: [‘AAPL’, ‘GOOGL’, ‘MSFT’, ‘AMZN’] - Shares: [50, 30, 100, 10] - Price: [150.0, 2800.5, 299.0, 3500.75] - Sector: [‘Tech’, ‘Tech’, ‘Tech’, ‘Retail’]\nAdd a new column Total_Value representing the total value of each stock holding (Shares * Price).\n\n# Your code"
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#advanced-selection",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#advanced-selection",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "2. Advanced Selection",
-    "text": "2. Advanced Selection\nGiven a DataFrame of loan transactions with the following data: - Loan_Amount: [8000, 15000, 20000, 5000] - Interest_Rate: [0.06, 0.045, 0.03, 0.07]\nSelect all transactions where the loan amount is greater than $10,000 and the interest rate is below 5%.\n\n# Your code"
+    "objectID": "lectures/lecture_01/lecture_01.html#recording",
+    "href": "lectures/lecture_01/lecture_01.html#recording",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "Recording",
+    "text": "Recording\n\n1. Motivation\n\n \n\n\n\n2. Setting up the environment\n\n \n\n\n\n3. Overview of the Python environment"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#missing-data-handling",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#missing-data-handling",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "3. Missing Data Handling",
-    "text": "3. Missing Data Handling\nCreate a DataFrame with the following data: - Price: [100, None, 250, None] - Stock: [10, 20, None, 5]\nReplace all missing values in Price with the average price, and drop rows where Stock is missing.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#groupby-and-aggregation",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#groupby-and-aggregation",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "4. GroupBy and Aggregation",
-    "text": "4. GroupBy and Aggregation\nYou are given sales data for a company with the following data: - Region: [‘North’, ‘South’, ‘North’, ‘South’] - Salesperson: [‘John’, ‘Anna’, ‘John’, ‘Anna’] - Product: [‘A’, ‘B’, ‘C’, ‘A’] - Revenue: [500, 700, 800, 600]\nUse the GroupBy function to calculate the total revenue per region and per salesperson.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#custom-functions-with-apply",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#custom-functions-with-apply",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "5. Custom Functions with Apply",
-    "text": "5. Custom Functions with Apply\nCreate a DataFrame of customers with the following data: - Customer_ID: [‘C001’, ‘C002’, ‘C003’] - Transaction_Amount: [500, 2000, 1500] - Age: [22, 30, 45]\nUse the .apply() function to create a new column Eligibility that assigns ‘Eligible’ if the Transaction_Amount is greater than 1000 and the Age is above 25."
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#concatenation",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#concatenation",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "6. Concatenation",
-    "text": "6. Concatenation\nYou have two DataFrames representing different departments’ sales figures: - df1: {‘Department’: [‘Sales’, ‘HR’], ‘Revenue’: [1000, 500]} - df2: {‘Department’: [‘IT’, ‘Finance’], ‘Revenue’: [1200, 800]}\nConcatenate the two DataFrames to create a combined dataset, ensuring no index duplication.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#merging-dataframes",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#merging-dataframes",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "7. Merging DataFrames",
-    "text": "7. Merging DataFrames\nYou are provided two DataFrames, one with customer details: - Customer_ID: [‘C001’, ‘C002’, ‘C003’] - Name: [‘John’, ‘Anna’, ‘Paul’] - Location: [‘NY’, ‘LA’, ‘SF’]\nAnd another with purchase details: - Customer_ID: [‘C001’, ‘C003’] - Purchase_Amount: [500, 700]\nMerge the two DataFrames on Customer_ID to analyze customer purchases.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#datetime-manipulation",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#datetime-manipulation",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "8. DateTime Manipulation",
-    "text": "8. DateTime Manipulation\nCreate a DataFrame with the following sales transaction data: - Date: [‘2023-01-01’, ‘2023-01-15’, ‘2023-02-01’] - Sales: [500, 700, 900]\nExtract the month and year from the Date column, and then group the sales data by month to calculate total monthly sales.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#string-operations-with-series",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#string-operations-with-series",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "9. String Operations with Series",
-    "text": "9. String Operations with Series\nGiven a Series of customer feedback comments: - [‘The service was excellent!’, ‘Poor response’, ‘Excellent work’]\nIdentify how many comments contain the word “excellent” (case-insensitive), and replace the word “poor” with “unsatisfactory”.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#advanced-sorting",
-    "href": "lectures/lecture_08/lecture_08_problem_set.html#advanced-sorting",
-    "title": "Data Manipulation (Pandas) - Problem set",
-    "section": "10. Advanced Sorting",
-    "text": "10. Advanced Sorting\nCreate a `DataFrame` with the following product data:\n- `Product`: ['A', 'B', 'C']\n- `Price`: [10, 50, 30]\n- `Stock`: [100, 50, 200]\n\nSort the `DataFrame` first by `Stock` in descending order and then by `Price` in ascending order. What is the most expensive product with the highest stock?\n\n# Your code"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Information",
+    "objectID": "lectures/lecture_06/libraries.html",
+    "href": "lectures/lecture_06/libraries.html",
+    "title": "Lecture 06 - Libraries",
     "section": "",
-    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
+    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
   },
   {
-    "objectID": "syllabus.html#prerequisites",
-    "href": "syllabus.html#prerequisites",
-    "title": "Course Information",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
-  },
-  {
-    "objectID": "syllabus.html#content",
-    "href": "syllabus.html#content",
-    "title": "Course Information",
-    "section": "Content",
-    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
-  },
-  {
-    "objectID": "syllabus.html#delivery",
-    "href": "syllabus.html#delivery",
-    "title": "Course Information",
-    "section": "Delivery",
-    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available."
-  },
-  {
-    "objectID": "syllabus.html#reference",
-    "href": "syllabus.html#reference",
-    "title": "Course Information",
-    "section": "Reference",
-    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Science For Finance",
+    "objectID": "lectures/lecture_06/libraries.html#overview",
+    "href": "lectures/lecture_06/libraries.html#overview",
+    "title": "Lecture 06 - Libraries",
     "section": "",
-    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
+    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
   },
   {
-    "objectID": "index.html#news-announcements",
-    "href": "index.html#news-announcements",
-    "title": "Data Science For Finance",
-    "section": "News & Announcements",
-    "text": "News & Announcements\n\n04/11/2025\n\nRecordings for Lecture 08 are available\nSolutions to Problem set of Lecture 07 are available\n\n\n\n\n20/10/2025\n\nRecordings for Lecture 07 are available\nSolutions to Problem set of Lecture 05 are available\n\n\n\n\n14/10/2025\n\nRecordings for Lecture 05 and 06 are available\nSolutions to Problem set of Lecture 03 and 04 are available\n\n\n\n\n07/10/2025\n\nRecordings for Lecture 03 and 04 are available\nSolutions to Problem set of Lecture 02 are available\nNew: A beta test All Day TA is available for the course.\n\nAll Day TA is an interactive AI tutor trained on the course material and synced with the course schedule for learning support.\n\n\n\n\n\n01/10/2025\n\nRecordings for Introduction, and Lecture 01 and 02 are available\nSolutions to Problem set of Lecture 02 will be available next week\n\n\n\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
+    "objectID": "lectures/lecture_06/libraries.html#why-use-python-libraries",
+    "href": "lectures/lecture_06/libraries.html#why-use-python-libraries",
+    "title": "Lecture 06 - Libraries",
+    "section": "1. Why Use Python Libraries?",
+    "text": "1. Why Use Python Libraries?\nPython libraries allow to: - Reuse code that has been tested and optimized by others - Perform complex tasks with just a few lines of code - Simplify workflow by providing tools tailored to specific tasks\n\nExample: Using a Library vs. Writing Code from Scratch\n\n# Without using a library\n# Calculate the square root of a number (writing the logic from scratch)\ndef sqrt(number):\n    return number ** 0.5\n\nprint(\"Square root of 16 (without library):\", sqrt(16))\n\n\n# Using a library (numpy)\nimport numpy as np\nprint(\"Square root of 16 (using numpy):\", np.sqrt(16))"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
+    "href": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
+    "title": "Lecture 06 - Libraries",
+    "section": "2. Installing and Importing Libraries",
+    "text": "2. Installing and Importing Libraries\nTo use a library, it needs to be installed (if it’s not already installed) and be imported it into the current Python environment.\n\n2.1 Installing Libraries\n\nUsing pip, the Python package installer. For example:\n\npip install pandas numpy matplotlib seaborn\n\nUsing the anaconda suite to install manually.\n\n\n\n2.2 Importing Libraries\nOnce installed, libraries can be imported into the environment using import (...as):\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+  },
+  {
+    "objectID": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
+    "href": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
+    "title": "Lecture 06 - Libraries",
+    "section": "3. Key Python Libraries for Data Science in Finance",
+    "text": "3. Key Python Libraries for Data Science in Finance\n\n3.1 numpy for Numerical Computations\nnumpy is the foundational package for numerical computing in Python. It is particularly useful for handling large arrays and matrices of numeric data.\n\nimport numpy as np\n\n# Example: Calculating compound interest using numpy\nprincipal = 1000  # Initial amount\nrate = 0.05  # Interest rate\ntime = 10  # Number of years\n\n# Calculate the future value\nfuture_value = principal * np.power(1 + rate, time)\nprint(\"Future Value after 10 years:\", future_value)\n\n\n\n3.2 pandas for Data Manipulation\npandas is a powerful library for data manipulation and analysis. It works with structured data, such as CSV files, databases, and Excel spreadsheets.\n\nimport pandas as pd\n\n# Example: Reading a CSV file containing transaction data\ntransactions = pd.DataFrame({\n    'Date': ['2023-08-01', '2023-08-02', '2023-08-03'],\n    'Description': ['Deposit', 'Withdrawal', 'Deposit'],\n    'Amount': [1000, -200, 500]\n})\n\n# Display the first few rows of the DataFrame\nprint(transactions.head())\nprint (\"\\n\")\n# Calculating the total balance after transactions\ntransactions['Balance'] = transactions['Amount'].cumsum()\nprint(transactions)\n\n\n\n3.3 matplotlib and seaborn for Data Visualization\nmatplotlib and seaborn are powerful libraries for creating visualizations. matplotlib provides a flexible foundation, while seaborn simplifies the creation of more complex plots.\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Example: Visualizing the account balances over time\nsns.lineplot(x='Date', y='Balance', data=transactions)\nplt.title(\"Account Balance Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Balance\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n# Sample Data: Tips Dataset (comes built-in with seaborn)\ndata = sns.load_dataset(\"tips\")\n\n# Create a rich visualization using Seaborn's relplot\nsns.set_theme(style=\"whitegrid\")  # Set theme for aesthetics\nplot = sns.relplot(\n    data=data, \n    x=\"total_bill\", \n    y=\"tip\", \n    hue=\"day\", \n    style=\"time\", \n    size=\"size\",\n    palette=\"viridis\", \n    kind=\"scatter\", \n    aspect=1.5,\n    height=6\n)\n\n# Add labels and a title\nplot.set_axis_labels(\"Total Bill ($)\", \"Tip ($)\")\nplot.fig.suptitle(\"Tips vs. Total Bill by Day and Time\", fontsize=16, weight='bold')\n\n# Show the plot\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the built-in 'iris' dataset from seaborn\niris = sns.load_dataset(\"iris\")\n\n# Create a pairplot with rich formatting\nsns.set(style=\"ticks\", palette=\"pastel\")\n# pairplot() visualizes pairwise relationships in a dataset, making it great for exploratory data analysis.\nplot = sns.pairplot(\n    iris, \n    hue=\"species\",  # Color by species type\n    kind=\"reg\",     # Add regression lines to show trends\n    diag_kind=\"kde\",  # Use KDE plots on the diagonal for a smoother distribution\n    markers=[\"o\", \"s\", \"D\"],  # Use different markers for each species\n    height=2.5\n)\n\n# Add a main title and adjust spacing\nplot.fig.suptitle(\"Pairplot of Iris Dataset with Regression Lines\", fontsize=16, weight='bold')\nplot.fig.subplots_adjust(top=0.95)\n\n# Display the plot\nplt.show()\n\n\n\n3.4 datetime for Date and Time Manipulation\nThe datetime module allows you to work with dates and times.\n\nfrom datetime import datetime\n\n# Example: Calculating the number of days between two dates\ndate_format = \"%Y-%m-%d\"\nstart_date = datetime.strptime(\"2023-08-01\", date_format)\nend_date = datetime.strptime(\"2023-08-10\", date_format)\n\ndays_between = (end_date - start_date).days\nprint(f\"Days between {start_date.date()} and {end_date.date()}: {days_between}\")"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08.html",
+    "href": "lectures/lecture_08/lecture_08.html",
+    "title": "Lecture 08 - Data Manipulation",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08.html#lecture-material",
+    "href": "lectures/lecture_08/lecture_08.html#lecture-material",
+    "title": "Lecture 08 - Data Manipulation",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08.html#recording",
+    "href": "lectures/lecture_08/lecture_08.html#recording",
+    "title": "Lecture 08 - Data Manipulation",
+    "section": "Recording",
+    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. The DataFrame Class\n\n \n\n\n\n3. Basic Operations\n\n \n\n\n\n4. The Series Class\n\n \n\n\n\n5. GroupBy Methods\n\n \n\n\n \n\n\n\n6. Complex Selection\n\n \n\n\n\n7. Concatenate, Join & Merge"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08.html#problem-sets",
+    "href": "lectures/lecture_08/lecture_08.html#problem-sets",
+    "title": "Lecture 08 - Data Manipulation",
+    "section": "Problem sets",
+    "text": "Problem sets\n\nJupyter notebook (.ipynb)"
   },
   {
     "objectID": "lectures/lecture_08/data_manipulation.html",
@@ -497,193 +469,312 @@
     "text": "🚦Checkpoint\nTask: 1. Create two DataFrames, one with Customer_ID and Loan_Amount and another with Customer_ID and Credit_Score from\n    loan_data = pd.DataFrame({\n    'Customer_ID': ['A001', 'A002', 'A003'],\n    'Loan_Amount': [10000, 15000, 20000]\n    })\n\n    credit_data = pd.DataFrame({\n        'Customer_ID': ['A001', 'A002', 'A004'],\n        'Credit_Score': [720, 650, 700]\n    })\n\nMerge the two DataFrames."
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08.html",
-    "href": "lectures/lecture_08/lecture_08.html",
-    "title": "Lecture 08 - Data Manipulation",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Science For Finance",
+    "section": "",
+    "text": "This website accompanies the course of Data Science For Finance (B-KUL-HMA99A)."
+  },
+  {
+    "objectID": "index.html#news-announcements",
+    "href": "index.html#news-announcements",
+    "title": "Data Science For Finance",
+    "section": "News & Announcements",
+    "text": "News & Announcements\n\n04/11/2025\n\nRecordings for Lecture 09 are available\n\n\n\n\n04/11/2025\n\nRecordings for Lecture 08 are available\nSolutions to Problem set of Lecture 07 are available\n\n\n\n\n20/10/2025\n\nRecordings for Lecture 07 are available\nSolutions to Problem set of Lecture 05 are available\n\n\n\n\n14/10/2025\n\nRecordings for Lecture 05 and 06 are available\nSolutions to Problem set of Lecture 03 and 04 are available\n\n\n\n\n07/10/2025\n\nRecordings for Lecture 03 and 04 are available\nSolutions to Problem set of Lecture 02 are available\nNew: A beta test All Day TA is available for the course.\n\nAll Day TA is an interactive AI tutor trained on the course material and synced with the course schedule for learning support.\n\n\n\n\n\n01/10/2025\n\nRecordings for Introduction, and Lecture 01 and 02 are available\nSolutions to Problem set of Lecture 02 will be available next week\n\n\n\n\n25/09/2025\n\nThe course is live\nMaterial for Lecture 01 and 02 is available"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Information",
+    "section": "",
+    "text": "Professor: Tarik Roukny (tarik.roukny@kuleuven.be)\nLectures: Wednesdays\n\nTime blocks for sessions\n\n08.30 AM - 10.30 AM\n10.30 PM - 12.30 PM\n\nRoom HER1 - 04.4207\n\nOffice hours: by email appointment."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Course Information",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThis is a beginner’s course for programming: no prior computer skills are required\n\nKnowledge of statistics and basic econometrics is required\nKnowledge of Financial Markets and Institutions and Corporate Finance is advised"
+  },
+  {
+    "objectID": "syllabus.html#content",
+    "href": "syllabus.html#content",
+    "title": "Course Information",
+    "section": "Content",
+    "text": "Content\n\nIntroduction to Scientific Programming\n\nProgramming Environment\nNotebooks\nBasics of Python Programming Language\n\nData Manipulation\n\nData Analytics\nData Treatment\nData Visualization\n\nApplying Data Science in Finance\n\nTime series\nNetwork Analysis\nMachine Learning"
+  },
+  {
+    "objectID": "syllabus.html#delivery",
+    "href": "syllabus.html#delivery",
+    "title": "Course Information",
+    "section": "Delivery",
+    "text": "Delivery\nMaterial is delivered through Jupyter Notebooks. The presentation format of files is ‘.ipynb’ and can be read from the Jupyter interface or other services. Notebooks are interactive and can be used off-the-shell to run code. Static and printable version in pdf and HTML of the material are also available."
+  },
+  {
+    "objectID": "syllabus.html#reference",
+    "href": "syllabus.html#reference",
+    "title": "Course Information",
+    "section": "Reference",
+    "text": "Reference\nPython for Finance, 2nd Edition by Yves Hilpisch"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "",
+    "text": "Create a DataFrame representing a portfolio of stocks with the following data: - Stock: [‘AAPL’, ‘GOOGL’, ‘MSFT’, ‘AMZN’] - Shares: [50, 30, 100, 10] - Price: [150.0, 2800.5, 299.0, 3500.75] - Sector: [‘Tech’, ‘Tech’, ‘Tech’, ‘Retail’]\nAdd a new column Total_Value representing the total value of each stock holding (Shares * Price).\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#dataframe-creation-and-manipulation",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#dataframe-creation-and-manipulation",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "",
+    "text": "Create a DataFrame representing a portfolio of stocks with the following data: - Stock: [‘AAPL’, ‘GOOGL’, ‘MSFT’, ‘AMZN’] - Shares: [50, 30, 100, 10] - Price: [150.0, 2800.5, 299.0, 3500.75] - Sector: [‘Tech’, ‘Tech’, ‘Tech’, ‘Retail’]\nAdd a new column Total_Value representing the total value of each stock holding (Shares * Price).\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#advanced-selection",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#advanced-selection",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "2. Advanced Selection",
+    "text": "2. Advanced Selection\nGiven a DataFrame of loan transactions with the following data: - Loan_Amount: [8000, 15000, 20000, 5000] - Interest_Rate: [0.06, 0.045, 0.03, 0.07]\nSelect all transactions where the loan amount is greater than $10,000 and the interest rate is below 5%.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#missing-data-handling",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#missing-data-handling",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "3. Missing Data Handling",
+    "text": "3. Missing Data Handling\nCreate a DataFrame with the following data: - Price: [100, None, 250, None] - Stock: [10, 20, None, 5]\nReplace all missing values in Price with the average price, and drop rows where Stock is missing.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#groupby-and-aggregation",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#groupby-and-aggregation",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "4. GroupBy and Aggregation",
+    "text": "4. GroupBy and Aggregation\nYou are given sales data for a company with the following data: - Region: [‘North’, ‘South’, ‘North’, ‘South’] - Salesperson: [‘John’, ‘Anna’, ‘John’, ‘Anna’] - Product: [‘A’, ‘B’, ‘C’, ‘A’] - Revenue: [500, 700, 800, 600]\nUse the GroupBy function to calculate the total revenue per region and per salesperson.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#custom-functions-with-apply",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#custom-functions-with-apply",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "5. Custom Functions with Apply",
+    "text": "5. Custom Functions with Apply\nCreate a DataFrame of customers with the following data: - Customer_ID: [‘C001’, ‘C002’, ‘C003’] - Transaction_Amount: [500, 2000, 1500] - Age: [22, 30, 45]\nUse the .apply() function to create a new column Eligibility that assigns ‘Eligible’ if the Transaction_Amount is greater than 1000 and the Age is above 25."
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#concatenation",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#concatenation",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "6. Concatenation",
+    "text": "6. Concatenation\nYou have two DataFrames representing different departments’ sales figures: - df1: {‘Department’: [‘Sales’, ‘HR’], ‘Revenue’: [1000, 500]} - df2: {‘Department’: [‘IT’, ‘Finance’], ‘Revenue’: [1200, 800]}\nConcatenate the two DataFrames to create a combined dataset, ensuring no index duplication.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#merging-dataframes",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#merging-dataframes",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "7. Merging DataFrames",
+    "text": "7. Merging DataFrames\nYou are provided two DataFrames, one with customer details: - Customer_ID: [‘C001’, ‘C002’, ‘C003’] - Name: [‘John’, ‘Anna’, ‘Paul’] - Location: [‘NY’, ‘LA’, ‘SF’]\nAnd another with purchase details: - Customer_ID: [‘C001’, ‘C003’] - Purchase_Amount: [500, 700]\nMerge the two DataFrames on Customer_ID to analyze customer purchases.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#datetime-manipulation",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#datetime-manipulation",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "8. DateTime Manipulation",
+    "text": "8. DateTime Manipulation\nCreate a DataFrame with the following sales transaction data: - Date: [‘2023-01-01’, ‘2023-01-15’, ‘2023-02-01’] - Sales: [500, 700, 900]\nExtract the month and year from the Date column, and then group the sales data by month to calculate total monthly sales.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#string-operations-with-series",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#string-operations-with-series",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "9. String Operations with Series",
+    "text": "9. String Operations with Series\nGiven a Series of customer feedback comments: - [‘The service was excellent!’, ‘Poor response’, ‘Excellent work’]\nIdentify how many comments contain the word “excellent” (case-insensitive), and replace the word “poor” with “unsatisfactory”.\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_08/lecture_08_problem_set.html#advanced-sorting",
+    "href": "lectures/lecture_08/lecture_08_problem_set.html#advanced-sorting",
+    "title": "Data Manipulation (Pandas) - Problem set",
+    "section": "10. Advanced Sorting",
+    "text": "10. Advanced Sorting\nCreate a `DataFrame` with the following product data:\n- `Product`: ['A', 'B', 'C']\n- `Price`: [10, 50, 30]\n- `Stock`: [100, 50, 200]\n\nSort the `DataFrame` first by `Stock` in descending order and then by `Price` in ascending order. What is the most expensive product with the highest stock?\n\n# Your code"
+  },
+  {
+    "objectID": "lectures/lecture_06/lecture_06.html",
+    "href": "lectures/lecture_06/lecture_06.html",
+    "title": "Lecture 06 - Libraries",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08.html#lecture-material",
-    "href": "lectures/lecture_08/lecture_08.html#lecture-material",
-    "title": "Lecture 08 - Data Manipulation",
+    "objectID": "lectures/lecture_06/lecture_06.html#lecture-material",
+    "href": "lectures/lecture_06/lecture_06.html#lecture-material",
+    "title": "Lecture 06 - Libraries",
     "section": "",
     "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08.html#recording",
-    "href": "lectures/lecture_08/lecture_08.html#recording",
-    "title": "Lecture 08 - Data Manipulation",
+    "objectID": "lectures/lecture_06/lecture_06.html#recording",
+    "href": "lectures/lecture_06/lecture_06.html#recording",
+    "title": "Lecture 06 - Libraries",
     "section": "Recording",
-    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. The DataFrame Class\n\n \n\n\n\n3. Basic Operations\n\n \n\n\n\n4. The Series Class\n\n \n\n\n\n5. GroupBy Methods\n\n \n\n\n \n\n\n\n6. Complex Selection\n\n \n\n\n\n7. Concatenate, Join & Merge"
+    "text": "Recording"
   },
   {
-    "objectID": "lectures/lecture_08/lecture_08.html#problem-sets",
-    "href": "lectures/lecture_08/lecture_08.html#problem-sets",
-    "title": "Lecture 08 - Data Manipulation",
+    "objectID": "lectures/lecture_01/introduction_to_python.html",
+    "href": "lectures/lecture_01/introduction_to_python.html",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications.\n\n\n\n\n\nData Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#what-is-python",
+    "href": "lectures/lecture_01/introduction_to_python.html#what-is-python",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language known for its simplicity and readability.\nKey Features of Python\n\nEasy to Learn: Python’s syntax is straightforward.\nInterpreted Language: Python code is executed line by line, which makes debugging easier.\nDynamically Typed: You don’t need to declare variable types explicitly; Python handles it automatically.\nVersatile: Python is used in web development, data analysis, automation, and much more.\nHuge Ecosystem: Python has a large standard library and third-party modules for a wide variety of applications."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
+    "href": "lectures/lecture_01/introduction_to_python.html#why-python-for-finance",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "",
+    "text": "Data Handling: In finance, you often work with large datasets—Python’s libraries like pandas and NumPy are designed to handle and analyze financial data efficiently.\nAutomation: Python can automate repetitive tasks like data retrieval, report generation, and portfolio analysis.\nFinancial Modeling: Python is a great tool for building complex models such as forecasting, risk management, and pricing.\nIntegration with Data Science: Python is the most popular language for data science, offering extensive support for statistical analysis, machine learning, and data visualization."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
+    "href": "lectures/lecture_01/introduction_to_python.html#installing-a-python-environment",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "2.1 Installing a Python environment",
+    "text": "2.1 Installing a Python environment\n\nPython\n\nDownload Python from the official website.\nInstallation includes the Python interpreter and Integrated Development Environment (IDLE) for coding.\n\n\n\nInstalling Anaconda\n\nAnaconda is a suite of useful tools and packages for Python development.\nDownload Anaconda from the official website\nOnce it is installed, confirm the following environments and packages are available:\n\nSpyder\nJupyter Notebook"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#running-python-code",
+    "href": "lectures/lecture_01/introduction_to_python.html#running-python-code",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "2.2 Running Python Code",
+    "text": "2.2 Running Python Code\nThere are multiple ways to run Python.\nConsider the following code line which instructs to simply print out “Hello World!”\n    print (\"Hello World!\")\n\nPython Shell\n\nUse the Python IDLE (from terminal of from any IDE setting like Spyder)\nType the code and press Enter\nCheck the output\n\n\n\nPython Script\n\nOpen an empty file (Spyder, Sublime Text Editor, etc.)\nWrite the code\nSave file as helloworld.py\nRun the script\n\nFrom the terminal, run the script by typing\n\n    python helloworld.py\n\nFrom the IDE (like Spyder), launch the run\n\nCheck the output\n\n\n\nNotebook\n\nThis is a Notebook\n\nPlatforms like Jupyter Notebooks are widely used in data science for documenting and running code interactively. - Open Jupyter Notebook by typing in the terminal\n    Jupyter Notebook\n\nCreat a new notebook with a Python environment\nWrite the code in the first cell\nRun the cell\nCheck the output (see below)\n\n\nprint ('Hello World!')"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#syntax",
+    "href": "lectures/lecture_01/introduction_to_python.html#syntax",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.1 Syntax",
+    "text": "3.1 Syntax\n\n3.1.1 Python as a calculator\n\n5000 + 250\n\n\n10000 * 1.05\n\n\n10000 / 2\n\nComments: Use comments (#) to explain code, particularly useful for documenting underlying logic.\n\n# Basic financial arithmetic\nprint(5000 + 250)    # Adding investment returns\nprint(10000 * 1.05)  # Calculating interest (5% growth)\nprint(10000 / 2) # Splitting an investment\n\n\n# This is a comment\nprint(\"Welcome to Python for Finance!\")  # This prints a message\n\n\n\n3.1.2 Variables and Data Types\n\nVariables\nVariables are store data for calculations\nThe operation = assigns a value to a variable.\n\n# Variable assignment in a financial scenario\nstock_price = 150.25  # Price of a stock\ninvestment_amount = 10000  # Amount invested\nshares = investment_amount / stock_price  # Number of shares\n\n\nshares\n\n\n\nData types\nVariables can be of different types.\n\nStrings (str): Text\nIntegers (int): Integer value\nFloats (float): Real value\nBooleans (bool): True or False\n\nBecause Python is dynamically typed, there is no need to explicitly mention the type of the variable. Yet, in some cases, it may be important to cast variables from one type to another.\nMore on this in the next lecture."
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#control-structures",
+    "href": "lectures/lecture_01/introduction_to_python.html#control-structures",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.2 Control structures",
+    "text": "3.2 Control structures\nControl structures allow to condition the sequence of action of a code on the particular value a variable exhibits at the time of execution.\n\nConditional statements\nLoops\n\nNote: tabs are organizational pillars of the Python code structure\n\n3.2.1 Conditional statements\nConditional statements consider the specific value of a variable at the time of execution and determine the outcome based on a logical operation.\nStructure\n    If CONDITON HOLDS:\n        OUTCOME 1\n    Elif OTHER CONDITION HOLDS:\n        OUTCOME 2\n    Else:\n        OUTCOME 3\nNote: check the tabs\n\nbalance = 5000\nif balance &gt;= 10000:\n    print(\"You are eligible for premium services.\")\nelse:\n    print(\"Standard services apply.\")\n\n\n\n3.2.2 Loops\nLoops repeat a sequence of actions until a condition is satisfied. There are two types of loops:\n\nwhile\nfor\n\n\nWhile\nStructure\n    While CONDITION HOLDS:\n        ACTION(s)\n\n# Use case: Simulating monthly deposit growth\nbalance = 1000\nmonths = 0\nwhile balance &lt; 2000:\n    balance += 100  # Monthly deposit\n    months += 1\nprint(f\"It took {months} months to double the balance.\")\n\n\n\nFor\nStructure\n    For CONDITION HOLDS | Increment action:\n        ACTION(s)\n\n# Use case: Summing up daily returns from a list\ndaily_returns = [0.01, -0.02, 0.03, 0.02, -0.01]\ntotal_return = 0\nfor r in daily_returns:\n    total_return += r\nprint(\"Total return for the week:\", total_return)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#functions",
+    "href": "lectures/lecture_01/introduction_to_python.html#functions",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.3 Functions",
+    "text": "3.3 Functions\nA function is a reusable block of code that is saved up and can be called at multiple places in the main script.\nStructure\n    def my_function (parameters):\n        ACTION(s)\n        return VALUE\n\n# Function to calculate compound interest\ndef calculate_compound_interest(principal, rate, time):\n    return principal * (1 + rate) ** time\n\n\n# Example usage\nresult = calculate_compound_interest(1000, 0.05, 5)\nprint(\"Compound Interest:\", result)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#data-structures",
+    "href": "lectures/lecture_01/introduction_to_python.html#data-structures",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.4 Data structures",
+    "text": "3.4 Data structures\n\n3.4.1 Lists\nLists allow to store and treat mutliple data points into one variable\n\n# Example: List of daily stock prices\nstock_prices = [150.25, 153.50, 152.00, 155.00]\nprint(stock_prices[0])  # Accessing the first day's price\nstock_prices.append(157.25)  # Adding a new day's price\nprint(stock_prices)\n\n\n\n3.4.2 Dictionaries\nDictionnaries allow store and treat multiple pairs of data point associating keys and values.\n\n# Example: Dictionary to store portfolio allocation\nportfolio = {\n    \"AAPL\": 5000,\n    \"GOOGL\": 3000,\n    \"AMZN\": 2000\n}\nprint(portfolio[\"AAPL\"])  # Accessing allocation for AAPL\nportfolio[\"GOOGL\"] += 1000  # Updating allocation for GOOGL\nprint(portfolio)"
+  },
+  {
+    "objectID": "lectures/lecture_01/introduction_to_python.html#libraries",
+    "href": "lectures/lecture_01/introduction_to_python.html#libraries",
+    "title": "Lecture 01 - Introduction to Python",
+    "section": "3.5 Libraries",
+    "text": "3.5 Libraries\nLibraries are pre-built packages of functions for tasks like data analysis and visualization.\n\nKey Libraries for Finance\n\nNumPy: For numerical computations matrix operations in portfolio analysis\npandas: Used for data manipulation handling financial datasets\nmatplotlib: For data visualization plotting stock prices\n\n\nimport numpy \n\nprint(numpy.sqrt(16))  # Square root\nprint(numpy.pi)        # Value of pi\n\n\n\nDocumentation\nLibraries come with documentation.\nOn Notebooks, they can be directly accessed from the cell pressing maj + tab after the function.\n\nExample of documentation numpy.sqrt()\n    Call signature:  numpy.sqrt(*args, **kwargs)\nType:            ufunc\nString form:     &lt;ufunc 'sqrt'&gt;\nFile:            ~/opt/anaconda3/lib/python3.9/site-packages/numpy/__init__.py\nDocstring:      \nsqrt(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])\n\nReturn the non-negative square-root of an array, element-wise.\n\nParameters\n----------\nx : array_like\n    The values whose square-roots are required.\nout : ndarray, None, or tuple of ndarray and None, optional\n    A location into which the result is stored. If provided, it must have\n    a shape that the inputs broadcast to. If not provided or None,\n    a freshly-allocated array is returned. A tuple (possible only as a\n    keyword argument) must have length equal to the number of outputs.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the\n    :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\ny : ndarray\n    An array of the same shape as `x`, containing the positive\n    square-root of each element in `x`.  If any element in `x` is\n    complex, a complex array is returned (and the square-roots of\n    negative reals are calculated).  If all of the elements in `x`\n    are real, so is `y`, with negative elements returning ``nan``.\n    If `out` was provided, `y` is a reference to it.\n    This is a scalar if `x` is a scalar.\n\nSee Also\n--------\nlib.scimath.sqrt\n    A version which returns complex numbers when given negative reals.\n\nNotes\n-----\n*sqrt* has--consistent with common convention--as its branch cut the\nreal \"interval\" [`-inf`, 0), and is continuous from above on it.\nA branch cut is a curve in the complex plane across which a given\ncomplex function fails to be continuous.\n\nExamples\n--------\n&gt;&gt;&gt; np.sqrt([1,4,9])\narray([ 1.,  2.,  3.])\n\n&gt;&gt;&gt; np.sqrt([4, -1, -3+4J])\narray([ 2.+0.j,  0.+1.j,  1.+2.j])\n\n&gt;&gt;&gt; np.sqrt([4, -1, np.inf])\narray([ 2., nan, inf])\nClass docstring:\nFunctions that operate element by element on whole arrays.\n\nTo see the documentation for a specific ufunc, use `info`.  For\nexample, ``np.info(np.sin)``.  Because ufuncs are written in C\n(for speed) and linked into Python with NumPy's ufunc facility,\nPython's help() function finds this page whenever help() is called\non a ufunc.\n\nA detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.\n\n**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``\n\nApply `op` to the arguments `*x` elementwise, broadcasting the arguments.\n\nThe broadcasting rules are:\n\n* Dimensions of length 1 may be prepended to either array.\n* Arrays may be repeated along dimensions of length 1.\n\nParameters\n----------\n*x : array_like\n    Input arrays.\nout : ndarray, None, or tuple of ndarray and None, optional\n    Alternate array object(s) in which to put the result; if provided, it\n    must have a shape that the inputs broadcast to. A tuple of arrays\n    (possible only as a keyword argument) must have length equal to the\n    number of outputs; use None for uninitialized outputs to be\n    allocated by the ufunc.\nwhere : array_like, optional\n    This condition is broadcast over the input. At locations where the\n    condition is True, the `out` array will be set to the ufunc result.\n    Elsewhere, the `out` array will retain its original value.\n    Note that if an uninitialized `out` array is created via the default\n    ``out=None``, locations within it where the condition is False will\n    remain uninitialized.\n**kwargs\n    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.\n\nReturns\n-------\nr : ndarray or tuple of ndarray\n    `r` will have the shape that the arrays in `x` broadcast to; if `out` is\n    provided, it will be returned. If not, `r` will be allocated and\n    may contain uninitialized values. If the function has more than one\n    output, then the result will be a tuple of arrays."
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html",
+    "href": "lectures/lecture_07/numerical_computing.html",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "",
+    "text": "NumPy (Numerical Python) is a fundamental library for scientific computing in Python. It provides support for arrays, matrices, and many mathematical functions that operate on these data structures.\nThis notebook covers: - Creating and manipulating NumPy arrays - Basic mathematical operations with NumPy - Statistic calculations using NumPy - Finance applications\nWhy Use NumPy?\nNumPy offers significant advantages when working with numerical data: - Performance: NumPy is much faster than traditional Python lists for numerical operations. - Functionality: NumPy provides a wide range of mathematical functions and operations. - Convenience: NumPy arrays are more convenient to work with, especially for large datasets."
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#overview",
+    "href": "lectures/lecture_07/numerical_computing.html#overview",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "",
+    "text": "NumPy (Numerical Python) is a fundamental library for scientific computing in Python. It provides support for arrays, matrices, and many mathematical functions that operate on these data structures.\nThis notebook covers: - Creating and manipulating NumPy arrays - Basic mathematical operations with NumPy - Statistic calculations using NumPy - Finance applications\nWhy Use NumPy?\nNumPy offers significant advantages when working with numerical data: - Performance: NumPy is much faster than traditional Python lists for numerical operations. - Functionality: NumPy provides a wide range of mathematical functions and operations. - Convenience: NumPy arrays are more convenient to work with, especially for large datasets."
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#arrays-of-data",
+    "href": "lectures/lecture_07/numerical_computing.html#arrays-of-data",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "1. Arrays of data",
+    "text": "1. Arrays of data\n\n1.1 Definitions\nGeneral data structures in Python, especially list, are flexible but can be inefficient in terms of memory and performance.\nFor scientific and financial applications that demand high-performance operations on specialized data structures, arrays are crucial.\nWhat are Arrays?\nArrays organize elements of the same data type in rows and columns, typically representing numbers like real values.\n\nA one-dimensional array represents a vector\nA multi-dimensional array forms matrices, cubes, etc.\n\nTo efficiently handle arrays, NumPy works with its ndarray class which provides powerful and specialized functionality.\n\n\n1.2 Using list to handle arrays\n\nDimensionality\nPython list can be of multiple dimensions: vector, matrices, cubes\n\n# 1-dimension list\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\n\n# 2-dimensions list = matrix\nm = [v, v, v]\n\n\n\nIndexing\nReminder: list are indexed from 0 for each of their dimensions\n\nm\n\n\nm[1]\n\n\nm[1][0]\n\n\n\nn-dimensions & deep copies\nlist of n-dimensions can be constructed as vectors of other lists.\n\nv1 = [0.5, 1.5]\nv2 = [1, 2]\nm = [v1, v2]\nc = [m, m]\nc\n\nHowever, such construction leads to dependencies in terms of references and memory.\nBy default, a copy of a vector in a list points to the same original values.\nOperations on the copy therefore also apply to the origin.\n\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\nm = [v, v, v]\nv[0] = 'Python'\nm\n\nDeep copies allow to decouple origins and copies by creating different references in the memory.\n\nfrom copy import deepcopy\nv = [0.5, 0.75, 1.0, 1.5, 2.0]\nm = 3 * [deepcopy(v)]\nm\n\n\nv[0] = 'Python'\nm\n\n\nv"
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#regular-numpy-arrays",
+    "href": "lectures/lecture_07/numerical_computing.html#regular-numpy-arrays",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "2. Regular NumPy arrays",
+    "text": "2. Regular NumPy arrays\n\n2.1 The basics\nUsing list objects to compose array structures is possible, but not very convenient since the list class is designed for broader, general purposes.\nA truly dedicated class for handling array-type structures is far more beneficial.\nnumpy.array is such a class, built with the specific goal of handling n-dimensional arrays both conveniently and efficiently.\n\nimport numpy as np\na = np.array([0, 0.5, 1.0, 1.5, 2.0])\na\n\n\ntype(a)\n\n\na = np.array(['a', 'b', 'c'])\na\n\n\narange()\nSimilar to the range function\n\na = np.arange(2, 20, 2)\na\n\n\na = np.arange(8, dtype=float)\na\n\n\n\nIndexing\nIndexing works like in list.\n\na[5:]\n\n\na[:2]\n\n\n\nndarray built-in methods\n\na.sum()\n\n\na.std()\n\n\na.cumsum()\n\n(Vectorized) Math operations\n\n2 * a\n\n\na ** 2\n\n\na ** a\n\nUniversal functions\n“Universal” because they operate on ndarray objects as well as on basic Python data types.\n\nnp.exp(a)\n\n\nnp.sqrt(a)\n\n\nnp.sqrt(2.5)\n\n\n\nMatrices\n\nb = np.array([a, a * 2])\nb\n\n\nb[0]\n\n\nb[0,2]\n\n\nb[:,1]\n\n\nb.sum()\n\n\n# column-wise operation\nb.sum(axis = 0)\n\n\n# row-wise operation\nb.sum(axis = 1)\n\n\n\n\n2.2 Initialization\nInitialization functions allow to construct n-dimensional arrays with pre-instructed procedures to fill each data point: - np.zeros(), np.zeros_like() - np.ones(), np.ones_like() - np.empty(), np.empty_like() - np.eye() - np.linspace()\nFor initialization functions, one can provide the following parameters: - shape: Either an int, a sequence of int objects, or a reference to another ndarray - dtype (optional): A dtype—these are NumPy-specific data types for ndarray objects\n\n\n\ndtype\nDescription\n\n\n\n\n?\nBoolean\n\n\ni\nSigned integer\n\n\nu\nUnsigned integer\n\n\nf\nFloating point\n\n\nc\nComplex floating point\n\n\nm\ntimedelta\n\n\nM\ndatetime\n\n\nO\nObject\n\n\nU\nUnicode\n\n\nV\nRaw data (void)\n\n\n\n\nnp.zeros()\nThe np.zeros() function creates a 2-dimensional array of zeros with specific characteristics.\n\nc = np.zeros((2, 3), dtype='i')\nc\n\n\nd = np.zeros_like(c, dtype='f')\nd\n\n\n\nnp.ones()\nThe np.ones() function creates a 2-dimensional array of ones with specific characteristics.\n\nc = np.ones((2, 3, 4), dtype='i')\nc\n\nThis example generates an array filled with ones. The shape of the array is (2, 3, 4), which means it will have: - 2 blocks (first dimension), - each block contains 3 rows (second dimension), - and each row contains 4 elements (third dimension).\nThe result is a 3D array like:\n[\n  [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],  # First block (2x3x4)\n  [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]   # Second block (2x3x4)\n]\n\nd = np.ones_like(c, dtype='f')\nd\n\n\n\nnp.empty()\nUnlike np.ones() or np.zeros(), np.empty() does not initialize the array with any specific values like 1 or 0.\nInstead, it leaves the array filled with whatever data is already in memory at that location. This means the array will have arbitrary values, often referred to as “garbage” values. This makes np.empty() faster than functions that initialize the array with specific values because it skips that step.\nEmpty view\n[\n  [[?, ?], [?, ?], [?, ?]],  # First block (2x3x2)\n  [[?, ?], [?, ?], [?, ?]]   # Second block (2x3x2)\n]\nWhere the ? symbols represent random or garbage values, because the array is uninitialized.\n\ne = np.empty((2, 3, 2))\ne\n\n\nf = np.empty_like(c)\nf\n\n\n\nnp.eye()\nThe np.eye(n) function creates a 2D identity matrix of size nxn\n\nnp.eye(5)\n\n\n\nnp.linspace()\nThe np.linspace() function creates a 1-dimensional array of evenly spaced numbers.\n\ng = np.linspace(5, 15, 12)\ng\n\n\n\n\n2.3 Metainformation\nArrays deliver several meta-information.\n\nsize returns the total number of elements in the array\n\n\ng.size\n\n\nitemsize returns the size (in bytes) of each element in the array\n\n\ng.itemsize\n\n\nndim returns the number of dimensions of the array\n\n\ng\n\n\ng.ndim\n\n\nshape returns the shape of the array\n\n\ng.shape\n\n\ndtype returns the data type of the elements in the array\n\n\ng.dtype\n\n\nnbytes returns the total number of bytes consumed by the elements of the array\n\n\ng.nbytes\n\n\n\n2.4 Structural operations\n\n# Initialise an array\ng = np.arange(15)\nprint (g)\nprint (g.shape)\n\n\nReshaping\nReshaping provides another view on the same data.\nDuring a reshaping operation, the total number of elements in the ndarray object is unchanged.\n\nnp.reshape(a, newshape)\n\n\ng.reshape((3,5))\n\n\nh = g.reshape((5,3))\nh\n\n\n\nTransposing\nTransposing creates a view of the original array (i.e., it does not create a new object unless explicitly copied).\nThe dimensions (axes) of the ndarray object are swapped.\nFor 2D arrays, this means rows become columns and columns become rows. For higher-dimensional arrays, the axes are reordered according to the shape.\n\na.transpose(*axes)\na.T\nnp.transpose(a, axes)\n\n\nh\n\n\nh.transpose()\n\n\nh.T\n\n\n\nResizing\nResizing creates a new (temporary) object.\nDuring a resizing operation, the total number of elements in the ndarray object changes: it either decreases (“down-sizing”) or increases (“up-sizing”). - np.resize(a, newshape)\n\ng\n\n\ng.size\n\n\nnp.resize(g,(3,1))\n\n\nnp.resize(g, (1, 5))\n\n\nnp.resize(g, (2, 5))\n\n\nn = np.resize(g, (5, 4))\nn\n\n\n\nStacking\nStacking joins a sequence of arrays along a new axis.\nThis is used to combine arrays into a single array with a new dimension. The arrays must have the same shape, except along the axis being stacked.\n\nnp.stack(arrays, axis=0)\nnp.hstack(tuple) (for horizontal stacking)\nnp.vstack(tuple) (for vertical stacking)\n\n\na = np.array([1, 2])\nb = np.array([3, 4])\n\n\n# Stacking along a new axis\nnp.stack((a, b), axis=0)\n\n\nnp.stack((a, b), axis=1)  \n\n\n# Horizontal and vertical stacking\nnp.hstack((a, b))\n\n\nnp.vstack((a, b)) \n\n\nh\n\n\n# horizontal stacking\nnp.hstack((h,2*h))\n\n\n# vertical stacking\nnp.vstack((h, 0.5 * h))\n\n\n\nFlattening\nFlattening refers to converting a multi-dimensional array into a 1-dimensional array. This is useful when processing the array as a sequence of elements, regardless of its original shape. - a.flatten() - np.ravel(a)\n\na = np.array([[1, 2], [3, 4]])\n\n# Flattening the array\na.flatten()\n\n\nnp.ravel(a)\n\n\nh\n\n\nh.flatten()\n\n\nfor i in h.flat:\n    print(i, end=',')\n\n\n\n\n2.5 Boolean arrays\nLogical operations work on ndarray objects the same way, element-wise, as on standard Python data types.\n\nh\n\n\nBasics\n\nh &gt; 8\n\n\nh &lt;= 7\n\n\nh == 5\n\n\n(h == 5).astype(int)\n\n\n(h &gt; 4 ) & (h &lt;= 12)\n\n\n\nBoolean filtering\n\nh[h &gt; 8]\n\n\nh[(h &gt; 4) & (h &lt;= 12)]\n\n\nh[(h &lt; 4) | (h &gt;= 12)]\n\nnp.where() returns the indices of elements in an input array that satisfy a given condition.\nIt can also be used to return values from one of two arrays, depending on a condition (conditional selection).\n\nnp.where(condition, [x, y]):\n\nIf only condition is provided, np.where() returns the indices where the condition is True.\nIf x and y are also provided, np.where() returns elements from x where the condition is True, and from y where the condition is False.\n\n\n\na = np.array([1, 2, 3, 4, 5])\nnp.where(a &gt; 3)\n\n\nnp.where(np.eye(10)&gt;0)\n\n\n# use the np.where() function\nnp.where(h &gt; 7, 1, 0)\n\n\nnp.where(h % 2 == 0, 'even', 'odd')\n\n\nnp.where(h &lt;= 7, h * 2, h / 2)"
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#structured-numpy-arrays",
+    "href": "lectures/lecture_07/numerical_computing.html#structured-numpy-arrays",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "3. Structured NumPy arrays",
+    "text": "3. Structured NumPy arrays\nStructured ndarray objects allow to have a different dtype per column.\nThe construction is similar to the operation for initializing tables in a database (e.g., SQL): one has column names and column data types, with maybe some additional information (e.g., maximum number of characters per str object).\n\ndt = np.dtype([('Name', 'S10'), ('Age', 'i'),\n                             ('Height', 'f'), ('Children/Pets', 'i', 2)])\ndt\n\n\n# alternative\ndt = np.dtype({'names': ['Name', 'Age', 'Height', 'Children/Pets'],\n                       'formats':'O int float int,int'.split()})\ndt\n\n\ns = np.array([('Smith', 45, 1.83, (0, 1)),\n                        ('Jones', 53, 1.72, (2, 2))], dtype=dt)\ns\n\n\ntype(s)\n\nIndexing\nThe single columns can now be easily accessed by their names and the rows by their index values.\n\ns['Name']\n\n\ns['Height'].mean()\n\n\ns[0]\n\n\ns[1]['Age']"
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#vectorized-programming",
+    "href": "lectures/lecture_07/numerical_computing.html#vectorized-programming",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "4. Vectorized programming",
+    "text": "4. Vectorized programming\nVectorization is a strategy to get more compact code that is possibly executed faster by simplifying the treatment and operations over array (vector) objects.\nThe fundamental idea is to conduct an operation on or to apply a function to a complex array object “at once” and not by looping over the single elements of the object.\nNumPy has vectorization built in deep down in its core.\n\nOperations\n\nr = np.arange(12).reshape((4, 3))\ns = np.arange(12).reshape((4, 3)) * 0.5\n\n\nr\n\n\ns\n\n\nr + s\n\n\nr + 3\n\n\n2 * r\n\n\n2 * r + 3\n\n\n\nRole of shapes\n\nr.shape\n\n\nr\n\n\ns = np.arange(0, 12, 4)\ns\n\n\ns.shape\n\n\nr + s\n\n\ns = np.arange(0, 12, 3)\n\n\ns.shape\n\n\nr + s\n\n\nr.transpose() + s\n\n\n\nApplying functions\n\ndef f(x):\n    return 3 * x + 5\n\n\nf(0.5)\n\n\nf(r)"
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#random-number-generation",
+    "href": "lectures/lecture_07/numerical_computing.html#random-number-generation",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "5. Random number generation",
+    "text": "5. Random number generation\nRandom number generation is often essential, particularly in simulations like Monte Carlo methods.\nNumPy provides a convenient and powerful way to generate random numbers through the np.random module.\n\nrand(): generates numbers between 0 and 1.\n\n\nnp.random.rand(5)\n\n\nrandn(): generates numbers with a mean of 0 and a standard deviation of 1 by default.\n\n\nnp.random.randn(5)\n\n\nnormal(mean, std, n): generates random n numbers from a normal distribution with mean and std\n\n\n# Simulate 10 days of daily returns with a mean of 0.001 and std deviation of 0.02\ndaily_returns = np.random.normal(0.001, 0.02, 10)\ndaily_returns\n\n\nrandint(): generates random integers\n\n\nnp.random.randint(1, 100, 5)"
+  },
+  {
+    "objectID": "lectures/lecture_07/numerical_computing.html#applications",
+    "href": "lectures/lecture_07/numerical_computing.html#applications",
+    "title": "Lecture 07 - Numerical Computing (NumPy)",
+    "section": "6. Applications",
+    "text": "6. Applications\n\n6.1 Stock price simulations\n\nGeometric brownian motion\nIn finance, the Geometric Brownian Motion model is commonly used to simulate the future path of stock prices. The model is represented by the following equation:\n\\[\nS_{t+1} = S_t \\times e^{(\\mu - 0.5 \\times \\sigma^2) \\Delta t + \\sigma \\times \\epsilon \\times \\sqrt{\\Delta t}}\n\\]\nWhere: - $ S_t $ is the stock price at time $ t $ - $ $ is the expected return (mean) - $ $ is the volatility (standard deviation) - $ t $ is the time step (in days, for example) - $ $ is a random variable from a normal distribution\nExpressing as Log Returns\nTaking logs makes this additive:\n\\[\\ln\\frac{S_{t+\\Delta t}}{S_t}\n= (\\mu - 0.5\\sigma^2)\\Delta t + \\sigma \\epsilon_t \\sqrt{\\Delta t} = r_t\\]\nThis shows that log returns are normally distributed with: - Mean: \\((\\mu - 0.5\\sigma^2)\\Delta t\\) - Std. deviation: \\(\\sigma \\sqrt{\\Delta t}\\)\nPrice path\nThen, cumulative summation and exponentiation reconstruct the price path from \\(t=0\\) to \\(t=T\\):\n\\[S_T = S_0 \\, e^{\\sum r_t}\\]\n\n\nSimulating daily returns with NumPy\nLet’s simulate daily stock price returns over a one-year period (252 trading days).\nUsing NumPy, we can generate random normal values for the stock price fluctuations and compute the simulated prices.\n\nimport numpy as np\n\n# Parameters\nS0 = 100  # Initial stock price\nmu = 0.05  # Expected annual return\nsigma = 0.2  # Annual volatility\nT = 1  # Time horizon (in years)\nN = 252  # Number of trading days\ndt = T / N  # Time step (1 day)\n\n# Simulate random daily returns\ndaily_returns = np.random.normal((mu - 0.5 * sigma**2) * dt, sigma * np.sqrt(dt), N)\n\n# Simulate stock prices\nprices = S0 * np.exp(np.cumsum(daily_returns))\n\ndaily_returns = np.random.normal((mu - 0.5 * sigma**2) * dt, sigma * np.sqrt(dt), N)\nThis line generates random daily returns based on a normal distribution. - The mean of the distribution is adjusted by the term \\(\\mu - 0.5 \\sigma^2\\) to account for the fact that stock prices follow a geometric Brownian motion. - The standard deviation of the returns is \\(\\sigma \\sqrt{dt}\\) , which scales the annual volatility to daily volatility.\nprices = S0 * np.exp(np.cumsum(daily_returns))\nThis line calculates the simulated stock prices using the exponential function.\nIt does this by: - Using np.cumsum(daily_returns) to get the cumulative returns over time. The cumulative sum allows for the aggregation of daily returns into total returns. - The np.exp() function then exponentiates these cumulative returns, which translates them into price levels. - Finally, the initial stock price S0 is multiplied by the exponentiated cumulative returns to get the actual stock prices.\n\n# Plot the simulated stock prices\nimport matplotlib.pyplot as plt\nplt.plot(prices)\nplt.title('Simulated Stock Price Using Geometric Brownian Motion')\nplt.xlabel('Day')\nplt.ylabel('Price')\nplt.show()\n\n\n\n\n6.2 Portfolio optimization\nIn portfolio management, finance professionals must calculate the returns, risks, and correlations of assets to construct optimal portfolios.\nNumPy makes this task efficient and straightforward by offering matrix operations and linear algebra functions.\nLet’s assume a portfolio with three assets. We can calculate the expected portfolio return and risk using NumPy.\n\nThe function np.dot() returns the product of matrices.\n\nDefining the portfolio\n\n# Asset returns (annualized)\nasset_returns = np.array([0.08, 0.12, 0.15])\n\n# Covariance matrix of asset returns\ncov_matrix = np.array([[0.005, -0.002, 0.004],\n                       [-0.002, 0.010, -0.003],\n                       [0.004, -0.003, 0.015]])\n\n# Portfolio weights\nweights = np.array([0.4, 0.3, 0.3])\n\nComputing risk and return\n\n# Calculate portfolio return\nportfolio_return = np.dot(weights, asset_returns)\n\n# Calculate portfolio risk (standard deviation)\nportfolio_risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))\n\nprint(f\"Expected Portfolio Return: {portfolio_return:.2%}\")\nprint(f\"Portfolio Risk (Standard Deviation): {portfolio_risk:.2%}\")\n\nportfolio_return = np.dot(weights, asset_returns)\nThe expected portfolio return is calculated using the dot product of the portfolio weights and the asset returns.\nThis calculation effectively gives the weighted average return of the assets in the portfolio.\nThe formula is:\n\\[\\text{Portfolio Return} = w_1 \\cdot r_1 + w_2 \\cdot r_2 + w_3 \\cdot r_3\\]\nIn this case:\n\\[\\text{Portfolio Return} = (0.4 \\times 0.08) + (0.3 \\times 0.12) + (0.3 \\times 0.15) = 0.104 \\text{ or } 10.4\\%\\]\nportfolio_risk = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))\nThe portfolio risk is calculated using the covariance matrix and the portfolio weights.\nThis formula computes the standard deviation of the portfolio, reflecting its total risk:\n\\[\\text{Portfolio Risk} = \\sqrt{W^T \\Sigma W}\\]\nwhere: - \\(W\\) is the vector of weights. - \\(\\Sigma\\) is the covariance matrix. - The inner product np.dot(cov_matrix, weights) calculates the weighted covariance for each asset, and then the outer product with weights.T provides the total variance of the portfolio. The square root of this value gives the standard deviation.\n\n\n6.3 Risk analysis\nMonte Carlo simulations are widely used in finance to model the probability of different outcomes in uncertain environments.\nNumPy can be used to run a Monte Carlo simulation for portfolio returns.\n\n# Parameters for simulation\nn_simulations = 10000  # Number of simulations\nn_days = 252  # One year of trading days\nmean_return = 0.001  # Mean daily return\nstd_dev = 0.02  # Daily standard deviation\n\n# Simulate random daily returns for one year\nsimulated_returns = np.random.normal(mean_return, std_dev, (n_simulations, n_days))\n\n# Calculate cumulative returns for each simulation\ncumulative_returns = np.cumprod(1 + simulated_returns, axis=1)\n\n# Final value of each simulation\nfinal_values = cumulative_returns[:, -1]\n\nsimulated_returns = np.random.normal(mean_return, std_dev, (n_simulations, n_days))\nThis line generates a 2D array of random daily returns using a normal distribution. - Each row represents a separate simulation (one potential outcome for the year), and each column represents the daily returns for that simulation across 252 trading days. - The np.random.normal function takes the mean and standard deviation, generating random returns for each day in each simulation.\ncumulative_returns = np.cumprod(1 + simulated_returns, axis=1)\nThe cumulative returns are calculated by taking the product of the daily returns over time. - The expression 1 + simulated_returns adjusts the returns to represent growth factors (e.g., if the return is 0.01, the growth factor is 1.01). - The np.cumprod function computes the cumulative product along the specified axis (here, axis=1, which means across each simulation).\nfinal_values = cumulative_returns[:, -1]\nThis line extracts the final value of the portfolio at the end of the simulation period (after 252 days) for each of the 10,000 simulations. - cumulative_returns[:, -1] retrieves the last column of the cumulative returns matrix, representing the portfolio value after one year of trading.\n\n# Plot distribution of final values\nplt.hist(final_values, bins=50, edgecolor='k')\nplt.title('Monte Carlo Simulation of Portfolio Returns')\nplt.xlabel('Final Portfolio Value')\nplt.ylabel('Frequency')\nplt.show()"
+  },
+  {
+    "objectID": "lectures/lecture_09/lecture_09_problem_set.html",
+    "href": "lectures/lecture_09/lecture_09_problem_set.html",
+    "title": "Input and Output Operations - Problem set",
+    "section": "",
+    "text": "Exercise 1\nWrite a program that takes two integers as input and prints their sum, product, and division as output, ensuring division by zero is handled.\n\n\nExercise 2\nWrite a Python script that asks the user to input a sentence and then counts the number of vowels in the sentence.\n\n\nExercise 3\nWrite a program that reads a text file, counts the number of words in the file, and prints the result.\n\n\nExercise 4\nUsing the with statement, write a program that appends five random integers (one per line) to an existing text file called random_numbers.txt.\n\n\nExercise 5\nWrite a program that reads a CSV file containing two columns: name and score. Calculate the average score and print names with scores above the average.\n\n\nExercise 6\nCreate a program that takes user input for a name and a balance amount. Save the input into a new CSV file called balance_data.csv, appending each new entry without overwriting the file.\n\n\nExercise 7\nWrite a Python script that reads a CSV file, performs a transformation by multiplying all numerical values by 1.1, and saves the modified data into a new CSV file.\n\n\nExercise 8\nWrite a program that reads data from an Excel file with multiple sheets. Calculate the average of values in each sheet and save these results in a new Excel file with the averages on different sheets.\n\n\nExercise 9\nCreate a program that reads an Excel file, extracts rows where a particular column has values above a user-defined threshold, and saves the filtered data to a new sheet in the same Excel file.\n\n\nExercise 10\nWrite a program that uses the pandas library to create a DataFrame from scratch with columns Name, Age, and Grade, then writes this DataFrame to both a CSV and an Excel file."
+  },
+  {
+    "objectID": "lectures/lecture_09/lecture_09.html",
+    "href": "lectures/lecture_09/lecture_09.html",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\n\nData: .zip\n\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_09/lecture_09.html#lecture-material",
+    "href": "lectures/lecture_09/lecture_09.html#lecture-material",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "",
+    "text": "Notebook\n\nJupyter notebook (.ipynb)\n\nData: .zip\n\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
+  },
+  {
+    "objectID": "lectures/lecture_09/lecture_09.html#recording",
+    "href": "lectures/lecture_09/lecture_09.html#recording",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
+    "section": "Recording",
+    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. Live inputs and outputs\n\n \n\n\n\n3. File inputs and outputs\n\n \n\n\n\n4. CSV\n\n \n\n\n\n5. Excel"
+  },
+  {
+    "objectID": "lectures/lecture_09/lecture_09.html#problem-sets",
+    "href": "lectures/lecture_09/lecture_09.html#problem-sets",
+    "title": "Lecture 09 - Input and Output (I/O) Operations",
     "section": "Problem sets",
     "text": "Problem sets\n\nJupyter notebook (.ipynb)"
-  },
-  {
-    "objectID": "lectures/lecture_06/libraries.html",
-    "href": "lectures/lecture_06/libraries.html",
-    "title": "Lecture 06 - Libraries",
-    "section": "",
-    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
-  },
-  {
-    "objectID": "lectures/lecture_06/libraries.html#overview",
-    "href": "lectures/lecture_06/libraries.html#overview",
-    "title": "Lecture 06 - Libraries",
-    "section": "",
-    "text": "Python libraries are collections of modules and functions that provide additional functionality, allowing to perform complex tasks with minimal code.\nIn this notebook covers: - Why Python libraries are important - How to install and import libraries - Key Python libraries used in banking and finance - pandas for data manipulation - numpy for numerical computations - matplotlib and seaborn for data visualization - datetime for date and time manipulation"
-  },
-  {
-    "objectID": "lectures/lecture_06/libraries.html#why-use-python-libraries",
-    "href": "lectures/lecture_06/libraries.html#why-use-python-libraries",
-    "title": "Lecture 06 - Libraries",
-    "section": "1. Why Use Python Libraries?",
-    "text": "1. Why Use Python Libraries?\nPython libraries allow to: - Reuse code that has been tested and optimized by others - Perform complex tasks with just a few lines of code - Simplify workflow by providing tools tailored to specific tasks\n\nExample: Using a Library vs. Writing Code from Scratch\n\n# Without using a library\n# Calculate the square root of a number (writing the logic from scratch)\ndef sqrt(number):\n    return number ** 0.5\n\nprint(\"Square root of 16 (without library):\", sqrt(16))\n\n\n# Using a library (numpy)\nimport numpy as np\nprint(\"Square root of 16 (using numpy):\", np.sqrt(16))"
-  },
-  {
-    "objectID": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
-    "href": "lectures/lecture_06/libraries.html#installing-and-importing-libraries",
-    "title": "Lecture 06 - Libraries",
-    "section": "2. Installing and Importing Libraries",
-    "text": "2. Installing and Importing Libraries\nTo use a library, it needs to be installed (if it’s not already installed) and be imported it into the current Python environment.\n\n2.1 Installing Libraries\n\nUsing pip, the Python package installer. For example:\n\npip install pandas numpy matplotlib seaborn\n\nUsing the anaconda suite to install manually.\n\n\n\n2.2 Importing Libraries\nOnce installed, libraries can be imported into the environment using import (...as):\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
-  },
-  {
-    "objectID": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
-    "href": "lectures/lecture_06/libraries.html#key-python-libraries-for-data-science-in-finance",
-    "title": "Lecture 06 - Libraries",
-    "section": "3. Key Python Libraries for Data Science in Finance",
-    "text": "3. Key Python Libraries for Data Science in Finance\n\n3.1 numpy for Numerical Computations\nnumpy is the foundational package for numerical computing in Python. It is particularly useful for handling large arrays and matrices of numeric data.\n\nimport numpy as np\n\n# Example: Calculating compound interest using numpy\nprincipal = 1000  # Initial amount\nrate = 0.05  # Interest rate\ntime = 10  # Number of years\n\n# Calculate the future value\nfuture_value = principal * np.power(1 + rate, time)\nprint(\"Future Value after 10 years:\", future_value)\n\n\n\n3.2 pandas for Data Manipulation\npandas is a powerful library for data manipulation and analysis. It works with structured data, such as CSV files, databases, and Excel spreadsheets.\n\nimport pandas as pd\n\n# Example: Reading a CSV file containing transaction data\ntransactions = pd.DataFrame({\n    'Date': ['2023-08-01', '2023-08-02', '2023-08-03'],\n    'Description': ['Deposit', 'Withdrawal', 'Deposit'],\n    'Amount': [1000, -200, 500]\n})\n\n# Display the first few rows of the DataFrame\nprint(transactions.head())\nprint (\"\\n\")\n# Calculating the total balance after transactions\ntransactions['Balance'] = transactions['Amount'].cumsum()\nprint(transactions)\n\n\n\n3.3 matplotlib and seaborn for Data Visualization\nmatplotlib and seaborn are powerful libraries for creating visualizations. matplotlib provides a flexible foundation, while seaborn simplifies the creation of more complex plots.\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Example: Visualizing the account balances over time\nsns.lineplot(x='Date', y='Balance', data=transactions)\nplt.title(\"Account Balance Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Balance\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n# Sample Data: Tips Dataset (comes built-in with seaborn)\ndata = sns.load_dataset(\"tips\")\n\n# Create a rich visualization using Seaborn's relplot\nsns.set_theme(style=\"whitegrid\")  # Set theme for aesthetics\nplot = sns.relplot(\n    data=data, \n    x=\"total_bill\", \n    y=\"tip\", \n    hue=\"day\", \n    style=\"time\", \n    size=\"size\",\n    palette=\"viridis\", \n    kind=\"scatter\", \n    aspect=1.5,\n    height=6\n)\n\n# Add labels and a title\nplot.set_axis_labels(\"Total Bill ($)\", \"Tip ($)\")\nplot.fig.suptitle(\"Tips vs. Total Bill by Day and Time\", fontsize=16, weight='bold')\n\n# Show the plot\nplt.show()\n\n\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the built-in 'iris' dataset from seaborn\niris = sns.load_dataset(\"iris\")\n\n# Create a pairplot with rich formatting\nsns.set(style=\"ticks\", palette=\"pastel\")\n# pairplot() visualizes pairwise relationships in a dataset, making it great for exploratory data analysis.\nplot = sns.pairplot(\n    iris, \n    hue=\"species\",  # Color by species type\n    kind=\"reg\",     # Add regression lines to show trends\n    diag_kind=\"kde\",  # Use KDE plots on the diagonal for a smoother distribution\n    markers=[\"o\", \"s\", \"D\"],  # Use different markers for each species\n    height=2.5\n)\n\n# Add a main title and adjust spacing\nplot.fig.suptitle(\"Pairplot of Iris Dataset with Regression Lines\", fontsize=16, weight='bold')\nplot.fig.subplots_adjust(top=0.95)\n\n# Display the plot\nplt.show()\n\n\n\n3.4 datetime for Date and Time Manipulation\nThe datetime module allows you to work with dates and times.\n\nfrom datetime import datetime\n\n# Example: Calculating the number of days between two dates\ndate_format = \"%Y-%m-%d\"\nstart_date = datetime.strptime(\"2023-08-01\", date_format)\nend_date = datetime.strptime(\"2023-08-10\", date_format)\n\ndays_between = (end_date - start_date).days\nprint(f\"Days between {start_date.date()} and {end_date.date()}: {days_between}\")"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html",
-    "href": "lectures/lecture_01/lecture_01.html",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "href": "lectures/lecture_01/lecture_01.html#lecture-material",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_01/lecture_01.html#recording",
-    "href": "lectures/lecture_01/lecture_01.html#recording",
-    "title": "Lecture 01 - Introduction to Python",
-    "section": "Recording",
-    "text": "Recording\n\n1. Motivation\n\n \n\n\n\n2. Setting up the environment\n\n \n\n\n\n3. Overview of the Python environment"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07.html",
-    "href": "lectures/lecture_07/lecture_07.html",
-    "title": "Lecture 07 - Numerical Computing",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07.html#lecture-material",
-    "href": "lectures/lecture_07/lecture_07.html#lecture-material",
-    "title": "Lecture 07 - Numerical Computing",
-    "section": "",
-    "text": "Notebook\n\nJupyter notebook (.ipynb)\nPage (HTML notebook)\n\nSlides\n\nReveal.js\nPDF"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07.html#recording",
-    "href": "lectures/lecture_07/lecture_07.html#recording",
-    "title": "Lecture 07 - Numerical Computing",
-    "section": "Recording",
-    "text": "Recording\n\n1. Intro\n\n \n\n\n\n2. NumPy Arrays\n\n \n\n\n\n3. Structured Arrays, Vectorized Programming & Random Number Generator\n\n \n\n\n\n4. Applications"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07.html#problem-sets",
-    "href": "lectures/lecture_07/lecture_07.html#problem-sets",
-    "title": "Lecture 07 - Numerical Computing",
-    "section": "Problem sets",
-    "text": "Problem sets\n\nJupyter notebook (.ipynb)\nSolutions (.pdf)"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "",
-    "text": "Create a 3D array with dimensions \\(3 \\times 3 \\times 3\\) filled with random integers between 1 and 100. 1. Replace all values that are divisible by 3 with -1. 2. Calculate the mean value for each of the three 2D layers in the 3D array.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-1-manipulating-a-3d-array",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-1-manipulating-a-3d-array",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "",
-    "text": "Create a 3D array with dimensions \\(3 \\times 3 \\times 3\\) filled with random integers between 1 and 100. 1. Replace all values that are divisible by 3 with -1. 2. Calculate the mean value for each of the three 2D layers in the 3D array.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-2-boolean-indexing-and-filtering",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-2-boolean-indexing-and-filtering",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 2: Boolean Indexing and Filtering",
-    "text": "Exercise 2: Boolean Indexing and Filtering\nGiven an array of random integers between 1 and 50 (size 20): 1. Identify all elements that are prime numbers. 2. Replace all prime numbers with 0.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-3-array-manipulation-and-reshaping",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-3-array-manipulation-and-reshaping",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 3: Array Manipulation and Reshaping",
-    "text": "Exercise 3: Array Manipulation and Reshaping\nCreate a 1D NumPy array of size 30 filled with random integers between 10 and 100. Perform the following: 1. Reshape the array into a \\(5 \\times 6\\) matrix. 2. Compute the sum of the values in each row. 3. Compute the sum of the values in each column.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-4-matrix-determinant-and-inverse",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-4-matrix-determinant-and-inverse",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 4: Matrix Determinant and Inverse",
-    "text": "Exercise 4: Matrix Determinant and Inverse\nGenerate a \\(4 \\times 4\\) matrix of random integers between 1 and 10. 1. Calculate the determinant of the matrix. 2. If the determinant is non-zero, compute its inverse. 3. Verify that the inverse and the original matrix product result in an identity matrix.\nUse functions: - np.linalg.det() - np.linalg.inv() - np.dot()\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-5-simulating-an-ornstein-uhlenbeck-process",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-5-simulating-an-ornstein-uhlenbeck-process",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 5: Simulating an Ornstein-Uhlenbeck Process",
-    "text": "Exercise 5: Simulating an Ornstein-Uhlenbeck Process\nSimulate an Ornstein-Uhlenbeck process, which is used in finance to model mean-reverting processes such as interest rates. The formula is given by:\n\\[\nX_{t+1} = X_t + \\theta (\\mu - X_t) \\Delta t + \\sigma \\sqrt{\\Delta t} \\cdot Z_t\n\\]\nWhere: - \\(X_t\\) is the value of the process at time step \\(t\\). - \\(\\theta\\) is the speed of mean reversion (how fast the process reverts to the mean). - \\(\\mu\\) is the long-term mean to which the process reverts. - \\(\\sigma\\) is the volatility or standard deviation of the process. - \\(\\Delta t\\) is the time step size (in this case, 0.01). - \\(Z_t\\) is a random normal variable (\\(Z_t \\sim N(0, 1)\\)), representing the random noise at each time step.\nBackground information: 1. Mean-reverting drift: \\(\\theta (\\mu - X_t) \\Delta t\\) - This term controls how quickly the process moves back towards the mean \\(\\mu\\). - The strength of this pull towards the mean is determined by \\(\\theta\\), and the distance from the mean is represented by \\(\\mu - X_t\\).\n\nRandom fluctuation: \\(\\sigma \\sqrt{\\Delta t} \\cdot Z_t\\)\n\nThis term represents the stochastic component of the process, introducing random fluctuations.\n\\(\\sigma\\) controls the magnitude of these fluctuations, while \\(\\sqrt{\\Delta t}\\) ensures the appropriate scaling over time steps.\n\n\nThus, at each time step \\(t\\), the process evolves according to this combination of mean-reverting behavior and random fluctuation.\nParameter setting for the simulation: - $ = 0.7 $ (mean reversion speed), - $ = 0.05 $ (long-term mean), - $ = 0.15 $ (volatility), - $ dt = 0.01 $ (time step), - initial value $ X_0 = 0.05 $, - simulate for 500 time steps.\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-6-element-wise-operations-on-multiple-arrays",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-6-element-wise-operations-on-multiple-arrays",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 6: Element-Wise Operations on Multiple Arrays",
-    "text": "Exercise 6: Element-Wise Operations on Multiple Arrays\nCreate two arrays, A and B, each of size (1000), with random values between 1 and 10. Perform the following operations: 1. Identify the indices where elements of A are larger than the corresponding elements in B. 2. Compute a new array C where C[i] equals the value of A[i] if A[i] &gt; B[i], otherwise it equals the average of A[i] and B[i].\n\n# Your code"
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-7-matrix-operations-and-transposing",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-7-matrix-operations-and-transposing",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 7: Matrix Operations and Transposing",
-    "text": "Exercise 7: Matrix Operations and Transposing\nGiven a \\(4 \\times 4\\) matrix filled with random integers between 1 and 20, perform the following:\n\nTranspose the matrix.\nCompute the sum of the elements in the original matrix.\nCompute the sum of the elements in the transposed matrix.\nVerify if the sum of elements in the original and transposed matrix are equal."
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-8-advanced-matrix-operations-and-broadcasting",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-8-advanced-matrix-operations-and-broadcasting",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 8: Advanced Matrix Operations and Broadcasting",
-    "text": "Exercise 8: Advanced Matrix Operations and Broadcasting\nGiven two matrices A and B with dimensions \\(3 \\times 3\\) filled with random integers between 1 and 10:\n\nAdd the two matrices together using broadcasting.\nMultiply the two matrices element-wise.\nCompute the matrix product of A and B using matrix multiplication.\nSubtract the transpose of matrix B from matrix A ."
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-9-function-application-with-vectorization",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-9-function-application-with-vectorization",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 9: Function Application with Vectorization",
-    "text": "Exercise 9: Function Application with Vectorization\nWrite a NumPy-based function that calculates the following for each element of a 1D array:\n\\[f(x) = 3x^2 + 2x - 5\\]\n\nCreate a 1D array of size 20 with random integers between -10 and 10.\nApply the function f(x) to each element of the array in a vectorized manner (without using loops).\nReturn the resulting array."
-  },
-  {
-    "objectID": "lectures/lecture_07/lecture_07_problem_set.html#exercise-10-advanced-broadcasting-and-boolean-filtering",
-    "href": "lectures/lecture_07/lecture_07_problem_set.html#exercise-10-advanced-broadcasting-and-boolean-filtering",
-    "title": "Numerical Computing (NumPy) - Problem set",
-    "section": "Exercise 10: Advanced Broadcasting and Boolean Filtering",
-    "text": "Exercise 10: Advanced Broadcasting and Boolean Filtering\nGiven a \\(6 \\times 6\\) matrix of random integers between 1 and 100:\n\nWrite a function that finds all the elements divisible by both 3 and 5.\nReplace all such elements with -1 using boolean filtering and broadcasting.\nReturn the modified matrix."
   },
   {
     "objectID": "lectures/lecture_02/lecture_02.html",
