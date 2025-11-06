@@ -14,7 +14,7 @@ title: "Schedule Fall 2025"
 | 22/10/2025 <br> `recorded`| 5  | ~~Lecture 07~~    | **Numerical computing**                 |
 | 29/10/2025 | 6  | No class         |                                         |
 | 05/11/2025 <br> `recorded` | 7  | ~~Lecture 08~~    | **Data manipulation**                        |
-|            |    | Lecture 09    | **Input/output**                   |
+|            |    | ~~Lecture 09~~    | **Input/output**                   |
 | 12/11/2025 | 8  | Lecture 10 <br> [Guest Lecture]    | **Network analytics**                |
 | 19/11/2025 | 9  | Lecture 11    |    **Time series analysis** |
 | 26/11/2025 | 10 | Lecture 12    | **Machine Learning**                    |

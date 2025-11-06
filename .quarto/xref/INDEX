@@ -106,5 +106,17 @@
   },
   "lectures/lecture_08/lecture_08.qmd": {
     "lecture_08.html": "fe6c1801"
+  },
+  "lectures/lecture_08/data_manipulation.md": {
+    "data_manipulation.html": "643bffce"
+  },
+  "lectures/lecture_09/lecture_09_problem_set.ipynb": {
+    "lecture_09_problem_set.html": "58d1e348"
+  },
+  "lectures/lecture_09/input_output.ipynb": {
+    "input_output.html": "06500430"
+  },
+  "lectures/lecture_09/lecture_09.qmd": {
+    "lecture_09.html": "a2d39771"
   }
 }

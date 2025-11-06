@@ -1,0 +1,72 @@
+---
+title: "Lecture 09 - Input and Output (I/O) Operations"
+file_name: "input_output"
+---
+## Lecture Material
+- **Notebook**
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+        - **Data**: [.zip](Data.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+- **Slides**
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+    
+## Recording
+### 1. Intro
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1OeT8wDcBbEqutaJBMOwWTA3O5-YXKNf_/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 2. Live inputs and outputs
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1TYRnXPrHXd9XOuQLbw_yc4g7BOZ99Rgf/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 3. File inputs and outputs
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1Cd2K_RvfQ3miOd1T_WX2oStvF2PzmNBd/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 4. CSV
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1PDHU5k2O_lUMdccUqEt2FunNSC7yIScK/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 5. Excel
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1buxSrHcJXmO4vrWnqLhszjDlwfPS4LIq/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+## Problem sets
+- [Jupyter notebook (.ipynb)](lecture_09_problem_set.zip)
+<!--- - [Solutions (.pdf)](lecture_09_solutions.pdf){target=_blank} --->
