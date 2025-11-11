@@ -33,16 +33,16 @@ website:
               text: Lecture 08 - Data Manipulation
             - href: 'lectures/lecture_09/lecture_09.qmd'
               text: Lecture 09 - Input/output
+            - href: 'lectures/lecture_10/lecture_10.qmd'
+              text: Lecture 10 - Network Analytics
             - href: ''
-              text: Lecture 10 - Time series analysis
-            - href: ''
-              text: Lecture 11 - Network analysis
+              text: Lecture 11 - Time Series
             - href: ''
               text: Lecture 12 - Machine Learning
             - href: ''
               text: Lecture 13 - Advanced Machine Learning
       - href: "https://app.alldayta.com/katholieke-universiteit-leuven/ds4f"
-        text: All Day TA (<b>new!</b>)
+        text: All Day TA
 
 format:
   html:

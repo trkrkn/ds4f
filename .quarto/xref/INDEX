@@ -118,5 +118,17 @@
   },
   "lectures/lecture_09/lecture_09.qmd": {
     "lecture_09.html": "a2d39771"
+  },
+  "lectures/lecture_10/lecture_10.qmd": {
+    "lecture_10.html": "adc8efc4"
+  },
+  "lectures/lecture_10/Problem_set_solutions.ipynb": {
+    "Problem_set_solutions.html": "a02676c5"
+  },
+  "lectures/lecture_10/network_slides_2025.ipynb": {
+    "network_slides_2025.html": "04b020bc"
+  },
+  "lectures/lecture_10/Problem_set_network.ipynb": {
+    "Problem_set_network.html": "6faa7fe8"
   }
 }
