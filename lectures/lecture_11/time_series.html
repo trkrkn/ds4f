@@ -1,0 +1,3671 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 11 - Time Series Analysis – Data Science For Finance</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Data Science For Finance</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_00/lecture_00.html">
+ <span class="dropdown-text">Lecture 00</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_01/lecture_01.html">
+ <span class="dropdown-text">Lecture 01 - Introduction to Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_02/lecture_02.html">
+ <span class="dropdown-text">Lecture 02 - Data types and structures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_03/lecture_03.html">
+ <span class="dropdown-text">Lecture 03 - Control structures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_04/lecture_04.html">
+ <span class="dropdown-text">Lecture 04 - Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_05/lecture_05.html">
+ <span class="dropdown-text">Lecture 05 - Object Oriented Programming</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_06/lecture_06.html">
+ <span class="dropdown-text">Lecture 06 - Libraries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_07/lecture_07.html">
+ <span class="dropdown-text">Lecture 07 - Numerical Computing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_08/lecture_08.html">
+ <span class="dropdown-text">Lecture 08 - Data Manipulation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_09/lecture_09.html">
+ <span class="dropdown-text">Lecture 09 - Input/output</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_10/lecture_10.html">
+ <span class="dropdown-text">Lecture 10 - Network Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_11/lecture_11.html">
+ <span class="dropdown-text">Lecture 11 - Time Series</span></a>
+  </li>  
+        <li class="dropdown-header">Lecture 12 - Machine Learning</li>
+        <li class="dropdown-header">Lecture 13 - Advanced Machine Learning</li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://app.alldayta.com/katholieke-universiteit-leuven/ds4f"> 
+<span class="menu-text">All Day TA</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1. Overview</a></li>
+  <li><a href="#data-inspection" id="toc-data-inspection" class="nav-link" data-scroll-target="#data-inspection">2. Data inspection</a>
+  <ul class="collapse">
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">2.1 Data import</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">2.2 Summary statistics</a></li>
+  <li><a href="#changes-over-time" id="toc-changes-over-time" class="nav-link" data-scroll-target="#changes-over-time">2.3 Changes over time</a></li>
+  <li><a href="#resampling" id="toc-resampling" class="nav-link" data-scroll-target="#resampling">2.4 Resampling</a></li>
+  </ul></li>
+  <li><a href="#rolling-statistics" id="toc-rolling-statistics" class="nav-link" data-scroll-target="#rolling-statistics">3. Rolling statistics</a></li>
+  <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis">4. Correlation analysis</a>
+  <ul class="collapse">
+  <li><a href="#inspection-of-2-timeseries" id="toc-inspection-of-2-timeseries" class="nav-link" data-scroll-target="#inspection-of-2-timeseries">4.1 Inspection of 2 timeseries</a></li>
+  <li><a href="#logarithmic-returns" id="toc-logarithmic-returns" class="nav-link" data-scroll-target="#logarithmic-returns">4.2 Logarithmic Returns</a></li>
+  <li><a href="#ols-regression" id="toc-ols-regression" class="nav-link" data-scroll-target="#ols-regression">4.3 OLS Regression</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">4.4 Correlation</a></li>
+  </ul></li>
+  <li><a href="#a-glimpse-into-high-frequency-data" id="toc-a-glimpse-into-high-frequency-data" class="nav-link" data-scroll-target="#a-glimpse-into-high-frequency-data">5. A glimpse into high-frequency data</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 11 - Time Series Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">1. Overview</h2>
+<p><strong>Time series analysis</strong> is crucial for financial data, as stock prices, economic indicators, and sales forecasts are often dependent on time.</p>
+<p><strong>What is Time Series Data?</strong></p>
+<ul>
+<li>A time series is a sequence of data points recorded at successive and equally spaced points in time.
+<ul>
+<li>Examples in Finance: Stock prices, interest rates, GDP growth, and exchange rates.</li>
+</ul></li>
+</ul>
+<p><strong>Components of Time Series Data</strong> - <strong>Trend:</strong> Long-term increase or decrease in the data. - <strong>Seasonality:</strong> Repeating patterns or cycles (e.g., sales increasing during the holiday season). - <strong>Noise/Residual:</strong> Random fluctuations that are not explained by the model.</p>
+<p>This notebook covers:</p>
+<ol type="1">
+<li>The <strong>basics of time series</strong> data and its components.</li>
+<li>How to <strong>manipulate</strong> and <strong>visualize</strong> time series data with <code>pandas</code> and <code>matplotlib</code>.</li>
+<li>Apply <strong>basic time series models</strong> such as <strong>moving averages</strong> and <strong>correlations</strong>.</li>
+</ol>
+<section id="setting-the-environment" class="level5">
+<h5 class="anchored" data-anchor-id="setting-the-environment">Setting the environment</h5>
+<div id="2888be80" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> mpl, plt </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-dark'</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mpl.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'serif'</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-inspection" class="level2">
+<h2 class="anchored" data-anchor-id="data-inspection">2. Data inspection</h2>
+<p>The first part of the analysis is to <strong>inspect</strong> the data set containing the timeseries.</p>
+<p><strong>Inspection steps:</strong> 1. <strong>Import</strong> data 2. Generate <strong>summary statistics</strong> 3. Analysis <strong>changes over time</strong> 4. Adjust <strong>frequency</strong> (<strong>resampling</strong>)</p>
+<section id="data-import" class="level3">
+<h3 class="anchored" data-anchor-id="data-import">2.1 Data import</h3>
+<p>For this part, we work with a standard <code>csv</code> database obtained from the <strong>Thomson Reuters Eikon Data</strong>. The data contains <strong>end-of-day (EOD) price data</strong> for a selection of instruments.</p>
+<p>The following parameters apply:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    file_path <span class="op">=</span> <span class="st">'Data/11/'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> <span class="st">'tr_eikon_eod_data.csv'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="check-file" class="level5">
+<h5 class="anchored" data-anchor-id="check-file">Check file</h5>
+<div id="68258173" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data from the Thomson Reuters (TR) Eikon Data API</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'Data/11/'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">'tr_eikon_eod_data.csv'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(file_path <span class="op">+</span> file_name, <span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5473e0ed" class="cell" data-scrolled="true" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.readlines()[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>['Date,AAPL.O,MSFT.O,INTC.O,AMZN.O,GS.N,SPY,.SPX,.VIX,EUR=,XAU=,GDX,GLD\n',
+ '2010-01-04,30.57282657,30.95,20.88,133.9,173.08,113.33,1132.99,20.04,1.4411,1120.0,47.71,109.8\n',
+ '2010-01-05,30.625683660000004,30.96,20.87,134.69,176.14,113.63,1136.52,19.35,1.4368,1118.65,48.17,109.7\n',
+ '2010-01-06,30.138541290000003,30.77,20.8,132.25,174.26,113.71,1137.14,19.16,1.4412,1138.5,49.34,111.51\n',
+ '2010-01-07,30.082827060000003,30.452,20.6,130.0,177.67,114.19,1141.69,19.06,1.4318,1131.9,49.1,110.82\n']</code></pre>
+</div>
+</div>
+<div id="8ef9b0bd" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="import-into-dataframe" class="level5">
+<h5 class="anchored" data-anchor-id="import-into-dataframe">Import into <code>dataframe</code></h5>
+<div id="923b42f7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index_col = 0: the first column shall be handled as an index.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parse_dates = True: the index values are of type datetime.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(file_path <span class="op">+</span> file_name, index_col <span class="op">=</span> <span class="dv">0</span>, parse_dates <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Use <strong>time as label</strong> on <code>index_col</code></li>
+<li>Explicitly interpret as <code>datetime</code> object on <code>parse_dates</code>
+<ul>
+<li>from documentation: <code>If True -&gt; try parsing the index.</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="inspect-dataframe" class="level5">
+<h5 class="anchored" data-anchor-id="inspect-dataframe">Inspect <code>dataframe</code></h5>
+<div id="13fcd5f3" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 1972 entries, 2010-01-04 to 2017-10-31
+Data columns (total 12 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   AAPL.O  1972 non-null   float64
+ 1   MSFT.O  1972 non-null   float64
+ 2   INTC.O  1972 non-null   float64
+ 3   AMZN.O  1972 non-null   float64
+ 4   GS.N    1972 non-null   float64
+ 5   SPY     1972 non-null   float64
+ 6   .SPX    1972 non-null   float64
+ 7   .VIX    1972 non-null   float64
+ 8   EUR=    1972 non-null   float64
+ 9   XAU=    1972 non-null   float64
+ 10  GDX     1972 non-null   float64
+ 11  GLD     1972 non-null   float64
+dtypes: float64(12)
+memory usage: 200.3 KB</code></pre>
+</div>
+</div>
+<div id="b66a1c89" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>30.572827</td>
+<td>30.950</td>
+<td>20.88</td>
+<td>133.90</td>
+<td>173.08</td>
+<td>113.33</td>
+<td>1132.99</td>
+<td>20.04</td>
+<td>1.4411</td>
+<td>1120.00</td>
+<td>47.71</td>
+<td>109.80</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>30.625684</td>
+<td>30.960</td>
+<td>20.87</td>
+<td>134.69</td>
+<td>176.14</td>
+<td>113.63</td>
+<td>1136.52</td>
+<td>19.35</td>
+<td>1.4368</td>
+<td>1118.65</td>
+<td>48.17</td>
+<td>109.70</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>30.138541</td>
+<td>30.770</td>
+<td>20.80</td>
+<td>132.25</td>
+<td>174.26</td>
+<td>113.71</td>
+<td>1137.14</td>
+<td>19.16</td>
+<td>1.4412</td>
+<td>1138.50</td>
+<td>49.34</td>
+<td>111.51</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>30.082827</td>
+<td>30.452</td>
+<td>20.60</td>
+<td>130.00</td>
+<td>177.67</td>
+<td>114.19</td>
+<td>1141.69</td>
+<td>19.06</td>
+<td>1.4318</td>
+<td>1131.90</td>
+<td>49.10</td>
+<td>110.82</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>30.282827</td>
+<td>30.660</td>
+<td>20.83</td>
+<td>133.52</td>
+<td>174.31</td>
+<td>114.57</td>
+<td>1144.98</td>
+<td>18.13</td>
+<td>1.4412</td>
+<td>1136.10</td>
+<td>49.84</td>
+<td>111.37</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="f1c1dd94" class="cell" data-scrolled="true" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-25</td>
+<td>156.41</td>
+<td>78.63</td>
+<td>40.78</td>
+<td>972.91</td>
+<td>241.71</td>
+<td>255.29</td>
+<td>2557.15</td>
+<td>11.23</td>
+<td>1.1812</td>
+<td>1277.01</td>
+<td>22.83</td>
+<td>121.35</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-26</td>
+<td>157.41</td>
+<td>78.76</td>
+<td>41.35</td>
+<td>972.43</td>
+<td>241.72</td>
+<td>255.62</td>
+<td>2560.40</td>
+<td>11.30</td>
+<td>1.1650</td>
+<td>1266.73</td>
+<td>22.43</td>
+<td>120.33</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-27</td>
+<td>163.05</td>
+<td>83.81</td>
+<td>44.40</td>
+<td>1100.95</td>
+<td>241.71</td>
+<td>257.71</td>
+<td>2581.07</td>
+<td>9.80</td>
+<td>1.1608</td>
+<td>1272.60</td>
+<td>22.57</td>
+<td>120.90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-30</td>
+<td>166.72</td>
+<td>83.89</td>
+<td>44.37</td>
+<td>1110.85</td>
+<td>240.89</td>
+<td>256.75</td>
+<td>2572.83</td>
+<td>10.50</td>
+<td>1.1649</td>
+<td>1275.86</td>
+<td>22.76</td>
+<td>121.13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-31</td>
+<td>169.04</td>
+<td>83.18</td>
+<td>45.49</td>
+<td>1105.28</td>
+<td>242.48</td>
+<td>257.15</td>
+<td>2575.26</td>
+<td>10.18</td>
+<td>1.1644</td>
+<td>1271.20</td>
+<td>22.48</td>
+<td>120.67</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="visualize-timeseries" class="level5">
+<h5 class="anchored" data-anchor-id="visualize-timeseries">Visualize timeseries</h5>
+<div id="8cbf8f08" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data.plot(figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">12</span>), subplots <span class="op">=</span> <span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="add-labels" class="level5">
+<h5 class="anchored" data-anchor-id="add-labels">Add labels</h5>
+<p>Labeling from <em>Reuters Instrument Codes</em> (RICs)</p>
+<div id="3d87654a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>instruments <span class="op">=</span> [<span class="st">'Apple Stock'</span>, <span class="st">'Microsoft Stock'</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'Intel Stock'</span>, <span class="st">'Amazon Stock'</span>, <span class="st">'Goldman Sachs Stock'</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'SPDR S&amp;P 500 ETF Trust'</span>, <span class="st">'S&amp;P 500 Index'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'VIX Volatility Index'</span>, <span class="st">'EUR/USD Exchange Rate'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'Gold Price'</span>, <span class="st">'VanEck Vectors Gold Miners ETF'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">'SPDR Gold Trust'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cca91778" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ric, name <span class="kw">in</span> <span class="bu">zip</span>(data.columns, instruments):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{:8s}</span><span class="st"> | </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(ric, name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>AAPL.O   | Apple Stock
+MSFT.O   | Microsoft Stock
+INTC.O   | Intel Stock
+AMZN.O   | Amazon Stock
+GS.N     | Goldman Sachs Stock
+SPY      | SPDR S&amp;P 500 ETF Trust
+.SPX     | S&amp;P 500 Index
+.VIX     | VIX Volatility Index
+EUR=     | EUR/USD Exchange Rate
+XAU=     | Gold Price
+GDX      | VanEck Vectors Gold Miners ETF
+GLD      | SPDR Gold Trust</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics">2.2 Summary statistics</h3>
+<section id="built-in-tools" class="level5">
+<h5 class="anchored" data-anchor-id="built-in-tools">Built-in tools</h5>
+<div id="44055548" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data.describe().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+<td>1972.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>86.53</td>
+<td>40.59</td>
+<td>27.70</td>
+<td>401.15</td>
+<td>163.61</td>
+<td>172.84</td>
+<td>1727.54</td>
+<td>17.21</td>
+<td>1.25</td>
+<td>1352.47</td>
+<td>34.50</td>
+<td>130.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>34.04</td>
+<td>14.39</td>
+<td>5.95</td>
+<td>257.12</td>
+<td>37.17</td>
+<td>42.33</td>
+<td>424.35</td>
+<td>5.92</td>
+<td>0.12</td>
+<td>195.38</td>
+<td>15.44</td>
+<td>19.46</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>27.44</td>
+<td>23.01</td>
+<td>17.66</td>
+<td>108.61</td>
+<td>87.70</td>
+<td>102.20</td>
+<td>1022.58</td>
+<td>9.19</td>
+<td>1.04</td>
+<td>1051.36</td>
+<td>12.47</td>
+<td>100.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>57.57</td>
+<td>28.12</td>
+<td>22.23</td>
+<td>202.66</td>
+<td>144.23</td>
+<td>132.64</td>
+<td>1325.53</td>
+<td>13.25</td>
+<td>1.13</td>
+<td>1214.56</td>
+<td>22.22</td>
+<td>116.77</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>84.63</td>
+<td>36.54</td>
+<td>26.41</td>
+<td>306.42</td>
+<td>162.09</td>
+<td>178.80</td>
+<td>1783.81</td>
+<td>15.65</td>
+<td>1.29</td>
+<td>1288.82</td>
+<td>26.59</td>
+<td>123.90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>111.87</td>
+<td>50.08</td>
+<td>33.74</td>
+<td>559.45</td>
+<td>184.11</td>
+<td>208.01</td>
+<td>2080.15</td>
+<td>19.20</td>
+<td>1.35</td>
+<td>1491.98</td>
+<td>49.77</td>
+<td>145.43</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>169.04</td>
+<td>83.89</td>
+<td>45.49</td>
+<td>1110.85</td>
+<td>252.89</td>
+<td>257.71</td>
+<td>2581.07</td>
+<td>48.00</td>
+<td>1.48</td>
+<td>1897.10</td>
+<td>66.63</td>
+<td>184.59</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="b91523d7" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>AAPL.O      86.530152
+MSFT.O      40.586752
+INTC.O      27.701411
+AMZN.O     401.154006
+GS.N       163.614625
+SPY        172.835399
+.SPX      1727.538342
+.VIX        17.209498
+EUR=         1.252613
+XAU=      1352.471593
+GDX         34.499391
+GLD        130.601856
+dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="customized-satistics" class="level5">
+<h5 class="anchored" data-anchor-id="customized-satistics">Customized satistics</h5>
+<div id="ca4740ba" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data.aggregate([<span class="st">'min'</span>, <span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'median'</span>, <span class="st">'max'</span>]).<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">min</td>
+<td>27.44</td>
+<td>23.01</td>
+<td>17.66</td>
+<td>108.61</td>
+<td>87.70</td>
+<td>102.20</td>
+<td>1022.58</td>
+<td>9.19</td>
+<td>1.04</td>
+<td>1051.36</td>
+<td>12.47</td>
+<td>100.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>86.53</td>
+<td>40.59</td>
+<td>27.70</td>
+<td>401.15</td>
+<td>163.61</td>
+<td>172.84</td>
+<td>1727.54</td>
+<td>17.21</td>
+<td>1.25</td>
+<td>1352.47</td>
+<td>34.50</td>
+<td>130.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>34.04</td>
+<td>14.39</td>
+<td>5.95</td>
+<td>257.12</td>
+<td>37.17</td>
+<td>42.33</td>
+<td>424.35</td>
+<td>5.92</td>
+<td>0.12</td>
+<td>195.38</td>
+<td>15.44</td>
+<td>19.46</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">median</td>
+<td>84.63</td>
+<td>36.54</td>
+<td>26.41</td>
+<td>306.42</td>
+<td>162.09</td>
+<td>178.80</td>
+<td>1783.81</td>
+<td>15.65</td>
+<td>1.29</td>
+<td>1288.82</td>
+<td>26.59</td>
+<td>123.90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">max</td>
+<td>169.04</td>
+<td>83.89</td>
+<td>45.49</td>
+<td>1110.85</td>
+<td>252.89</td>
+<td>257.71</td>
+<td>2581.07</td>
+<td>48.00</td>
+<td>1.48</td>
+<td>1897.10</td>
+<td>66.63</td>
+<td>184.59</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="changes-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="changes-over-time">2.3 Changes over time</h3>
+<p>Statistical analysis methods are often based on <strong>changes over time</strong> and not the absolute values themselves.</p>
+<p>There are multiple options to calculate the changes in a time series over time: - Absolute differences - Percentage changes - Logarithmic (log) returns.</p>
+<section id="absolute-differences" class="level4">
+<h4 class="anchored" data-anchor-id="absolute-differences"><strong>Absolute differences</strong></h4>
+<p><code>.diff()</code>: subtracts each row’s value from the value in the previous row.</p>
+<ul>
+<li>It reveals the exact change in values from one time step to the next.</li>
+<li>The method returns a <code>dataframe</code></li>
+</ul>
+<div id="2bafbbdb" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data.diff().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>0.052857</td>
+<td>0.010</td>
+<td>-0.01</td>
+<td>0.79</td>
+<td>3.06</td>
+<td>0.30</td>
+<td>3.53</td>
+<td>-0.69</td>
+<td>-0.0043</td>
+<td>-1.35</td>
+<td>0.46</td>
+<td>-0.10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>-0.487142</td>
+<td>-0.190</td>
+<td>-0.07</td>
+<td>-2.44</td>
+<td>-1.88</td>
+<td>0.08</td>
+<td>0.62</td>
+<td>-0.19</td>
+<td>0.0044</td>
+<td>19.85</td>
+<td>1.17</td>
+<td>1.81</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>-0.055714</td>
+<td>-0.318</td>
+<td>-0.20</td>
+<td>-2.25</td>
+<td>3.41</td>
+<td>0.48</td>
+<td>4.55</td>
+<td>-0.10</td>
+<td>-0.0094</td>
+<td>-6.60</td>
+<td>-0.24</td>
+<td>-0.69</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>0.200000</td>
+<td>0.208</td>
+<td>0.23</td>
+<td>3.52</td>
+<td>-3.36</td>
+<td>0.38</td>
+<td>3.29</td>
+<td>-0.93</td>
+<td>0.0094</td>
+<td>4.20</td>
+<td>0.74</td>
+<td>0.55</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="acdab9e1" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data.diff(periods<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>-0.434285</td>
+<td>-0.180</td>
+<td>-0.08</td>
+<td>-1.65</td>
+<td>1.18</td>
+<td>0.38</td>
+<td>4.15</td>
+<td>-0.88</td>
+<td>0.0001</td>
+<td>18.5000</td>
+<td>1.63</td>
+<td>1.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>-0.542857</td>
+<td>-0.508</td>
+<td>-0.27</td>
+<td>-4.69</td>
+<td>1.53</td>
+<td>0.56</td>
+<td>5.17</td>
+<td>-0.29</td>
+<td>-0.0050</td>
+<td>13.2500</td>
+<td>0.93</td>
+<td>1.12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>0.144286</td>
+<td>-0.110</td>
+<td>0.03</td>
+<td>1.27</td>
+<td>0.05</td>
+<td>0.86</td>
+<td>7.84</td>
+<td>-1.03</td>
+<td>0.0000</td>
+<td>-2.4000</td>
+<td>0.50</td>
+<td>-0.14</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-25</td>
+<td>0.240000</td>
+<td>-0.200</td>
+<td>-0.05</td>
+<td>6.61</td>
+<td>-0.42</td>
+<td>-0.82</td>
+<td>-7.83</td>
+<td>0.16</td>
+<td>0.0065</td>
+<td>-4.6701</td>
+<td>-0.31</td>
+<td>-0.45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-26</td>
+<td>0.310000</td>
+<td>-0.100</td>
+<td>0.40</td>
+<td>-3.47</td>
+<td>-3.12</td>
+<td>-0.94</td>
+<td>-8.73</td>
+<td>0.14</td>
+<td>-0.0109</td>
+<td>-9.6000</td>
+<td>-0.52</td>
+<td>-1.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-27</td>
+<td>6.640000</td>
+<td>5.180</td>
+<td>3.62</td>
+<td>128.04</td>
+<td>0.00</td>
+<td>2.42</td>
+<td>23.92</td>
+<td>-1.43</td>
+<td>-0.0204</td>
+<td>-4.4100</td>
+<td>-0.26</td>
+<td>-0.45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-30</td>
+<td>9.310000</td>
+<td>5.130</td>
+<td>3.02</td>
+<td>138.42</td>
+<td>-0.83</td>
+<td>1.13</td>
+<td>12.43</td>
+<td>-0.80</td>
+<td>-0.0001</td>
+<td>9.1300</td>
+<td>0.33</td>
+<td>0.80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-31</td>
+<td>5.990000</td>
+<td>-0.630</td>
+<td>1.09</td>
+<td>4.33</td>
+<td>0.77</td>
+<td>-0.56</td>
+<td>-5.81</td>
+<td>0.38</td>
+<td>0.0036</td>
+<td>-1.4000</td>
+<td>-0.09</td>
+<td>-0.23</td>
+</tr>
+</tbody>
+</table>
+
+<p>1972 rows × 12 columns</p>
+</div>
+</div>
+</div>
+<div id="51f844fe" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data.diff().mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>AAPL.O    0.070252
+MSFT.O    0.026499
+INTC.O    0.012486
+AMZN.O    0.492836
+GS.N      0.035211
+SPY       0.072968
+.SPX      0.731745
+.VIX     -0.005003
+EUR=     -0.000140
+XAU=      0.076712
+GDX      -0.012801
+GLD       0.005515
+dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="percentage-changes" class="level4">
+<h4 class="anchored" data-anchor-id="percentage-changes"><strong>Percentage changes</strong></h4>
+<p><code>.pct_change()</code>: calculates the percentage change between consecutive rows</p>
+<ul>
+<li>It reveals the relative change in values from one time step to the next.</li>
+<li>The method returns a <code>dataframe</code></li>
+</ul>
+<div id="868050a5" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data.pct_change().<span class="bu">round</span>(<span class="dv">3</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>0.002</td>
+<td>0.000</td>
+<td>-0.000</td>
+<td>0.006</td>
+<td>0.018</td>
+<td>0.003</td>
+<td>0.003</td>
+<td>-0.034</td>
+<td>-0.003</td>
+<td>-0.001</td>
+<td>0.010</td>
+<td>-0.001</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>-0.016</td>
+<td>-0.006</td>
+<td>-0.003</td>
+<td>-0.018</td>
+<td>-0.011</td>
+<td>0.001</td>
+<td>0.001</td>
+<td>-0.010</td>
+<td>0.003</td>
+<td>0.018</td>
+<td>0.024</td>
+<td>0.016</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>-0.002</td>
+<td>-0.010</td>
+<td>-0.010</td>
+<td>-0.017</td>
+<td>0.020</td>
+<td>0.004</td>
+<td>0.004</td>
+<td>-0.005</td>
+<td>-0.007</td>
+<td>-0.006</td>
+<td>-0.005</td>
+<td>-0.006</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>0.007</td>
+<td>0.007</td>
+<td>0.011</td>
+<td>0.027</td>
+<td>-0.019</td>
+<td>0.003</td>
+<td>0.003</td>
+<td>-0.049</td>
+<td>0.007</td>
+<td>0.004</td>
+<td>0.015</td>
+<td>0.005</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="3f777177" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data.pct_change(periods <span class="op">=</span> <span class="dv">7</span>).<span class="bu">round</span>(<span class="dv">3</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-11</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-12</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-13</td>
+<td>-0.016</td>
+<td>-0.019</td>
+<td>0.004</td>
+<td>-0.036</td>
+<td>-0.023</td>
+<td>0.011</td>
+<td>0.011</td>
+<td>-0.109</td>
+<td>0.007</td>
+<td>0.016</td>
+<td>0.024</td>
+<td>0.016</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-14</td>
+<td>-0.023</td>
+<td>0.000</td>
+<td>0.029</td>
+<td>-0.054</td>
+<td>-0.043</td>
+<td>0.011</td>
+<td>0.011</td>
+<td>-0.089</td>
+<td>0.009</td>
+<td>0.022</td>
+<td>0.009</td>
+<td>0.021</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-15</td>
+<td>-0.024</td>
+<td>0.003</td>
+<td>0.000</td>
+<td>-0.039</td>
+<td>-0.052</td>
+<td>-0.001</td>
+<td>-0.001</td>
+<td>-0.065</td>
+<td>-0.002</td>
+<td>-0.008</td>
+<td>-0.039</td>
+<td>-0.006</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="126ed089" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data.pct_change().mean().plot(kind <span class="op">=</span> <span class="st">'bar'</span>, figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="log-returns" class="level4">
+<h4 class="anchored" data-anchor-id="log-returns"><strong>Log Returns</strong></h4>
+<p><strong>Logarithmic (log) returns</strong> of time series data are the standard means to analyze returns on investments over time.</p>
+<p>The formula is given by <span class="math display">\[
+\text{Log Return} = \ln\left(\frac{P_t}{P_{t-1}}\right)
+\]</span></p>
+<p>In <code>pandas</code>, the denominator naturally obtains by shifting data by one row using the <code>.shift()</code> method.</p>
+<div id="ddc9b38c" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>rets <span class="op">=</span> np.log(data <span class="op">/</span> data.shift(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="6a699580" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>rets.head().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>-0.00</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>-0.04</td>
+<td>-0.00</td>
+<td>-0.00</td>
+<td>0.01</td>
+<td>-0.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>-0.02</td>
+<td>-0.01</td>
+<td>-0.00</td>
+<td>-0.02</td>
+<td>-0.01</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>-0.01</td>
+<td>0.00</td>
+<td>0.02</td>
+<td>0.02</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>-0.00</td>
+<td>-0.01</td>
+<td>-0.01</td>
+<td>-0.02</td>
+<td>0.02</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>-0.01</td>
+<td>-0.01</td>
+<td>-0.01</td>
+<td>-0.00</td>
+<td>-0.01</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.03</td>
+<td>-0.02</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>-0.05</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>0.01</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>Cumulative returns</strong> over a period are obtained by summing up the log returns for each interval and then exponentiate the result:</p>
+<p><span class="math display">\[
+\text{Cumulative Return} = e^{\sum \text{Log Returns}}
+\]</span></p>
+<div id="89e7903c" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>rets.cumsum().<span class="bu">apply</span>(np.exp).plot(figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="resampling" class="level3">
+<h3 class="anchored" data-anchor-id="resampling">2.4 Resampling</h3>
+<p><strong>Resampling</strong> of financial time series data refers to the process of <strong>converting the frequency of data points</strong> in a time series.</p>
+<p>The <code>resample()</code> method in <code>pandas</code> is used to change the frequency of time series data.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>    data.resample(rule, label<span class="op">=</span><span class="st">'right'</span>, closed<span class="op">=</span><span class="st">'right'</span>, kind<span class="op">=</span><span class="st">'timestamp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Parameters:</p>
+<ol type="1">
+<li><code>rule</code>: This is a required parameter and specifies the new frequency for resampling. Some common time-based frequency strings are:
+<ul>
+<li><code>'D'</code>: Day</li>
+<li><code>'W'</code>: Week</li>
+<li><code>'M'</code>: Month</li>
+<li><code>'Q'</code>: Quarter</li>
+<li><code>'A'</code>: Year One can also specify intervals like ‘5min’, ‘15T’ (15 minutes), ‘3H’ (3 hours), etc.</li>
+</ul></li>
+<li><code>label</code>: Determines how the timestamp labels in the resulting data are aligned:
+<ul>
+<li><code>'right'</code>: Assigns the label to the end of the resampling period (e.g., a week ending on Sunday will be labeled as Sunday).</li>
+<li><code>'left'</code>: Assigns the label to the beginning of the resampling period (e.g., the first day of the week).</li>
+</ul></li>
+<li><code>closed</code>: Specifies which side of each interval is closed:
+<ul>
+<li><code>'right'</code>: The interval includes the right endpoint.</li>
+<li><code>'left'</code>: The interval includes the left endpoint.</li>
+</ul></li>
+<li><code>kind</code>: Defines the type of index used:
+<ul>
+<li><code>'timestamp'</code>: Generates a DatetimeIndex.</li>
+<li><code>'period'</code>: Generates a PeriodIndex.</li>
+</ul></li>
+</ol>
+<p><strong>Aggregation functions</strong>: After resampling, you can apply an aggregation method directly, like <code>mean()</code>, <code>sum()</code>, <code>last()</code>, <code>first()</code>, <code>count()</code>, etc. These specify how to aggregate data within each new time interval.</p>
+<div id="8e6f2b46" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data.resample(<span class="st">'1W'</span>, label<span class="op">=</span><span class="st">'right'</span>).last().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-10</td>
+<td>30.282827</td>
+<td>30.66</td>
+<td>20.83</td>
+<td>133.52</td>
+<td>174.31</td>
+<td>114.57</td>
+<td>1144.98</td>
+<td>18.13</td>
+<td>1.4412</td>
+<td>1136.10</td>
+<td>49.84</td>
+<td>111.37</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-17</td>
+<td>29.418542</td>
+<td>30.86</td>
+<td>20.80</td>
+<td>127.14</td>
+<td>165.21</td>
+<td>113.64</td>
+<td>1136.03</td>
+<td>17.91</td>
+<td>1.4382</td>
+<td>1129.90</td>
+<td>47.42</td>
+<td>110.86</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-24</td>
+<td>28.249972</td>
+<td>28.96</td>
+<td>19.91</td>
+<td>121.43</td>
+<td>154.12</td>
+<td>109.21</td>
+<td>1091.76</td>
+<td>27.31</td>
+<td>1.4137</td>
+<td>1092.60</td>
+<td>43.79</td>
+<td>107.17</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-31</td>
+<td>27.437544</td>
+<td>28.18</td>
+<td>19.40</td>
+<td>125.41</td>
+<td>148.72</td>
+<td>107.39</td>
+<td>1073.87</td>
+<td>24.62</td>
+<td>1.3862</td>
+<td>1081.05</td>
+<td>40.72</td>
+<td>105.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-07</td>
+<td>27.922829</td>
+<td>28.02</td>
+<td>19.47</td>
+<td>117.39</td>
+<td>154.16</td>
+<td>106.66</td>
+<td>1066.19</td>
+<td>26.11</td>
+<td>1.3662</td>
+<td>1064.95</td>
+<td>42.41</td>
+<td>104.68</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="22613a86" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resample to quarterly data, labeling periods at the start of the quarter</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>data.resample(<span class="st">'QE'</span>, label<span class="op">=</span><span class="st">'left'</span>).mean().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2009-12-31</td>
+<td>30.122098</td>
+<td>29.254115</td>
+<td>20.850836</td>
+<td>125.804541</td>
+<td>164.081639</td>
+<td>112.546607</td>
+<td>1123.593607</td>
+<td>20.149672</td>
+<td>1.382338</td>
+<td>1109.900820</td>
+<td>44.881902</td>
+<td>108.738459</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-03-31</td>
+<td>36.391239</td>
+<td>27.977135</td>
+<td>21.917363</td>
+<td>130.020095</td>
+<td>148.985873</td>
+<td>113.694198</td>
+<td>1134.584921</td>
+<td>26.391429</td>
+<td>1.271935</td>
+<td>1196.456190</td>
+<td>49.862546</td>
+<td>117.159690</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-06-30</td>
+<td>37.129258</td>
+<td>24.790383</td>
+<td>19.658259</td>
+<td>130.454059</td>
+<td>146.242969</td>
+<td>109.856767</td>
+<td>1096.246875</td>
+<td>24.283594</td>
+<td>1.293530</td>
+<td>1226.698906</td>
+<td>51.520945</td>
+<td>120.021523</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-09-30</td>
+<td>44.500887</td>
+<td>26.330313</td>
+<td>20.678320</td>
+<td>169.520000</td>
+<td>161.686406</td>
+<td>120.645516</td>
+<td>1204.585625</td>
+<td>19.318437</td>
+<td>1.358853</td>
+<td>1369.649375</td>
+<td>59.041938</td>
+<td>133.778188</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-12-31</td>
+<td>49.383274</td>
+<td>26.989895</td>
+<td>21.107540</td>
+<td>176.948145</td>
+<td>164.398387</td>
+<td>130.385081</td>
+<td>1302.528871</td>
+<td>18.614839</td>
+<td>1.370015</td>
+<td>1386.920645</td>
+<td>57.362411</td>
+<td>135.333395</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="c5ca30b1" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data.resample(<span class="st">'1ME'</span>, label <span class="op">=</span> <span class="st">'right'</span>).last().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">MSFT.O</th>
+<th data-quarto-table-cell-role="th">INTC.O</th>
+<th data-quarto-table-cell-role="th">AMZN.O</th>
+<th data-quarto-table-cell-role="th">GS.N</th>
+<th data-quarto-table-cell-role="th">SPY</th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+<th data-quarto-table-cell-role="th">EUR=</th>
+<th data-quarto-table-cell-role="th">XAU=</th>
+<th data-quarto-table-cell-role="th">GDX</th>
+<th data-quarto-table-cell-role="th">GLD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-31</td>
+<td>27.437544</td>
+<td>28.1800</td>
+<td>19.40</td>
+<td>125.41</td>
+<td>148.72</td>
+<td>107.3900</td>
+<td>1073.87</td>
+<td>24.62</td>
+<td>1.3862</td>
+<td>1081.05</td>
+<td>40.72</td>
+<td>105.960</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-28</td>
+<td>29.231399</td>
+<td>28.6700</td>
+<td>20.53</td>
+<td>118.40</td>
+<td>156.35</td>
+<td>110.7400</td>
+<td>1104.49</td>
+<td>19.50</td>
+<td>1.3625</td>
+<td>1116.10</td>
+<td>43.89</td>
+<td>109.430</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-03-31</td>
+<td>33.571395</td>
+<td>29.2875</td>
+<td>22.29</td>
+<td>135.77</td>
+<td>170.63</td>
+<td>117.0000</td>
+<td>1169.43</td>
+<td>17.59</td>
+<td>1.3510</td>
+<td>1112.80</td>
+<td>44.41</td>
+<td>108.950</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-04-30</td>
+<td>37.298534</td>
+<td>30.5350</td>
+<td>22.84</td>
+<td>137.10</td>
+<td>145.20</td>
+<td>118.8125</td>
+<td>1186.69</td>
+<td>22.05</td>
+<td>1.3295</td>
+<td>1178.25</td>
+<td>50.51</td>
+<td>115.360</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-05-31</td>
+<td>36.697106</td>
+<td>25.8000</td>
+<td>21.42</td>
+<td>125.46</td>
+<td>144.26</td>
+<td>109.3690</td>
+<td>1089.41</td>
+<td>32.07</td>
+<td>1.2267</td>
+<td>1213.81</td>
+<td>49.86</td>
+<td>118.881</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="aef43e75" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rets.cumsum().<span class="bu">apply</span>(np.exp).resample(<span class="st">'1ME'</span>, label<span class="op">=</span><span class="st">'right'</span>).last().plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="rolling-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-statistics">3. Rolling statistics</h2>
+<p>A <strong>rolling window</strong> is a technique used to <strong>apply a calculation to a specific, fixed-size subset</strong> of data, which “rolls” or <strong>moves across a dataset</strong> as a window.</p>
+<p>The purpose of a rolling window is to compute statistics, like the mean or standard deviation, for consecutive subsets of data points, creating a dynamic, time-dependent <strong>view of trends, averages, or variability</strong>.</p>
+<p>This technique is commonly used in time series analysis, especially in finance, to <strong>understand patterns over time while smoothing out short-term fluctuations</strong>.</p>
+<p>In <code>Python</code>, the <code>.rolling()</code> method in <code>pandas</code> is used to apply a rolling window to a <code>DataFrame</code> or <code>Series</code>.</p>
+<p>This method returns a <strong>“rolling” object</strong> that can apply various aggregation functions, like <code>.mean()</code>, <code>.std()</code>, <code>.min()</code>, etc., over the rolling window.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    data.rolling(window<span class="op">=</span>window_size).function()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b99996a9" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's focus on a single financial time series</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>sym <span class="op">=</span> <span class="st">'AAPL.O'</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(data[sym]).dropna()</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-25</td>
+<td>156.41</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-26</td>
+<td>157.41</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-27</td>
+<td>163.05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-30</td>
+<td>166.72</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-31</td>
+<td>169.04</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="7cace212" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>window <span class="op">=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>- Calculate rolling minimum (<code>min</code>) and maximum (<code>max</code>):</strong> identify the range of prices over the past 20 days.</p>
+<div id="f7eec880" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'min'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span>window).<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a5539476" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'max'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span>window).<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>- Calculate rolling mean (<code>mean</code>) and standard deviation (<code>std</code>):</strong> The rolling mean provides a smoothed version of the price series. It smooths out short-term fluctuations, highlighting the medium-term trend. The standard deviation statistic shows the volatility of the stock price over each 20-day period.</p>
+<div id="ef54898a" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'mean'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span>window).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1a77f747" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'std'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span>window).std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7c56a21d" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'median'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span>window).median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>- Calculate Exponentially Weighted Moving Average (<code>ewma</code>):</strong> Unlike a simple moving average, which weights all points equally, the <strong>EWMA</strong> gives more importance to recent observations, allowing it to react faster to recent price changes. The <code>halflife</code> parameter controls how quickly the weights decay, with a shorter halflife emphasizing more recent data.</p>
+<div id="109aa5de" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'ewma'</span>] <span class="op">=</span> data[sym].ewm(halflife<span class="op">=</span><span class="fl">0.5</span>, min_periods<span class="op">=</span>window).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="97569229" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">max</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+<th data-quarto-table-cell-role="th">ewma</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>30.572827</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>30.625684</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>30.138541</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>30.082827</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>30.282827</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-11</td>
+<td>30.015684</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-12</td>
+<td>29.674256</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-13</td>
+<td>30.092827</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-14</td>
+<td>29.918542</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-15</td>
+<td>29.418542</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-19</td>
+<td>30.719969</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-20</td>
+<td>30.246398</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-21</td>
+<td>29.724542</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-22</td>
+<td>28.249972</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-25</td>
+<td>29.010685</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-26</td>
+<td>29.419971</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-27</td>
+<td>29.697685</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-28</td>
+<td>28.469972</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-29</td>
+<td>27.437544</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-01</td>
+<td>27.818544</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.580892</td>
+<td>0.933650</td>
+<td>29.821542</td>
+<td>27.805432</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-02</td>
+<td>27.979972</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.451249</td>
+<td>0.968048</td>
+<td>29.711113</td>
+<td>27.936337</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-03</td>
+<td>28.461400</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.343035</td>
+<td>0.950665</td>
+<td>29.685970</td>
+<td>28.330134</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-04</td>
+<td>27.435687</td>
+<td>27.435687</td>
+<td>30.719969</td>
+<td>29.207892</td>
+<td>1.021129</td>
+<td>29.547113</td>
+<td>27.659299</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-05</td>
+<td>27.922829</td>
+<td>27.435687</td>
+<td>30.719969</td>
+<td>29.099892</td>
+<td>1.037811</td>
+<td>29.419256</td>
+<td>27.856947</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-08</td>
+<td>27.731401</td>
+<td>27.435687</td>
+<td>30.719969</td>
+<td>28.972321</td>
+<td>1.041556</td>
+<td>29.214614</td>
+<td>27.762787</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="fddf29a8" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>data.dropna().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">max</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+<th data-quarto-table-cell-role="th">ewma</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-01</td>
+<td>27.818544</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.580892</td>
+<td>0.933650</td>
+<td>29.821542</td>
+<td>27.805432</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-02</td>
+<td>27.979972</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.451249</td>
+<td>0.968048</td>
+<td>29.711113</td>
+<td>27.936337</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-03</td>
+<td>28.461400</td>
+<td>27.437544</td>
+<td>30.719969</td>
+<td>29.343035</td>
+<td>0.950665</td>
+<td>29.685970</td>
+<td>28.330134</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-02-04</td>
+<td>27.435687</td>
+<td>27.435687</td>
+<td>30.719969</td>
+<td>29.207892</td>
+<td>1.021129</td>
+<td>29.547113</td>
+<td>27.659299</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-02-05</td>
+<td>27.922829</td>
+<td>27.435687</td>
+<td>30.719969</td>
+<td>29.099892</td>
+<td>1.037811</td>
+<td>29.419256</td>
+<td>27.856947</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>- Plotting the Rolling Statistics:</strong></p>
+<div id="220102f4" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data[[<span class="st">'min'</span>, <span class="st">'mean'</span>, <span class="st">'max'</span>]].iloc[<span class="op">-</span><span class="dv">200</span>:].plot(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">6</span>), style <span class="op">=</span> [<span class="st">'g--'</span>, <span class="st">'r--'</span>, <span class="st">'g--'</span>], lw <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>data[sym].iloc[<span class="op">-</span><span class="dv">200</span>:].plot(ax <span class="op">=</span> ax, lw <span class="op">=</span> <span class="fl">2.0</span>) <span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-39-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="technical-analysis-example-smas" class="level4">
+<h4 class="anchored" data-anchor-id="technical-analysis-example-smas">Technical Analysis Example: SMAs</h4>
+<p>A decades-old trading strategy based on technical analysis is using <strong>two simple moving averages</strong> (SMAs):</p>
+<p>Trading strategy - Go long on a stock (or financial instrument in general) when the shorter-term SMA is above the longer-term SMA - Go short when the opposite holds true.</p>
+<div id="297e0427" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'SMA1'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span><span class="dv">42</span>).mean()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'SMA2'</span>] <span class="op">=</span> data[sym].rolling(window<span class="op">=</span><span class="dv">252</span>).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="040886d9" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>data[[sym, <span class="st">'SMA1'</span>, <span class="st">'SMA2'</span>]].tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL.O</th>
+<th data-quarto-table-cell-role="th">SMA1</th>
+<th data-quarto-table-cell-role="th">SMA2</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-25</td>
+<td>156.41</td>
+<td>157.610952</td>
+<td>139.862520</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-26</td>
+<td>157.41</td>
+<td>157.514286</td>
+<td>140.028472</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-27</td>
+<td>163.05</td>
+<td>157.517619</td>
+<td>140.221210</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-30</td>
+<td>166.72</td>
+<td>157.597857</td>
+<td>140.431528</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-31</td>
+<td>169.04</td>
+<td>157.717857</td>
+<td>140.651766</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="f113ff73" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>data[[sym, <span class="st">'SMA1'</span>, <span class="st">'SMA2'</span>]].plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-42-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>SMAs are then used to derive positions to implement a trading strategy.</p>
+<p>Denote - a long position by a value of 1 - a short position by a value of -1.</p>
+<p>The change in the position is triggered by a crossover of the two lines representing the SMA time series:</p>
+<div id="a9337a9f" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d843e822" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'positions'</span>] <span class="op">=</span> np.where(data[<span class="st">'SMA1'</span>] <span class="op">&gt;</span> data[<span class="st">'SMA2'</span>], <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3c6fb6e9" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data[[sym, <span class="st">'SMA1'</span>, <span class="st">'SMA2'</span>, <span class="st">'positions'</span>]].plot(</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">6</span>), secondary_y <span class="op">=</span> <span class="st">'positions'</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>ax.get_legend().set_bbox_to_anchor((<span class="fl">0.25</span>,<span class="fl">0.85</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-45-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="correlation-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-analysis">4. Correlation analysis</h2>
+<section id="inspection-of-2-timeseries" class="level3">
+<h3 class="anchored" data-anchor-id="inspection-of-2-timeseries">4.1 Inspection of 2 timeseries</h3>
+<p>Let us consider the correlation analysis between two financial time series: the <strong>S&amp;P 500 Index</strong> (.SPX) and the <strong>VIX volatility index</strong> (.VIX). - The S&amp;P 500 is a benchmark index for U.S. stocks - the VIX measures market volatility expectations.</p>
+<p>Typically, these indices have an inverse relationship: when the S&amp;P 500 falls, the VIX tends to rise, indicating higher market fear or uncertainty.</p>
+<div id="1ce1cd07" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pd.read_csv(file_path <span class="op">+</span> file_name, index_col<span class="op">=</span><span class="dv">0</span>, parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1fb8d223" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> raw[[<span class="st">'.SPX'</span>, <span class="st">'.VIX'</span>]].dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1427146f" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-25</td>
+<td>2557.15</td>
+<td>11.23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-26</td>
+<td>2560.40</td>
+<td>11.30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-27</td>
+<td>2581.07</td>
+<td>9.80</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-10-30</td>
+<td>2572.83</td>
+<td>10.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-10-31</td>
+<td>2575.26</td>
+<td>10.18</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="visual-inspection" class="level5">
+<h5 class="anchored" data-anchor-id="visual-inspection">Visual inspection</h5>
+<div id="4fc022c1" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>data.plot(subplots<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-49-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="5e0f30a9" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>data.loc[:<span class="st">'2012-12-31'</span>].plot(secondary_y<span class="op">=</span><span class="st">'.VIX'</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-50-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="logarithmic-returns" class="level3">
+<h3 class="anchored" data-anchor-id="logarithmic-returns">4.2 Logarithmic Returns</h3>
+<section id="producing-and-processing-output" class="level4">
+<h4 class="anchored" data-anchor-id="producing-and-processing-output">Producing and processing output</h4>
+<div id="676241a6" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>rets <span class="op">=</span> np.log(data <span class="op">/</span> data.shift(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2a7d1821" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>rets.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-05</td>
+<td>0.003111</td>
+<td>-0.035038</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-06</td>
+<td>0.000545</td>
+<td>-0.009868</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2010-01-07</td>
+<td>0.003993</td>
+<td>-0.005233</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2010-01-08</td>
+<td>0.002878</td>
+<td>-0.050024</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="f3bc14c3" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>rets.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visual-inspection-1" class="level4">
+<h4 class="anchored" data-anchor-id="visual-inspection-1">Visual inspection</h4>
+<div id="6148e599" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>rets.plot(subplots<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-54-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>.plotting.scatter_matrix()</code> produces correlation analysis plots within and across timeseries.</p>
+<div id="5adb9f5c" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>pd.plotting.scatter_matrix(rets,</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>                           alpha<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>                           diagonal<span class="op">=</span><span class="st">'hist'</span>,</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>                           hist_kwds<span class="op">=</span>{<span class="st">'bins'</span>: <span class="dv">35</span>},</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>                           figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-55-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ols-regression" class="level3">
+<h3 class="anchored" data-anchor-id="ols-regression">4.3 OLS Regression</h3>
+<p><strong>Ordinary Least Square</strong> regression provide a formal way to inspect the correlation between two variables.</p>
+<p><code>np.polyfit()</code> is a function in <code>NumPy</code> that fits a polynomial to a set of data points using least squares regression and returns the coeficient.</p>
+<p>In other words, it finds the polynomial function of a specified degree that best fits the data in terms of minimizing the sum of squared errors between the fitted polynomial values and the actual data points</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>    np.polyfit(x, y, deg, rcond<span class="op">=</span><span class="va">None</span>, full<span class="op">=</span><span class="va">False</span>, w<span class="op">=</span><span class="va">None</span>, cov<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Parameters: - <code>x</code>: The x-coordinates (independent variable) of the data points. - <code>y</code>: The y-coordinates (dependent variable) of the data points. - <code>deg</code>: Degree of the polynomial to be fit to the data. For example: - <code>deg=1</code> fits a line (linear regression), - <code>deg=2</code> fits a quadratic curve, and so on. - <code>cov</code> (optional): If <code>True</code>, the function also returns the covariance matrix of the polynomial coefficients.</p>
+<div id="65dcc332" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>reg, cov_matrix <span class="op">=</span> np.polyfit(rets[<span class="st">'.SPX'</span>], rets[<span class="st">'.VIX'</span>], deg<span class="op">=</span><span class="dv">1</span>, cov<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"The regression results in: VIX = </span><span class="sc">{</span>reg[<span class="dv">0</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> SPX + </span><span class="sc">{</span>reg[<span class="dv">1</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print (cov_matrix)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The regression results in: VIX = -6.45 SPX + 0.0023</code></pre>
+</div>
+</div>
+<section id="visual-inspection-2" class="level5">
+<h5 class="anchored" data-anchor-id="visual-inspection-2">Visual inspection</h5>
+<div id="7504b9bb" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;-&quot;}" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> rets.plot(kind<span class="op">=</span><span class="st">'scatter'</span>, x<span class="op">=</span><span class="st">'.SPX'</span>, y<span class="op">=</span><span class="st">'.VIX'</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>ax.plot(rets[<span class="st">'.SPX'</span>], np.polyval(reg, rets[<span class="st">'.SPX'</span>]), <span class="st">'r'</span>, lw<span class="op">=</span><span class="dv">2</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-57-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>where <code>np.polyval()</code> is a function in <code>NumPy</code> used to evaluate (calculate) the value of a polynomial for a given set of values. Essentially, given a polynomial’s coefficients, <code>np.polyval</code> compute the y-values for corresponding x-values on that polynomial.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>    np.polyval(p, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>p</code>: Array of polynomial coefficients in decreasing order of power.
+<ul>
+<li>For example, for a polynomial equation of the form <span class="math inline">\(y = ax^2 + bx + c\)</span> , the coefficients array should be [<span class="math inline">\(a, b, c\)</span>].</li>
+</ul></li>
+<li><code>x</code>: Value(s) at which to evaluate the polynomial. This can be a single number or an array of x-values.</li>
+</ul>
+</section>
+</section>
+<section id="correlation" class="level3">
+<h3 class="anchored" data-anchor-id="correlation">4.4 Correlation</h3>
+<p><code>.corr()</code> computes the <strong>Pearson correlation</strong> coefficient between pairs of columns in a <code>DataFrame</code>, a measure of the strength and direction of their linear relationship. - Values range from -1 (perfect negative correlation) to +1 (perfect positive correlation). - For .SPX and .VIX, a strong negative correlation is expected.</p>
+<ul>
+<li>Calling the method can be
+<ul>
+<li>applied directly to a <code>DataFrame</code> to calculate correlations between each column pair.</li>
+<li>used with one column to calculate correlation with another column, e.g., <code>df['col1'].corr(df['col2'])</code>.</li>
+</ul></li>
+</ul>
+<div id="5a172fa6" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>rets.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">.SPX</th>
+<th data-quarto-table-cell-role="th">.VIX</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">.SPX</td>
+<td>1.000000</td>
+<td>-0.808372</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">.VIX</td>
+<td>-0.808372</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="ea64272c" class="cell" data-scrolled="true" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> rets[<span class="st">'.SPX'</span>].rolling(window<span class="op">=</span><span class="dv">252</span>).corr(</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    rets[<span class="st">'.VIX'</span>]).plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>ax.axhline(rets.corr().iloc[<span class="dv">0</span>, <span class="dv">1</span>], c<span class="op">=</span><span class="st">'r'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-59-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="a-glimpse-into-high-frequency-data" class="level2">
+<h2 class="anchored" data-anchor-id="a-glimpse-into-high-frequency-data">5. A glimpse into high-frequency data</h2>
+<p><strong>High-frequency data</strong> in finance refers to data captured at very short time intervals, often seconds or milliseconds, typically related to trades, bids, and asks.</p>
+<p>It provides detailed insights into market activity but requires careful handling due to its high volume and potential noise. Such data is commonly used in trading, market analysis, and to identify short-term price movements or anomalies.</p>
+<p>For this part, we’re loading <strong>tick</strong> data from a <code>csv</code> file for <strong>EUR/USD</strong>, which contains high-frequency information, like <strong>bid</strong> and <strong>ask prices</strong>, captured by the <strong>FXCM broker</strong>.</p>
+<p>The following parameters apply:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>    file_path <span class="op">=</span> <span class="st">'Data/11/'</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> <span class="st">'fxcm_eur_usd_tick_data.csv'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="check-file-1" class="level4">
+<h4 class="anchored" data-anchor-id="check-file-1">Check file</h4>
+<div id="d4aa7898" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'Data/11/'</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">'fxcm_eur_usd_tick_data.csv'</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(file_path <span class="op">+</span> file_name, <span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="96de69f4" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.readlines()[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>[',Bid,Ask\n',
+ '2017-11-10 12:00:00.007,1.16395,1.16394\n',
+ '2017-11-10 12:00:00.053,1.16394,1.16394\n',
+ '2017-11-10 12:00:00.740,1.16394,1.16393\n',
+ '2017-11-10 12:00:00.746,1.16394,1.16391\n',
+ '2017-11-10 12:00:00.756,1.16394,1.16392\n',
+ '2017-11-10 12:00:00.761,1.16393,1.16392\n',
+ '2017-11-10 12:00:00.772,1.16393,1.16391\n',
+ '2017-11-10 12:00:00.783,1.16391,1.16391\n',
+ '2017-11-10 12:00:00.819,1.16391,1.16392\n']</code></pre>
+</div>
+</div>
+<div id="443308bc" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="import-and-inspect-data" class="level4">
+<h4 class="anchored" data-anchor-id="import-and-inspect-data">Import and inspect data</h4>
+<div id="5aa5ee6d" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>tick <span class="op">=</span> pd.read_csv(file_path <span class="op">+</span> file_name,</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>                   index_col<span class="op">=</span><span class="dv">0</span>, parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="40114a85" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>tick.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Bid</th>
+<th data-quarto-table-cell-role="th">Ask</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:00:00.007</td>
+<td>1.16395</td>
+<td>1.16394</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-11-10 12:00:00.053</td>
+<td>1.16394</td>
+<td>1.16394</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:00:00.740</td>
+<td>1.16394</td>
+<td>1.16393</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-11-10 12:00:00.746</td>
+<td>1.16394</td>
+<td>1.16391</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:00:00.756</td>
+<td>1.16394</td>
+<td>1.16392</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="f3ab77c3" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>tick.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 17352 entries, 2017-11-10 12:00:00.007000 to 2017-11-10 14:00:00.131000
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Bid     17352 non-null  float64
+ 1   Ask     17352 non-null  float64
+dtypes: float64(2)
+memory usage: 406.7 KB</code></pre>
+</div>
+</div>
+</section>
+<section id="compute-mid-prices" class="level4">
+<h4 class="anchored" data-anchor-id="compute-mid-prices">Compute mid-prices</h4>
+<p><span class="math display">\[
+\text{Mid Price} = \frac{\text{Bid} + \text{Ask}}{2}
+\]</span></p>
+<div id="34373ba9" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>tick[<span class="st">'Mid'</span>] <span class="op">=</span> tick.mean(axis <span class="op">=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4d501ff2" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>tick[<span class="st">'Mid'</span>].plot(figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-67-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="resampling-to-5-minute-intervals" class="level4">
+<h4 class="anchored" data-anchor-id="resampling-to-5-minute-intervals">Resampling to 5-minute intervals</h4>
+<div id="5f041e07" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>tick_resam <span class="op">=</span> tick.resample(rule<span class="op">=</span><span class="st">'5min'</span>, label<span class="op">=</span><span class="st">'right'</span>).last()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e1c838c3" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>tick_resam.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="70">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Bid</th>
+<th data-quarto-table-cell-role="th">Ask</th>
+<th data-quarto-table-cell-role="th">Mid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:05:00</td>
+<td>1.16425</td>
+<td>1.16427</td>
+<td>1.164260</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-11-10 12:10:00</td>
+<td>1.16454</td>
+<td>1.16455</td>
+<td>1.164545</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:15:00</td>
+<td>1.16449</td>
+<td>1.16449</td>
+<td>1.164490</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017-11-10 12:20:00</td>
+<td>1.16437</td>
+<td>1.16437</td>
+<td>1.164370</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017-11-10 12:25:00</td>
+<td>1.16429</td>
+<td>1.16430</td>
+<td>1.164295</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="5b093d62" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;slide&quot;}" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>tick_resam[<span class="st">'Mid'</span>].plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/cell-70-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
