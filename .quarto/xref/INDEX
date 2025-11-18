@@ -130,5 +130,14 @@
   },
   "lectures/lecture_10/Problem_set_network.ipynb": {
     "Problem_set_network.html": "6faa7fe8"
+  },
+  "lectures/lecture_11/lecture_11.qmd": {
+    "lecture_11.html": "cb4627db"
+  },
+  "lectures/lecture_11/time_series.ipynb": {
+    "time_series.html": "6a05a6ea"
+  },
+  "lectures/lecture_11/lecture_11_problem_sets.ipynb": {
+    "lecture_11_problem_sets.html": "6bde4fcd"
   }
 }

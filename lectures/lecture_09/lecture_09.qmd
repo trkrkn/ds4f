@@ -69,4 +69,4 @@ file_name: "input_output"
 
 ## Problem sets
 - [Jupyter notebook (.ipynb)](lecture_09_problem_set.zip)
-<!--- - [Solutions (.pdf)](lecture_09_solutions.pdf){target=_blank} --->
+- [Solutions (.pdf)](lecture_09_solutions.pdf){target=_blank}

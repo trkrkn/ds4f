@@ -35,7 +35,7 @@ website:
               text: Lecture 09 - Input/output
             - href: 'lectures/lecture_10/lecture_10.qmd'
               text: Lecture 10 - Network Analytics
-            - href: ''
+            - href: 'lectures/lecture_11/lecture_11.qmd'
               text: Lecture 11 - Time Series
             - href: ''
               text: Lecture 12 - Machine Learning

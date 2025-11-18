@@ -102,4 +102,4 @@ file_name: "data_manipulation"
 
 ## Problem sets
 - [Jupyter notebook (.ipynb)](lecture_08_problem_set.zip)
-<!--- - [Solutions (.pdf)](lecture_07_solutions.pdf){target=_blank} --->
+- [Solutions (.pdf)](lecture_08_solutions.pdf){target=_blank}

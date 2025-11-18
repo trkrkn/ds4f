@@ -4,11 +4,12 @@ file_name: "input_output"
 ---
 #### Guest Lecture by Giovanna Magri
 ## Lecture Material
-- **Notebook**
-    - [Jupyter notebook (.ipynb)](network_slides_2025.ipynb.zip)
-        - **Data**: [.zip](ownership.txt.zip)
+- [Jupyter notebook (.ipynb)](network_slides_2025.ipynb.zip)
+    - **Data**: [.zip](ownership.txt.zip)
 
 ## Problem sets
 - [Jupyter notebook (.ipynb)](Problem_set_network.ipynb.zip)
     - **Data**: [.zip](payments_dataset.zip)
-<!--- - [Solutions (.pdf)](Problem_set_solutions.ipynb.zip){target=_blank} --->
+    - [Solutions (.pdf)](Problem_set_solutions.ipynb.zip){target=_blank} 
+
+

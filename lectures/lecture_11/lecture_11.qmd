@@ -1,0 +1,75 @@
+---
+title: "Lecture 11 - Time Series"
+file_name: "time_series"
+---
+
+## Lecture Material
+- **Notebook**
+    - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+    - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+- **Slides**
+    - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
+    - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}
+
+
+## Recording
+### 1. Intro
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1pu6EjCKIec94SWJAYhsLyGYLdeGkGupa/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 2. Data Inspection
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1Z3Lp47NznHDMyR0FuOKXQY6R5wqoTIrP/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+### 3. Rolling Statistics
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1pQGqKaBUC83MnvKs9TYaA-FQdjBQ11TO/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+
+### 4. Correlations
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1NZ2_nRWni03izUAGBr2f_tQPUZH4IcX6/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+
+### 5. High Frequency Data
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://drive.google.com/file/d/1pqfFqlGr2hIhIxg3GD-WgxJ8Gs3H11x_/preview"
+    frameborder="0"
+    allowfullscreen
+    style="position: absolute; top:0; left:0; width:100%; height:100%;">
+  </iframe>
+</div>
+
+
+## Problem sets
+- [Jupyter notebook (.ipynb)](lecture_11_problem_sets.zip)
