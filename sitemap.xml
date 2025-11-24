@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trkrkn.github.io/ds4f/schedule.html</loc>
-    <lastmod>2025-11-06T10:52:57.471Z</lastmod>
+    <lastmod>2025-11-24T10:23:17.240Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/lecture_03_problem_sets.html</loc>
@@ -69,12 +69,20 @@
     <lastmod>2025-11-04T15:17:17.249Z</lastmod>
   </url>
   <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_12/machine_learning.html</loc>
+    <lastmod>2025-11-19T13:15:21.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://trkrkn.github.io/ds4f/syllabus.html</loc>
     <lastmod>2025-10-01T09:38:57.951Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/index.html</loc>
-    <lastmod>2025-11-18T13:41:37.357Z</lastmod>
+    <lastmod>2025-11-24T10:23:07.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_12/lecture_12.html</loc>
+    <lastmod>2025-11-19T13:27:23.924Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_08/data_manipulation.html</loc>
