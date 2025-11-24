@@ -1,3 +1,4 @@
 /.quarto/
 _site/
-lectures/lecture_12/Data/
+lectures/**/Data/
+lectures/**/Data.zip
