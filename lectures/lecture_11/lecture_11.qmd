@@ -6,7 +6,9 @@ file_name: "time_series"
 ## Lecture Material
 - **Notebook**
     - [Jupyter notebook (.ipynb)]({{< meta file_name >}}.zip)
+        - **Data**: [.zip](Data.zip)
     - [Page (HTML notebook)]({{< meta file_name >}}.html){target=_blank}
+
 - **Slides**
     - [Reveal.js]({{< meta file_name >}}.slides.html){target=_blank}
     - [PDF]({{< meta file_name >}}.slides.pdf){target=_blank}

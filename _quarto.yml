@@ -37,7 +37,7 @@ website:
               text: Lecture 10 - Network Analytics
             - href: 'lectures/lecture_11/lecture_11.qmd'
               text: Lecture 11 - Time Series
-            - href: ''
+            - href: 'lectures/lecture_12/lecture_12.qmd'
               text: Lecture 12 - Machine Learning
             - href: ''
               text: Lecture 13 - Advanced Machine Learning

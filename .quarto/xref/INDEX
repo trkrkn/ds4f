@@ -139,5 +139,11 @@
   },
   "lectures/lecture_11/lecture_11_problem_sets.ipynb": {
     "lecture_11_problem_sets.html": "6bde4fcd"
+  },
+  "lectures/lecture_12/lecture_12.qmd": {
+    "lecture_12.html": "da74b014"
+  },
+  "lectures/lecture_12/machine_learning.ipynb": {
+    "machine_learning.html": "52f9a320"
   }
 }
