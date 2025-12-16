@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trkrkn.github.io/ds4f/schedule.html</loc>
-    <lastmod>2025-11-24T10:23:17.240Z</lastmod>
+    <lastmod>2025-12-16T14:32:01.373Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_03/lecture_03_problem_sets.html</loc>
@@ -73,12 +73,20 @@
     <lastmod>2025-11-19T13:15:21.000Z</lastmod>
   </url>
   <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_13/advanced_ML.html</loc>
+    <lastmod>2025-12-16T14:32:02.942Z</lastmod>
+  </url>
+  <url>
     <loc>https://trkrkn.github.io/ds4f/syllabus.html</loc>
     <lastmod>2025-10-01T09:38:57.951Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/index.html</loc>
-    <lastmod>2025-11-24T10:23:07.972Z</lastmod>
+    <lastmod>2025-12-16T14:32:30.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trkrkn.github.io/ds4f/lectures/lecture_13/lecture_13.html</loc>
+    <lastmod>2025-12-16T14:31:43.218Z</lastmod>
   </url>
   <url>
     <loc>https://trkrkn.github.io/ds4f/lectures/lecture_12/lecture_12.html</loc>
