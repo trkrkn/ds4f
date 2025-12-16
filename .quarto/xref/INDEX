@@ -145,5 +145,11 @@
   },
   "lectures/lecture_12/machine_learning.ipynb": {
     "machine_learning.html": "52f9a320"
+  },
+  "lectures/lecture_13/lecture_13.qmd": {
+    "lecture_13.html": "58417f61"
+  },
+  "lectures/lecture_13/advanced_ML.ipynb": {
+    "advanced_ML.html": "624b07c6"
   }
 }

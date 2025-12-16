@@ -184,10 +184,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Lecture 10 - Network Analytics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../lectures/lecture_10/lecture_10.html">
+    <a class="dropdown-item" href="../../lectures/lecture_11/lecture_11.html">
  <span class="dropdown-text">Lecture 11 - Time Series</span></a>
   </li>  
-        <li class="dropdown-header">Lecture 12 - Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_12/lecture_12.html">
+ <span class="dropdown-text">Lecture 12 - Machine Learning</span></a>
+  </li>  
         <li class="dropdown-header">Lecture 13 - Advanced Machine Learning</li>
     </ul>
   </li>
@@ -378,7 +381,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

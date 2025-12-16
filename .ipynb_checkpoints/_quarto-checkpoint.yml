@@ -37,9 +37,9 @@ website:
               text: Lecture 10 - Network Analytics
             - href: 'lectures/lecture_11/lecture_11.qmd'
               text: Lecture 11 - Time Series
-            - href: ''
+            - href: 'lectures/lecture_12/lecture_12.qmd'
               text: Lecture 12 - Machine Learning
-            - href: ''
+            - href: 'lectures/lecture_13/lecture_13.qmd'
               text: Lecture 13 - Advanced Machine Learning
       - href: "https://app.alldayta.com/katholieke-universiteit-leuven/ds4f"
         text: All Day TA

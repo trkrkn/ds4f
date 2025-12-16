@@ -1,0 +1,8 @@
+---
+title: "Lecture 13 - Advanced Machine Learning"
+---
+#### Guest Lecture by Bjorn Strandgaard
+## Lecture Material
+- [Jupyter notebook (.ipynb)](advanced_ML.ipynb.zip)
+    - **Data**: [.zip](Data.zip)
+- [Slides (.pdf)](Slides.pdf)

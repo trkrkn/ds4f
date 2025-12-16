@@ -19,5 +19,4 @@ title: "Schedule Fall 2025"
 | 19/11/2025  <br> `recorded` | 9  | ~~Lecture 11~~    |    **Time series analysis** |
 | 26/11/2025  <br> `recorded` | 10 | ~~Lecture 12~~    | **Machine Learning**                    |
 | 03/12/2025 | 11 | No Class         |                                         |
-| 10/12/2025 | 12 | Lecture 13   <br> [Guest Lecture] | **Advanced Machine Learning** |
-| 17/12/2025 | 13 | Q&A           |                                         |
+| 10/12/2025 | 12 | ~~Lecture 13~~   <br> [Guest Lecture] | **Advanced Machine Learning** |
