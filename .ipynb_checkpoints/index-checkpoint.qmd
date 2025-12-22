@@ -4,6 +4,16 @@ title: "Data Science For Finance"
 
 *This website accompanies the course of [Data Science For Finance (B-KUL-HMA99A)](https://onderwijsaanbod.kuleuven.be/2025/syllabi/e/HMA99AE.htm).*
 
+---
+
+::: {.callout}
+# Comprehensive Review Exercises
+
+Set of review exercises mirroring typical exam questions [available here (PDF)](recap.pdf)<br>
+They are designed to help **synthesize the full course material** and prepare for the final exam.
+:::
+ 
+---
 
 ## News & Announcements
 

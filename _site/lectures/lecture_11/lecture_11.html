@@ -157,7 +157,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../lectures/lecture_12/lecture_12.html">
  <span class="dropdown-text">Lecture 12 - Machine Learning</span></a>
   </li>  
-        <li class="dropdown-header">Lecture 13 - Advanced Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../../lectures/lecture_13/lecture_13.html">
+ <span class="dropdown-text">Lecture 13 - Advanced Machine Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -371,7 +374,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/trkrkn\.github\.io\/ds4f\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
